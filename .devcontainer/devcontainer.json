@@ -1,26 +1,6 @@
 {
   "name": "DuyKhiem Portfolio (Astro + Bun)",
-  "image": "mcr.microsoft.com/devcontainers/javascript-node:1-22-bookworm",
-
-  "features": {
-    "ghcr.io/devcontainers/features/node:1": {
-      "version": "22"
-    }
-  },
-
-  "onCreateCommand": "curl -fsSL https://bun.sh/install | bash && echo 'export PATH=\"$HOME/.bun/bin:$PATH\"' >> ~/.bashrc",
-
-  "postCreateCommand": "export PATH=\"$HOME/.bun/bin:$PATH\" && bun install",
-
-  "forwardPorts": [4321],
-
-  "portsAttributes": {
-    "4321": {
-      "label": "Astro Dev Server",
-      "onAutoForward": "notify"
-    }
-  },
-
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:20",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -29,7 +9,8 @@
         "esbenp.prettier-vscode",
         "dbaeumer.vscode-eslint",
         "bradlc.vscode-tailwindcss",
-        "antfu.unocss",
+        "unocss.unocss",
+        "oven.bun-vscode",
         "ms-vscode.vscode-typescript-next",
         "unifiedjs.vscode-mdx",
         "streetsidesoftware.code-spell-checker",
@@ -38,19 +19,13 @@
       "settings": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
         "editor.formatOnSave": true,
-        "editor.codeActionsOnSave": {
-          "source.fixAll.eslint": "explicit"
-        },
         "[astro]": {
           "editor.defaultFormatter": "astro-build.astro-vscode"
-        },
-        "typescript.tsdk": "node_modules/typescript/lib",
-        "typescript.enablePromptUseWorkspaceTsdk": true
-      }
+        }
+      },
     }
   },
-
-  "remoteEnv": {
-    "PATH": "${containerEnv:PATH}:/root/.bun/bin"
-  }
+  "forwardPorts": [4321],
+  "postCreateCommand": "npm install -g bun && bun install",
+  "remoteUser": "node"
 }
