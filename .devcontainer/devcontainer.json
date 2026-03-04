@@ -14,7 +14,8 @@
         "ms-vscode.vscode-typescript-next",
         "unifiedjs.vscode-mdx",
         "streetsidesoftware.code-spell-checker",
-        "eamodio.gitlens"
+        "eamodio.gitlens",
+        "PKief.material-icon-theme"
       ],
       "settings": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
