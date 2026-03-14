@@ -3,25 +3,14 @@ import { type CollectionEntry } from 'astro:content'
 
 import { getBlogCollection } from 'astro-pure/server'
 import { cn } from 'astro-pure/utils'
+import { groupProjects } from './project-groups'
 
 export const prerender = true
 export const partial = true
 
 const projectsCollection = (await getBlogCollection('projects')) as CollectionEntry<'projects'>[]
-
-const projectsByCategory = {
-  flagship: projectsCollection
-    .filter((project) => project.data.category === 'flagship')
-    .sort((a, b) => a.data.order - b.data.order),
-  supporting: projectsCollection
-    .filter((project) => project.data.category === 'supporting')
-    .sort((a, b) => a.data.order - b.data.order)
-}
-
-const categoryTitles = {
-  flagship: 'Flagship',
-  supporting: 'Supporting'
-} as const
+const { flagshipProjects, supportingSections, ungroupedSupportingProjects } =
+  groupProjects(projectsCollection)
 
 const { title = true, class: className, ...props } = Astro.props
 ---
@@ -29,12 +18,27 @@ const { title = true, class: className, ...props } = Astro.props
 <projects-toc class={cn('not-prose', className)} {...props}>
   {title && <h2 class='text-foreground font-medium'>PROJECTS</h2>}
   <ul class='mt-4 flex flex-col gap-y-5'>
+    <li>
+      <h3 class='text-muted-foreground text-xs tracking-widest uppercase'>Flagship</h3>
+      <ul class='mt-2 flex flex-col'>
+        {flagshipProjects.map((project) => (
+          <li class='project-item flex relative ms-2 px-3 py-1 text-foreground/75 transition-all rounded-2xl'>
+            <a
+              class='flex-1 whitespace-normal break-words leading-snug hover:text-foreground'
+              href={`/projects/${project.id}`}
+            >
+              {project.data.title}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </li>
     {
-      Object.entries(categoryTitles).map(([id, sectionTitle]) => (
+      supportingSections.map((group) => (
         <li>
-          <h3 class='text-muted-foreground text-xs tracking-widest uppercase'>{sectionTitle}</h3>
+          <h3 class='text-muted-foreground text-xs tracking-widest uppercase'>{group.title}</h3>
           <ul class='mt-2 flex flex-col'>
-            {projectsByCategory[id as keyof typeof projectsByCategory].map((project) => (
+            {group.projects.map((project) => (
               <li class='project-item flex relative ms-2 px-3 py-1 text-foreground/75 transition-all rounded-2xl'>
                 <a
                   class='flex-1 whitespace-normal break-words leading-snug hover:text-foreground'
@@ -47,6 +51,25 @@ const { title = true, class: className, ...props } = Astro.props
           </ul>
         </li>
       ))
+    }
+    {
+      ungroupedSupportingProjects.length > 0 && (
+        <li>
+          <h3 class='text-muted-foreground text-xs tracking-widest uppercase'>Other</h3>
+          <ul class='mt-2 flex flex-col'>
+            {ungroupedSupportingProjects.map((project) => (
+              <li class='project-item flex relative ms-2 px-3 py-1 text-foreground/75 transition-all rounded-2xl'>
+                <a
+                  class='flex-1 whitespace-normal break-words leading-snug hover:text-foreground'
+                  href={`/projects/${project.id}`}
+                >
+                  {project.data.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </li>
+      )
     }
   </ul>
 </projects-toc>

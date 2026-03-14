@@ -70,8 +70,10 @@ const { description, title, duration, links, role, stack } = project.data
 
   <Content />
 
-  <div slot='bottom' class='rounded-xl border px-4 py-3 mt-3 sm:py-4 md:mt-6'>
-    <ProjectsContents />
+  <div slot='bottom'>
+    <div class='rounded-xl border px-4 py-3 mt-3 sm:py-4 md:mt-6'>
+      <ProjectsContents />
+    </div>
   </div>
 </PageLayout>
 
@@ -90,11 +92,17 @@ const { description, title, duration, links, role, stack } = project.data
       top: 0;
       left: -64rem;
       width: 14rem;
-      max-width: 14rem;
+      max-width: 15rem;
       margin-top: 0;
       max-height: calc(100vh - 7rem);
       overflow-y: scroll;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
       padding-right: 1rem !important;
+    }
+
+    .projects-toc::-webkit-scrollbar {
+      display: none;
     }
   }
 </style>

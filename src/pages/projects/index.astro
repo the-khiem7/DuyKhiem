@@ -5,14 +5,10 @@ import { getBlogCollection } from 'astro-pure/server'
 import { Button } from 'astro-pure/user'
 import PageLayout from '@/layouts/CommonPage.astro'
 import ProjectSection from '@/components/projects/ProjectSection.astro'
+import { groupProjects, slugifyHeading } from '@/components/projects/project-groups'
 
 const allProjects = (await getBlogCollection('projects')) as CollectionEntry<'projects'>[]
-const flagshipProjects = allProjects
-  .filter((project) => project.data.category === 'flagship')
-  .sort((a, b) => a.data.order - b.data.order)
-const supportingProjects = allProjects
-  .filter((project) => project.data.category === 'supporting')
-  .sort((a, b) => a.data.order - b.data.order)
+const { flagshipProjects, supportingSections, ungroupedSupportingProjects } = groupProjects(allProjects)
 
 function toProjectCard(project: CollectionEntry<'projects'>) {
   return {
@@ -25,7 +21,14 @@ function toProjectCard(project: CollectionEntry<'projects'>) {
 
 const headings = [
   { depth: 2, slug: 'flagship-projects', text: 'Flagship Projects' },
-  { depth: 2, slug: 'supporting-projects', text: 'Supporting Projects' },
+  ...supportingSections.map((section) => ({
+    depth: 2 as const,
+    slug: slugifyHeading(section.title),
+    text: section.title
+  })),
+  ...(ungroupedSupportingProjects.length > 0
+    ? [{ depth: 2 as const, slug: 'other-projects', text: 'Other Projects' }]
+    : []),
   { depth: 2, slug: 'what-these-projects-show', text: 'What These Projects Show' }
 ]
 ---
@@ -45,8 +48,23 @@ const headings = [
   <h2 id='flagship-projects'>Flagship Projects</h2>
   <ProjectSection projects={flagshipProjects.map(toProjectCard)} />
 
-  <h2 id='supporting-projects'>Supporting Projects</h2>
-  <ProjectSection projects={supportingProjects.map(toProjectCard)} />
+  {
+    supportingSections.map((section) => (
+      <>
+        <h2 id={slugifyHeading(section.title)}>{section.title}</h2>
+        <ProjectSection projects={section.projects.map(toProjectCard)} />
+      </>
+    ))
+  }
+
+  {
+    ungroupedSupportingProjects.length > 0 && (
+      <>
+        <h2 id='other-projects'>Other Projects</h2>
+        <ProjectSection projects={ungroupedSupportingProjects.map(toProjectCard)} />
+      </>
+    )
+  }
 
   <h2 id='what-these-projects-show'>What These Projects Show</h2>
   <ul>

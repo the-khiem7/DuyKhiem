@@ -10,7 +10,7 @@ tags:
 category: 'flagship'
 order: 4
 role: 'Student Intern, Serverless Backend Developer'
-duration: 'Sep 2025 - Dec 2025'
+duration: 'Sep 2025 - Now'
 stack:
   - S3
   - Lambda
