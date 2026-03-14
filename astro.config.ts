@@ -107,7 +107,8 @@ export default defineConfig({
   experimental: {
     // Allow compatible editors to support intellisense features for content collection entries
     // https://docs.astro.build/en/reference/experimental-flags/content-intellisense/
-    contentIntellisense: true,
+    // Opt-in to avoid Windows file-lock issues when Astro rewrites generated .astro content files.
+    contentIntellisense: process.env.ASTRO_CONTENT_INTELLISENSE === 'true',
     // Enable SVGO optimization for SVG assets
     // https://docs.astro.build/en/reference/experimental-flags/svg-optimization/
     svgo: true,

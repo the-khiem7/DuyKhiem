@@ -71,6 +71,100 @@ import { Card } from 'astro-pure/user'
 </Tabs>
 </MdxRepl>
 
+`Card` is a flexible content container for simple metadata blocks, profile sections, and project summaries.
+
+Key props:
+
+- `as?`: change the rendered HTML tag
+- `href?`: make the card clickable when used with anchors
+- `heading?`: primary title
+- `subheading?`: supporting text below the heading
+- `date?`: small metadata pill shown on the right
+- `imagePath?`: local image path under `/src/assets/**`
+- `altText?`: image alt text
+- `imageClass?`: custom classes for the image
+- `imageMode?`: `'inline' | 'background'`
+- `imageBlur?`: apply blur when using background mode
+- `overlayClass?`: customize the background overlay
+- `contentClass?`, `headingClass?`, `subheadingClass?`, `dateClass?`, `bodyClass?`: fine-grained styling hooks
+
+Default behavior:
+
+- If `imageMode` is omitted, the image is rendered inline near the heading.
+- If `imageMode='background'`, the image fills the card background and can optionally be blurred with `imageBlur`.
+
+#### Background Image Card
+
+<MdxRepl>
+import { Card } from 'astro-pure/user'
+
+<Card
+  heading='Experience Highlight'
+  subheading='Background media mode with softer visual treatment'
+  date='2026'
+  imagePath='/src/assets/projects/1.avif'
+  imageMode='background'
+  imageBlur={true}
+  headingClass='text-2xl'
+  subheadingClass='text-lg'
+>
+  <ul>
+    <li>Use this mode when the image should shape the mood of the card.</li>
+    <li>Keep overlays light enough to preserve the image, but strong enough for readable text.</li>
+    <li>Use `overlayClass` and typography class props to tune the visual balance per page.</li>
+  </ul>
+</Card>
+
+<Tabs slot='desc'>
+<TabItem label='MDX'>
+```jsx
+import { Card } from 'astro-pure/user'
+
+<Card
+  heading='Experience Highlight'
+  subheading='Background media mode with softer visual treatment'
+  date='2026'
+  imagePath='/src/assets/projects/1.avif'
+  imageMode='background'
+  imageBlur={true}
+  headingClass='text-2xl'
+  subheadingClass='text-lg'
+>
+  <ul>
+    <li>Use this mode when the image should shape the mood of the card.</li>
+    <li>Keep overlays light enough to preserve the image, but strong enough for readable text.</li>
+    <li>Use `overlayClass` and typography class props to tune the visual balance per page.</li>
+  </ul>
+</Card>
+```
+</TabItem>
+<TabItem label='Astro'>
+```astro
+---
+import { Card } from 'astro-pure/user'
+---
+
+<Card
+  heading='Experience Highlight'
+  subheading='Background media mode with softer visual treatment'
+  date='2026'
+  imagePath='/src/assets/projects/1.avif'
+  imageMode='background'
+  imageBlur={true}
+  headingClass='text-2xl'
+  subheadingClass='text-lg'
+>
+  <ul>
+    <li>Use this mode when the image should shape the mood of the card.</li>
+    <li>Keep overlays light enough to preserve the image, but strong enough for readable text.</li>
+    <li>Use `overlayClass` and typography class props to tune the visual balance per page.</li>
+  </ul>
+</Card>
+```
+</TabItem>
+</Tabs>
+</MdxRepl>
+
 ### Collapse
 
 <MdxRepl>
