@@ -74,7 +74,7 @@ Thư mục `docs/` này tổng hợp 4 task đang cần xử lý cho portfolio m
 
 Nguồn từ portfolio cũ khá đáng tin để tái cấu trúc phần experience/project theo hướng:
 
-- 2 kinh nghiệm chính: AWS FCJ Program, FPT Software
+- 2 kinh nghiệm chính: AWS FCAJ Program, FPT Software
 - 6 đến 8 dự án mạnh nên ưu tiên:
   - SnakeAid
   - AlohaMarket

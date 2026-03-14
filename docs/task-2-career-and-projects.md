@@ -253,7 +253,7 @@ Vai trò trong portfolio:
 
 Chỉ nên hiển thị 2 experience:
 
-1. AWS FCJ Program
+1. AWS FCAJ Program
 2. FPT Software
 
 Mỗi item nên có:
@@ -309,7 +309,7 @@ Ví dụ:
 
 ## AWS
 
-Worked on serverless backend delivery and cloud architecture through the AWS FCJ program, with hands-on experience in clickstream analytics, deployment workflows, private networking, and production-style AWS design.
+Worked on serverless backend delivery and cloud architecture through the AWS FCAJ program, with hands-on experience in clickstream analytics, deployment workflows, private networking, and production-style AWS design.
 
 ## FPT Software
 
