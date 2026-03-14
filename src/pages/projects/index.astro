@@ -1,205 +1,99 @@
 ---
-import { Image } from 'astro:assets'
-
-import { Button, Collapse, Icon } from 'astro-pure/user'
+import { Button } from 'astro-pure/user'
 import PageLayout from '@/layouts/CommonPage.astro'
 import ProjectSection from '@/components/projects/ProjectSection.astro'
-import Sponsors from '@/components/projects/Sponsors.astro'
-import Sponsorship from '@/components/projects/Sponsorship.astro'
-import alipay from '@/assets/alipay-qrcode.jpg'
-import KeyIcon from '@/assets/icons/key.svg'
-import wechat from '@/assets/wechat-qrcode.jpg'
 
 const headings = [
-  { depth: 2, slug: 'programs', text: 'Programs' },
-  { depth: 2, slug: 'learnings', text: 'Learnings' },
-  { depth: 2, slug: 'others', text: 'Others' },
-  { depth: 2, slug: 'gpg-signature', text: 'GPG Signature' },
-  { depth: 2, slug: 'sponsorship', text: 'Sponsorship' }
+  { depth: 2, slug: 'flagship-projects', text: 'Flagship Projects' },
+  { depth: 2, slug: 'supporting-projects', text: 'Supporting Projects' },
+  { depth: 2, slug: 'what-these-projects-show', text: 'What These Projects Show' }
 ]
 ---
 
 <PageLayout title='Projects' {headings} view>
-  {/* About astro-pure */}
-  <div class='not-prose flex justify-center'>
-    <a
-      href='/docs/advanced/about' target='_blank'
-      class='flex items-center gap-x-3 rounded-full border bg-background px-4 py-2 text-sm shadow-sm transition-shadow hover:shadow-md'
-    >
-      <span class='size-2 rounded-full bg-green-400'></span>
-      <p class='font-medium text-muted-foreground'>About Astro-Theme-Pure Project</p>
-    </a>
-  </div>
-  <p>Github Activities:</p>
   <p>
-    <Image
-      src='https://ghchart.rshah.org/659eb9/cworld1'
-      alt='github activities'
-      inferSize
-      loading='lazy'
-    />
+    My strongest projects sit around workflow-heavy systems, distributed backends, cloud-native
+    infrastructure, and applied AI. I care most about projects where backend architecture directly
+    shapes operations, reliability, and user trust.
   </p>
   <p>
-    If you think it would be useful or interesting to collaborate on a project, you can donate to
-    support my work or contact me to discuss a project.
+    If you want to discuss a backend, cloud, or product engineering opportunity, feel free to reach
+    out through GitHub or LinkedIn.
   </p>
-  <Button title='Checkout sponsorship' class='w-fit' href='#sponsorship'>
-    <Icon class='size-5' name='receive-money' slot='before' />
-  </Button>
+  <Button title='View my GitHub' class='w-fit' href='https://github.com/the-khiem7' target='_blank' />
 
-  <h2 id='programs'>Programs</h2>
+  <h2 id='flagship-projects'>Flagship Projects</h2>
   <ProjectSection
     projects={[
       {
-        name: '🎨 Nguyen Van Duy Khiem',
-        description: 'A simple, fast and powerful blog & document theme built by Astro',
-        links: [
-          { type: 'github', href: 'https://github.com/cworld1/astro-theme-pure' },
-          { type: 'site', href: 'https://astro-pure.js.org/' },
-          { type: 'doc', href: 'https://astro-pure.js.org/docs/list' },
-          { type: 'release', href: 'https://www.npmjs.com/package/astro-pure' }
-        ]
+        name: 'SnakeAid',
+        description:
+          'AI-powered healthcare platform for snakebite first aid, rescue coordination, snake identification, and expert support.',
+        links: [{ type: 'github', href: 'https://github.com/the-khiem7' }]
       },
       {
-        name: '💄 PKU Art',
-        description: 'A script to beautify pku course website',
-        links: [
-          { type: 'github', href: 'https://github.com/zhuozhiyongde/pku-art' },
-          { type: 'site', href: 'https://github.com/zhuozhiyongde/pku-art' },
-          { type: 'doc', href: 'https://docs.arthals.ink/docs/pku-art' }
-        ]
+        name: 'AlohaMarket',
+        description:
+          'Event-driven marketplace backend with 8 microservices, Kafka-based workflows, YARP gateway, Keycloak auth, SignalR, and observability.',
+        links: [{ type: 'github', href: 'https://github.com/AlohaMarket/AlohaMarket.Aspire' }]
+      },
+      {
+        name: 'EzyFix',
+        description:
+          'Home-repair marketplace backend with request lifecycle management, escrow-style payments, technician payouts, dispute handling, and real-time updates.',
+        links: [{ type: 'github', href: 'https://github.com/EzyFixApp/EzyFix.aspnet' }]
+      },
+      {
+        name: 'AWS Clickstream Analytics Platform',
+        description:
+          'Serverless analytics pipeline built with S3, Lambda, EventBridge, PostgreSQL, and R Shiny for clickstream ingestion and dashboarding.',
+        links: [{ type: 'github', href: 'https://github.com/SBW-Cloudworks' }]
       }
     ]}
   />
-  <Collapse title='Some old projects'>
-    <ProjectSection
-      projects={[
-        {
-          name: '🧩 rehype-autolink-headings-simple',
-          description: 'A simple version of rehype-autolink-headings',
-          links: [
-            { type: 'github', href: 'https://github.com/cworld1/rehype-autolink-headings-simple' },
-            {
-              type: 'release',
-              href: 'https://www.npmjs.com/package/rehype-autolink-headings-simple'
-            }
-          ]
-        },
-        {
-          name: 'Gaussian NB',
-          description:
-            'Simulating the Parsimonious Bayesian Algorithm with Python and Finding the Probability Prediction of Breast Cancer ',
-          links: [{ type: 'github', href: 'https://github.com/cworld1/gaussian-nb' }]
-        }
-      ]}
-    />
-  </Collapse>
 
-  <h2 id='learnings'>Learnings</h2>
+  <h2 id='supporting-projects'>Supporting Projects</h2>
   <ProjectSection
-    class='my-2'
     projects={[
       {
-        name: 'R Learning',
-        description: 'Some notes and code about learning R language',
+        name: 'CellphoneZ',
+        description:
+          'Flutter commerce app covering browse, cart, checkout, payment flows, store locator, and admin tooling with Supabase-based delivery.',
         links: [
-          { type: 'github', href: 'https://github.com/cworld1/r-learning' },
-          { type: 'site', href: 'https://cworld1.github.io/r-learning' }
+          { type: 'github', href: 'https://github.com/FirstAndroidJourney/Flutter-CellphoneZ' }
         ]
       },
       {
-        name: 'CS 213 Learning',
-        description: 'Notes, code and experiences for Introduction to Computer Systems course',
+        name: 'Claim Request System',
+        description:
+          'Enterprise-style financial approval workflow system centered on claim routing, reminders, finance processing, and auditability.',
         links: [
           {
             type: 'github',
-            href: 'https://github.com/zhuozhiyongde/Introduction-To-Computer-System-2023Fall-PKU'
+            href: 'https://github.com/ClaimRequestSystem/ClaimRequestSystem.ASPNET'
           }
         ]
-      }
-    ]}
-  />
-
-  <h2 id='others'>Others</h2>
-  <ProjectSection
-    projects={[
-      {
-        name: 'CWorld',
-        description: "CWorld's Github",
-        links: [{ type: 'github', href: 'https://github.com/cworld1' }]
       },
       {
-        name: 'Arthals',
-        description: 'Arthals Github',
-        links: [{ type: 'github', href: 'https://github.com/zhuozhiyongde' }]
+        name: 'VitaFlow',
+        description:
+          'Blood donation support system with donor, recipient, staff, and admin workflows built on .NET 8, Razor Pages, EF Core, and SQL Server.',
+        links: [{ type: 'github', href: 'https://github.com/the-khiem7' }]
+      },
+      {
+        name: 'TTK Piano Center',
+        description:
+          'Java web application for course management, enrollment, cart behavior, and admin operations using JSP/Servlet, JDBC, and SQL Server.',
+        links: [{ type: 'site', href: 'https://ttk-piano.vercel.app' }]
       }
     ]}
   />
 
-  <h2 id='gpg-signature'>GPG Signature</h2>
-  <p>
-    You can verify the authenticity of the files I signed by checking the GPG signature. My GPG key
-    is <code>114514</code>, and you can find it on the opengpg key servers or download from it.
-  </p>
-  <Button href='https://keys.openpgp.org/search?q=114514' title='Checkout my key' target='_blank'>
-    <KeyIcon class='size-5' slot='before' />
-  </Button>
-
-  <h2 id='sponsorship'>Sponsorship</h2>
-  <p>Chinese methods: <a href="https://afdian.com/a/cworld" target="_blank">Afadian</a>, Wechat or Alipay </p>
-  <Sponsorship
-    methods={[
-      { name: 'WeChat', icon: 'wechat-pay', image: wechat },
-      { name: 'Alipay', icon: 'alipay', image: alipay }
-    ]}
-  />
-  <p>Global methods: <a href="https://ko-fi.com/cworld0" target="_blank">Ko-fi</a> </p>
-  <p>Please leave a message or contact me proactively after sponsorship. My email is:
-    <code style='cursor: pointer'
-      onclick='const m=atob(this.textContent);alert(m);window.open(`mailto:${m}`,"_blank")'
-    >Y3dvcmxkMEBxcS5jb20=</code>
-    (click code to transform base64).
-  </p>
-  <p>Thanks to the following sponsors:</p>
-  <Sponsors
-    progressMax={50}
-    sponsors={[
-      { name: '边缘星2020', platform: 'Afdian', amount: 20.26, date: '2026-02-17' },
-      { name: 'Juyao Huang', platform: 'Wechat', amount: 5, date: '2026-01-15' },
-      { name: 'hoochanlon', platform: 'Wechat', amount: 5, date: '2025-11-09' },
-      { name: 'Arthals', platform: 'Wechat', amount: 50, date: '2025-11-06' },
-      { name: '边缘星2020 (byx2020.com)', platform: 'Alipay', amount: 50, date: '2025-11-01' },
-      { name: '小哲', platform: 'Wechat', amount: 50, date: '2025-08-19' },
-      { name: 'Open1V', platform: 'Wechat', amount: 2, date: '2025-08-14' },
-      { name: 'Luis Xu', platform: 'Alipay', amount: 30, date: '2025-08-03' },
-      { name: '顾**', platform: 'Wechat', amount: 28, date: '2025-06-23' },
-      { name: 'Hans J.Han', platform: 'Wechat', amount: 10, date: '2025-04-04' },
-      { name: '**青', platform: 'Alipay', amount: 12, date: '2024-05-21' },
-      { name: 'Anonymous', platform: 'Wechat', amount: 20, date: '2022-04-06' },
-      { name: '华雄', platform: 'QQ', amount: 5, date: '2019-12-30' },
-      { name: '◌', platform: 'QQ', amount: 3, date: '2019-12-30' },
-      // 酷安@暴走の蜗牛
-      { name: 'C*a', amount: 2, date: '2019-07-02' }
-    ]}
-  />
+  <h2 id='what-these-projects-show'>What These Projects Show</h2>
+  <ul>
+    <li>I am strongest when the problem involves workflows, backend architecture, and operational complexity.</li>
+    <li>I can work across multiple service boundaries instead of staying inside a single API or UI layer.</li>
+    <li>I am comfortable mixing product delivery with infrastructure, integrations, data flows, and AI features.</li>
+    <li>I prefer projects where technical decisions have visible impact on reliability, transparency, and maintainability.</li>
+  </ul>
 </PageLayout>
-
-<style>
-  .sponsorship-card {
-    & .sponsorship-card-img {
-      opacity: 0.3;
-      --un-blur: blur(4px);
-      filter: var(--un-blur);
-    }
-
-    &:hover {
-      & .sponsorship-card-icon {
-        opacity: 0;
-      }
-      & .sponsorship-card-img {
-        opacity: 1;
-        --un-blur: blur(0);
-      }
-    }
-  }
-</style>

@@ -1,264 +1,120 @@
 ---
-import { Button, Collapse, Spoiler, Timeline } from 'astro-pure/user'
+import { Button, Timeline } from 'astro-pure/user'
 import PageLayout from '@/layouts/CommonPage.astro'
-import Substats from '@/components/about/Substats.astro'
-import ToolSection from '@/components/about/ToolSection.astro'
 
 const headings = [
-  { depth: 2, slug: 'hobbies', text: 'Hobbies' },
-  { depth: 2, slug: 'tools', text: 'Tools' },
-  { depth: 2, slug: 'social-networks', text: 'Social Networks' },
-  { depth: 2, slug: 'gossips', text: 'Gossips' },
-  { depth: 2, slug: 'about-blog', text: 'About Blog' }
+  { depth: 2, slug: 'overview', text: 'Overview' },
+  { depth: 2, slug: 'focus-areas', text: 'Focus Areas' },
+  { depth: 2, slug: 'experience-snapshot', text: 'Experience Snapshot' },
+  { depth: 2, slug: 'education-certifications', text: 'Education & Certifications' },
+  { depth: 2, slug: 'selected-timeline', text: 'Selected Timeline' }
 ]
 ---
 
 <PageLayout title='About' {headings} comment>
-  <p>Software Engineer</p>
+  <p>I am a backend-first engineer based in Ho Chi Minh City, Vietnam.</p>
   <p>
-    I am a Software Engineer focused on cloud computing, backend architecture, and AI workflows,
-    with an interest in building systems end-to-end rather than isolated components.
+    The kind of systems I enjoy most are the ones that have real operational weight behind them:
+    approval flows that people depend on, marketplace backends that have to coordinate multiple
+    moving parts, analytics pipelines that turn raw activity into something decision-makers can use,
+    and AI features that need to fit into a product instead of living as a demo in isolation.
   </p>
   <p>
-    My work centers on event-driven microservices built with Kafka, .NET Aspire, and AWS, forming a
-    scalable and maintainable backend foundation. These systems are designed to handle asynchronous
-    communication, service decoupling, and long-term operational concerns.
+    That is the thread running through most of my work. I am less interested in building isolated
+    features than in shaping the underlying system that makes a product reliable, understandable,
+    and scalable over time.
   </p>
-  <p>
-    Alongside backend development, I work with machine learning workflows, particularly computer
-    vision (YOLO), and structure MLOps pipelines using SageMaker and ClearML to support training,
-    experimentation, and deployment.
-  </p>
-  <p>
-    I’m especially interested in understanding how infrastructure, application architecture, and AI
-    systems interact in real-world environments, and how experimental ideas can be evolved into
-    reliable, production-ready solutions.
-  </p>
-  <p>
-    Motto: Stay hungry, Stay foolish. <Spoiler>这里可以夹私货，比如为什么要演奏春日影！</Spoiler>
-  </p>
-  <Button title='Sponsor Me' class='w-fit' href='/projects#sponsorship' variant='ahead' />
+  <Button title='View projects' class='w-fit' href='/projects' variant='ahead' />
 
-  {/* general-talk */}
-  <h2 id='hobbies'>Hobbies</h2>
+  <h2 id='overview'>Overview</h2>
+  <p>
+    My background started with backend development in ASP.NET Core, then gradually expanded into
+    event-driven architecture, cloud deployment workflows, analytics systems, and practical AI
+    integration. What ties those areas together for me is not the technology itself, but the kind
+    of responsibility they require. Once a system touches approvals, payments, notifications,
+    infrastructure boundaries, or machine-generated decisions, the backend stops being an invisible
+    layer and becomes the place where product trust is actually built.
+  </p>
+  <p>
+    I learn the most from environments where business rules are messy, system boundaries matter,
+    and reliability is part of the user experience. Those are the projects that force better
+    engineering judgment, not just more implementation.
+  </p>
+
+  <h2 id='focus-areas'>Focus Areas</h2>
   <ul>
-    <li>Lorem ipsum dolor sit amet, vidit suscipit at mei.</li>
-    <li>
-      Quem denique mea id. Usu ei regione indoctum dissentiunt, cu meliore fuisset mei, vel quod
-      voluptua ne.
-    </li>
-    <li>Ex dicat impedit mel, at eum oratio possit voluptatum.</li>
-    <li>Impetus fuisset ullamcorper pri cu, his posse iisque ad, aliquam honestatis usu id.</li>
+    <li>Workflow-heavy backend systems where state, auditability, and business rules matter as much as feature delivery.</li>
+    <li>Distributed and cloud-native architectures using tools such as Kafka, YARP, SignalR, and AWS serverless services.</li>
+    <li>Applied AI in product contexts, especially when a model needs to be integrated into a usable end-to-end workflow.</li>
+    <li>Operationally meaningful integrations across payments, notifications, geolocation, media storage, and analytics.</li>
+    <li>Product engineering that stays grounded in real constraints instead of stopping at a technical prototype.</li>
   </ul>
 
-  {/* tools */}
-  <h2 id='tools'>Tools</h2>
-  <p>Current support tools as follow:</p>
-  <ToolSection
-    class='mb-5'
-    title='Design'
-    tools={[
-      {
-        name: 'Photoshop',
-        description: 'Picture Editing',
-        href: 'https://www.adobe.com/products/photoshop',
-        icon: import('@/assets/tools/photoshop.svg?raw')
-      },
-      {
-        name: 'Illustrator',
-        description: 'Vector Drawing',
-        href: 'https://www.adobe.com/products/illustrator',
-        icon: import('@/assets/tools/illustrator.svg?raw')
-      },
-      {
-        name: 'After Effects',
-        description: 'Motion Graphics',
-        href: 'https://www.adobe.com/products/aftereffects',
-        icon: import('@/assets/tools/aftereffects.svg?raw')
-      },
-      {
-        name: 'Premiere Pro',
-        description: 'Video Editing',
-        href: 'https://www.adobe.com/products/premiere',
-        icon: import('@/assets/tools/premiere.svg?raw')
-      }
-    ]}
-  />
-  <ToolSection
-    class='mb-5'
-    title='Productivity'
-    tools={[
-      {
-        name: 'Chrome',
-        description: 'Browser',
-        href: 'https://www.google.com/chrome/',
-        icon: import('@/assets/tools/chrome.svg?raw')
-      },
-      {
-        name: 'Firefox',
-        description: 'Browser',
-        href: 'https://www.mozilla.org/en-US/firefox',
-        icon: import('@/assets/tools/firefox.svg?raw')
-      },
-      {
-        name: 'Notion',
-        description: 'Note Taking',
-        href: 'https://www.notion.so/',
-        icon: import('@/assets/tools/notion.svg?raw')
-      },
-      {
-        name: 'Typora',
-        description: 'Markdown Editor',
-        href: 'https://typora.io/',
-        icon: import('@/assets/tools/typora.svg?raw')
-      }
-    ]}
-  />
-  <ToolSection
-    class='mb-5'
-    title='Development'
-    tools={[
-      {
-        name: 'VS Code',
-        description: 'IDE',
-        href: 'https://code.visualstudio.com/',
-        icon: import('@/assets/tools/vscode.svg?raw')
-      },
-      {
-        name: 'Neovim',
-        description: 'IDE',
-        href: 'https://neovim.io/',
-        icon: import('@/assets/tools/neovim.svg?raw')
-      },
-      {
-        name: 'Sublime Text',
-        description: 'IDE',
-        href: 'https://www.sublimetext.com/',
-        icon: import('@/assets/tools/sublime.svg?raw')
-      }
-    ]}
-  />
-  <ToolSection
-    class='mb-5'
-    title='Environment'
-    tools={[
-      {
-        name: 'Arch Linux',
-        description: 'Linux Distribution',
-        href: 'https://archlinux.org/',
-        icon: import('@/assets/tools/archlinux.svg?raw')
-      },
-      {
-        name: 'Ubuntu 24.04 LTS',
-        description: 'Linux Distribution',
-        href: 'https://ubuntu.com/',
-        icon: import('@/assets/tools/ubuntu.svg?raw')
-      },
-      {
-        name: 'MacOS Tahoe',
-        description: 'MacBook Air',
-        href: 'https://www.apple.com/macos/',
-        icon: import('@/assets/tools/apple.svg?raw')
-      },
-      {
-        name: 'Windows 11',
-        description: 'Framework Laptop 16',
-        href: 'https://news.microsoft.com/windows11-general-availability/',
-        icon: import('@/assets/tools/windows11.svg?raw')
-      }
-    ]}
-  />
-
-  {/* social-networks */}
-  <h2 id='social-networks'>Social Networks</h2>
+  <h2 id='experience-snapshot'>Experience Snapshot</h2>
   <p>
-    Lorem ipsum dolor sit amet, vidit suscipit at mei. Quem denique mea id. Usu ei regione indoctum
-    dissentiunt, cu meliore fuisset mei, vel quod voluptua ne.
+    At Amazon Web Services, through the FCJ program, I worked on a clickstream analytics platform
+    that combined ingestion, scheduled transformation, internal data access boundaries, and
+    dashboard-ready output. What stayed with me from that experience was not just the AWS stack
+    itself, but the discipline of thinking about pipelines as systems that must be safe to operate,
+    repeatable to deploy, and understandable to the people using the output.
   </p>
-  <Substats
-    stats={[
-      {
-        platform: 'GitHub',
-        icon: 'github',
-        link: 'https://github.com/cworld1',
-        text: 'followers',
-        api: 'github/cworld1'
-      },
-      {
-        platform: 'Telegram',
-        icon: 'telegram',
-        color: '#2ca5e0',
-        link: 'https://t.me/cworld0_cn',
-        text: 'subscribers',
-        api: 'telegram/cworld0_cn'
-      },
-      {
-        platform: 'Steam',
-        icon: 'steam',
-        color: '#50769d',
-        link: 'https://steamcommunity.com/id/cworld',
-        text: 'games',
-        api: 'steamgames/76561199021278120'
-      }
-    ]}
-  />
+  <p>
+    At FPT Software, I worked on the Claim Request System, a workflow-driven internal platform for
+    financial approvals. That project sharpened a different side of my engineering mindset: how to
+    model state transitions carefully, how to make business rules explicit, and how to turn a
+    manual operational process into software that people can trust across departments.
+  </p>
+  <p>
+    Across personal and team projects, I kept moving in that same direction. AlohaMarket pushed me
+    deeper into service boundaries and event-driven design. EzyFix made payments, settlement, and
+    operational coordination more concrete. SnakeAid pushed me to think about how AI should support
+    a real product workflow rather than sit beside it as a separate experiment.
+  </p>
 
-  {/* gossips */}
-  <h2 id='gossips'>Gossips</h2>
-  <Collapse title='Lorem ipsum'>
-    Lorem ipsum dolor sit amet, vidit suscipit at mei. Quem denique mea id. Usu ei regione indoctum
-    dissentiunt, cu meliore fuisset mei, vel quod voluptua ne. Ex dicat impedit mel, at eum oratio
-    possit voluptatum.
-  </Collapse>
+  <h2 id='education-certifications'>Education & Certifications</h2>
+  <p>
+    I am studying Software Engineering at FPT University, Ho Chi Minh City Campus, with expected
+    graduation in June 2026.
+  </p>
+  <p>
+    Along the way, I have also used certifications as a way to strengthen fundamentals around
+    delivery, process, and engineering discipline instead of treating them as credentials alone.
+  </p>
+  <p>Selected certifications include:</p>
+  <ul>
+    <li>LFS167: Introduction to Jenkins - The Linux Foundation</li>
+    <li>Project Management Principles and Practices Specialization - UC Irvine</li>
+    <li>Java FullStack Developer Specialization - Board Infinity</li>
+    <li>Software Development Lifecycle Specialization - University of Minnesota</li>
+  </ul>
 
-  {/* about-blog */}
-  <h2 id='about-blog'>About Blog</h2>
-  <p>Website history:</p>
+  <h2 id='selected-timeline'>Selected Timeline</h2>
   <Timeline
     events={[
       {
-        date: '2024-04-29',
-        content:
-          'Website refactored using <a href="https://astro.build/" target="_blank">Astro</a> and <a href="https://github.com/srleom/astro-theme-resume" target="_blank">Astro Theme Resume</a>'
+        date: '2024-05',
+        content: 'Built <strong>TTK Piano Center</strong>, an early Java web project that gave me a solid foundation in multi-role systems and structured backend thinking.'
       },
       {
-        date: '2024-07-26',
-        content:
-          'Website abstracted as a theme and published on <a href="https://github.com/cworld1/astro-theme-pure"target="_blank">Github</a>'
+        date: '2024-12',
+        content: 'Joined <strong>FPT Software</strong> and worked on the Claim Request System, where workflow modeling became a central part of how I think about backend design.'
       },
       {
-        date: '2024-07-27',
-        content: 'Began writing website docs'
+        date: '2025-05',
+        content: 'Worked on larger systems such as <strong>AlohaMarket</strong> and <strong>VitaFlow</strong>, expanding into service boundaries, layered architecture, and operational workflows.'
+      },
+      {
+        date: '2025-08',
+        content: 'Built <strong>EzyFix</strong> and <strong>CellphoneZ</strong>, moving further into marketplace logic, payment handling, and user-facing product delivery.'
+      },
+      {
+        date: '2025-09',
+        content: 'Joined the <strong>AWS FCJ Program</strong> and delivered a serverless clickstream analytics platform, deepening my interest in cloud-native systems and analytics pipelines.'
+      },
+      {
+        date: '2025-11',
+        content: 'Continued building <strong>SnakeAid</strong>, combining backend engineering with AI-assisted healthcare workflows in a more product-driven way.'
       }
     ]}
   />
-  <p>
-    The smooth operation and personalized customization of website also rely on the resources and
-    technical support provided by the following excellent projects/service providers:
-  </p>
-  <ul>
-    <li>Domain: <a href='#' target='_blank'>Vercel</a></li>
-    <li>
-      Framework & Theme: <a href='https://astro.build/' target='_blank'>Astro</a> + <a
-        href='https://github.com/cworld1/astro-theme-pure'
-        target='_blank'>Nguyen Van Duy Khiem</a
-      >
-    </li>
-    <li>
-      Site hosting: <a href='https://vercel.com/' target='_blank'>Vercel</a>
-    </li>
-    <li>
-      CI/CD: <a href='https://vercel.com/workflow' target='_blank'>Vercel Workflow</a>
-    </li>
-    <li>Comment system: <a href='https://waline.js.org' target='_blank'>Waline</a></li>
-    <li>
-      Visits: <a href='https://supabase.com/' target='_blank'>Supabase</a> +
-      <a href='https://waline.js.org/' target='_blank'>Waline</a>
-    </li>
-    <li>
-      Other statistics: <a href='https://github.com/spencerwooo/substats' target='_blank'
-        >Substats</a
-      >
-    </li>
-  </ul>
 </PageLayout>
