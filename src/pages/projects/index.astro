@@ -1,7 +1,27 @@
 ---
+import type { CollectionEntry } from 'astro:content'
+
+import { getBlogCollection } from 'astro-pure/server'
 import { Button } from 'astro-pure/user'
 import PageLayout from '@/layouts/CommonPage.astro'
 import ProjectSection from '@/components/projects/ProjectSection.astro'
+
+const allProjects = (await getBlogCollection('projects')) as CollectionEntry<'projects'>[]
+const flagshipProjects = allProjects
+  .filter((project) => project.data.category === 'flagship')
+  .sort((a, b) => a.data.order - b.data.order)
+const supportingProjects = allProjects
+  .filter((project) => project.data.category === 'supporting')
+  .sort((a, b) => a.data.order - b.data.order)
+
+function toProjectCard(project: CollectionEntry<'projects'>) {
+  return {
+    name: project.data.title,
+    description: project.data.description,
+    href: `/projects/${project.id}`,
+    links: project.data.links
+  }
+}
 
 const headings = [
   { depth: 2, slug: 'flagship-projects', text: 'Flagship Projects' },
@@ -23,71 +43,10 @@ const headings = [
   <Button title='View my GitHub' class='w-fit' href='https://github.com/the-khiem7' target='_blank' />
 
   <h2 id='flagship-projects'>Flagship Projects</h2>
-  <ProjectSection
-    projects={[
-      {
-        name: 'SnakeAid',
-        description:
-          'AI-powered healthcare platform for snakebite first aid, rescue coordination, snake identification, and expert support.',
-        links: [{ type: 'github', href: 'https://github.com/the-khiem7' }]
-      },
-      {
-        name: 'AlohaMarket',
-        description:
-          'Event-driven marketplace backend with 8 microservices, Kafka-based workflows, YARP gateway, Keycloak auth, SignalR, and observability.',
-        links: [{ type: 'github', href: 'https://github.com/AlohaMarket/AlohaMarket.Aspire' }]
-      },
-      {
-        name: 'EzyFix',
-        description:
-          'Home-repair marketplace backend with request lifecycle management, escrow-style payments, technician payouts, dispute handling, and real-time updates.',
-        links: [{ type: 'github', href: 'https://github.com/EzyFixApp/EzyFix.aspnet' }]
-      },
-      {
-        name: 'AWS Clickstream Analytics Platform',
-        description:
-          'Serverless analytics pipeline built with S3, Lambda, EventBridge, PostgreSQL, and R Shiny for clickstream ingestion and dashboarding.',
-        links: [{ type: 'github', href: 'https://github.com/SBW-Cloudworks' }]
-      }
-    ]}
-  />
+  <ProjectSection projects={flagshipProjects.map(toProjectCard)} />
 
   <h2 id='supporting-projects'>Supporting Projects</h2>
-  <ProjectSection
-    projects={[
-      {
-        name: 'CellphoneZ',
-        description:
-          'Flutter commerce app covering browse, cart, checkout, payment flows, store locator, and admin tooling with Supabase-based delivery.',
-        links: [
-          { type: 'github', href: 'https://github.com/FirstAndroidJourney/Flutter-CellphoneZ' }
-        ]
-      },
-      {
-        name: 'Claim Request System',
-        description:
-          'Enterprise-style financial approval workflow system centered on claim routing, reminders, finance processing, and auditability.',
-        links: [
-          {
-            type: 'github',
-            href: 'https://github.com/ClaimRequestSystem/ClaimRequestSystem.ASPNET'
-          }
-        ]
-      },
-      {
-        name: 'VitaFlow',
-        description:
-          'Blood donation support system with donor, recipient, staff, and admin workflows built on .NET 8, Razor Pages, EF Core, and SQL Server.',
-        links: [{ type: 'github', href: 'https://github.com/the-khiem7' }]
-      },
-      {
-        name: 'TTK Piano Center',
-        description:
-          'Java web application for course management, enrollment, cart behavior, and admin operations using JSP/Servlet, JDBC, and SQL Server.',
-        links: [{ type: 'site', href: 'https://ttk-piano.vercel.app' }]
-      }
-    ]}
-  />
+  <ProjectSection projects={supportingProjects.map(toProjectCard)} />
 
   <h2 id='what-these-projects-show'>What These Projects Show</h2>
   <ul>

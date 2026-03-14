@@ -56,4 +56,32 @@ const docs = defineCollection({
     })
 })
 
-export const collections = { blog, docs }
+// Define projects collection
+const projects = defineCollection({
+  loader: glob({ base: './src/content/projects', pattern: '**/*.{md,mdx}' }),
+  schema: () =>
+    z.object({
+      title: z.string().max(60),
+      description: z.string().max(160),
+      publishDate: z.coerce.date().optional(),
+      updatedDate: z.coerce.date().optional(),
+      tags: z.array(z.string()).default([]).transform(removeDupsAndLowerCase),
+      draft: z.boolean().default(false),
+      order: z.number().default(999),
+      category: z.enum(['flagship', 'supporting']).default('supporting'),
+      role: z.string().optional(),
+      duration: z.string().optional(),
+      stack: z.array(z.string()).default([]),
+      links: z
+        .array(
+          z.object({
+            type: z.enum(['github', 'site', 'doc', 'release']),
+            href: z.string().url(),
+            label: z.string().optional()
+          })
+        )
+        .default([])
+    })
+})
+
+export const collections = { blog, docs, projects }

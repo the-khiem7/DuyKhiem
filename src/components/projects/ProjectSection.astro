@@ -10,6 +10,7 @@ interface Project {
   image?: string
   name: string
   description: string
+  href?: string
   links: {
     type: string
     href: string
@@ -71,8 +72,8 @@ const projectIconSet: Record<string, iconsType> = {
             >
               <a
                 class='line-clamp-1 font-medium text-foreground no-underline transition-colors'
-                href={project.links[0].href}
-                target='_blank'
+                href={project.href ?? project.links[0].href}
+                target={project.href ? undefined : '_blank'}
               >
                 {project.name}
               </a>

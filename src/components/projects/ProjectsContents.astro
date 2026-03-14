@@ -1,0 +1,100 @@
+---
+import { type CollectionEntry } from 'astro:content'
+
+import { getBlogCollection } from 'astro-pure/server'
+import { cn } from 'astro-pure/utils'
+
+export const prerender = true
+export const partial = true
+
+const projectsCollection = (await getBlogCollection('projects')) as CollectionEntry<'projects'>[]
+
+const projectsByCategory = {
+  flagship: projectsCollection
+    .filter((project) => project.data.category === 'flagship')
+    .sort((a, b) => a.data.order - b.data.order),
+  supporting: projectsCollection
+    .filter((project) => project.data.category === 'supporting')
+    .sort((a, b) => a.data.order - b.data.order)
+}
+
+const categoryTitles = {
+  flagship: 'Flagship',
+  supporting: 'Supporting'
+} as const
+
+const { title = true, class: className, ...props } = Astro.props
+---
+
+<projects-toc class={cn('not-prose', className)} {...props}>
+  {title && <h2 class='text-foreground font-medium'>PROJECTS</h2>}
+  <ul class='mt-4 flex flex-col gap-y-5'>
+    {
+      Object.entries(categoryTitles).map(([id, sectionTitle]) => (
+        <li>
+          <h3 class='text-muted-foreground text-xs tracking-widest uppercase'>{sectionTitle}</h3>
+          <ul class='mt-2 flex flex-col'>
+            {projectsByCategory[id as keyof typeof projectsByCategory].map((project) => (
+              <li class='project-item flex relative ms-2 px-3 py-1 text-foreground/75 transition-all rounded-2xl'>
+                <a
+                  class='flex-1 whitespace-normal break-words leading-snug hover:text-foreground'
+                  href={`/projects/${project.id}`}
+                >
+                  {project.data.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </li>
+      ))
+    }
+  </ul>
+</projects-toc>
+
+<style>
+  projects-toc .project-item::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 5%;
+    bottom: 5%;
+    left: -0.5rem;
+    width: 2px;
+    background-color: hsl(var(--input) / var(--un-bg-opacity));
+  }
+
+  projects-toc :global(.project-item.project-hl) {
+    background-color: hsl(var(--muted) / var(--un-bg-opacity));
+    font-weight: 500;
+
+    & a {
+      color: hsl(var(--primary) / var(--un-text-opacity));
+    }
+
+    &::before {
+      background-color: hsl(var(--primary) / var(--un-bg-opacity));
+    }
+  }
+</style>
+
+<script>
+  class ProjectsTOC extends HTMLElement {
+    link: string = ''
+
+    constructor() {
+      super()
+      this.link = window.location.pathname
+    }
+
+    connectedCallback() {
+      const links = this.querySelectorAll('a')
+      links.forEach((link) => {
+        if (link.getAttribute('href') === this.link) {
+          link.parentElement?.classList.add('project-hl')
+        }
+      })
+    }
+  }
+
+  customElements.define('projects-toc', ProjectsTOC)
+</script>
