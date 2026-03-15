@@ -1,0 +1,255 @@
+---
+title: 'Running OpenClaw on ZimaOS with Portainer'
+description: 'How I deployed OpenClaw on ZimaOS with Portainer, what broke, and the Docker Compose stack I ended up using.'
+publishDate: '2026-03-15T08:00:00Z'
+tags:
+  - docker
+  - zimaos
+  - portainer
+  - openclaw
+  - self-hosting
+language: 'English'
+draft: false
+comment: true
+---
+
+import { Aside, Steps, Collapse } from 'astro-pure/user'
+import { GithubCard, LinkPreview } from 'astro-pure/advanced'
+
+## Why I Tried This
+
+I wanted to run OpenClaw on a ZimaOS machine using **Portainer** and a single Docker Compose stack.
+
+That sounds simple on paper, but ZimaOS is much more **container-centric** than a full Linux distro. In practice, that means the usual setup style of “run a helper script, create host folders, mount random paths under `/home/...`” is exactly where things start getting annoying.
+
+So this post is not a generic OpenClaw introduction. It is a practical write-up of:
+
+- what OpenClaw is
+- why the default installation flow was not a good fit for my environment
+- what I changed for ZimaOS + Portainer
+- the compose stack that successfully got the gateway container started
+
+<Aside type='tip' title='The core lesson'>
+  On ZimaOS, the boring path wins: official image, named volumes, simple network, and no premature Docker cleverness.
+</Aside>
+
+## What Is OpenClaw?
+
+OpenClaw is an open-source coding agent project with an official Docker installation path and an official prebuilt container image published on GHCR.
+
+<GithubCard repo='openclaw/openclaw' />
+
+The official Docker docs describe a setup built around:
+
+- `openclaw-gateway`
+- `openclaw-cli`
+
+That matters, because there are also third-party images and downstream packaging variants floating around. If you want to stay close to upstream, start from the official image and official docs.
+
+<LinkPreview href='https://docs.openclaw.ai/install/docker' />
+
+## The Problem: Official Docker Flow vs ZimaOS Reality
+
+The official docs assume a Docker environment where running helper scripts and onboarding commands is acceptable.
+
+That is fine on a normal Linux box.
+
+It is less fun on ZimaOS.
+
+My constraints were:
+
+- no bash setup flow
+- no command-line-first installation
+- deployment through **Portainer**
+- avoid fragile host bind mounts when possible
+
+This immediately pushed me toward a different strategy.
+
+<Steps>
+1. Use the official GHCR image
+2. Deploy through Portainer Stack
+3. Prefer named volumes over random host paths
+4. Simplify networking until the base container actually boots
+</Steps>
+
+## What I Found in the Repository
+
+While checking the official repository and docs, one thing became clear: the repo contains multiple Docker-related files, but the important mental model is simpler than it first looks.
+
+The main compose file is `docker-compose.yml`, while `docker-compose.extra.yml` is better understood as an override layer tied to the setup flow.
+
+For a Portainer-first deployment, the practical move is to build a **single self-contained compose stack** that captures the parts you actually need without depending on the helper script.
+
+<Collapse title='Why I did not copy the full upstream setup flow'>
+  <div slot='before' class='text-sm text-muted-foreground'>
+    Because my target environment was Portainer on ZimaOS, not a shell-first Linux machine.
+  </div>
+
+  The upstream Docker flow still leans on onboarding and CLI-oriented steps. For a container-centric NAS environment, that creates friction fast. I only wanted the minimum stable baseline first: pull the image, create the stack, publish the ports, and get the gateway booting.
+</Collapse>
+
+## The First Wrong Turn
+
+My first instinct was to optimize for a future 9Router setup and prepare a shared external Docker network up front.
+
+That looked clever.
+
+It was not.
+
+The moment I used an external network before that network actually existed, the stack stopped being smooth. On top of that, I still did not have 9Router running yet, so I was prematurely optimizing the architecture instead of just getting OpenClaw to boot.
+
+The better move was to simplify:
+
+- remove the external-network dependency
+- use a normal bridge network
+- get `openclaw-gateway` into a stable starting state first
+- postpone the 9Router integration until later
+
+<Aside type='caution' title='Classic self-hosting trap'>
+  Do not optimize phase 2 before phase 1 even boots.
+</Aside>
+
+## The Compose Stack That Worked Better
+
+This is the compose stack I ended up using as the practical baseline for ZimaOS + Portainer:
+
+```yaml title="docker-compose.yml"
+services:
+  openclaw-gateway:
+    image: ghcr.io/openclaw/openclaw:latest
+    container_name: openclaw-gateway
+    user: "1000:1000"
+    environment:
+      HOME: /home/node
+      TERM: xterm-256color
+      OPENCLAW_GATEWAY_TOKEN: "ocw_change_this_to_a_long_random_token"
+
+    volumes:
+      - openclaw-home:/home/node
+      - openclaw-config:/home/node/.openclaw
+
+    ports:
+      - "18789:18789"
+      - "18790:18790"
+
+    init: true
+    restart: unless-stopped
+
+    command:
+      - node
+      - dist/index.js
+      - gateway
+      - --bind
+      - lan
+      - --port
+      - "18789"
+
+    networks:
+      - ai-router
+
+  openclaw-cli:
+    image: ghcr.io/openclaw/openclaw:latest
+    container_name: openclaw-cli
+    user: "1000:1000"
+    environment:
+      HOME: /home/node
+      TERM: xterm-256color
+      OPENCLAW_GATEWAY_TOKEN: "ocw_change_this_to_a-long-random-token"
+
+    volumes:
+      - openclaw-home:/home/node
+      - openclaw-config:/home/node/.openclaw
+
+    network_mode: "service:openclaw-gateway"
+
+    cap_drop:
+      - NET_RAW
+      - NET_ADMIN
+
+    security_opt:
+      - no-new-privileges:true
+
+    profiles:
+      - tools
+
+networks:
+  ai-router:
+    driver: bridge
+
+volumes:
+  openclaw-home:
+  openclaw-config:
+````
+
+## Why This Version Makes More Sense
+
+A few choices here are intentional.
+
+### Official image only
+
+The image is:
+
+```text
+ghcr.io/openclaw/openclaw:latest
+```
+
+That keeps the deployment aligned with upstream instead of a third-party packaging layer.
+
+### Named volumes over host bind mounts
+
+For a container-first NAS-style environment, named volumes are simply less annoying. They avoid the classic “this path is read-only” or “why does this host directory not exist the way the script expects?” class of problems.
+
+### No external network yet
+
+A shared external network is useful later, especially if I want OpenClaw to talk to a separate 9Router container through a stable service name.
+
+But before that, it is just one more thing that can fail.
+
+### Gateway first, everything else later
+
+The immediate milestone was not “full agent workflow with perfect onboarding.”
+
+It was much simpler:
+
+> Can the stack pull the official image, create the container, publish the ports, and get the gateway into a valid starting state?
+
+Once I saw the stack created successfully and `openclaw-gateway` in a `starting` state with published ports, that was already meaningful progress.
+
+## The Honest Caveat
+
+This is the part that is easy to hide in a tutorial and much better to say out loud instead:
+
+<Aside type='note' title='Deploy success is not workflow success'>
+  A successful Portainer deployment is not the same as a fully completed OpenClaw onboarding flow.
+</Aside>
+
+Even if the container starts correctly, you may still hit an authentication, pairing, or onboarding step later in the process.
+
+That is not a ZimaOS-specific failure. It is part of the current Docker reality of this project.
+
+## What I Would Do Next
+
+My next step would be to deploy **9Router** in a separate container and then connect OpenClaw to it using a custom OpenAI-compatible provider configuration.
+
+That is the kind of setup where a shared Docker network actually becomes useful. But it should be treated as a **second phase** after the base stack is stable.
+
+<Steps>
+1. Get the official OpenClaw container running first
+2. Keep the compose stack boring
+3. Avoid premature networking tricks
+4. Add routing and model proxy layers later
+</Steps>
+
+## Final Thoughts
+
+This setup taught me something useful:
+
+A lot of Docker tutorials assume a normal Linux machine with shell access, writable host paths, and patience for helper scripts.
+
+ZimaOS changes that equation.
+
+And that is exactly why a small, boring, upstream-aligned compose stack can be more valuable than a “feature-complete” setup that collapses under environmental assumptions.
+
+If your goal is to experiment with OpenClaw on a container-centric home server, start from the minimum, prove the gateway boots, and then iterate from there.
+
+That path is slower for about ten minutes and faster for the next three hours.

@@ -1,0 +1,255 @@
+---
+title: 'Chạy OpenClaw trên ZimaOS với Portainer'
+description: 'Cách mình triển khai OpenClaw trên ZimaOS bằng Portainer, những lỗi gặp phải, và Docker Compose stack cuối cùng.'
+publishDate: '2026-03-15T08:00:00Z'
+tags:
+  - docker
+  - zimaos
+  - portainer
+  - openclaw
+  - self-hosting
+language: 'Vietnamese'
+draft: false
+comment: true
+---
+
+import { Aside, Steps, Collapse } from 'astro-pure/user'
+import { GithubCard, LinkPreview } from 'astro-pure/advanced'
+
+## Vì sao mình thử cái này
+
+Mình muốn chạy OpenClaw trên máy ZimaOS bằng **Portainer** với một Docker Compose stack duy nhất.
+
+Nghe thì đơn giản, nhưng ZimaOS thiên về **container-centric** hơn nhiều so với một distro Linux đầy đủ. Trong thực tế, điều đó có nghĩa là kiểu setup thông thường — "chạy script helper, tạo thư mục trên host, mount đường dẫn ngẫu nhiên dưới `/home/...`" — chính là lúc mọi thứ bắt đầu phiền phức.
+
+Nên bài viết này không phải giới thiệu OpenClaw chung chung. Đây là ghi chép thực tế về:
+
+- OpenClaw là gì
+- vì sao flow cài đặt mặc định không phù hợp với môi trường của mình
+- mình đã thay đổi gì cho ZimaOS + Portainer
+- compose stack đã khiến gateway container khởi động thành công
+
+<Aside type='tip' title='Bài học cốt lõi'>
+  Trên ZimaOS, con đường nhàm chán luôn thắng: image chính thức, named volumes, network đơn giản, và không Docker tricks sớm quá.
+</Aside>
+
+## OpenClaw là gì?
+
+OpenClaw là một dự án coding agent mã nguồn mở với đường cài đặt Docker chính thức và container image prebuilt được publish trên GHCR.
+
+<GithubCard repo='openclaw/openclaw' />
+
+Tài liệu Docker chính thức mô tả setup xoay quanh:
+
+- `openclaw-gateway`
+- `openclaw-cli`
+
+Điều này quan trọng, vì ngoài kia cũng có các image bên thứ ba và biến thể packaging downstream. Nếu bạn muốn giữ gần với upstream, hãy bắt đầu từ image chính thức và tài liệu chính thức.
+
+<LinkPreview href='https://docs.openclaw.ai/install/docker' />
+
+## Vấn đề: Flow Docker chính thức vs thực tế ZimaOS
+
+Tài liệu chính thức giả định môi trường Docker nơi việc chạy helper scripts và lệnh onboarding là chấp nhận được.
+
+Điều đó ổn trên một máy Linux bình thường.
+
+Nhưng trên ZimaOS thì không vui lắm.
+
+Các ràng buộc của mình:
+
+- không dùng bash setup flow
+- không cài đặt command-line-first
+- triển khai qua **Portainer**
+- tránh host bind mounts dễ hỏng khi có thể
+
+Điều này ngay lập tức đẩy mình sang một chiến lược khác.
+
+<Steps>
+1. Dùng image GHCR chính thức
+2. Triển khai qua Portainer Stack
+3. Ưu tiên named volumes thay vì host paths ngẫu nhiên
+4. Đơn giản hóa networking cho đến khi container base thực sự khởi động
+</Steps>
+
+## Những gì mình tìm thấy trong repository
+
+Khi kiểm tra repository và tài liệu chính thức, một điều trở nên rõ ràng: repo chứa nhiều file liên quan đến Docker, nhưng mô hình mental quan trọng thì đơn giản hơn vẻ ngoài.
+
+File compose chính là `docker-compose.yml`, còn `docker-compose.extra.yml` nên hiểu là lớp override gắn với setup flow.
+
+Với triển khai Portainer-first, bước thực tế là xây dựng một **compose stack tự chứa duy nhất** bao gồm những phần bạn thực sự cần mà không phụ thuộc vào helper script.
+
+<Collapse title='Vì sao mình không copy toàn bộ upstream setup flow'>
+  <div slot='before' class='text-sm text-muted-foreground'>
+    Vì môi trường mục tiêu là Portainer trên ZimaOS, không phải máy Linux shell-first.
+  </div>
+
+  Flow Docker upstream vẫn nghiêng về onboarding và các bước CLI-oriented. Với môi trường NAS container-centric, điều đó tạo ma sát nhanh chóng. Mình chỉ muốn baseline ổn định tối thiểu trước: pull image, tạo stack, publish ports, và để gateway khởi động.
+</Collapse>
+
+## Sai lầm đầu tiên
+
+Bản năng đầu tiên của mình là tối ưu cho setup 9Router tương lai và chuẩn bị sẵn shared external Docker network.
+
+Trông có vẻ thông minh.
+
+Nhưng không phải.
+
+Ngay khi dùng external network trước khi network đó thực sự tồn tại, stack ngừng trơn tru. Thêm vào đó, mình vẫn chưa chạy 9Router, nên mình đang tối ưu kiến trúc sớm thay vì chỉ đơn giản là khiến OpenClaw khởi động.
+
+Bước đúng hơn là đơn giản hóa:
+
+- bỏ dependency external-network
+- dùng bridge network bình thường
+- đưa `openclaw-gateway` vào trạng thái khởi động ổn định trước
+- hoãn tích hợp 9Router sang sau
+
+<Aside type='caution' title='Bẫy self-hosting kinh điển'>
+  Đừng tối ưu phase 2 khi phase 1 còn chưa boot được.
+</Aside>
+
+## Compose Stack hoạt động tốt hơn
+
+Đây là compose stack mình cuối cùng dùng làm baseline thực tế cho ZimaOS + Portainer:
+
+```yaml title="docker-compose.yml"
+services:
+  openclaw-gateway:
+    image: ghcr.io/openclaw/openclaw:latest
+    container_name: openclaw-gateway
+    user: "1000:1000"
+    environment:
+      HOME: /home/node
+      TERM: xterm-256color
+      OPENCLAW_GATEWAY_TOKEN: "ocw_change_this_to_a_long_random_token"
+
+    volumes:
+      - openclaw-home:/home/node
+      - openclaw-config:/home/node/.openclaw
+
+    ports:
+      - "18789:18789"
+      - "18790:18790"
+
+    init: true
+    restart: unless-stopped
+
+    command:
+      - node
+      - dist/index.js
+      - gateway
+      - --bind
+      - lan
+      - --port
+      - "18789"
+
+    networks:
+      - ai-router
+
+  openclaw-cli:
+    image: ghcr.io/openclaw/openclaw:latest
+    container_name: openclaw-cli
+    user: "1000:1000"
+    environment:
+      HOME: /home/node
+      TERM: xterm-256color
+      OPENCLAW_GATEWAY_TOKEN: "ocw_change_this_to_a-long-random-token"
+
+    volumes:
+      - openclaw-home:/home/node
+      - openclaw-config:/home/node/.openclaw
+
+    network_mode: "service:openclaw-gateway"
+
+    cap_drop:
+      - NET_RAW
+      - NET_ADMIN
+
+    security_opt:
+      - no-new-privileges:true
+
+    profiles:
+      - tools
+
+networks:
+  ai-router:
+    driver: bridge
+
+volumes:
+  openclaw-home:
+  openclaw-config:
+```
+
+## Vì sao phiên bản này hợp lý hơn
+
+Một số lựa chọn ở đây là có chủ đích.
+
+### Chỉ dùng image chính thức
+
+Image là:
+
+```text
+ghcr.io/openclaw/openclaw:latest
+```
+
+Giữ triển khai đồng bộ với upstream thay vì lớp packaging bên thứ ba.
+
+### Named volumes thay vì host bind mounts
+
+Với môi trường NAS container-first, named volumes đơn giản là ít phiền hơn. Chúng tránh được lớp vấn đề kinh điển "đường dẫn này read-only" hoặc "sao thư mục host không tồn tại đúng cách script mong đợi?"
+
+### Chưa dùng external network
+
+Shared external network hữu ích sau này, đặc biệt khi muốn OpenClaw nói chuyện với container 9Router riêng qua service name ổn định.
+
+Nhưng trước đó, nó chỉ là thêm một thứ có thể fail.
+
+### Gateway trước, mọi thứ khác sau
+
+Mục tiêu trước mắt không phải "full agent workflow với onboarding hoàn hảo."
+
+Đơn giản hơn nhiều:
+
+> Stack có thể pull image chính thức, tạo container, publish ports, và đưa gateway vào trạng thái khởi động hợp lệ không?
+
+Khi thấy stack tạo thành công và `openclaw-gateway` ở trạng thái `starting` với ports đã publish, đó đã là tiến bộ có ý nghĩa.
+
+## Lưu ý thật lòng
+
+Đây là phần dễ giấu trong tutorial và tốt hơn nhiều nếu nói thẳng:
+
+<Aside type='note' title='Deploy thành công chưa phải workflow thành công'>
+  Portainer deployment thành công không đồng nghĩa với OpenClaw onboarding flow hoàn tất.
+</Aside>
+
+Ngay cả khi container khởi động đúng, bạn vẫn có thể gặp bước authentication, pairing, hoặc onboarding sau đó.
+
+Đó không phải lỗi riêng của ZimaOS. Đó là một phần thực tế Docker hiện tại của dự án này.
+
+## Bước tiếp theo
+
+Bước tiếp theo của mình sẽ là triển khai **9Router** trong container riêng và kết nối OpenClaw với nó qua cấu hình provider tương thích OpenAI.
+
+Đó là loại setup mà shared Docker network thực sự trở nên hữu ích. Nhưng nên coi đó là **phase hai** sau khi base stack đã ổn định.
+
+<Steps>
+1. Chạy được container OpenClaw chính thức trước
+2. Giữ compose stack nhàm chán
+3. Tránh networking tricks sớm
+4. Thêm routing và model proxy layers sau
+</Steps>
+
+## Kết luận
+
+Setup này dạy mình một điều hữu ích:
+
+Nhiều Docker tutorial giả định máy Linux bình thường với shell access, host paths ghi được, và kiên nhẫn cho helper scripts.
+
+ZimaOS thay đổi phương trình đó.
+
+Và chính vì vậy, một compose stack nhỏ, nhàm chán, đồng bộ upstream có thể giá trị hơn một setup "feature-complete" sụp đổ dưới các giả định môi trường.
+
+Nếu mục tiêu của bạn là thử nghiệm OpenClaw trên home server container-centric, hãy bắt đầu từ mức tối thiểu, chứng minh gateway khởi động được, rồi iterate từ đó.
+
+Con đường đó chậm hơn khoảng mười phút và nhanh hơn cho ba giờ tiếp theo.
