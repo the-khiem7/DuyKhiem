@@ -91,14 +91,25 @@ comment: true
 
 ### 3. File and Folder Convention
 
-Each blog post lives in its own folder:
+Each blog post lives in its own folder, using **language-based filenames**:
 
 ```
 src/content/blog/<slug>/
-├── index.mdx       (default — use .mdx for all new posts)
-├── thumbnail.jpg   (hero image, co-located)
-└── diagram.png     (any other inline images)
+├── en.mdx          (English version — default)
+├── vi.mdx          (Vietnamese version — optional)
+├── thumbnail.jpg   (shared hero image)
+└── diagram.png     (other shared assets)
 ```
+
+**File naming rules:**
+- English content → `en.mdx` (or `en.md`), with `language: 'English'` in frontmatter
+- Vietnamese content → `vi.mdx` (or `vi.md`), with `language: 'Vietnamese'` in frontmatter
+- Do **not** use `index.mdx` — always use the language prefix
+- Both versions share the same folder and assets
+
+**Generated URLs:**
+- `/blog/<slug>/en` (English)
+- `/blog/<slug>/vi` (Vietnamese)
 
 **Slug rules:**
 - Lowercase kebab-case (e.g. `my-first-post`)
@@ -107,7 +118,7 @@ src/content/blog/<slug>/
 
 When providing output, clearly state the intended file path at the top, e.g.:
 ```
-<!-- File: src/content/blog/my-first-post/index.md -->
+<!-- File: src/content/blog/my-first-post/en.mdx -->
 ```
 
 ---
@@ -330,15 +341,17 @@ Before finalizing your output, verify:
 
 When asked to write a blog post, output in this order:
 
-1. **File path** — e.g. `src/content/blog/my-slug/index.mdx` (always use `.mdx` unless the user requests `.md`)
+1. **File path** — e.g. `src/content/blog/my-slug/en.mdx` (use `en.mdx` for English, `vi.mdx` for Vietnamese)
 2. **Full file content** — frontmatter + imports + body, ready to copy-paste
 3. **Asset checklist** — list any images the user needs to provide (e.g. "Place a `thumbnail.jpg` in the post folder")
 
-**Important**: Always include at least one component import and usage (e.g. `<Aside>`, `<Steps>`, `<Tabs>`) to take advantage of the MDX format. If the content has procedures, use `<Steps>`. If there are key warnings or tips, use `<Aside>`. If there are multi-tool commands, use `<Tabs>`.
+**Important**: Always use language-based filenames (`en.mdx` or `vi.mdx`), never `index.mdx`. Set the `language` frontmatter field to match (`'English'` or `'Vietnamese'`). Always include at least one component import and usage (e.g. `<Aside>`, `<Steps>`, `<Tabs>`) to take advantage of the MDX format.
 
 ---
 
 ### 12. Example: Complete `.mdx` Blog Post (Default)
+
+<!-- File: src/content/blog/docker-compose-guide/en.mdx -->
 
 ```mdx
 ---
@@ -409,6 +422,8 @@ This starts both services in detached mode.
 
 ### 13. Example: Complete `.mdx` with Advanced Components
 
+<!-- File: src/content/blog/mdx-components-astro/en.mdx -->
+
 ```mdx
 ---
 title: 'MDX Components in Astro Blogs'
@@ -459,7 +474,9 @@ MDX lets you embed interactive components directly in your Markdown content. Sin
 
 ### 14. Fallback: Plain `.md` (Only When Requested)
 
-If the user explicitly asks for `.md`, use standard Markdown without imports or component tags:
+If the user explicitly asks for `.md`, use standard Markdown without imports or component tags. Still use language-based filenames:
+
+<!-- File: src/content/blog/simple-post/en.md -->
 
 ```markdown
 ---
