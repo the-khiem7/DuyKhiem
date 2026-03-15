@@ -1,0 +1,323 @@
+---
+title: '9Router Combo Cheatsheet for Daily Use'
+description: 'A practical cheatsheet for choosing the right 9Router combo daily for coding, reasoning, review, design, and vision.'
+publishDate: '2026-03-16T08:00:00Z'
+tags:
+  - 9router
+  - llm
+  - coding
+  - workflow
+  - ai
+language: 'English'
+draft: false
+comment: true
+---
+
+import { Aside, Tabs, TabItem, Steps, Collapse } from 'astro-pure/user'
+
+## Why do I need a combo cheatsheet?
+
+As the number of models grows, the question is no longer "which model is the most powerful" but **which model fits best for each task**.
+
+With 9Router, I don't want to sit and remember every time I work:
+
+- which combo is good for fast coding
+- which combo is good for deep thinking
+- which combo is good for review
+- which combo is good for reading images or screenshots
+
+This is a practical note to **open and pick a combo in seconds**.
+
+<Aside type='tip' title='Combo selection philosophy'>
+  Don't use one combo for everything. Daily coding, hard debugging, spec writing, review, and image reading are five different kinds of problems.
+</Aside>
+
+## How I categorize combos
+
+<Steps>
+1. Separate by **type of work**, not by model name
+2. Within each combo, select models by **role**
+3. Write short notes on each model's strength for easy recall
+4. Start with lightweight combos, only upgrade when the problem gets "intense"
+</Steps>
+
+## Quick selection map
+
+<Tabs syncKey='router-combo'>
+  <TabItem label='Code'>
+    - Daily coding → `coding-light`  
+    - Hard coding / large refactor → `coding-hard`
+  </TabItem>
+  <TabItem label='Think'>
+    - Find root cause / logic analysis → `reasoning`  
+    - Write spec / design / proposal → `architect`
+  </TabItem>
+  <TabItem label='Fast'>
+    - Small tasks, quick questions, short snippets → `eazy`
+  </TabItem>
+  <TabItem label='Check'>
+    - Review PR / audit / critique → `review`
+  </TabItem>
+  <TabItem label='Image'>
+    - Screenshot / UI / diagram / images → `vision`
+  </TabItem>
+</Tabs>
+
+## 1. `coding-light`
+
+**Use when**
+
+- daily coding
+- CRUD
+- fixing medium bugs
+- quick scaffolding
+- light refactoring
+- agent editing code continuously
+
+**Personality of this combo**
+
+This is a **coder-first** combo. The goal is to write code quickly and stably, without pulling in reasoning-heavy models for tasks that don't need that "heavy lifting".
+
+### Models
+
+- `qw/qwen3-coder-plus` — main coder, good balance between quality and speed
+- `kr/qwen3-coder-next` — good for agent coding, strong in multi-step flows
+- `if/qwen3-coder-plus` — backup coder from the same thinking family as Qwen coder
+- `qw/qwen3-coder-flash` — fastest in the group, good for small patches and short tasks
+
+**Mantra**
+
+> Normal coding, no philosophy needed, just `coding-light`.
+
+<Aside type='note' title='When to upgrade?'>
+  If the task starts involving complex logic, many files, or the agent needs to plan before fixing, that's when you switch to `coding-hard`.
+</Aside>
+
+## 2. `coding-hard`
+
+**Use when**
+
+- hard features
+- multi-file refactoring
+- tricky logic bugs
+- tasks needing both coding and thinking
+- agent must plan before fixing
+
+**Personality of this combo**
+
+This is **engineering mode** combo. It doesn't just write code; it has enough brain to think before producing patches.
+
+### Models
+
+- `qw/qwen3-coder-plus` — main code writer
+- `kr/claude-sonnet-4.5` — planner/reviewer, strong at structure and explanation
+- `if/deepseek-v3.2` — auxiliary reasoning, connects logic well
+- `kr/qwen3-coder-next` — supplementary coder, good for extended multi-step tasks
+
+**Mantra**
+
+> Hard coding, many steps, need to think while doing → `coding-hard`.
+
+## 3. `reasoning`
+
+**Use when**
+
+- finding root causes
+- very hard debugging
+- analyzing long logs
+- debating solutions
+- complex algorithms or logic flows
+- not ready to code yet
+
+**Personality of this combo**
+
+This combo is for when you need to say:
+
+> Wait, don't fix yet. Sit down and think first.
+
+### Models
+
+- `if/deepseek-r1` — digs deep into logic, great for finding root causes
+- `if/kimi-k2` — holds long context, synthesizes lots of information
+- `if/qwen3-max` — balanced reasoning, versatile, easy to delegate
+- `if/qwen3-235b-a22b-thinking-2507` — specialized deep thinker, good for critique and persistent thinking
+
+**Mantra**
+
+> When the problem's cause isn't clear, don't touch code, use `reasoning`.
+
+<Collapse title='When is reasoning a better choice than coding-hard?'>
+  <div slot='before' class='text-sm text-muted-foreground'>A small tip to avoid fixing in the wrong direction</div>
+
+  Choose `reasoning` first if you're in one of these situations:
+
+  - Multiple hypotheses but don't know which is correct
+  - Fixed several times but the bug keeps coming back
+  - Very long logs involving many services or layers
+  - You want the model to analyze before touching code
+</Collapse>
+
+## 4. `architect`
+
+**Use when**
+
+- writing specs
+- proposing architecture
+- dividing modules or services
+- selecting patterns
+- writing docs, proposals, design notes
+- comparing approaches
+
+**Personality of this combo**
+
+This combo is for **design and expression**. It's not aimed at producing quick patches, but at making good decisions and writing readable documentation.
+
+### Models
+
+- `kr/claude-sonnet-4.5` — writes fluently, beautiful structure, great for design/spec
+- `if/kimi-k2` — holds long context, good at synthesizing documents
+- `if/qwen3-max` — balanced between thinking and practicality
+- `if/deepseek-r1` — logic critique, spots architecture holes
+
+**Mantra**
+
+> Writing spec, design, proposal, or architecture notes → `architect`.
+
+## 5. `eazy`
+
+**Use when**
+
+- quick questions
+- text transformation
+- fixing short snippets
+- light brainstorming
+- casual chat
+- many small tasks
+
+**Personality of this combo**
+
+This is the **fast lane** combo. Not every task needs calling out the big brain council. Many tasks just need a fast, compact, smart-enough combo to get done.
+
+### Models
+
+- `gc/gemini-3-flash-preview` — very fast, good for Q&A and daily tasks
+- `kr/claude-haiku-4.5` — compact, fast, stable for text and general chat
+- `if/deepseek-v3.2` — fast but still has brain, good for slightly technical tasks
+- `qw/qwen3-coder-flash` — fast for code snippets or small patches
+
+**Mantra**
+
+> Trivial tasks, need speed, no overkill → `eazy`.
+
+## 6. `vision`
+
+**Use when**
+
+- reading error screenshots
+- analyzing UI
+- viewing diagrams
+- images with text
+- looking at interfaces to infer flow or code
+
+**Personality of this combo**
+
+This combo is for everything with visual elements. When there are screenshots, UI, diagrams, or error photos, using the right vision combo helps models stop guessing from thin air.
+
+### Models
+
+- `if/qwen3-vl-plus` — main vision model, good for images and technical analysis
+- `gc/gemini-3-pro-preview` — strong multimodal, good for image + reasoning
+- `qw/vision-model` — vision fallback, adds a backup perspective
+
+**Mantra**
+
+> Got images? Don't force text-only combos to guess. Just use `vision`.
+
+## 7. `review`
+
+**Use when**
+
+- reviewing PRs
+- auditing code
+- critiquing solutions
+- checking edge cases
+- spotting potential bugs
+- verifying output from other combos
+
+**Personality of this combo**
+
+This combo is for **inspection**. Not for creating the first solution, but for checking if that solution has anything suspicious.
+
+### Models
+
+- `kr/claude-sonnet-4.5` — fluent review, clear comments, easy to read
+- `if/deepseek-r1` — deep logic inspection, good for finding hidden bugs
+- `if/qwen3-max` — balanced reviewer, practical
+
+**Mantra**
+
+> Already have a solution, now need to inspect it → `review`.
+
+<Aside type='caution' title='Common mistake'>
+  Many people use the review combo to generate solutions from scratch. It works, but it's not the best use case. This combo shines when you already have code, specs, or a solution direction.
+</Aside>
+
+## Practical workflows
+
+### Case 1: Building a backend feature
+
+Start with `coding-light`.
+
+If the task starts showing these signs:
+
+- many files
+- complex flow
+- agent needs to plan first
+- fixing one spot pulls three other spots
+
+then upgrade to `coding-hard`.
+
+### Case 2: Hard bug
+
+Start with `reasoning` to find the root cause.
+
+Once the fix direction is clear, switch to `coding-hard` to produce the patch. This approach is often much better than "fixing by feeling".
+
+### Case 3: Writing architecture documentation
+
+Use `architect` to establish the approach, select patterns, and write specs.
+
+When the first draft is done, throw it to `review` for self-critique.
+
+### Case 4: Got a screenshot or image
+
+Start with `vision`. After understanding the image or UI flow, if code fixes are needed, switch to `coding-light` or `coding-hard`.
+
+### Case 5: Have code but not fully confident
+
+Use `review`. This is a valuable step when you want to check edge cases, code smells, or risks before merging.
+
+## Pocket note
+
+```text title="pocket-note.txt"
+coding-light  = daily coding
+coding-hard   = hard coding, many steps
+reasoning     = deep thinking, root cause
+architect     = spec, design, proposal
+eazy          = quick questions, small tasks
+vision        = images, UI, screenshots
+review        = inspect solutions / PRs / edge cases
+```
+
+## Conclusion
+
+The key isn't which model is the most powerful, but **putting the right model in the right role**.
+
+This cheatsheet helps me reduce hesitation time when picking combos:
+
+* don't mistakenly call a thinker for quick coding
+* don't rush to throw coders at root cause problems
+* don't use casual chat combos for review
+* don't make text-only models guess from thin air when there are images
+
+If you're also using multiple combos in 9Router, treat this as a **mini playbook**: open it, pick the right lane, then get to work.

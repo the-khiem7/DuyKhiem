@@ -1,0 +1,323 @@
+---
+title: 'Cheatsheet combo 9Router cho daily use'
+description: 'Một cheatsheet thực chiến để chọn đúng combo 9Router mỗi ngày cho code, reasoning, review, design và vision.'
+publishDate: '2026-03-16T08:00:00Z'
+tags:
+  - 9router
+  - llm
+  - coding
+  - workflow
+  - ai
+language: 'Vietnamese'
+draft: false
+comment: true
+---
+
+import { Aside, Tabs, TabItem, Steps, Collapse } from 'astro-pure/user'
+
+## Vì sao tôi cần một cheatsheet combo?
+
+Khi số lượng model tăng lên, vấn đề không còn là “model nào mạnh nhất” mà là **model nào hợp vai nhất cho từng việc**.
+
+Với 9Router, mình không muốn mỗi lần làm việc lại phải ngồi nhớ:
+
+- combo nào hợp để code nhanh
+- combo nào hợp để nghĩ sâu
+- combo nào hợp để review
+- combo nào hợp để đọc ảnh hoặc screenshot
+
+Bài này là bản ghi chú thực chiến để **mở lên và chọn combo trong vài giây**.
+
+<Aside type='tip' title='Triết lý chọn combo'>
+  Đừng dùng một combo cho mọi việc. Code thường ngày, debug khó, viết spec, review và đọc ảnh là năm kiểu bài toán khác nhau.
+</Aside>
+
+## Cách tôi chia combo
+
+<Steps>
+1. Tách theo **loại công việc**, không tách theo tên model
+2. Trong mỗi combo, chọn model theo **vai trò**
+3. Ghi chú ngắn thế mạnh từng model để dễ nhớ
+4. Dùng combo nhẹ trước, chỉ nâng cấp khi bài toán bắt đầu “căng”
+</Steps>
+
+## Bản đồ chọn nhanh
+
+<Tabs syncKey='router-combo'>
+  <TabItem label='Code'>
+    - Code thường ngày → `coding-light`  
+    - Code khó / refactor lớn → `coding-hard`
+  </TabItem>
+  <TabItem label='Think'>
+    - Tìm root cause / phân tích logic → `reasoning`  
+    - Viết spec / design / proposal → `architect`
+  </TabItem>
+  <TabItem label='Fast'>
+    - Việc nhỏ, hỏi nhanh, snippet ngắn → `eazy`
+  </TabItem>
+  <TabItem label='Check'>
+    - Review PR / audit / phản biện → `review`
+  </TabItem>
+  <TabItem label='Image'>
+    - Screenshot / UI / diagram / ảnh → `vision`
+  </TabItem>
+</Tabs>
+
+## 1. `coding-light`
+
+**Dùng khi**
+
+- code thường ngày
+- CRUD
+- sửa bug vừa
+- scaffold nhanh
+- refactor nhẹ
+- agent edit code liên tục
+
+**Tính cách của combo này**
+
+Đây là combo **coder-first**. Mục tiêu là viết code nhanh, ổn định, không kéo các model thiên reasoning vào làm task bị “nặng đầu” không cần thiết.
+
+### Models
+
+- `qw/qwen3-coder-plus` — chủ lực code, cân bằng tốt giữa chất lượng và tốc độ
+- `kr/qwen3-coder-next` — hợp agent coding, mạnh trong flow nhiều bước
+- `if/qwen3-coder-plus` — backup coder cùng họ tư duy với Qwen coder
+- `qw/qwen3-coder-flash` — nhanh nhất nhóm, hợp patch nhỏ và việc ngắn
+
+**Câu thần chú**
+
+> Code bình thường, không cần triết học, cứ `coding-light`.
+
+<Aside type='note' title='Khi nào nên nâng cấp?'>
+  Nếu task bắt đầu dính logic phức tạp, nhiều file, hoặc agent cần plan trước khi sửa, đó là lúc chuyển sang `coding-hard`.
+</Aside>
+
+## 2. `coding-hard`
+
+**Dùng khi**
+
+- feature khó
+- refactor nhiều file
+- bug logic khó
+- task vừa cần code vừa cần nghĩ
+- agent phải plan rồi mới sửa
+
+**Tính cách của combo này**
+
+Đây là combo **engineering mode**. Không chỉ viết code, nó còn đủ não để suy nghĩ trước khi ra patch.
+
+### Models
+
+- `qw/qwen3-coder-plus` — người viết code chính
+- `kr/claude-sonnet-4.5` — planner/reviewer, mạnh ở cấu trúc và giải thích
+- `if/deepseek-v3.2` — reasoning phụ trợ, nối logic khá ổn
+- `kr/qwen3-coder-next` — coder bổ sung, hợp task kéo dài nhiều bước
+
+**Câu thần chú**
+
+> Code khó, nhiều bước, cần vừa làm vừa nghĩ → `coding-hard`.
+
+## 3. `reasoning`
+
+**Dùng khi**
+
+- tìm root cause
+- debug rất khó
+- phân tích log dài
+- tranh luận giải pháp
+- thuật toán hoặc luồng logic phức tạp
+- chưa muốn code ngay
+
+**Tính cách của combo này**
+
+Đây là combo dành cho những lúc bạn cần nói:
+
+> Khoan, chưa sửa. Ngồi xuống và nghĩ đã.
+
+### Models
+
+- `if/deepseek-r1` — đào sâu logic, rất hợp tìm nguyên nhân gốc
+- `if/kimi-k2` — giữ context dài, tổng hợp được nhiều thông tin
+- `if/qwen3-max` — reasoning cân bằng, đa dụng, dễ giao việc
+- `if/qwen3-235b-a22b-thinking-2507` — thinker chuyên sâu, hợp phản biện và nghĩ dai
+
+**Câu thần chú**
+
+> Bài toán chưa rõ nguyên nhân thì đừng chạm code, dùng `reasoning`.
+
+<Collapse title='Khi nào reasoning là lựa chọn tốt hơn coding-hard?'>
+  <div slot='before' class='text-sm text-muted-foreground'>Một mẹo nhỏ để tránh sửa sai hướng</div>
+
+  Chọn `reasoning` trước nếu bạn đang ở một trong các tình huống sau:
+
+  - Có nhiều giả thuyết nhưng chưa biết giả thuyết nào đúng
+  - Đã sửa vài lần mà bug vẫn quay lại
+  - Log rất dài, dính nhiều service hoặc nhiều tầng
+  - Bạn muốn mô hình phân tích trước khi đụng vào code
+</Collapse>
+
+## 4. `architect`
+
+**Dùng khi**
+
+- viết spec
+- đề xuất kiến trúc
+- chia module hoặc service
+- chọn pattern
+- viết doc, proposal, design note
+- so sánh phương án
+
+**Tính cách của combo này**
+
+Đây là combo dành cho **design và diễn đạt**. Nó không nhằm ra patch nhanh, mà nhằm ra quyết định tốt và viết ra tài liệu dễ đọc.
+
+### Models
+
+- `kr/claude-sonnet-4.5` — viết mạch lạc, cấu trúc đẹp, rất hợp design/spec
+- `if/kimi-k2` — giữ context dài, tổng hợp tài liệu tốt
+- `if/qwen3-max` — cân bằng giữa tư duy và tính thực dụng
+- `if/deepseek-r1` — phản biện logic, soi lỗ hổng kiến trúc
+
+**Câu thần chú**
+
+> Viết spec, design, proposal hoặc architecture note → `architect`.
+
+## 5. `eazy`
+
+**Dùng khi**
+
+- hỏi nhanh
+- transform text
+- sửa snippet ngắn
+- brainstorm nhẹ
+- chat thường ngày
+- task nhỏ nhưng nhiều
+
+**Tính cách của combo này**
+
+Đây là combo **fast lane**. Không phải lúc nào cũng cần gọi dàn não lớn ra họp. Nhiều việc chỉ cần một combo nhanh, gọn, đủ thông minh là xong.
+
+### Models
+
+- `gc/gemini-3-flash-preview` — rất nhanh, hợp hỏi đáp và task thường ngày
+- `kr/claude-haiku-4.5` — gọn, nhanh, ổn cho text và general chat
+- `if/deepseek-v3.2` — nhanh nhưng vẫn có não, hợp task hơi kỹ thuật
+- `qw/qwen3-coder-flash` — nhanh cho code snippet hoặc patch nhỏ
+
+**Câu thần chú**
+
+> Việc lặt vặt, cần tốc độ, không cần overkill → `eazy`.
+
+## 6. `vision`
+
+**Dùng khi**
+
+- đọc screenshot lỗi
+- phân tích UI
+- xem diagram
+- ảnh kèm text
+- nhìn giao diện rồi suy ra flow hoặc code
+
+**Tính cách của combo này**
+
+Đây là combo cho mọi thứ có yếu tố hình ảnh. Khi có screenshot, UI, sơ đồ hoặc ảnh chụp lỗi, dùng đúng combo vision sẽ giúp model bớt đoán mò.
+
+### Models
+
+- `if/qwen3-vl-plus` — vision chủ lực, hợp ảnh và phân tích kỹ thuật
+- `gc/gemini-3-pro-preview` — multimodal mạnh, hợp ảnh + reasoning
+- `qw/vision-model` — fallback vision, thêm một góc nhìn dự phòng
+
+**Câu thần chú**
+
+> Có ảnh thì đừng ép combo text-only đoán mò. Cứ `vision`.
+
+## 7. `review`
+
+**Dùng khi**
+
+- review PR
+- audit code
+- phản biện giải pháp
+- check edge case
+- soi bug tiềm ẩn
+- verify output từ combo khác
+
+**Tính cách của combo này**
+
+Đây là combo dành cho việc **ngồi soi**. Không phải tạo ra lời giải đầu tiên, mà là kiểm tra xem lời giải đó có gì đáng nghi hay không.
+
+### Models
+
+- `kr/claude-sonnet-4.5` — review mạch lạc, nhận xét rõ ràng, dễ đọc
+- `if/deepseek-r1` — soi logic sâu, hợp tìm lỗi ẩn
+- `if/qwen3-max` — reviewer cân bằng, thực dụng
+
+**Câu thần chú**
+
+> Đã có lời giải rồi, giờ cần soi nó → `review`.
+
+<Aside type='caution' title='Sai lầm phổ biến'>
+  Nhiều người dùng combo review để generate lời giải từ đầu. Vẫn được, nhưng không phải use case đẹp nhất. Combo này mạnh nhất khi đã có code, spec hoặc hướng giải rồi.
+</Aside>
+
+## Workflow thực chiến
+
+### Case 1: Làm feature backend
+
+Bắt đầu với `coding-light`.
+
+Nếu task bắt đầu có một trong các dấu hiệu sau:
+
+- nhiều file
+- flow phức tạp
+- agent cần plan trước
+- sửa một chỗ kéo theo ba chỗ khác
+
+thì chuyển lên `coding-hard`.
+
+### Case 2: Bug khó
+
+Bắt đầu với `reasoning` để tìm nguyên nhân gốc.
+
+Sau khi đã rõ hướng sửa, chuyển sang `coding-hard` để ra patch. Cách này thường đỡ hơn rất nhiều so với kiểu "sửa theo cảm giác".
+
+### Case 3: Viết tài liệu kiến trúc
+
+Dùng `architect` để ra hướng tiếp cận, lựa chọn pattern và viết spec.
+
+Khi xong bản đầu tiên, ném qua `review` để tự phản biện.
+
+### Case 4: Có screenshot hoặc ảnh
+
+Bắt đầu bằng `vision`. Sau khi đã hiểu ảnh hoặc flow UI, nếu cần sửa code thì chuyển sang `coding-light` hoặc `coding-hard`.
+
+### Case 5: Có code rồi nhưng chưa thật sự tin
+
+Dùng `review`. Đây là bước rất đáng giá khi bạn muốn check edge case, smell, hoặc rủi ro trước khi merge.
+
+## Bản pocket note
+
+```text title="pocket-note.txt"
+coding-light  = code thường ngày
+coding-hard   = code khó, nhiều bước
+reasoning     = nghĩ sâu, tìm root cause
+architect     = spec, design, proposal
+eazy          = hỏi nhanh, task nhỏ
+vision        = ảnh, UI, screenshot
+review        = soi lại lời giải / PR / edge case
+```
+
+## Kết luận
+
+Mấu chốt không nằm ở việc model nào mạnh nhất, mà nằm ở việc **đặt đúng model vào đúng vai**.
+
+Cheatsheet này giúp mình giảm thời gian do dự mỗi khi chọn combo:
+
+* cần code nhanh thì không gọi nhầm thinker
+* cần root cause thì không vội quăng vào coder
+* cần review thì không dùng combo chat thường ngày
+* có ảnh thì không bắt model text-only đoán từ không khí
+
+Nếu bạn cũng đang dùng nhiều combo trong 9Router, hãy coi đây như một **playbook mini**: mở lên, chọn đúng lane, rồi làm việc.
