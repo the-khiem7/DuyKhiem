@@ -1,0 +1,395 @@
+---
+title: '9Router và headless coder agent'
+description: 'Cách hiểu 9Router, headless coder agent, và quy trình kết nối thực tế với VS Code.'
+publishDate: '2026-03-15T14:00:00Z'
+tags:
+  - ai
+  - vscode
+  - cline
+  - continue
+  - llm
+  - router
+heroImage:
+  src: './thumbnail.jpg'
+  alt: 'Sơ đồ VS Code kết nối tới 9Router và nhiều AI provider'
+  color: '#1F2937'
+language: 'Vietnamese'
+draft: false
+comment: true
+---
+
+import { Aside, Steps, Tabs, TabItem, Collapse } from 'astro-pure/user'
+import { GithubCard, LinkPreview } from 'astro-pure/advanced'
+
+## Từ AI Supporting sang AI-Driven
+
+Rất nhiều developer bắt đầu với kiểu dùng AI như một **trợ lý gõ code**:
+
+- GitHub Copilot để autocomplete
+- ChatGPT để hỏi logic
+- đôi lúc paste error vào chat rồi cầu nguyện
+
+Kiểu này mình gọi là **AI Supporting**: dev vẫn suy nghĩ chính, AI chỉ hỗ trợ một phần nhỏ.
+
+Khi chuyển sang **AI-Driven**, vai trò của AI đổi hẳn:
+
+- đọc codebase
+- đề xuất kế hoạch
+- sửa nhiều file
+- chạy command
+- lặp lại cho đến khi task hoàn thành
+
+Đó là lý do các tool như **Cline**, **Continue Agent**, **Codex CLI**, hay các IDE như **Kiro** bắt đầu được chú ý mạnh. Chúng không chỉ viết vài dòng code cho đẹp đội hình. Chúng bắt đầu tham gia vào cả workflow phát triển phần mềm.
+
+<Aside type='note' title='Một cách nhìn rất thực dụng'>
+  Copilot giống một autocomplete siêu mạnh. Headless coder agent giống một người phụ việc biết đọc repo, biết sửa file, biết chạy lệnh, nhưng vẫn cần bạn giám sát.
+</Aside>
+
+## Headless coder agent là gì?
+
+Khi nói "headless coder agent", mình đang nói tới nhóm công cụ có thể nhận một yêu cầu tự nhiên như:
+
+```text
+Add Redis caching for the product API and update tests
+```
+
+rồi tự:
+
+1. đọc repo
+2. tìm file liên quan
+3. sửa code
+4. chạy build hoặc test
+5. báo lại những gì đã thay đổi
+
+Điểm quan trọng là: **agent không phải LLM**.
+
+Một hệ thống AI coding thường có 3 lớp:
+
+```text
+IDE / CLI
+  ↓
+Agent
+  ↓
+LLM hoặc Router
+```
+
+Trong đó:
+
+* **Agent** là thứ điều phối hành động
+* **LLM** là bộ não sinh ra reasoning và code
+* **Router** là lớp định tuyến model, fallback quota, gom nhiều provider vào một endpoint
+
+## 9Router là gì?
+
+[9Router](https://github.com/decolua/9router) là một **local AI router** cung cấp **OpenAI-compatible API** tại local host, để các tool như Cline, Codex, Copilot, Cursor, OpenCode hay OpenClaw có thể gọi vào một endpoint duy nhất.
+
+Theo README của project, luồng quick start cơ bản là:
+
+* chạy 9Router local
+* dashboard mở ở `http://localhost:20128`
+* API endpoint là `http://localhost:20128/v1`
+* kết nối provider trong dashboard
+* dùng endpoint đó trong tool AI của bạn
+
+Điểm hấp dẫn nhất của 9Router là ý tưởng:
+
+* **một endpoint duy nhất**
+* **nhiều provider phía sau**
+* **combo fallback khi hết quota hoặc lỗi**
+
+<GithubCard repo='decolua/9router' />
+
+## Vì sao lớp router này đáng giá?
+
+Nếu không có router, workflow thường trông như sau:
+
+```text
+Hết quota Claude
+→ đổi extension
+→ đổi provider
+→ đổi API key
+→ đổi model
+→ mất context
+→ hơi điên
+```
+
+Còn nếu có router:
+
+```text
+VS Code / Cline
+  ↓
+9Router
+  ↓
+Claude / Gemini / Qwen / DeepSeek / ...
+```
+
+thì IDE chỉ biết một model alias hoặc một combo. Khi provider A hết quota, router có thể rơi xuống provider B.
+
+<Aside type='tip' title='Lợi ích lớn nhất'>
+  Bạn không cần đổi IDE, không cần đổi profile, không cần nhảy extension chỉ vì một provider vừa hết quota. Đây là chỗ router layer đáng tiền nhất, kể cả khi nó chạy local và miễn phí.
+</Aside>
+
+## Smart routing của 9Router thực sự là gì?
+
+Đây là chỗ nhiều người mới rất dễ hiểu nhầm.
+
+Trong trải nghiệm thực tế với UI hiện tại của 9Router:
+
+* **Providers** là nơi kết nối tài khoản hoặc credential
+* **Proxy Pools** là proxy mạng, không phải routing logic cho model
+* **Combos** mới là nơi bạn tạo chuỗi **fallback / priority**
+
+Nói ngắn gọn:
+
+* **Proxy Pools**: HTTP/SOCKS proxy
+* **Combos**: ghép nhiều model theo thứ tự ưu tiên
+
+Một combo kiểu `code` có thể trông như sau:
+
+```text
+1. kr/claude-sonnet-4.5
+2. kr/qwen3-coder-next
+3. qw/qwen3-coder-plus
+4. qw/qwen3-coder-flash
+```
+
+Khi đó request sẽ thử model đầu tiên trước. Nếu fail, timeout, hoặc hết quota, router sẽ rơi xuống model sau.
+
+## Một lưu ý rất quan trọng về "smart"
+
+Tính đến **tháng 3/2026**, phần public docs của 9Router mô tả rất rõ:
+
+* OpenAI-compatible API
+* smart fallback
+* multi-provider routing
+* combo-based routing
+
+Nhưng mình **chưa thấy tài liệu chính thức public nào nói rõ** rằng 9Router đang tự phân loại prompt theo ngữ nghĩa kiểu:
+
+* prompt code → Qwen
+* prompt reasoning → Claude
+* prompt ngắn → Gemini
+
+Thứ có thật và dùng được ngay là:
+
+* **fallback theo thứ tự**
+* **chia combo theo use case**
+* **map Plan/Act trong agent sang các combo khác nhau**
+
+Đây là khác biệt nhỏ nhưng quan trọng. Đừng kỳ vọng một "LLM thần thánh tự đoán mọi thứ". Hãy cấu hình theo ý đồ của mình.
+
+## Cline và Continue: khác nhau thế nào?
+
+Cả **Cline** lẫn **Continue** đều có thể đóng vai trò AI coding assistant/agent trong VS Code, nhưng triết lý dùng hơi khác nhau.
+
+### Cline
+
+Cline thiên về **agentic workflow** hơn:
+
+* đọc file
+* sửa file
+* chạy terminal
+* có tư duy `Plan` và `Act`
+* hỗ trợ **OpenAI-compatible API**
+
+Điểm này khiến nó hợp với 9Router một cách gần như tự nhiên.
+
+### Continue
+
+Continue linh hoạt hơn ở vai trò **AI toolbox trong IDE**:
+
+* autocomplete
+* edit
+* chat
+* agent mode
+* cấu hình nhiều provider và model khác nhau
+
+Nếu bạn muốn một hệ sinh thái AI trong VS Code đa dạng hơn, Continue rất đáng thử. Nếu bạn muốn cảm giác "AI làm task rõ ràng, từng bước", Cline thường trực diện hơn.
+
+<Tabs syncKey='agents'>
+  <TabItem label='Cline'>
+    Phù hợp khi bạn muốn một coding agent thiên về task execution, Plan/Act rõ ràng, và nối nhanh với endpoint kiểu OpenAI-compatible.
+  </TabItem>
+  <TabItem label='Continue'>
+    Phù hợp khi bạn muốn một AI toolbox linh hoạt hơn trong IDE: autocomplete, edit, chat và agent mode trong cùng một hệ thống.
+  </TabItem>
+</Tabs>
+
+## Kiro IDE đứng ở đâu trong bức tranh này?
+
+Kiro là một **AI-native IDE** xây trên **Code OSS**, nhấn mạnh vào **spec-driven development**. Theo tài liệu của họ, Kiro muốn đưa AI vào quy trình có cấu trúc hơn:
+
+* requirements
+* design
+* tasks
+* code
+
+Điểm này khiến Kiro khác với kiểu "vibe coding rồi sửa sau". Nó cố gắng kéo AI từ trạng thái "viết code nhanh" sang "tham gia cả vòng đời triển khai".
+
+Điều thú vị là: ngay cả khi bạn **không dùng Kiro**, bạn vẫn có thể học được từ triết lý đó và áp dụng vào VS Code + Cline + 9Router:
+
+* combo `plan` cho reasoning
+* combo `code` cho implementation
+* combo `fast` cho hỏi nhanh
+
+## Kiến trúc thực chiến mình khuyên dùng
+
+Nếu bạn đang ở VS Code và muốn đi từ dễ tới mạnh, kiến trúc này khá hợp lý:
+
+```text
+VS Code
+  ├─ Cline
+  ├─ Continue (optional)
+  └─ Copilot (optional)
+        ↓
+      9Router
+        ↓
+   Combos / Providers
+        ↓
+Claude / Qwen / Gemini / DeepSeek / ...
+```
+
+Tư duy ở đây là:
+
+* **Cline** cho task execution
+* **Continue** cho chat/edit linh hoạt
+* **9Router** cho fallback và thống nhất endpoint
+
+## Cách nối Cline với 9Router
+
+<Steps>
+1. Chạy 9Router local và mở dashboard
+2. Vào **Providers** để kết nối ít nhất một provider khả dụng
+3. Tạo một **Combo** để gom model fallback theo thứ tự ưu tiên
+4. Trong Cline, chọn **OpenAI Compatible**
+5. Điền `Base URL` là `http://localhost:20128/v1`
+6. Điền API key do 9Router cấp trong dashboard
+7. Dùng tên combo làm **Model ID**
+</Steps>
+
+Ví dụ cấu hình trong Cline:
+
+```text
+Provider: OpenAI Compatible
+Base URL: http://localhost:20128/v1
+API Key: <your-9router-key>
+Model ID: code
+```
+
+Sau đó Cline sẽ không cần biết model thật ở phía sau là Claude, Qwen hay Gemini. Nó chỉ biết một cái tên như `code`.
+
+### Gợi ý 3 combo thực dụng
+
+```text title="Combo gợi ý"
+plan
+1. kr/claude-sonnet-4.5
+2. kr/deepseek-3.2
+3. qw/qwen3-coder-plus
+
+code
+1. kr/qwen3-coder-next
+2. qw/qwen3-coder-plus
+3. qw/qwen3-coder-flash
+
+fast
+1. cline/gemini-3.1-flash-lite-preview
+2. qw/qwen3-coder-flash
+```
+
+### Tận dụng Plan / Act trong Cline
+
+Nếu bạn dùng Cline, đây là pattern rất ngon:
+
+```text
+Plan mode → plan
+Act mode  → code
+```
+
+Ý tưởng:
+
+* khi cần suy nghĩ kiến trúc hoặc lập kế hoạch → dùng model reasoning mạnh
+* khi cần sửa code hàng loạt hoặc generate code → dùng model coding nhanh và rẻ hơn
+
+<Aside type='caution' title='Đừng nối mù theo prefix'>
+  Nếu bạn gọi một model alias như `if/qwen3-coder-plus` nhưng provider `if` chưa kết nối trong 9Router, request sẽ fail ngay. Prefix trong model alias thường ngụ ý provider hoặc pool phía sau.
+</Aside>
+
+## Continue có nối với 9Router được không?
+
+Có, miễn là workflow của bạn dùng **OpenAI-compatible endpoint** hoặc provider phù hợp. Ý tưởng giống hệt:
+
+* trỏ tới endpoint local của 9Router
+* dùng model alias hoặc combo từ router
+* để router xử lý fallback và quota
+
+Nếu bạn thích Continue vì chat/edit/autocomplete đa dạng hơn, router vẫn có giá trị như cũ: gom mọi thứ về một endpoint.
+
+## Nên viết một bài hay nhiều bài?
+
+Mình nghiêng về **series 3 bài** thay vì một bài all-in-one.
+
+### Bài 1 — bài nền tảng
+
+**9Router và headless coder agent**
+Tập trung giải thích:
+
+* AI Supporting vs AI-Driven
+* agent là gì
+* router là gì
+* vì sao cần 9Router
+
+### Bài 2 — bài thực hành
+
+**Kết nối Cline/Continue với 9Router trên VS Code**
+Tập trung vào:
+
+* cách cấu hình endpoint
+* model alias
+* combo
+* fallback
+* lỗi thường gặp
+
+### Bài 3 — bài chiến lược
+
+**Thiết kế workflow AI coding không lệ thuộc quota**
+Tập trung vào:
+
+* plan/code/fast combo
+* đổi model mà không đổi IDE
+* cách phân vai reasoning và coding
+* khi nào dùng Cline, Continue, Kiro
+
+<Collapse title='Vì sao mình không nhét hết vào một bài?'>
+  <div slot='before' class='text-sm text-muted-foreground'>Vì nhét hết vào một bài thường dẫn tới hai kết cục: hoặc quá dài, hoặc quá nông. Và cả hai đều không vui.</div>
+  <p>
+    Chủ đề này có ba lớp khác nhau: khái niệm, cấu hình, và workflow. Tách ra thành series giúp mỗi bài có mục tiêu rõ hơn, SEO sạch hơn, và người đọc đỡ bị overload.
+  </p>
+</Collapse>
+
+## Kết luận
+
+Nếu phải tóm gọn toàn bộ câu chuyện trong một ý:
+
+**9Router không phải AI, mà là lớp router giúp các AI coding tool sống sót khi quota và provider trở mặt như người yêu cũ.**
+
+Còn **headless coder agent** là bước tiến từ kiểu dùng AI để autocomplete sang kiểu dùng AI để tham gia thật vào quy trình phát triển phần mềm.
+
+Với setup đúng, bạn có thể giữ nguyên:
+
+* IDE
+* extension
+* workflow
+
+nhưng thay đổi hoàn toàn độ linh hoạt phía sau bằng một local router và vài combo hợp lý.
+
+## Tài liệu chính thức nên đọc thêm
+
+* [9Router README](https://github.com/decolua/9router)
+* [Cline: OpenAI Compatible provider](https://docs.cline.bot/provider-config/openai-compatible)
+* [Continue Agent Quick Start](https://docs.continue.dev/ide-extensions/agent/quick-start)
+* [Kiro FAQ](https://kiro.dev/faq/)
+* [Kiro: Introducing Kiro](https://kiro.dev/blog/introducing-kiro/)
+
+<LinkPreview href='https://github.com/decolua/9router' />
+
+<LinkPreview href='https://docs.cline.bot/provider-config/openai-compatible' />
