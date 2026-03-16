@@ -157,9 +157,9 @@ export const integ: IntegrationUserConfig = {
   },
   // Comment system
   waline: {
-    enable: true,
-    // Server service link
-    server: 'https://astro-theme-pure-waline.arthals.ink/',
+    enable: false, // Disabled - deploy your own Waline server following src/content/docs/guides/waline-deployment-guide.md
+    // Server service link - replace with your own Waline server URL
+    server: '', // TODO: Add your Waline server URL after deployment
     // Show meta info for comments
     showMeta: false,
     // Refer https://waline.js.org/en/guide/features/emoji.html
