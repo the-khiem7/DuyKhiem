@@ -3,6 +3,8 @@ import { type CollectionEntry } from 'astro:content'
 
 import { getBlogCollection } from 'astro-pure/server'
 import { cn } from 'astro-pure/utils'
+import { getSiteDictionary } from '@/i18n/site'
+import { DEFAULT_LOCALE, type SiteLocale, withLocalePath } from '@/utils/i18n'
 
 export const prerender = true
 export const partial = true
@@ -16,22 +18,19 @@ const docsByCate = docsCollection.reduce((acc: { [key: string]: typeof docsColle
   return acc
 }, {})
 
-const docCategories = {
-  setup: 'Setup',
-  integrations: 'Integrations',
-  advanced: 'Advanced'
-}
-
 type Props = {
   title?: boolean
   class?: string
+  locale?: SiteLocale
 }
 
-const { title = true, class: className, ...props } = Astro.props
+const { title = true, class: className, locale = DEFAULT_LOCALE, ...props } = Astro.props
+const dict = getSiteDictionary(locale)
+const docCategories: Record<string, string> = dict.docs.tocCategories
 ---
 
 <docs-toc class={cn('not-prose', className)} {...props}>
-  {title && <h2 class='text-foreground font-medium'>DOCS</h2>}
+  {title && <h2 class='text-foreground font-medium'>{dict.docs.tocTitle}</h2>}
   <ul class='mt-4 flex flex-col gap-y-5'>
     {
       Object.entries(docCategories).map(([id, title]: [string, string]) => (
@@ -42,7 +41,7 @@ const { title = true, class: className, ...props } = Astro.props
               .sort((a, b) => a.data.order - b.data.order)
               .map((doc) => (
                 <li class='docs-item flex relative ms-2 px-3 py-1 text-foreground/75 transition-all rounded-2xl'>
-                  <a class='flex-1 hover:text-foreground' href={`/docs/${doc.id}`}>
+                  <a class='flex-1 hover:text-foreground' href={withLocalePath(locale, `/docs/${doc.id}`)}>
                     {doc.data.title}
                   </a>
                 </li>

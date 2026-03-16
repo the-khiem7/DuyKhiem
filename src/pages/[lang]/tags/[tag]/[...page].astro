@@ -8,7 +8,11 @@ import PostPreview from '@/components/blog/PostPreview.astro'
 import PageLayout from '@/layouts/BaseLayout.astro'
 import config from '@/site-config'
 import { getLocalizedBlogEntries, getLocalizedPostsByTag } from '@/utils/blog-i18n'
-import { DEFAULT_LOCALE, SUPPORTED_LOCALES, type SiteLocale } from '@/utils/i18n'
+import {
+  getLocaleAlternates,
+  resolveLocaleParam,
+  SUPPORTED_LOCALES
+} from '@/utils/i18n'
 import { getBlogCollection } from 'astro-pure/server'
 
 export const prerender = true
@@ -36,8 +40,8 @@ export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
 }
 
 const { page } = Astro.props as { page: Page<LocalizedPageData> }
-const { lang = DEFAULT_LOCALE, tag = '' } = Astro.params
-const locale = lang as SiteLocale
+const { tag = '' } = Astro.params
+const locale = resolveLocaleParam(Astro.params.lang)
 
 const meta = {
   description: `View all posts with the tag - ${tag}`,
@@ -64,10 +68,7 @@ const paginationProps = {
   {meta}
   locale={locale}
   canonicalPath={page.url.current}
-  alternates={SUPPORTED_LOCALES.map((candidate) => ({
-    href: `/${candidate}${page.url.current.replace(/^\/(en|vi)/, '')}`,
-    hreflang: candidate
-  }))}
+  alternates={getLocaleAlternates(page.url.current)}
 >
   <Button title='Back' href={`/${locale}/blog`} variant='back' />
   <main class='mt-6 lg:mt-10'>

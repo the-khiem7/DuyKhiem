@@ -1,10 +1,14 @@
 ---
-import { SUPPORTED_LOCALES } from '@/utils/i18n'
+import AboutPage from '@/components/about/AboutPage.astro'
+import { getLocaleStaticPaths, resolveLocaleParam } from '@/utils/i18n'
 
 export const prerender = true
 
 export function getStaticPaths() {
-  return SUPPORTED_LOCALES.map((lang) => ({ params: { lang } }))
+  return getLocaleStaticPaths()
 }
 
-return Astro.redirect('/about', 302)
+const locale = resolveLocaleParam(Astro.params.lang)
+---
+
+<AboutPage {locale} />

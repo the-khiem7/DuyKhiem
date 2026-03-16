@@ -6,16 +6,15 @@ import { cn } from 'astro-pure/utils'
 import PageLayout from '@/layouts/BaseLayout.astro'
 import { getBlogCollection } from 'astro-pure/server'
 import { getLocalizedTagsWithCount } from '@/utils/blog-i18n'
-import { DEFAULT_LOCALE, SUPPORTED_LOCALES, type SiteLocale } from '@/utils/i18n'
+import { getLocaleAlternates, getLocaleStaticPaths, resolveLocaleParam } from '@/utils/i18n'
 
 export const prerender = true
 
 export function getStaticPaths() {
-  return SUPPORTED_LOCALES.map((lang) => ({ params: { lang } }))
+  return getLocaleStaticPaths()
 }
 
-const { lang = DEFAULT_LOCALE } = Astro.params
-const locale = lang as SiteLocale
+const locale = resolveLocaleParam(Astro.params.lang)
 const allPosts = (await getBlogCollection()) as CollectionEntry<'blog'>[]
 const allTags = getLocalizedTagsWithCount(allPosts, locale)
 
@@ -29,10 +28,7 @@ const meta = {
   {meta}
   locale={locale}
   canonicalPath={`/${locale}/tags`}
-  alternates={SUPPORTED_LOCALES.map((candidate) => ({
-    href: `/${candidate}/tags`,
-    hreflang: candidate
-  }))}
+  alternates={getLocaleAlternates('/tags')}
 >
   <Button title='Back' href={`/${locale}/blog`} variant='back' />
   <main class='mt-6 lg:mt-10'>

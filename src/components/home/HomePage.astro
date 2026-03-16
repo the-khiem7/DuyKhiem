@@ -5,6 +5,7 @@ import type { CollectionEntry } from 'astro:content'
 import { Quote } from 'astro-pure/advanced'
 import { getBlogCollection } from 'astro-pure/server'
 import { Button, Card, Icon, Label } from 'astro-pure/user'
+import { getSiteDictionary } from '@/i18n/site'
 import PostPreview from '@/components/blog/PostPreview.astro'
 import ProjectCard from '@/components/home/ProjectCard.astro'
 import Section from '@/components/home/Section.astro'
@@ -19,6 +20,7 @@ interface Props {
 }
 
 const { locale } = Astro.props
+const dict = getSiteDictionary(locale)
 
 const backend = ['C#', '.NET 8', 'ASP.NET Core', 'REST APIs', 'FastAPI', 'Java']
 const systems = ['Microservices', 'Kafka', '.NET Aspire', 'YARP', 'SignalR', 'Workflow Design']
@@ -37,7 +39,7 @@ if (!images[imagePath]) {
 }
 ---
 
-<PageLayout meta={{ title: 'Home' }} highlightColor='#659EB9' locale={locale} canonicalPath={withLocalePath(locale, '/')}>
+<PageLayout meta={{ title: dict.home.metaTitle }} highlightColor='#659EB9' locale={locale} canonicalPath={withLocalePath(locale, '/')}>
   <main class='flex w-full flex-col items-center'>
     <section class='animate mb-10 flex flex-col items-center gap-y-7' id='content-header'>
       <Image
@@ -51,18 +53,17 @@ if (!images[imagePath]) {
       <div class='flex flex-col items-center gap-y-4'>
         <h1 class='text-3xl font-medium'>{config.author}</h1>
         <p class='max-w-2xl text-center text-lg text-muted-foreground'>
-          Backend-first engineer building workflow-heavy systems, cloud-native services, and
-          applied AI.
+          {dict.home.hero.description}
         </p>
         <div class='flex flex-wrap justify-center gap-x-7 gap-y-3'>
-          <Label title='Ho Chi Minh City'>
+          <Label title={dict.home.hero.location}>
             <Icon name='location' class='size-5' slot='icon' />
           </Label>
-          <Label title='Github' as='a' href='https://github.com/the-khiem7' target='_blank'>
+          <Label title={dict.home.hero.github} as='a' href='https://github.com/the-khiem7' target='_blank'>
             <Icon name='github' class='size-5' slot='icon' />
           </Label>
           <Label
-            title='LinkedIn'
+            title={dict.home.hero.linkedin}
             as='a'
             href='https://www.linkedin.com/in/the-khiem7/'
             target='_blank'
@@ -85,26 +86,18 @@ if (!images[imagePath]) {
           ></span>
           <span class='size-2 rounded-full bg-green-400'></span>
         </span>
-        <p class='font-medium text-muted-foreground'>Download my resume</p>
+        <p class='font-medium text-muted-foreground'>{dict.home.hero.resume}</p>
       </a>
     </section>
 
     <div id='content' class='animate flex flex-col gap-y-10 md:w-4/5 lg:w-5/6'>
-      <Section title='About'>
-        <p class='text-muted-foreground'>Software Engineering Student at FPT University</p>
-        <p class='text-muted-foreground'>
-          I focus on backend systems where architecture directly shapes reliability, operations, and
-          user trust. My recent work spans ASP.NET Core platforms, approval workflows, event-driven
-          microservices, AWS serverless pipelines, analytics workloads, and AI-assisted products.
-        </p>
-        <p class='text-muted-foreground'>
-          I am most interested in products that turn messy real-world processes into systems that
-          are easier to run, easier to trust, and easier to scale.
-        </p>
-        <Button title='More about me' class='w-fit self-end' href={withLocalePath(locale, '/about')} variant='ahead' />
+      <Section title={dict.home.sections.about}>
+        <p class='text-muted-foreground'>{dict.home.about.subtitle}</p>
+        {dict.home.about.paragraphs.map((paragraph) => <p class='text-muted-foreground'>{paragraph}</p>)}
+        <Button title={dict.home.about.cta} class='w-fit self-end' href={withLocalePath(locale, '/about')} variant='ahead' />
       </Section>
 
-      <Section title='Experience'>
+      <Section title={dict.home.sections.experience}>
         <Card
           heading='Amazon Web Services Vietnam'
           subheading='FCAJ Challenger'
@@ -119,12 +112,10 @@ if (!images[imagePath]) {
           bodyClass='pt-0'
         >
           <p class='mb-3 -mt-2 text-sm text-muted-foreground sm:text-base'>
-            Bitexco Financial Tower, Ho Chi Minh City · Hybrid
+            {dict.home.experience.awsLocation}
           </p>
           <ul class='ms-4 list-disc text-muted-foreground'>
-            <li>Built a clickstream analytics pipeline with S3, Lambda, EventBridge, PostgreSQL, and R Shiny.</li>
-            <li>Worked on private networking boundaries, IAM-aware design, and production-style AWS delivery.</li>
-            <li>Used LocalStack and Terraform to create a repeatable cloud development workflow.</li>
+            {dict.home.experience.awsBullets.map((item) => <li>{item}</li>)}
           </ul>
         </Card>
         <Card
@@ -141,77 +132,68 @@ if (!images[imagePath]) {
           bodyClass='pt-0'
         >
           <p class='mb-3 -mt-2 text-sm text-muted-foreground sm:text-base'>
-            Saigon Hi-Tech Park, Ho Chi Minh City · On-site
+            {dict.home.experience.fptLocation}
           </p>
           <ul class='ms-4 list-disc text-muted-foreground'>
-            <li>Built an ASP.NET Core financial claim workflow system used across 5+ departments.</li>
-            <li>Modeled approval logic as a state-driven workflow with role-based transitions and audit-ready history.</li>
-            <li>Led a team of 10 and automated build, test, and deployment to Azure App Service with GitHub Actions.</li>
+            {dict.home.experience.fptBullets.map((item) => <li>{item}</li>)}
           </ul>
         </Card>
       </Section>
 
-      <Section title='Education'>
+      <Section title={dict.home.sections.education}>
         <Card
           heading='FPT University - Ho Chi Minh City Campus'
           subheading='Bachelor of Software Engineering'
           date='Sep 2022 - Jun 2026'
         >
-          <p class='text-muted-foreground'>
-            Expected graduation in June 2026. My academic path has run in parallel with internships
-            and product-oriented side projects focused on backend architecture, cloud systems, and
-            applied AI.
-          </p>
+          <p class='text-muted-foreground'>{dict.home.education.body}</p>
         </Card>
       </Section>
 
-      <Section title='Projects'>
+      <Section title={dict.home.sections.projects}>
         <div class='grid grid-cols-1 gap-3 sm:grid-cols-2'>
           <ProjectCard
-            href='/projects/snakeaid'
+            href={withLocalePath(locale, '/projects/snakeaid')}
             heading='SnakeAid'
-            subheading='AI-powered healthcare platform for snakebite response, identification, and rescue coordination.'
+            subheading={dict.home.projects.cards.snakeaid}
             imagePath='/src/assets/projects/1.avif'
           />
           <ProjectCard
-            href='/projects/alohamarket'
+            href={withLocalePath(locale, '/projects/alohamarket')}
             heading='AlohaMarket'
-            subheading='Event-driven marketplace backend built with Kafka, .NET Aspire, Keycloak, and YARP.'
+            subheading={dict.home.projects.cards.alohamarket}
             imagePath='/src/assets/projects/2.avif'
           />
           <ProjectCard
-            href='/projects/ezyfix'
+            href={withLocalePath(locale, '/projects/ezyfix')}
             heading='EzyFix'
-            subheading='Home-repair marketplace backend with escrow payments, payouts, and real-time updates.'
+            subheading={dict.home.projects.cards.ezyfix}
             imagePath='/src/assets/projects/3.avif'
           />
           <ProjectCard
             href={withLocalePath(locale, '/projects')}
-            heading='More projects'
-            subheading='See the full project list, supporting systems, and technical focus areas.'
+            heading={dict.home.projects.moreHeading}
+            subheading={dict.home.projects.cards.more}
             imagePath='/src/assets/projects/4.avif'
           />
         </div>
       </Section>
 
-      <Section title='Certifications'>
+      <Section title={dict.home.sections.certifications}>
         <Card
-          heading='Selected Certifications'
-          subheading='The Linux Foundation, UC Irvine, Board Infinity, University of Minnesota'
+          heading={dict.home.sections.certifications}
+          subheading={dict.home.certifications.subtitle}
           date='2024 - 2026'
         >
           <ul class='ms-4 list-disc text-muted-foreground'>
-            <li>LFS167: Introduction to Jenkins</li>
-            <li>Project Management Principles and Practices Specialization</li>
-            <li>Java FullStack Developer Specialization</li>
-            <li>Software Development Lifecycle Specialization</li>
+            {dict.home.certifications.items.map((item) => <li>{item}</li>)}
           </ul>
         </Card>
       </Section>
 
       {
         localizedPosts.length > 0 && (
-          <Section title='Posts'>
+          <Section title={dict.home.sections.posts}>
             <ul class='flex flex-col gap-y-1.5 sm:gap-y-2'>
               {localizedPosts.map((p) => (
                 <li class='flex flex-col gap-x-2 sm:flex-row'>
@@ -219,15 +201,15 @@ if (!images[imagePath]) {
                 </li>
               ))}
             </ul>
-            <Button title='More posts' class='w-fit self-end' href={withLocalePath(locale, '/blog')} variant='ahead' />
+            <Button title={dict.home.posts.more} class='w-fit self-end' href={withLocalePath(locale, '/blog')} variant='ahead' />
           </Section>
         )
       }
 
-      <Section title='Skills'>
-        <SkillLayout title='Backend' skills={backend} />
-        <SkillLayout title='Systems' skills={systems} />
-        <SkillLayout title='Cloud & AI' skills={cloudAndAi} />
+      <Section title={dict.home.sections.skills}>
+        <SkillLayout title={dict.home.skills.backend} skills={backend} />
+        <SkillLayout title={dict.home.skills.systems} skills={systems} />
+        <SkillLayout title={dict.home.skills.cloudAndAi} skills={cloudAndAi} />
       </Section>
     </div>
     <Quote class='mt-12' />

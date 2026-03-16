@@ -1,0 +1,79 @@
+---
+import type { CollectionEntry } from 'astro:content'
+
+import { getBlogCollection } from 'astro-pure/server'
+import { Button } from 'astro-pure/user'
+import { getSiteDictionary } from '@/i18n/site'
+import PageLayout from '@/layouts/CommonPage.astro'
+import ProjectSection from '@/components/projects/ProjectSection.astro'
+import { groupProjects } from '@/components/projects/project-groups'
+import { type SiteLocale, withLocalePath } from '@/utils/i18n'
+
+interface Props {
+  locale: SiteLocale
+}
+
+const { locale } = Astro.props
+const dict = getSiteDictionary(locale)
+
+const allProjects = (await getBlogCollection('projects')) as CollectionEntry<'projects'>[]
+const { flagshipProjects, supportingSections, ungroupedSupportingProjects } = groupProjects(allProjects)
+
+const localizedSupportingSections = supportingSections.map((section) => ({
+  ...section,
+  title: dict.projects.groupTitles[section.slug as keyof typeof dict.projects.groupTitles] ?? section.title
+}))
+
+function toProjectCard(project: CollectionEntry<'projects'>) {
+  return {
+    name: project.data.title,
+    description: project.data.description,
+    href: withLocalePath(locale, `/projects/${project.id}`),
+    links: project.data.links
+  }
+}
+
+const headings = [
+  { depth: 2, slug: 'flagship-projects', text: dict.projects.headings.flagship },
+  ...localizedSupportingSections.map((section) => ({
+    depth: 2 as const,
+    slug: section.slug,
+    text: section.title
+  })),
+  ...(ungroupedSupportingProjects.length > 0
+    ? [{ depth: 2 as const, slug: 'other-projects', text: dict.projects.headings.other }]
+    : []),
+  { depth: 2, slug: 'what-these-projects-show', text: dict.projects.headings.whatTheseProjectsShow }
+]
+---
+
+<PageLayout title={dict.projects.title} {headings} view locale={locale}>
+  {dict.projects.intro.map((paragraph) => <p>{paragraph}</p>)}
+  <Button title={dict.projects.cta} class='w-fit' href='https://github.com/the-khiem7' target='_blank' />
+
+  <h2 id='flagship-projects'>{dict.projects.headings.flagship}</h2>
+  <ProjectSection projects={flagshipProjects.map(toProjectCard)} />
+
+  {
+    localizedSupportingSections.map((section) => (
+      <>
+        <h2 id={section.slug}>{section.title}</h2>
+        <ProjectSection projects={section.projects.map(toProjectCard)} />
+      </>
+    ))
+  }
+
+  {
+    ungroupedSupportingProjects.length > 0 && (
+      <>
+        <h2 id='other-projects'>{dict.projects.headings.other}</h2>
+        <ProjectSection projects={ungroupedSupportingProjects.map(toProjectCard)} />
+      </>
+    )
+  }
+
+  <h2 id='what-these-projects-show'>{dict.projects.headings.whatTheseProjectsShow}</h2>
+  <ul>
+    {dict.projects.summaryBullets.map((item) => <li>{item}</li>)}
+  </ul>
+</PageLayout>

@@ -31,8 +31,9 @@ function shuffle(arr: friend[]) {
 interface Props {
   title?: string
   list: friend_list
+  emptyLabel?: string
 }
-const { title, list: friendList, ...props } = Astro.props
+const { title, list: friendList, emptyLabel = 'Nothing here.', ...props } = Astro.props
 
 const getAvatarSrc = (friend: friend) =>
   (config.integ?.links?.cacheAvatar ?? false)
@@ -112,7 +113,7 @@ const getAvatarSrc = (friend: friend) =>
         </a>
       ))
     ) : (
-      <p>Nothing here.</p>
+      <p>{emptyLabel}</p>
     )
   }
 </div>

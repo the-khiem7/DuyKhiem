@@ -1,290 +1,372 @@
-# Multilingual Blog System
+# Multilingual System Direction
 
 ## Muc tieu
 
-Thay vi xem `en.mdx` va `vi.mdx` la hai bai blog doc lap, he thong can hoat dong theo mo hinh:
+Portfolio nay khong chi co blog. Blog chi la mot tinh nang trong toan bo website.
+Vi vay, he thong da ngon ngu can giai quyet dong thoi 2 bai toan:
 
-- co mot `global language switcher`
-- moi locale chi hien thi mot phien ban cua moi bai
-- neu locale hien tai khong co bai tuong ung thi fallback sang ban `en`
+- `global language switcher` cho toan site
+- locale phu hop cho tung loai page
+- fallback hop ly khi thieu ban dich
+- mo rong duoc cho `home`, `about`, `projects`, `links`, `blog`, `docs`
 
-## Hien trang
+Muc tieu cuoi cung la mot kien truc `hybrid i18n`, thay vi ep moi page vao cung mot kieu i18n.
 
-Blog collection hien tai load tat ca file trong `src/content/blog/**/*.{md,mdx}`.
+## Ket luan ngan
+
+Nen tach i18n thanh 3 lop:
+
+1. `Route i18n`
+- Dung locale trong URL: `/en/...`, `/vi/...`
+- Day la lop nen cho toan site
+
+2. `Content i18n`
+- Dung cho content-heavy pages nhu `blog`, `docs`
+- Moi bai hoac moi document la mot thuc the co nhieu ban dich
+- Fallback theo `document`
+
+3. `Static/Page i18n`
+- Dung cho `home`, `about`, `projects overview`, `links`
+- Noi dung duoc luu bang `ts object`, khong nhat thiet phai la `md/mdx`
+- Fallback theo `object inheritance`
+
+## Vi sao khong nen dung mot cach duy nhat
+
+Neu chi dung `md/mdx` cho tat ca:
+
+- homepage va about se bi ep thanh content document
+- kho giu layout Astro hien tai
+- kho to chuc card, CTA, section, image, stat, timeline
+
+Neu chi dung `string dictionary` cho tat ca:
+
+- blog va docs se tro nen kho quan ly
+- noi dung dai khong con phu hop voi markdown workflow
+- kho giu asset, frontmatter, heading, toc, prose
+
+Vay nen can chia theo ban chat cua tung page.
+
+## Route i18n la lop nen
+
+Locale nen nam trong URL:
+
+- `/en`
+- `/vi`
+- `/en/about`
+- `/vi/about`
+- `/en/projects`
+- `/vi/projects`
+- `/en/blog/foo`
+- `/vi/blog/foo`
+
+Ly do:
+
+- than thien voi `prerender: true`
+- SEO tot hon
+- co canonical va `hreflang` ro rang
+- global switcher de giu ngu canh trang
+- khong phu thuoc vao `localStorage` de quyet dinh noi dung server-render
+
+## Nhom 1: Content i18n cho blog va docs
+
+Ap dung cho:
+
+- `blog`
+- `docs`
+- bat ky page nao ma noi dung chu yeu la bai viet hoac tai lieu
+
+### Dac diem
+
+- moi item co nhieu file ngon ngu
+- vi du:
+  - `src/content/blog/my-post/en.mdx`
+  - `src/content/blog/my-post/vi.mdx`
+- can co `baseSlug` lam danh tinh chinh
+
+### Fallback
+
+Fallback nen o muc `document`:
+
+- vao locale hien tai neu ton tai
+- neu khong co thi fallback ve `en`
+- neu khong co `en` thi moi can can nhac fallback tiep
+
+### Vi sao phu hop
+
+- giu duoc frontmatter
+- giu duoc markdown va MDX workflow
+- de quan ly asset trong folder bai viet
+- phu hop voi bai dai, heading, code block, toc
+
+## Nhom 2: Static/Page i18n cho home, about, projects
+
+Ap dung cho:
+
+- `homepage`
+- `about`
+- `projects landing`
+- `links`
+- cac page Astro mang tinh composition
+
+### Ban chat cua nhom nay
+
+Nhung page nay khong phai la "mot bai viet". Chung la mot tap hop cac thanh phan UI:
+
+- hero
+- section
+- cards
+- CTA
+- labels
+- list
+- stats
+- timeline
+
+Noi dung cua chung nen duoc xem la `page data`, khong phai `article content`.
+
+### Cach luu tru de xuat
+
+Dung file `ts` cho moi page, moi locale.
 
 Vi du:
 
-- `src/content/blog/nab-technical-interview-log/en.mdx`
-- `src/content/blog/nab-technical-interview-log/vi.mdx`
+- `src/i18n/pages/home/en.ts`
+- `src/i18n/pages/home/vi.ts`
+- `src/i18n/pages/about/en.ts`
+- `src/i18n/pages/about/vi.ts`
 
-Astro xem day la 2 `CollectionEntry<'blog'>` khac nhau, nen:
-
-- trang list `/blog` hien thi 2 post
-- route detail sinh theo `post.id`, nen URL dang theo kieu `/blog/<slug>/<lang>`
-- khong co khai niem "mot bai, nhieu ban dich"
-
-## Rang buoc quan trong
-
-Site dang duoc cau hinh `prerender: true`.
-
-Dieu nay rat quan trong vi:
-
-- neu chi dung `localStorage` hoac cookie de doi ngon ngu thi build static se khong biet can render danh sach bai nao
-- fallback theo ngon ngu se chi xay ra o client, gay nhay UI va SEO khong tot
-- RSS, canonical, pagefind, internal link se kho dong bo
-
-Vi vay, co che phu hop nhat la **locale nam trong path**.
-
-## Kien truc de xuat
-
-### 1. Locale la global state o muc URL
-
-Dung path prefix:
-
-- `/en/...`
-- `/vi/...`
-
-Vi du:
-
-- `/en/blog`
-- `/vi/blog`
-- `/en/blog/nab-technical-interview-log`
-- `/vi/blog/nab-technical-interview-log`
-
-`LanguageSwitcher` chi can doi prefix toan site, nen van la "global switcher", nhung van than thien voi static build.
-
-### 2. Blog identity tach khoi file content
-
-Can xem `baseSlug` la danh tinh chinh cua bai.
-
-Vi du:
-
-- `src/content/blog/nab-technical-interview-log/en.mdx`
-- `src/content/blog/nab-technical-interview-log/vi.mdx`
-
-thi:
-
-- `baseSlug = nab-technical-interview-log`
-- `lang = en | vi`
-
-He thong can co utility gom cac entry theo `baseSlug`.
-
-Output mong muon:
+Mau du lieu:
 
 ```ts
-type BlogLocale = 'en' | 'vi'
-
-type LocalizedBlogGroup = {
-  baseSlug: string
-  entries: Partial<Record<BlogLocale, CollectionEntry<'blog'>>>
+export const homeEn = {
+  hero: {
+    title: 'Nguyen Van Duy Khiem',
+    description: 'Backend-first engineer building workflow-heavy systems...'
+  },
+  about: {
+    title: 'About',
+    paragraphs: [
+      'Software Engineering Student at FPT University',
+      'I focus on backend systems...'
+    ],
+    cta: 'More about me'
+  }
 }
 ```
 
-### 3. Quy tac chon phien ban hien thi
-
-Ham trung tam:
-
 ```ts
-pickLocalizedEntry(group, locale) =>
-  group.entries[locale] ?? group.entries.en ?? firstAvailableEntry
+export const homeVi = {
+  hero: {
+    description: 'Ky su thien ve backend, xay dung cac he thong workflow...'
+  },
+  about: {
+    title: 'Gioi thieu',
+    cta: 'Xem them ve toi'
+  }
+}
 ```
 
-Quy tac nay ap dung cho:
+Trong `HomePage.astro`, page se lay dictionary theo locale roi render.
 
-- blog list
-- blog detail
-- related posts
-- RSS
-- search index neu can
+## Tai sao nen dung TS thay vi JSON
 
-### 4. Hanh vi cua blog list
+`ts` phu hop hon `json` trong repo nay vi:
 
-Tai `/vi/blog`:
+- co typing
+- de autocomplete
+- co the tai su dung type giua cac page
+- de viet nested object lon
+- co the gom ca text va metadata phuc vu component render
 
-- moi `baseSlug` chi xuat hien 1 lan
-- uu tien bai `vi`
-- neu khong co `vi` thi hien bai `en`
+No khong co nghia la bo layout sang TypeScript.
+Layout van o `.astro`.
+Chi co `copy va page data` duoc tach ra thanh object.
 
-Tai `/en/blog`:
+## Co nen dung string list inheritance khong
 
-- moi `baseSlug` chi xuat hien 1 lan
-- uu tien bai `en`
+Co, nhung chi nen dung cho `static/page i18n`.
 
-He qua:
+### Cach nghi dung
 
-- khong con duplicate post trong list
-- fallback xay ra o muc du lieu, khong phai UI hack
+- `en` la base
+- `vi` la object override mot phan
+- luc runtime hoac build-time, merge `en + vi`
+- field nao `vi` chua co thi tu dong fallback ve `en`
 
-### 5. Hanh vi cua blog detail
+Vi du:
 
-Route detail nen chuyen tu:
+```ts
+const homeEn = {
+  hero: {
+    title: 'Nguyen Van Duy Khiem',
+    cta: 'More about me'
+  }
+}
 
-- `/blog/<slug>/<lang>`
+const homeVi = {
+  hero: {
+    cta: 'Xem them ve toi'
+  }
+}
+```
 
-sang:
+Sau khi merge:
 
-- `/<lang>/blog/<baseSlug>`
+- `hero.title` lay tu `en`
+- `hero.cta` lay tu `vi`
 
-Quy tac:
+### Khi nao nen dung
 
-- `/vi/blog/foo` -> lay `vi` neu co
-- neu `vi` khong co -> lay `en`
-- neu `foo` khong ton tai o bat ky ngon ngu nao -> 404
+Nen dung cho:
 
-Nhu vay user luon o trong locale context toan cuc, nhung van doc duoc bai fallback.
+- `home`
+- `about`
+- `projects overview`
+- `links`
+- `header/footer/shared labels`
 
-## Vi sao khong nen giu co che `/blog/<slug>/<lang>`
+Khong nen dung cho:
 
-Co the giu URL cu, nhung no khong phan anh "global language".
+- `blog post`
+- `docs article`
+- noi dung dai dang document
 
-Neu van giu route cu:
+Voi content-heavy pages, fallback nen o cap document, khong phai cap tung string.
 
-- switcher global phai rewrite tung link detail theo file-level locale
-- menu `/blog`, related posts, RSS van can them mot lop map locale
-- UX se mo ho: user dang o `vi`, nhung route detail lai phu thuoc vao file cu the
+## Kien truc hybrid de xuat
 
-Tom lai, route theo `baseSlug` + `locale prefix` sach hon va de mo rong hon.
+```text
+src/
+  i18n/
+    core/
+      locales.ts
+      dictionary.ts
+      merge.ts
+    shared/
+      en.ts
+      vi.ts
+    pages/
+      home/
+        en.ts
+        vi.ts
+      about/
+        en.ts
+        vi.ts
+      projects/
+        en.ts
+        vi.ts
+```
 
-## Cac thay doi can lam
+Va content-heavy pages van o:
 
-### A. Them utility i18n cho blog
+```text
+src/content/blog/<slug>/en.mdx
+src/content/blog/<slug>/vi.mdx
+src/content/docs/.../en.mdx
+src/content/docs/.../vi.mdx
+```
 
-Tao mot file utility, vi du:
+## Quy tac fallback
 
-- `src/utils/blog-i18n.ts`
+### 1. Route level
 
-No se lo:
+- locale khong hop le thi fallback ve `en`
 
-- parse `entry.id` thanh `baseSlug` va `lang`
-- group entries theo `baseSlug`
-- pick entry theo locale voi fallback `en`
-- tra ve danh sach post da de-duplicate theo locale
+### 2. Static page level
 
-### B. Tao route co locale prefix
+- doc page dictionary theo locale
+- neu field thieu, fallback ve `en` bang merge helper
 
-Can them:
+### 3. Content level
 
-- `src/pages/[lang]/blog/[...page].astro`
-- `src/pages/[lang]/blog/[slug].astro`
+- neu document locale hien tai khong ton tai, fallback ve document `en`
 
-Neu muon mo rong global locale cho ca site, co the them tiep:
+## Quy tac ap dung cho portfolio nay
 
-- `src/pages/[lang]/index.astro`
-- `src/pages/[lang]/projects/...`
-- `src/pages/[lang]/about/...`
+### Home
 
-Nhung cho phase 1, chi can blog la du.
+- van la `.astro`
+- text, section title, CTA, experience copy dua sang `ts`
+- co the inheritance tu `en`
 
-### C. Swizzle Header va them `LanguageSwitcher`
+### About
 
-Can tao local copy:
+- neu page nay chu yeu la Astro sections thi dung `ts`
+- neu sau nay muon bien no thanh mot bai gioi thieu dai, co the can nhac `mdx`
 
-- `src/components/Header.astro`
-- `src/components/LanguageSwitcher.astro`
+### Projects
 
-Sau do cap nhat `BaseLayout` de import header local thay vi header cua theme package.
+Can tach 2 truong hop:
 
-`LanguageSwitcher` can:
+- `projects landing`:
+  - dung `ts` cho title, intro, category labels, CTA
+- `project detail`:
+  - neu tiep tuc la content collection thi co the xet i18n theo content sau
 
-- doc locale hien tai tu pathname
-- doi giua `en` va `vi`
-- giu ngu canh hien tai neu co the
-- neu dang o blog detail thi doi sang URL detail cung `baseSlug`
-- neu dang o blog list thi doi `/en/blog` <-> `/vi/blog`
+### Blog
 
-### D. Cap nhat link generation
+- giu theo `md/mdx`
+- fallback theo `baseSlug`
 
-Nhung noi hien dang dung `href={`/blog/${id}`}` can doi.
+### Docs
 
-Can cap nhat:
-
-- `PostPreview`
-- `ArticleBottom` neu dang de xuat bai viet lien quan theo `id`
-- blog index
-- RSS
-- canonical/hreflang trong `BaseHead`
-
-### E. Backward compatibility
-
-Nen giu redirect de khong vo link cu:
-
-- `/blog/<slug>/en` -> `/en/blog/<slug>`
-- `/blog/<slug>/vi` -> `/vi/blog/<slug>`
-- `/blog/<slug>` -> `/en/blog/<slug>` neu bai cu chi co 1 ngon ngu
-
-Neu Astro static route redirect bat tien, co the xu ly bang:
-
-- `vercel.json`
-- middleware neu chuyen sang SSR
-- hoac tao page redirect nhe trong Astro
-
-## SEO va metadata
-
-Can bo sung:
-
-- `canonical` theo locale da resolve
-- `hreflang="en"` va `hreflang="vi"` neu co ban dich
-- `x-default` tro ve `en`
-
-Neu `/vi/blog/foo` dang fallback sang `en`, van nen:
-
-- render content `en`
-- nhung canonical phai ro rang theo chien luoc da chon
-
-De don gian, phase 1 co the canonical vao chinh URL dang xem. Phase 2 moi them `hreflang` day du.
-
-## RSS va search
-
-RSS hien tai dang map tren tung `CollectionEntry`, nen se bi duplicate theo ngon ngu.
-
-Can quyet dinh 1 trong 2 chinh sach:
-
-- 1 feed moi locale: `/en/rss.xml`, `/vi/rss.xml`
-- hoac 1 feed mac dinh `en`
-
-Khuyen nghi:
-
-- tach feed theo locale
-
-Pagefind/Search cung nen index theo locale route neu muon trai nghiem nhat quan.
+- neu docs can da ngon ngu thi nen di theo content i18n giong blog
 
 ## Lo trinh implementation de xuat
 
-### Phase 1: Data layer
+### Phase A: Chot abstraction
 
-- viet utility group post theo `baseSlug`
-- viet ham `pickLocalizedEntry`
-- cap nhat blog list de khong duplicate
+- chot `SUPPORTED_LOCALES`
+- chot helper lay locale tu URL
+- chot merge strategy cho static dictionaries
 
-### Phase 2: Route layer
+### Phase B: Shared UI copy
 
-- them route `/<lang>/blog`
-- them route detail `/<lang>/blog/<baseSlug>`
-- fallback sang `en`
+- dua cac string chung cua header, footer, labels vao `shared dictionaries`
 
-### Phase 3: Global switcher
+### Phase C: Home page i18n
 
-- swizzle `Header`
-- them `LanguageSwitcher`
-- giu ngu canh trang khi doi locale
+- tach text homepage sang `src/i18n/pages/home`
+- page Astro render tu data locale
 
-### Phase 4: SEO + RSS + redirect
+### Phase D: About va projects landing
 
-- canonical/hreflang
-- RSS theo locale
-- redirect tu URL cu
+- lap lai pattern cua home
 
-## Ket luan
+### Phase E: Hoan thien docs/blog alignment
 
-Co che phu hop nhat cho project hien tai la:
+- giu content-heavy pages tren co che content i18n
+- bo sung `hreflang`, canonical, RSS neu can
 
-- **global language = locale trong URL**
-- **blog identity = `baseSlug`, khong phai file**
-- **render theo locale, fallback sang `en`**
+## Nguyen tac thiet ke can giu
 
-Day la cach:
+- khong ep moi page sang `mdx`
+- khong ep moi page sang string-only dictionary
+- route locale la nen chung
+- page Astro van la noi render UI
+- `ts` chi dong vai tro la noi chua page copy va page data
+- content-heavy pages van giu markdown workflow
 
-- khop voi Astro static build
-- giai quyet duplicate post
-- de SEO hon
-- de them global switcher ma khong can dua vao client-only state
+## De xuat quyet dinh
+
+Kien truc nen duoc phe duyet la:
+
+- dung `url-based locale routing` cho toan site
+- dung `content i18n` cho `blog` va `docs`
+- dung `ts-based page dictionaries` cho `home`, `about`, `projects landing`, `links`
+- dung `inheritance from en` cho static/page dictionaries
+
+Day la cach phu hop nhat voi mot portfolio site co ca:
+
+- page composition bang Astro
+- content dai bang MD/MDX
+- nhu cau fallback
+- nhu cau global language switcher
+
+## Scope cua dot implement tiep theo
+
+Neu phe duyet, dot implement tiep theo nen uu tien:
+
+1. tao `core i18n structure` cho static pages
+2. dua `shared header/footer labels` vao dictionaries
+3. refactor `homepage` sang `ts-based page i18n`
+4. sau do moi lan luot mo rong sang `about` va `projects`

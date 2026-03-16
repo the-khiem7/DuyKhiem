@@ -1,0 +1,46 @@
+---
+import { Button, Icon } from 'astro-pure/user'
+import { cn } from 'astro-pure/utils'
+import { getSiteDictionary } from '@/i18n/site'
+import PageLayout from '@/layouts/BaseLayout.astro'
+import { integ } from '@/site-config'
+import { type SiteLocale, withLocalePath } from '@/utils/i18n'
+
+import DocsContents from '@/pages/docs/DocsContents.astro'
+
+interface Props {
+  locale: SiteLocale
+}
+
+const { locale } = Astro.props
+const dict = getSiteDictionary(locale)
+
+const meta = {
+  title: dict.docs.title,
+  description: dict.docs.metaDescription
+}
+---
+
+<PageLayout {meta} locale={locale} canonicalPath={withLocalePath(locale, '/docs')}>
+  <Button title={dict.docs.back} href={withLocalePath(locale, '/')} variant='back' />
+  <main class='mt-6 lg:mt-10'>
+    <div id='content-header' class='animate'>
+      <h1 class='mb-6 text-3xl font-medium'>{dict.docs.heading}</h1>
+    </div>
+
+    <div id='content' class={cn('animate mt-8 max-w-none md:min-w-[45ch]', integ.typography.class)}>
+      <h2 class='text-xl font-medium'>{dict.docs.sections.themeDocumentation}</h2>
+      <DocsContents title={false} locale={locale} />
+
+      <h2 class='text-xl font-medium'>{dict.docs.sections.feedback}</h2>
+      <p>
+        {dict.docs.feedback}{' '}
+        <a href='https://github.com/cworld1/astro-theme-pure/issues' target='_blank'>GitHub Issues</a>.
+      </p>
+      <h2 class='text-xl font-medium'>{dict.docs.sections.news}</h2>
+      <p>
+        <a href={withLocalePath(locale, '/docs/rss.xml')} target='_blank'><Icon name='rss' /></a>
+      </p>
+    </div>
+  </main>
+</PageLayout>

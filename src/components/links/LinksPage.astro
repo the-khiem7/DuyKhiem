@@ -1,0 +1,73 @@
+---
+import links from 'public/links.json'
+
+import { Collapse, Timeline } from 'astro-pure/user'
+import config from 'virtual:config'
+import { getSiteDictionary } from '@/i18n/site'
+import PageLayout from '@/layouts/CommonPage.astro'
+import { type SiteLocale } from '@/utils/i18n'
+import FriendList from '@/components/links/FriendList.astro'
+
+interface Props {
+  locale: SiteLocale
+}
+
+const { locale } = Astro.props
+const dict = getSiteDictionary(locale)
+
+const headings = [
+  { depth: 2, slug: 'common-links', text: dict.links.headings.common },
+  { depth: 2, slug: 'special-links', text: dict.links.headings.special },
+  { depth: 2, slug: 'apply-links', text: dict.links.headings.apply }
+]
+
+const { friends } = links
+const linksConf = config.integ.links
+const linkEditPage = 'https://github.com/cworld1/astro-theme-pure/blob/main/public/links.json'
+const applyTipLabels = dict.links.applyTipLabels
+---
+
+<PageLayout title={dict.links.title} {headings} comment locale={locale}>
+  <p>{dict.links.intro}</p>
+  <h2 id='common-links'>{dict.links.headings.common}</h2>
+  <FriendList list={friends[0]} emptyLabel={dict.links.empty} />
+  <Collapse title={dict.links.badStatus}>
+    <FriendList list={friends[1]} emptyLabel={dict.links.empty} />
+  </Collapse>
+  <Collapse title={dict.links.historyBook}>
+    <Timeline events={linksConf.logbook} />
+  </Collapse>
+  <h2 id='special-links'>{dict.links.headings.special}</h2>
+  <FriendList list={friends[2]} emptyLabel={dict.links.empty} />
+
+  <h2 id='apply-links'>{dict.links.headings.apply}</h2>
+  <p>{dict.links.applyInfo}</p>
+  <blockquote class='not-prose grid grid-cols-[auto_1fr] gap-x-2 break-words border-s-4 ps-4'>
+    {
+      linksConf.applyTip.map(({ name, val }) => {
+        const label = applyTipLabels[name as keyof typeof applyTipLabels] ?? name
+        const copiedMessage = `${dict.links.copied}: ${val}`
+        const script = `navigator.clipboard.writeText(${JSON.stringify(val)});document.dispatchEvent(new CustomEvent('toast',{detail:{message:${JSON.stringify(copiedMessage)}}}))`
+        return (
+          <>
+            <span class='text-end'>{label}:</span>
+            <samp class='cursor-pointer' onclick={script}>
+              {val}
+            </samp>
+          </>
+        )
+      })
+    }
+  </blockquote>
+
+  <p>
+    {dict.links.applyIntro}{' '}
+    <a href={linkEditPage} target='_blank'>
+      {dict.links.applyViaPr}
+    </a>
+    :
+  </p>
+  <ul>
+    {dict.links.rules.map((item) => <li>{item}</li>)}
+  </ul>
+</PageLayout>

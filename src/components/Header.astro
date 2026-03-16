@@ -1,6 +1,7 @@
 ---
 import config from 'virtual:config'
 
+import { getSiteDictionary } from '@/i18n/site'
 import LanguageSwitcher from '@/components/LanguageSwitcher.astro'
 import { getCurrentLocale, withLocalePath } from '@/utils/i18n'
 import { Icon } from 'astro-pure/user'
@@ -8,6 +9,14 @@ import { Icon } from 'astro-pure/user'
 const currentLocale = getCurrentLocale(Astro.url.pathname)
 const currentPath = Astro.url.pathname
 const homeHref = withLocalePath(currentLocale, '/')
+const dict = getSiteDictionary(currentLocale)
+const navItems = [
+  { title: dict.shared.nav.blog, link: '/blog' },
+  { title: dict.shared.nav.docs, link: '/docs' },
+  { title: dict.shared.nav.projects, link: '/projects' },
+  { title: dict.shared.nav.links, link: '/links' },
+  { title: dict.shared.nav.about, link: '/about' }
+]
 ---
 
 <header-component
@@ -27,7 +36,7 @@ const homeHref = withLocalePath(currentLocale, '/')
     >
       <div class='flex flex-col items-center justify-center overflow-hidden sm:flex-row'>
         {
-          config.header.menu.map((item) => (
+          navItems.map((item) => (
             <a
               href={withLocalePath(currentLocale, item.link)}
               class='w-full flex-none grow py-2 text-right font-medium transition-none hover:text-primary sm:w-fit sm:px-3'
@@ -42,9 +51,9 @@ const homeHref = withLocalePath(currentLocale, '/')
           <a
             class='px-1 py-2 transition-none sm:px-2'
             href={withLocalePath(currentLocale, '/search')}
-            title='Search'
+            title={dict.shared.actions.search}
           >
-            <span class='sr-only'>Search</span>
+            <span class='sr-only'>{dict.shared.actions.search}</span>
             <Icon name='search' class='size-5' />
           </a>
         </div>
@@ -54,9 +63,10 @@ const homeHref = withLocalePath(currentLocale, '/')
     <div class='z-30 flex gap-x-4 group-[.not-top]:gap-x-2' style='transition:gap 0.3s'>
       <button
         id='toggleDarkMode'
+        data-set-theme-label={dict.shared.actions.setTheme}
         class='group/dark box-content size-5 rounded-md border p-1.5 transition-colors hover:bg-border sm:group-[.not-top]:rounded-xl'
       >
-        <span class='sr-only'>Dark Theme</span>
+        <span class='sr-only'>{dict.shared.actions.darkTheme}</span>
         <Icon class='system size-5 group-hover/dark:text-primary' name='computer' />
         <Icon class='light hidden size-5 group-hover/dark:text-primary' name='sun' />
         <Icon class='dark hidden size-5 group-hover/dark:text-primary' name='moon' />
@@ -65,7 +75,7 @@ const homeHref = withLocalePath(currentLocale, '/')
         id='toggleMenu'
         class='rounded-md border p-1.5 transition-colors hover:bg-border sm:hidden sm:group-[.not-top]:rounded-xl'
       >
-        <span class='sr-only'>Menu</span>
+        <span class='sr-only'>{dict.shared.actions.menu}</span>
         <Icon class='size-5' name='menu' />
       </button>
     </div>
@@ -95,7 +105,8 @@ const homeHref = withLocalePath(currentLocale, '/')
       darkModeBtn.addEventListener('click', () => {
         const newTheme = setTheme(undefined, true)
         darkModeBtn.dataset.theme = newTheme
-        showToast({ message: `Set theme to ${newTheme}` })
+        const setThemeLabel = darkModeBtn.dataset.setThemeLabel || 'Set theme to'
+        showToast({ message: `${setThemeLabel} ${newTheme}` })
       })
 
       this.querySelector('#toggleMenu')?.addEventListener('click', () => {

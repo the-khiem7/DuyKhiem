@@ -1,15 +1,14 @@
 ---
 import HomePage from '@/components/home/HomePage.astro'
-import { DEFAULT_LOCALE, type SiteLocale } from '@/utils/i18n'
+import { getLocaleStaticPaths, resolveLocaleParam } from '@/utils/i18n'
 
 export const prerender = true
 
 export function getStaticPaths() {
-  return [{ params: { lang: 'en' } }, { params: { lang: 'vi' } }]
+  return getLocaleStaticPaths()
 }
 
-const { lang = DEFAULT_LOCALE } = Astro.params
-const locale = lang as SiteLocale
+const locale = resolveLocaleParam(Astro.params.lang)
 ---
 
 <HomePage {locale} />

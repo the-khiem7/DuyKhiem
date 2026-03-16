@@ -3,6 +3,8 @@ import { type CollectionEntry } from 'astro:content'
 
 import { getBlogCollection } from 'astro-pure/server'
 import { cn } from 'astro-pure/utils'
+import { getSiteDictionary } from '@/i18n/site'
+import { DEFAULT_LOCALE, type SiteLocale, withLocalePath } from '@/utils/i18n'
 import { groupProjects } from './project-groups'
 
 export const prerender = true
@@ -12,20 +14,25 @@ const projectsCollection = (await getBlogCollection('projects')) as CollectionEn
 const { flagshipProjects, supportingSections, ungroupedSupportingProjects } =
   groupProjects(projectsCollection)
 
-const { title = true, class: className, ...props } = Astro.props
+const { title = true, class: className, locale = DEFAULT_LOCALE, ...props } = Astro.props
+const dict = getSiteDictionary(locale as SiteLocale)
+const localizedSupportingSections = supportingSections.map((group) => ({
+  ...group,
+  title: dict.projects.groupTitles[group.slug as keyof typeof dict.projects.groupTitles] ?? group.title
+}))
 ---
 
 <projects-toc class={cn('not-prose', className)} {...props}>
-  {title && <h2 class='text-foreground font-medium'>PROJECTS</h2>}
+  {title && <h2 class='text-foreground font-medium'>{dict.projects.tocTitle}</h2>}
   <ul class='mt-4 flex flex-col gap-y-5'>
     <li>
-      <h3 class='text-muted-foreground text-xs tracking-widest uppercase'>Flagship</h3>
+      <h3 class='text-muted-foreground text-xs tracking-widest uppercase'>{dict.projects.tocGroups.flagship}</h3>
       <ul class='mt-2 flex flex-col'>
         {flagshipProjects.map((project) => (
           <li class='project-item flex relative ms-2 px-3 py-1 text-foreground/75 transition-all rounded-2xl'>
             <a
               class='flex-1 whitespace-normal break-words leading-snug hover:text-foreground'
-              href={`/projects/${project.id}`}
+              href={withLocalePath(locale as SiteLocale, `/projects/${project.id}`)}
             >
               {project.data.title}
             </a>
@@ -34,7 +41,7 @@ const { title = true, class: className, ...props } = Astro.props
       </ul>
     </li>
     {
-      supportingSections.map((group) => (
+      localizedSupportingSections.map((group) => (
         <li>
           <h3 class='text-muted-foreground text-xs tracking-widest uppercase'>{group.title}</h3>
           <ul class='mt-2 flex flex-col'>
@@ -42,7 +49,7 @@ const { title = true, class: className, ...props } = Astro.props
               <li class='project-item flex relative ms-2 px-3 py-1 text-foreground/75 transition-all rounded-2xl'>
                 <a
                   class='flex-1 whitespace-normal break-words leading-snug hover:text-foreground'
-                  href={`/projects/${project.id}`}
+                  href={withLocalePath(locale as SiteLocale, `/projects/${project.id}`)}
                 >
                   {project.data.title}
                 </a>
@@ -55,13 +62,13 @@ const { title = true, class: className, ...props } = Astro.props
     {
       ungroupedSupportingProjects.length > 0 && (
         <li>
-          <h3 class='text-muted-foreground text-xs tracking-widest uppercase'>Other</h3>
+          <h3 class='text-muted-foreground text-xs tracking-widest uppercase'>{dict.projects.tocGroups.other}</h3>
           <ul class='mt-2 flex flex-col'>
             {ungroupedSupportingProjects.map((project) => (
               <li class='project-item flex relative ms-2 px-3 py-1 text-foreground/75 transition-all rounded-2xl'>
                 <a
                   class='flex-1 whitespace-normal break-words leading-snug hover:text-foreground'
-                  href={`/projects/${project.id}`}
+                  href={withLocalePath(locale as SiteLocale, `/projects/${project.id}`)}
                 >
                   {project.data.title}
                 </a>

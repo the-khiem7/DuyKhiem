@@ -1,5 +1,6 @@
 ---
 import type { MarkdownHeading } from 'astro'
+import type { SiteLocale } from '@/utils/i18n'
 
 import { TOC } from 'astro-pure/components/pages'
 import PageLayout from '@/layouts/ContentLayout.astro'
@@ -10,6 +11,7 @@ interface Props {
   headings?: MarkdownHeading[]
   view?: boolean
   comment?: boolean
+  locale?: SiteLocale
 }
 
 const { title, headings, view, comment: enableComment, ...props } = Astro.props

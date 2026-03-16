@@ -30,6 +30,14 @@ export function getCurrentLocale(pathname: string): SiteLocale {
   return normalizeLocale(maybeLocale)
 }
 
+export function resolveLocaleParam(value: string | number | undefined | null): SiteLocale {
+  return normalizeLocale(typeof value === 'string' ? value : undefined)
+}
+
+export function getLocaleStaticPaths() {
+  return SUPPORTED_LOCALES.map((lang) => ({ params: { lang } }))
+}
+
 export function stripLocaleFromPathname(pathname: string) {
   const segments = pathname.split('/').filter(Boolean)
 
@@ -43,6 +51,14 @@ export function stripLocaleFromPathname(pathname: string) {
 export function withLocalePath(locale: SiteLocale, pathname: string) {
   const normalizedPath = stripLocaleFromPathname(pathname)
   return normalizedPath === '/' ? `/${locale}` : `/${locale}${normalizedPath}`
+}
+
+export function getLocaleAlternates(pathname: string) {
+  const normalizedPath = stripLocaleFromPathname(pathname)
+  return SUPPORTED_LOCALES.map((locale) => ({
+    href: withLocalePath(locale, normalizedPath),
+    hreflang: locale
+  }))
 }
 
 export function switchLocalePath(pathname: string, locale: SiteLocale) {

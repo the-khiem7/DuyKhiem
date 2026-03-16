@@ -1,0 +1,50 @@
+---
+import { Button, Timeline } from 'astro-pure/user'
+import { getSiteDictionary } from '@/i18n/site'
+import PageLayout from '@/layouts/CommonPage.astro'
+import { type SiteLocale, withLocalePath } from '@/utils/i18n'
+
+interface Props {
+  locale: SiteLocale
+}
+
+const { locale } = Astro.props
+const dict = getSiteDictionary(locale)
+
+const headings = [
+  { depth: 2, slug: 'overview', text: dict.about.headings.overview },
+  { depth: 2, slug: 'focus-areas', text: dict.about.headings.focusAreas },
+  { depth: 2, slug: 'experience-snapshot', text: dict.about.headings.experienceSnapshot },
+  {
+    depth: 2,
+    slug: 'education-certifications',
+    text: dict.about.headings.educationCertifications
+  },
+  { depth: 2, slug: 'selected-timeline', text: dict.about.headings.selectedTimeline }
+]
+---
+
+<PageLayout title={dict.about.title} {headings} comment locale={locale}>
+  {dict.about.intro.map((paragraph) => <p>{paragraph}</p>)}
+  <Button title={dict.about.cta} class='w-fit' href={withLocalePath(locale, '/projects')} variant='ahead' />
+
+  <h2 id='overview'>{dict.about.headings.overview}</h2>
+  {dict.about.overview.map((paragraph) => <p>{paragraph}</p>)}
+
+  <h2 id='focus-areas'>{dict.about.headings.focusAreas}</h2>
+  <ul>
+    {dict.about.focusAreas.map((item) => <li>{item}</li>)}
+  </ul>
+
+  <h2 id='experience-snapshot'>{dict.about.headings.experienceSnapshot}</h2>
+  {dict.about.experienceSnapshot.map((paragraph) => <p>{paragraph}</p>)}
+
+  <h2 id='education-certifications'>{dict.about.headings.educationCertifications}</h2>
+  {dict.about.education.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+  <ul>
+    {dict.about.education.certifications.map((item) => <li>{item}</li>)}
+  </ul>
+
+  <h2 id='selected-timeline'>{dict.about.headings.selectedTimeline}</h2>
+  <Timeline events={dict.about.timeline} />
+</PageLayout>
