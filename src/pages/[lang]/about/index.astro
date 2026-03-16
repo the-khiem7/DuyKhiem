@@ -1,0 +1,10 @@
+---
+import { SUPPORTED_LOCALES } from '@/utils/i18n'
+
+export const prerender = true
+
+export function getStaticPaths() {
+  return SUPPORTED_LOCALES.map((lang) => ({ params: { lang } }))
+}
+
+return Astro.redirect('/about', 302)

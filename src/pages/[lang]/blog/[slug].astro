@@ -1,0 +1,54 @@
+---
+import { render } from 'astro:content'
+import type { CollectionEntry } from 'astro:content'
+
+import { getBlogCollection } from 'astro-pure/server'
+import PostLayout from '@/layouts/BlogPost.astro'
+import {
+  getLocalizedBlogEntries,
+  getLocalizedBlogEntryBySlug,
+  groupLocalizedBlogEntries
+} from '@/utils/blog-i18n'
+import { DEFAULT_LOCALE, SUPPORTED_LOCALES, type SiteLocale } from '@/utils/i18n'
+
+export const prerender = true
+
+export async function getStaticPaths() {
+  const posts = (await getBlogCollection()) as CollectionEntry<'blog'>[]
+  const grouped = groupLocalizedBlogEntries(posts).map((group) => group.baseSlug)
+
+  return SUPPORTED_LOCALES.flatMap((locale) =>
+    grouped.map((baseSlug) => ({
+      params: { lang: locale, slug: baseSlug }
+    }))
+  )
+}
+
+const allPosts = (await getBlogCollection()) as CollectionEntry<'blog'>[]
+const { lang = DEFAULT_LOCALE, slug = '' } = Astro.params
+const locale = lang as SiteLocale
+const post = getLocalizedBlogEntryBySlug(allPosts, slug, locale)
+
+if (!post) {
+  throw new Error(`Blog post not found for slug "${slug}"`)
+}
+
+const localizedPosts = getLocalizedBlogEntries(allPosts, locale)
+const { Content, headings, remarkPluginFrontmatter } = await render(post.entry)
+const alternates = post.availableLocales.map((candidateLocale) => ({
+  href: `/${candidateLocale}/blog/${slug}`,
+  hreflang: candidateLocale
+}))
+---
+
+<PostLayout
+  post={post.entry}
+  baseSlug={slug}
+  {locale}
+  {localizedPosts}
+  {alternates}
+  {headings}
+  {remarkPluginFrontmatter}
+>
+  <Content />
+</PostLayout>

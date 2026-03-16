@@ -1,8 +1,10 @@
 ---
-import { Footer, Header, ThemeProvider } from 'astro-pure/components/basic'
+import { Footer, ThemeProvider } from 'astro-pure/components/basic'
 import type { SiteMeta } from 'astro-pure/types'
 import BaseHead from '@/components/BaseHead.astro'
+import Header from '@/components/Header.astro'
 import config from '@/site-config'
+import { getCurrentLocale, getHtmlLang, type SiteLocale } from '@/utils/i18n'
 import Analytics from '@vercel/analytics/astro'
 import SpeedInsights from '@vercel/speed-insights/astro'
 
@@ -14,18 +16,24 @@ import '@/assets/styles/app.css'
 interface Props {
   meta: SiteMeta
   highlightColor?: string
+  canonicalPath?: string
+  locale?: SiteLocale
+  alternates?: Array<{ href: string; hreflang: string }>
 }
 
 const {
   meta: { articleDate, description = config.description, ogImage, title },
+  alternates,
+  canonicalPath,
   highlightColor,
+  locale = getCurrentLocale(Astro.url.pathname),
   ...props
 } = Astro.props
 ---
 
-<html lang={config.locale.lang}>
+<html lang={getHtmlLang(locale)}>
   <head>
-    <BaseHead {articleDate} {description} {ogImage} {title} />
+    <BaseHead {articleDate} {description} {ogImage} {title} {canonicalPath} {alternates} {locale} />
     <ThemeProvider />
   </head>
 

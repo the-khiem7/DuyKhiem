@@ -1,0 +1,45 @@
+---
+import {
+  type SiteLocale,
+  SUPPORTED_LOCALES,
+  getLocaleLabel,
+  switchLocalePath
+} from '@/utils/i18n'
+
+interface Props {
+  currentLocale: SiteLocale
+  currentPath: string
+}
+
+const { currentLocale, currentPath } = Astro.props
+
+function getTargetPath(targetLocale: SiteLocale) {
+  const isAlreadyLocalized = /^\/(en|vi)(\/|$)/.test(currentPath)
+  const isBlogSurface = /^\/(blog|tags|archives)(\/|$)/.test(currentPath) || currentPath === '/rss.xml'
+
+  if (isAlreadyLocalized || isBlogSurface || currentPath === '/') {
+    return switchLocalePath(currentPath, targetLocale)
+  }
+
+  return `/${targetLocale}`
+}
+---
+
+<div class='lang-switcher inline-flex items-center rounded-full border p-1'>
+  {
+    SUPPORTED_LOCALES.map((locale) => (
+      <a
+        href={getTargetPath(locale)}
+        class:list={[
+          'rounded-full px-2.5 py-1 text-xs font-medium transition-colors sm:text-sm',
+          locale === currentLocale
+            ? 'bg-foreground text-background'
+            : 'text-muted-foreground hover:bg-muted hover:text-foreground'
+        ]}
+        aria-current={locale === currentLocale ? 'true' : undefined}
+      >
+        {getLocaleLabel(locale)}
+      </a>
+    ))
+  }
+</div>

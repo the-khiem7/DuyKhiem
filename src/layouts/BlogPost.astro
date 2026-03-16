@@ -6,21 +6,30 @@ import type { CollectionEntry } from 'astro:content'
 import 'katex/dist/katex.min.css'
 
 import { MediumZoom } from 'astro-pure/advanced'
-import { ArticleBottom, Copyright, Hero, TOC } from 'astro-pure/components/pages'
+import { Copyright, Hero, TOC } from 'astro-pure/components/pages'
 import config from 'virtual:config'
+import ArticleBottom from '@/components/blog/ArticleBottom.astro'
 import PageLayout from '@/layouts/ContentLayout.astro'
 import { Comment, PageInfo } from '@/components/waline'
+import type { ResolvedLocalizedBlogEntry } from '@/utils/blog-i18n'
+import type { SiteLocale } from '@/utils/i18n'
 
 interface Props {
   post: CollectionEntry<'blog'>
-  posts: CollectionEntry<'blog'>[]
+  baseSlug: string
+  locale: SiteLocale
+  localizedPosts: ResolvedLocalizedBlogEntry[]
+  alternates?: Array<{ href: string; hreflang: string }>
   headings: MarkdownHeading[]
   remarkPluginFrontmatter: Record<string, unknown>
 }
 
 const {
-  post: { id, data },
-  posts,
+  alternates = [],
+  baseSlug,
+  locale,
+  localizedPosts,
+  post: { data },
   headings,
   remarkPluginFrontmatter
 } = Astro.props
@@ -46,8 +55,11 @@ const primaryColor = data.heroImage?.color ?? 'hsl(var(--primary) / var(--un-tex
 
 <PageLayout
   meta={{ articleDate, description, ogImage: socialImage, title }}
+  locale={locale}
+  canonicalPath={`/${locale}/blog/${baseSlug}`}
+  {alternates}
   highlightColor={primaryColor}
-  back='/blog'
+  back={`/${locale}/blog`}
 >
   {!!headings.length && <TOC {headings} slot='sidebar' />}
 
@@ -63,7 +75,7 @@ const primaryColor = data.heroImage?.color ?? 'hsl(var(--primary) / var(--un-tex
     {/* Copyright */}
     <Copyright {data} />
     {/* Article recommend */}
-    <ArticleBottom collections={posts} {id} class='mt-3 sm:mt-6' />
+    <ArticleBottom collections={localizedPosts} {baseSlug} {locale} class='mt-3 sm:mt-6' />
     { /* Comment */
     !isDraft && enableComment && <Comment class='mt-3 sm:mt-6' />}
   </Fragment>

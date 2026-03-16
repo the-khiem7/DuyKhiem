@@ -1,0 +1,235 @@
+---
+import { Image } from 'astro:assets'
+import type { CollectionEntry } from 'astro:content'
+
+import { Quote } from 'astro-pure/advanced'
+import { getBlogCollection } from 'astro-pure/server'
+import { Button, Card, Icon, Label } from 'astro-pure/user'
+import PostPreview from '@/components/blog/PostPreview.astro'
+import ProjectCard from '@/components/home/ProjectCard.astro'
+import Section from '@/components/home/Section.astro'
+import SkillLayout from '@/components/home/SkillLayout.astro'
+import PageLayout from '@/layouts/BaseLayout.astro'
+import config from '@/site-config'
+import { getLocalizedBlogEntries } from '@/utils/blog-i18n'
+import { type SiteLocale, withLocalePath } from '@/utils/i18n'
+
+interface Props {
+  locale: SiteLocale
+}
+
+const { locale } = Astro.props
+
+const backend = ['C#', '.NET 8', 'ASP.NET Core', 'REST APIs', 'FastAPI', 'Java']
+const systems = ['Microservices', 'Kafka', '.NET Aspire', 'YARP', 'SignalR', 'Workflow Design']
+const cloudAndAi = ['AWS', 'Lambda', 'EventBridge', 'PostgreSQL', 'YOLO', 'ClearML']
+
+const MAX_POSTS = 10
+const allPosts = (await getBlogCollection()) as CollectionEntry<'blog'>[]
+const localizedPosts = getLocalizedBlogEntries(allPosts, locale).slice(0, MAX_POSTS)
+
+const imagePath = config.logo.src
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/*.{jpeg,jpg,png,gif,avif,webp}'
+)
+if (!images[imagePath]) {
+  throw new Error(`"${imagePath}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif,avif,webp}"`)
+}
+---
+
+<PageLayout meta={{ title: 'Home' }} highlightColor='#659EB9' locale={locale} canonicalPath={withLocalePath(locale, '/')}>
+  <main class='flex w-full flex-col items-center'>
+    <section class='animate mb-10 flex flex-col items-center gap-y-7' id='content-header'>
+      <Image
+        src={images[imagePath]()}
+        alt={config.logo.alt || 'Profile'}
+        class='h-50 w-auto rounded-full border p-1'
+        loading='eager'
+        fetchpriority='high'
+      />
+
+      <div class='flex flex-col items-center gap-y-4'>
+        <h1 class='text-3xl font-medium'>{config.author}</h1>
+        <p class='max-w-2xl text-center text-lg text-muted-foreground'>
+          Backend-first engineer building workflow-heavy systems, cloud-native services, and
+          applied AI.
+        </p>
+        <div class='flex flex-wrap justify-center gap-x-7 gap-y-3'>
+          <Label title='Ho Chi Minh City'>
+            <Icon name='location' class='size-5' slot='icon' />
+          </Label>
+          <Label title='Github' as='a' href='https://github.com/the-khiem7' target='_blank'>
+            <Icon name='github' class='size-5' slot='icon' />
+          </Label>
+          <Label
+            title='LinkedIn'
+            as='a'
+            href='https://www.linkedin.com/in/the-khiem7/'
+            target='_blank'
+          >
+            <Icon name='linkedin' class='size-5' slot='icon' />
+          </Label>
+        </div>
+      </div>
+
+      <a
+        href='/CV_DuyKhiem.pdf'
+        download='CV_DuyKhiem.pdf'
+        target='_blank'
+        data-astro-reload
+        class='flex flex-row items-center gap-x-3 rounded-full border bg-background px-4 py-2 text-sm shadow-sm transition-shadow hover:shadow-md'
+      >
+        <span class='relative flex items-center justify-center'>
+          <span
+            class='absolute size-2 animate-ping rounded-full border border-green-400 bg-green-400 opacity-75'
+          ></span>
+          <span class='size-2 rounded-full bg-green-400'></span>
+        </span>
+        <p class='font-medium text-muted-foreground'>Download my resume</p>
+      </a>
+    </section>
+
+    <div id='content' class='animate flex flex-col gap-y-10 md:w-4/5 lg:w-5/6'>
+      <Section title='About'>
+        <p class='text-muted-foreground'>Software Engineering Student at FPT University</p>
+        <p class='text-muted-foreground'>
+          I focus on backend systems where architecture directly shapes reliability, operations, and
+          user trust. My recent work spans ASP.NET Core platforms, approval workflows, event-driven
+          microservices, AWS serverless pipelines, analytics workloads, and AI-assisted products.
+        </p>
+        <p class='text-muted-foreground'>
+          I am most interested in products that turn messy real-world processes into systems that
+          are easier to run, easier to trust, and easier to scale.
+        </p>
+        <Button title='More about me' class='w-fit self-end' href={withLocalePath(locale, '/about')} variant='ahead' />
+      </Section>
+
+      <Section title='Experience'>
+        <Card
+          heading='Amazon Web Services Vietnam'
+          subheading='FCAJ Challenger'
+          date='Sep 2025 - Now'
+          imagePath='/src/assets/experience/aws.jpg'
+          altText='Amazon Web Services logo'
+          imageMode='background'
+          imageBlur={true}
+          imageClass='object-cover object-center'
+          headingClass='text-2xl'
+          subheadingClass='text-lg'
+          bodyClass='pt-0'
+        >
+          <p class='mb-3 -mt-2 text-sm text-muted-foreground sm:text-base'>
+            Bitexco Financial Tower, Ho Chi Minh City · Hybrid
+          </p>
+          <ul class='ms-4 list-disc text-muted-foreground'>
+            <li>Built a clickstream analytics pipeline with S3, Lambda, EventBridge, PostgreSQL, and R Shiny.</li>
+            <li>Worked on private networking boundaries, IAM-aware design, and production-style AWS delivery.</li>
+            <li>Used LocalStack and Terraform to create a repeatable cloud development workflow.</li>
+          </ul>
+        </Card>
+        <Card
+          heading='FPT Software'
+          subheading='.NET Intern'
+          date='Dec 2024 - Jun 2025'
+          imagePath='/src/assets/experience/fpt-software.jpg'
+          altText='FPT Software logo'
+          imageMode='background'
+          imageBlur={true}
+          imageClass='object-cover object-center'
+          headingClass='text-2xl'
+          subheadingClass='text-lg'
+          bodyClass='pt-0'
+        >
+          <p class='mb-3 -mt-2 text-sm text-muted-foreground sm:text-base'>
+            Saigon Hi-Tech Park, Ho Chi Minh City · On-site
+          </p>
+          <ul class='ms-4 list-disc text-muted-foreground'>
+            <li>Built an ASP.NET Core financial claim workflow system used across 5+ departments.</li>
+            <li>Modeled approval logic as a state-driven workflow with role-based transitions and audit-ready history.</li>
+            <li>Led a team of 10 and automated build, test, and deployment to Azure App Service with GitHub Actions.</li>
+          </ul>
+        </Card>
+      </Section>
+
+      <Section title='Education'>
+        <Card
+          heading='FPT University - Ho Chi Minh City Campus'
+          subheading='Bachelor of Software Engineering'
+          date='Sep 2022 - Jun 2026'
+        >
+          <p class='text-muted-foreground'>
+            Expected graduation in June 2026. My academic path has run in parallel with internships
+            and product-oriented side projects focused on backend architecture, cloud systems, and
+            applied AI.
+          </p>
+        </Card>
+      </Section>
+
+      <Section title='Projects'>
+        <div class='grid grid-cols-1 gap-3 sm:grid-cols-2'>
+          <ProjectCard
+            href='/projects/snakeaid'
+            heading='SnakeAid'
+            subheading='AI-powered healthcare platform for snakebite response, identification, and rescue coordination.'
+            imagePath='/src/assets/projects/1.avif'
+          />
+          <ProjectCard
+            href='/projects/alohamarket'
+            heading='AlohaMarket'
+            subheading='Event-driven marketplace backend built with Kafka, .NET Aspire, Keycloak, and YARP.'
+            imagePath='/src/assets/projects/2.avif'
+          />
+          <ProjectCard
+            href='/projects/ezyfix'
+            heading='EzyFix'
+            subheading='Home-repair marketplace backend with escrow payments, payouts, and real-time updates.'
+            imagePath='/src/assets/projects/3.avif'
+          />
+          <ProjectCard
+            href={withLocalePath(locale, '/projects')}
+            heading='More projects'
+            subheading='See the full project list, supporting systems, and technical focus areas.'
+            imagePath='/src/assets/projects/4.avif'
+          />
+        </div>
+      </Section>
+
+      <Section title='Certifications'>
+        <Card
+          heading='Selected Certifications'
+          subheading='The Linux Foundation, UC Irvine, Board Infinity, University of Minnesota'
+          date='2024 - 2026'
+        >
+          <ul class='ms-4 list-disc text-muted-foreground'>
+            <li>LFS167: Introduction to Jenkins</li>
+            <li>Project Management Principles and Practices Specialization</li>
+            <li>Java FullStack Developer Specialization</li>
+            <li>Software Development Lifecycle Specialization</li>
+          </ul>
+        </Card>
+      </Section>
+
+      {
+        localizedPosts.length > 0 && (
+          <Section title='Posts'>
+            <ul class='flex flex-col gap-y-1.5 sm:gap-y-2'>
+              {localizedPosts.map((p) => (
+                <li class='flex flex-col gap-x-2 sm:flex-row'>
+                  <PostPreview post={p} {locale} />
+                </li>
+              ))}
+            </ul>
+            <Button title='More posts' class='w-fit self-end' href={withLocalePath(locale, '/blog')} variant='ahead' />
+          </Section>
+        )
+      }
+
+      <Section title='Skills'>
+        <SkillLayout title='Backend' skills={backend} />
+        <SkillLayout title='Systems' skills={systems} />
+        <SkillLayout title='Cloud & AI' skills={cloudAndAi} />
+      </Section>
+    </div>
+    <Quote class='mt-12' />
+  </main>
+</PageLayout>
