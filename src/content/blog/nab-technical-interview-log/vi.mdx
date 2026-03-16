@@ -1,0 +1,433 @@
+---
+title: 'Nhật ký technical interview NAB'
+description: 'Ghi lại các câu hỏi technical interview NAB để ôn tập lại từ English, CS, networking, database đến coding.'
+publishDate: '2026-03-16T11:00:00Z'
+tags:
+  - interview
+  - nab
+  - backend
+  - networking
+  - postgres
+  - dsa
+heroImage:
+  src: './background.jpg'
+  alt: 'Notebook ghi chú các chủ đề technical interview'
+  color: '#C28F8F'
+language: 'Vietnamese'
+draft: false
+comment: true
+---
+
+import { Aside, Steps, Collapse } from 'astro-pure/user'
+
+## Vì sao tôi viết lại buổi phỏng vấn này?
+
+Có những buổi phỏng vấn trôi qua xong là đầu óc rơi vào trạng thái: *"ủa nãy mình đã trả lời cái gì vậy?"*.
+
+Vì thế tôi muốn lưu lại toàn bộ những gì đã được hỏi trong **technical round NAB batch 18-2**. Mục tiêu không phải để khoe rằng mình được hỏi khó hay dễ, mà để biến buổi phỏng vấn thành một tài liệu ôn tập thật sự hữu ích cho những lần sau.
+
+<Aside type='tip' title='Điểm đáng giá nhất của một buổi phỏng vấn'>
+  Dù đậu hay không, mỗi buổi phỏng vấn vẫn là một bản snapshot rất rõ về những gì thị trường kỳ vọng ở một backend developer.
+</Aside>
+
+## Tổng quan buổi technical round
+
+Buổi phỏng vấn không chỉ xoay quanh code. Phạm vi câu hỏi trải dài từ:
+
+- giới thiệu bản thân bằng tiếng Anh
+- cách giao tiếp và từng lead team ra sao
+- kiến thức nền tảng computer science
+- data structure và algorithm
+- networking và hạ tầng
+- database, đặc biệt là PostgreSQL
+- một bài coding nhỏ với stack
+
+Điều này cho thấy họ không tìm một người chỉ biết viết API. Họ muốn kiểm tra xem ứng viên có đủ góc nhìn của một backend engineer hay không.
+
+## 1. Phần English và background
+
+Phần mở đầu là giới thiệu về bản thân bằng tiếng Anh. Đây là đoạn tưởng nhẹ nhàng nhưng lại khá quan trọng, vì interviewer sẽ từ CV đào tiếp vào từng chi tiết.
+
+### Những ý tôi đã được hỏi
+
+- Tech stack bản thân đang dùng
+- Các project xuất hiện trong CV
+- Những nơi từng thực tập
+- Vai trò thực tế trong các dự án
+
+Sau đó interviewer đi vào phần **communication** vì trong CV có ghi từng đảm nhiệm vai trò **tech lead** trong thời gian thực tập.
+
+### Câu hỏi đào sâu về communication
+
+Họ hỏi về cách tôi lead team, cụ thể theo hướng:
+
+- phân chia công việc như thế nào
+- hỗ trợ member khi bị block ra sao
+- xử lý coordination trong team thế nào
+
+Điểm này không đòi hỏi phải trả lời quá hoa mỹ. Điều họ muốn thấy là mình có thật sự từng làm việc với con người hay không, hay chỉ viết "tech lead" cho CV nhìn oách như áo khoác da trong phim.
+
+## 2. Infrastructure: backend mà không biết hạ tầng thì hơi căng
+
+Do CV có đề cập đến:
+
+- tham gia **AWS FCAJ**
+- có **homelab server**
+
+nên interviewer hỏi tiếp về cloud và infrastructure.
+
+### Những điểm họ muốn nghe
+
+- Backend developer practice với cloud như thế nào
+- Tôi đã làm gì với home server
+- Tôi hiểu deployment, networking, reverse proxy, DNS hay không
+
+Điểm thú vị là interviewer có nhận xét rằng:
+
+> Dù là backend, kiến thức infrastructure vẫn quan trọng không kém.
+
+Tôi thấy nhận xét này rất đúng. Ở nhiều môi trường, backend không thể chỉ biết ORM, controller và service layer. Chỉ cần một ngày phải deploy app, debug SSL, xử lý reverse proxy hoặc hiểu vì sao request đi không tới server là đã bước vào đất của infra rồi.
+
+<Aside type='note' title='Takeaway'>
+  Một backend developer mạnh thường không dừng ở tầng code. Người đó cần hiểu ít nhất đường đi cơ bản của request từ client đến server, database và quay trở lại.
+</Aside>
+
+## 3. Computer Science: process, thread và memory
+
+Sau phần background, buổi phỏng vấn chuyển sang các kiến thức nền tảng.
+
+### Process và thread
+
+Các ý được hỏi gồm:
+
+- Process là gì
+- Thread là gì
+- Một process chứa nhiều thread ra sao
+- Chúng chia sẻ tài nguyên như thế nào
+
+Cách hiểu gọn:
+
+- **Process** là một chương trình đang chạy, có không gian bộ nhớ riêng
+- **Thread** là luồng thực thi bên trong process
+- Một process có thể chứa nhiều thread
+- Các thread trong cùng process thường chia sẻ vùng nhớ chung của process
+
+### Intel Hyper-Threading
+
+Interviewer còn hỏi về **Intel Hyper-Threading**. Đây là kiểu câu hỏi dùng để xem ứng viên có hiểu song song ở mức nền tảng hay không.
+
+Ý chính là:
+
+- một physical core có thể xử lý như nhiều logical thread
+- mục tiêu là tận dụng tài nguyên CPU tốt hơn
+- nó không biến 1 core thành 2 core thật, nhưng giúp pipeline đỡ bị bỏ phí trong nhiều tình huống
+
+### Memory allocation
+
+Phần này gắn với câu chuyện process và thread:
+
+- process có memory space riêng
+- thread dùng chung một phần memory của process
+- stack và heap là những ý nền tảng nên hiểu rõ
+
+## 4. DSA: ArrayList và LinkedList
+
+Đây là nhóm câu hỏi khá kinh điển nhưng rất dễ trả lời lệch nếu nói quá nhanh.
+
+### Các ý được hỏi
+
+- Quan hệ "cha con" giữa các kiểu list
+- Cách cấp phát bộ nhớ
+- Độ phức tạp khi chèn phần tử
+
+### So sánh nhanh
+
+#### ArrayList
+
+- cấp phát theo vùng nhớ liên tục
+- truy cập ngẫu nhiên nhanh
+- chèn phần tử ở giữa thường phải dời phần tử phía sau
+- vì vậy insert thường là **O(n)**
+
+#### LinkedList
+
+- mỗi node chứa data và reference đến node khác
+- bộ nhớ không cần liên tục
+- nếu đã có sẵn reference đến node cần chèn sau đó thì insert có thể là **O(1)**
+- nhưng truy cập đến đúng vị trí thường phải duyệt nên lookup là **O(n)**
+
+<Collapse title='Một chỗ rất dễ nhầm trong lúc phỏng vấn'>
+  Nhiều người, bao gồm cả lúc căng thẳng trong phòng phỏng vấn, có thể lỡ nói ngược độ phức tạp giữa ArrayList và LinkedList khi insert.  
+  Cần nhớ bản chất là **ArrayList tốn chi phí dịch phần tử**, còn **LinkedList tốn chi phí duyệt đến vị trí**.
+</Collapse>
+
+## 5. Networking: từ homelab đến TLS termination
+
+Đây là phần tôi thấy khá thú vị vì nó bám sát trải nghiệm thực tế hơn là lý thuyết sách giáo khoa.
+
+### Public IP và Cloudflare Tunnel
+
+Do CV có ghi hosting homelab server nên interviewer hỏi về:
+
+- **Public IP**
+- **Cloudflare Tunnel**
+
+Ý chính:
+
+- Nếu dùng **Public IP**, server có thể được expose trực tiếp qua router, port forwarding và firewall rule
+- Nếu dùng **Cloudflare Tunnel**, dịch vụ nội bộ có thể được publish ra ngoài mà không cần mở port trực tiếp từ ISP vào server
+
+Câu hỏi này không chỉ kiểm tra định nghĩa mà còn kiểm tra xem mình đã thật sự "vọc" hạ tầng chưa.
+
+### DNS và cách ISP chặn website
+
+Một câu hỏi khá hay là:
+
+> ISP làm thế nào để chặn truy cập website?
+
+Đây là câu hỏi networking rất thực chiến. Một số hướng có thể nói:
+
+- chặn ở tầng DNS
+- trả về kết quả DNS sai hoặc không resolve
+- chặn IP đích
+- lọc lưu lượng ở các tầng mạng khác
+
+Điểm hay là interviewer không chỉ hỏi "DNS là gì" mà hỏi đến use case ngoài đời.
+
+### TLS termination, HTTPS và HTTP
+
+Phần này xoay quanh cách traffic HTTPS được xử lý ở reverse proxy hoặc edge layer.
+
+Một flow rất điển hình là:
+
+1. Client gửi request qua HTTPS
+2. Reverse proxy hoặc load balancer nhận kết nối TLS
+3. Thiết bị đó giải mã TLS
+4. Traffic có thể được chuyển tiếp vào backend qua HTTP nội bộ hoặc tiếp tục qua HTTPS
+
+Khái niệm này được gọi là **TLS termination**.
+
+### SSL certificate và Let's Encrypt
+
+Khi nhắc đến HTTPS, câu chuyện tự nhiên đi đến **SSL certificate** và **Let's Encrypt**.
+
+Đây là kiến thức khá thực dụng với người từng host app:
+
+- cần certificate để trình duyệt tin tưởng kết nối HTTPS
+- Let's Encrypt giúp cấp certificate miễn phí
+- thường được dùng chung với NGINX, Caddy, Traefik hoặc Cloudflare setup
+
+## 6. Database: PostgreSQL và các câu hỏi rất "backend"
+
+Phần database tập trung vào các khái niệm quan hệ cơ bản và indexing.
+
+### Những khái niệm relational database cơ bản
+
+Các ý được hỏi:
+
+- table
+- record
+- row
+- column
+- composite key
+
+Đây là vùng kiến thức không khó nhưng rất dễ chủ quan. Vì phỏng vấn kỹ thuật thường thích lấy thứ tưởng cơ bản để xem ứng viên có nói chính xác không.
+
+### Composite key
+
+Composite key là key được tạo từ nhiều cột thay vì một cột duy nhất.
+
+Ví dụ dễ hiểu là bảng quan hệ nhiều-nhiều, trong đó:
+
+- `studentId`
+- `courseId`
+
+có thể ghép lại thành khóa chính.
+
+### Indexing
+
+Interviewer hỏi về:
+
+- **Hash Index**
+- **B-tree Index**
+
+#### Hash Index
+
+Phù hợp với các truy vấn equality kiểu:
+
+```sql
+where email = 'a@example.com'
+```
+
+Nó không mạnh cho range query.
+
+#### B-tree Index
+
+Đây là kiểu index phổ biến hơn rất nhiều vì hỗ trợ tốt các truy vấn:
+
+- `=`
+- `>`
+- `<`
+- `between`
+- `order by` trong nhiều tình huống
+
+### Vì sao không tự động index tất cả?
+
+Đây là một câu hỏi rất backend và rất thực tế.
+
+Lý do là vì index không miễn phí. Nó tạo ra trade-off giữa read và write:
+
+- nhiều index hơn thì đọc nhanh hơn trong một số truy vấn
+- nhưng insert, update, delete sẽ tốn thêm chi phí để cập nhật index
+
+Nói vui thì database cũng không phải thánh. Bạn không thể bảo nó "anh vừa muốn đọc nhanh, vừa muốn ghi nhanh, vừa muốn ít tốn tài nguyên, em tự cân đối giúp anh nhé".
+
+## 7. Session pooling và Supabase
+
+Do trong CV tôi có đề cập đến **Supabase**, và tôi follow-up về vấn đề session pooling của Supabase, interviewer hỏi tiếp về connection pooling:
+
+> Backend nên tối ưu thế nào để hạn chế session?
+
+Đây là câu hỏi chạm thẳng vào việc xây dựng ứng dụng thật.
+
+### Hướng suy nghĩ đúng
+
+- không mở kết nối database bừa bãi
+- tận dụng connection pool hợp lý
+- giảm các query không cần thiết
+- batch query nếu phù hợp
+- cache ở nơi thích hợp
+- tránh để mỗi request tạo ra một đống session mới
+
+Điểm interviewer muốn thấy không chỉ là "biết pooling là gì", mà là hiểu cách thiết kế backend sao cho tiết kiệm connection và ổn định hơn.
+
+## 8. Coding: kiểm tra chuỗi ngoặc bằng stack
+
+Phần code là một bài quen thuộc:
+
+```text
+"{[()]}"
+```
+
+Yêu cầu là kiểm tra chuỗi ngoặc có hợp lệ hay không.
+
+### Ý tưởng
+
+Dùng **stack**:
+
+- gặp ngoặc mở thì push vào stack
+- gặp ngoặc đóng thì pop phần tử trên cùng ra để so sánh
+- nếu mismatch hoặc stack rỗng quá sớm thì invalid
+- đi hết chuỗi mà stack rỗng thì valid
+
+<Steps>
+1. Tạo một stack rỗng
+2. Duyệt từng ký tự trong chuỗi
+3. Nếu là opening bracket thì push vào stack
+4. Nếu là closing bracket thì kiểm tra top của stack
+5. Kết thúc vòng lặp, stack phải rỗng thì mới hợp lệ
+</Steps>
+
+### Ví dụ C#
+
+```csharp title="valid-parentheses.cs"
+public static bool IsValid(string input)
+{
+    var stack = new Stack<char>();
+
+    foreach (var ch in input)
+    {
+        if (ch == '(' || ch == '[' || ch == '{')
+        {
+            stack.Push(ch);
+            continue;
+        }
+
+        if (stack.Count == 0)
+        {
+            return false;
+        }
+
+        var top = stack.Pop();
+
+        var isMismatch =
+            (ch == ')' && top != '(') ||
+            (ch == ']' && top != '[') ||
+            (ch == '}' && top != '{');
+
+        if (isMismatch)
+        {
+            return false;
+        }
+    }
+
+    return stack.Count == 0;
+}
+```
+
+### Vì sao bài này hay xuất hiện?
+
+Vì nó kiểm tra được nhiều thứ cùng lúc:
+
+- hiểu stack hay không
+- xử lý condition branch có gọn không
+- có quên edge case không
+- có giữ bình tĩnh khi code live không
+
+## 9. Tôi học được gì từ buổi phỏng vấn này?
+
+Sau khi nhìn lại, tôi thấy buổi phỏng vấn này phản ánh khá rõ hình mẫu của một backend candidate mà doanh nghiệp mong đợi.
+
+### Không chỉ code
+
+Bạn cần có khả năng nói về:
+
+- dự án mình từng làm
+- vai trò thực tế trong team
+- cách giao tiếp và phối hợp
+- cách nhìn hệ thống từ infra đến database
+
+### Không chỉ thuộc định nghĩa
+
+Nhiều câu hỏi không dừng ở mức "định nghĩa X là gì" mà đi tiếp đến:
+
+- dùng trong thực tế ra sao
+- trade-off là gì
+- nếu gặp constraint thì tối ưu thế nào
+
+### Không chỉ biết framework
+
+Ở một mức nào đó, framework chỉ là lớp áo. Bên dưới vẫn là:
+
+- process
+- thread
+- memory
+- data structure
+- networking
+- database
+- problem solving
+
+Đó mới là phần xương sống.
+
+## 10. Những chủ đề tôi nên ôn lại sau buổi hôm nay
+
+Sau buổi này, tôi muốn ôn lại kỹ hơn các mảng sau:
+
+- process, thread, context switching, memory model
+- ArrayList và LinkedList theo đúng bản chất cấu trúc dữ liệu
+- DNS, TLS, reverse proxy, tunnel
+- PostgreSQL indexing strategy
+- connection pooling và giới hạn session trong backend service
+- các bài stack / queue / string parsing kiểu phỏng vấn
+
+<Aside type='caution' title='Nhắc bản thân'>
+  Đừng chỉ ghi nhớ câu hỏi. Hãy biến từng câu hỏi thành một chủ đề học lại thật kỹ. Nếu không thì ghi note xong vài hôm nữa lại thành nghĩa trang markdown.
+</Aside>
+
+## Kết
+
+Tôi thích những buổi phỏng vấn kiểu này vì nó cho mình thấy rất rõ một điều: backend không phải chỉ là viết API rồi chờ frontend gọi. Một backend engineer tốt cần có nền tảng CS, tư duy hệ thống, hiểu networking, database và cả cách trao đổi với con người.
+
+Buổi technical round NAB batch 18-2 là một lời nhắc khá rõ rằng hành trình học backend vẫn còn rộng hơn nhiều so với những gì nằm trong một framework cụ thể.
+
+Và vâng, bài stack ngoặc kia đúng là kiểu bài "nhìn hiền nhưng dễ làm tay run" nếu bị nhìn chằm chằm trong lúc code.

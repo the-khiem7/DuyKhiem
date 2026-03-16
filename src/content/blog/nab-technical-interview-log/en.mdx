@@ -1,0 +1,433 @@
+---
+title: 'NAB Technical Interview Log'
+description: 'Recording NAB technical interview questions to review everything from English, CS, networking, database to coding.'
+publishDate: '2026-03-16T11:00:00Z'
+tags:
+  - interview
+  - nab
+  - backend
+  - networking
+  - postgres
+  - dsa
+heroImage:
+  src: './background.jpg'
+  alt: 'Notebook with notes on technical interview topics'
+  color: '#8FA7C2'
+language: 'English'
+draft: false
+comment: true
+---
+
+import { Aside, Steps, Collapse } from 'astro-pure/user'
+
+## Why I'm writing this interview log
+
+There are interviews that, once they're over, leave your brain in a state of: *"wait, what did I just answer?"*.
+
+That's why I want to document everything that was asked during the **NAB batch 18-2 technical round**. The goal isn't to show off whether I got hard or easy questions, but to turn this interview into a genuinely useful review resource for next time.
+
+<Aside type='tip' title='The most valuable thing about an interview'>
+  Whether you pass or not, every interview is a clear snapshot of what the market expects from a backend developer.
+</Aside>
+
+## Overview of the technical round
+
+The interview wasn't just about code. Questions spanned from:
+
+- self-introduction in English
+- communication and past team lead experience
+- computer science fundamentals
+- data structures and algorithms
+- networking and infrastructure
+- databases, especially PostgreSQL
+- a small coding exercise with stacks
+
+This shows they're not looking for someone who just writes APIs. They want to check if a candidate has the perspective of a backend engineer.
+
+## 1. English and background
+
+The opening was a self-introduction in English. This part seems light but is actually quite important, because the interviewer will dig into every detail from your CV.
+
+### What I was asked about
+
+- My current tech stack
+- Projects listed on my CV
+- Places I've interned
+- My actual roles in those projects
+
+Then the interviewer moved into **communication** since my CV mentioned I had taken on a **tech lead** role during an internship.
+
+### Questions diving into communication
+
+They asked about how I led the team, specifically:
+
+- how I divided tasks
+- how I supported blocked team members
+- how I handled coordination within the team
+
+This doesn't require a fancy answer. What they want to see is whether you've actually worked with people, or if you just wrote "tech lead" on your CV to look cool like a leather jacket in a movie.
+
+## 2. Infrastructure: it's rough when backend doesn't know infra
+
+Since my CV mentioned:
+
+- participating in **AWS FCAJ**
+- having a **homelab server**
+
+the interviewer continued with cloud and infrastructure questions.
+
+### What they wanted to hear
+
+- How a backend developer practices with cloud
+- What I've done with my home server
+- Whether I understand deployment, networking, reverse proxy, DNS
+
+The interesting point was the interviewer's comment:
+
+> Even as backend, infrastructure knowledge is no less important.
+
+I found this very correct. In many environments, backend can't just know ORM, controller, and service layer. Just one day of having to deploy an app, debug SSL, handle reverse proxy, or figure out why a request isn't reaching the server, and you're already in infra territory.
+
+<Aside type='note' title='Takeaway'>
+  A strong backend developer usually doesn't stop at the code layer. They need to understand at least the basic path of a request from client to server, database, and back.
+</Aside>
+
+## 3. Computer Science: process, thread, and memory
+
+After the background section, the interview moved to foundational knowledge.
+
+### Process and thread
+
+Questions included:
+
+- What is a process
+- What is a thread
+- How a process contains multiple threads
+- How they share resources
+
+The concise understanding:
+
+- **Process** is a running program with its own memory space
+- **Thread** is an execution flow within a process
+- A process can contain multiple threads
+- Threads within the same process typically share the process's common memory
+
+### Intel Hyper-Threading
+
+The interviewer also asked about **Intel Hyper-Threading**. This is the type of question used to see if a candidate understands parallelism at a foundational level.
+
+The key points:
+
+- one physical core can behave like multiple logical threads
+- the goal is to utilize CPU resources better
+- it doesn't turn 1 core into 2 real cores, but it helps the pipeline avoid being wasted in many situations
+
+### Memory allocation
+
+This part tied into the process and thread discussion:
+
+- processes have their own memory space
+- threads share part of the process's memory
+- stack and heap are foundational concepts worth understanding clearly
+
+## 4. DSA: ArrayList and LinkedList
+
+This is a classic question group but very easy to answer incorrectly if you speak too fast.
+
+### What was asked
+
+- The "parent-child" relationship between list types
+- How memory is allocated
+- Time complexity when inserting elements
+
+### Quick comparison
+
+#### ArrayList
+
+- allocates contiguous memory regions
+- fast random access
+- inserting in the middle usually requires shifting subsequent elements
+- therefore insert is typically **O(n)**
+
+#### LinkedList
+
+- each node contains data and a reference to another node
+- memory doesn't need to be contiguous
+- if you already have a reference to the node to insert after, insert can be **O(1)**
+- but accessing the exact position usually requires traversal, so lookup is **O(n)**
+
+<Collapse title='A common point of confusion during interviews'>
+  Many people, including myself when stressed in an interview room, can accidentally reverse the time complexity of ArrayList and LinkedList for insert.  
+  Remember the essence: **ArrayList pays the cost of shifting elements**, while **LinkedList pays the cost of traversing to the position**.
+</Collapse>
+
+## 5. Networking: from homelab to TLS termination
+
+This is the part I found quite interesting because it's closer to real-world experience than textbook theory.
+
+### Public IP and Cloudflare Tunnel
+
+Since my CV mentioned hosting a homelab server, the interviewer asked about:
+
+- **Public IP**
+- **Cloudflare Tunnel**
+
+Key points:
+
+- With **Public IP**, the server can be exposed directly via router, port forwarding, and firewall rules
+- With **Cloudflare Tunnel**, internal services can be published externally without opening ports directly from the ISP to the server
+
+This question doesn't just test definitions; it tests whether you've actually "played" with infrastructure.
+
+### DNS and how ISPs block websites
+
+A pretty good question was:
+
+> How does an ISP block access to a website?
+
+This is a very practical networking question. Some directions you could go:
+
+- blocking at the DNS layer
+- returning wrong DNS results or failing to resolve
+- blocking the destination IP
+- filtering traffic at different network layers
+
+The good part is the interviewer didn't just ask "what is DNS" but asked about real-world use cases.
+
+### TLS termination, HTTPS, and HTTP
+
+This part revolved around how HTTPS traffic is handled at the reverse proxy or edge layer.
+
+A very typical flow is:
+
+1. Client sends request over HTTPS
+2. Reverse proxy or load balancer receives the TLS connection
+3. That device decrypts the TLS
+4. Traffic can be forwarded to the backend over internal HTTP or continue over HTTPS
+
+This concept is called **TLS termination**.
+
+### SSL certificates and Let's Encrypt
+
+When talking about HTTPS, the conversation naturally goes to **SSL certificates** and **Let's Encrypt**.
+
+This is quite practical knowledge for anyone who has hosted apps:
+
+- you need a certificate for browsers to trust HTTPS connections
+- Let's Encrypt provides free certificates
+- it's commonly used with NGINX, Caddy, Traefik, or Cloudflare setups
+
+## 6. Database: PostgreSQL and very "backend" questions
+
+The database section focused on basic relational concepts and indexing.
+
+### Basic relational database concepts
+
+Questions included:
+
+- table
+- record
+- row
+- column
+- composite key
+
+This is knowledge that isn't hard but very easy to be complacent about. Technical interviews often like to take something that seems basic to see if a candidate can speak precisely.
+
+### Composite key
+
+A composite key is a key created from multiple columns instead of a single column.
+
+An easy-to-understand example is a many-to-many relationship table, where:
+
+- `studentId`
+- `courseId`
+
+can be combined to form the primary key.
+
+### Indexing
+
+The interviewer asked about:
+
+- **Hash Index**
+- **B-tree Index**
+
+#### Hash Index
+
+Suitable for equality queries like:
+
+```sql
+where email = 'a@example.com'
+```
+
+It's not strong for range queries.
+
+#### B-tree Index
+
+This is a much more common index type because it supports queries well:
+
+- `=`
+- `>`
+- `<`
+- `between`
+- `order by` in many situations
+
+### Why not automatically index everything?
+
+This is a very backend and very practical question.
+
+The reason is that indexes aren't free. They create a trade-off between read and write:
+
+- more indexes means faster reads in some queries
+- but insert, update, delete will incur additional cost to update the indexes
+
+To put it humorously, the database isn't a saint. You can't tell it "I want fast reads, fast writes, and low resource usage, please balance it yourself".
+
+## 7. Session pooling and Supabase
+
+Since I mentioned **Supabase** in my CV, the interviewer followed up on connection pooling:
+
+> How should backend optimize to limit sessions?
+
+This is a question that hits directly at building real applications.
+
+### The right way to think
+
+- don't open database connections recklessly
+- utilize connection pools appropriately
+- reduce unnecessary queries
+- batch queries if appropriate
+- cache where suitable
+- avoid letting each request create a bunch of new sessions
+
+What the interviewer wants to see isn't just "knowing what pooling is", but understanding how to design backend to conserve connections and be more stable.
+
+## 8. Coding: checking bracket strings with stack
+
+The coding part was a familiar problem:
+
+```text
+"{[()]}"
+```
+
+The requirement was to check if the bracket string is valid.
+
+### The idea
+
+Use a **stack**:
+
+- when encountering an opening bracket, push onto the stack
+- when encountering a closing bracket, pop the top element to compare
+- if there's a mismatch or the stack is empty too soon, it's invalid
+- if you finish the string and the stack is empty, it's valid
+
+<Steps>
+1. Create an empty stack
+2. Iterate through each character in the string
+3. If it's an opening bracket, push onto the stack
+4. If it's a closing bracket, check the top of the stack
+5. At the end of the loop, the stack must be empty for it to be valid
+</Steps>
+
+### C# Example
+
+```csharp title="valid-parentheses.cs"
+public static bool IsValid(string input)
+{
+    var stack = new Stack<char>();
+
+    foreach (var ch in input)
+    {
+        if (ch == '(' || ch == '[' || ch == '{')
+        {
+            stack.Push(ch);
+            continue;
+        }
+
+        if (stack.Count == 0)
+        {
+            return false;
+        }
+
+        var top = stack.Pop();
+
+        var isMismatch =
+            (ch == ')' && top != '(') ||
+            (ch == ']' && top != '[') ||
+            (ch == '}' && top != '{');
+
+        if (isMismatch)
+        {
+            return false;
+        }
+    }
+
+    return stack.Count == 0;
+}
+```
+
+### Why does this problem appear often?
+
+Because it tests multiple things at once:
+
+- whether you understand stacks
+- whether you handle condition branches cleanly
+- whether you forget edge cases
+- whether you stay calm when coding live
+
+## 9. What did I learn from this interview?
+
+Looking back, I feel this interview reflects quite clearly the profile of a backend candidate that companies expect.
+
+### Not just code
+
+You need the ability to talk about:
+
+- projects you've done
+- your actual role in the team
+- how you communicate and collaborate
+- how you view the system from infra to database
+
+### Not just memorizing definitions
+
+Many questions don't stop at "define what X is" but go further to:
+
+- how it's used in practice
+- what the trade-offs are
+- how to optimize when facing constraints
+
+### Not just knowing frameworks
+
+At some level, frameworks are just a layer of clothing. Underneath is still:
+
+- process
+- thread
+- memory
+- data structure
+- networking
+- database
+- problem solving
+
+That's the real backbone.
+
+## 10. Topics I should review after today
+
+After this session, I want to review these areas more deeply:
+
+- process, thread, context switching, memory model
+- ArrayList and LinkedList according to their true data structure nature
+- DNS, TLS, reverse proxy, tunnel
+- PostgreSQL indexing strategy
+- connection pooling and session limits in backend services
+- stack / queue / string parsing interview-style problems
+
+<Aside type='caution' title='A reminder to myself'>
+  Don't just memorize the questions. Turn each question into a topic to study thoroughly. Otherwise, these notes will become a markdown graveyard in a few days.
+</Aside>
+
+## Conclusion
+
+I like interviews like this because they show me very clearly one thing: backend isn't just writing APIs and waiting for frontend to call them. A good backend engineer needs a CS foundation, systems thinking, understanding of networking, databases, and also the ability to communicate with people.
+
+The NAB batch 18-2 technical round is a fairly clear reminder that the backend learning journey is still much broader than what lies within a specific framework.
+
+And yes, that bracket stack problem is definitely the type of problem that "looks innocent but makes your hands shake" when you're being stared at while coding.
