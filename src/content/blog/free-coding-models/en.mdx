@@ -1,0 +1,607 @@
+---
+title: 'free-coding-models — Find the Fastest Coding LLM in Seconds'
+description: 'Ping 160 free coding models from 20 providers in real-time. Pick the best one for OpenCode, OpenClaw, or any AI coding assistant.'
+publishDate: '2026-03-18T08:00:00Z'
+tags:
+  - ai
+  - llm
+  - coding
+  - tools
+  - openapi
+  - nvidia
+  - groq
+language: 'English'
+draft: false
+comment: true
+---
+
+import { Aside, Tabs, TabItem, Collapse, Steps } from 'astro-pure/user'
+
+## Introduction
+
+`free-coding-models` is a real-time TUI tool that pings **160 coding models** from **20 providers** simultaneously, helping you find the fastest LLM for your AI coding assistant.
+
+<div align="center">
+
+![npm version](https://img.shields.io/npm/v/free-coding-models?color=76b900&label=npm&logo=npm)
+![node version](https://img.shields.io/node/v/free-coding-models?color=76b900&logo=node.js)
+![license](https://img.shields.io/npm/l/free-coding-models?color=76b900)
+![models count](https://img.shields.io/badge/models-160-76b900?logo=nvidia)
+![providers count](https://img.shields.io/badge/providers-20-blue)
+
+**Contributors**
+
+[vava-nessa](https://github.com/vava-nessa) · [erwinh22](https://github.com/erwinh22) · [whit3rabbit](https://github.com/whit3rabbit) · [skylaweber](https://github.com/skylaweber) · [PhucTruong-ctrl](https://github.com/PhucTruong-ctrl)
+
+💬 [Let's talk about the project on Discord](https://discord.gg/ZTNFHvvCkU)
+
+By Vanessa Depraute
+
+```
+1. Create a free API key (NVIDIA, OpenRouter, Hugging Face, etc.)
+2. npm i -g free-coding-models
+3. free-coding-models
+```
+
+**Find the fastest coding LLM models in seconds**
+
+*Ping free coding models from 20 providers in real-time — pick the best one for OpenCode, OpenClaw, or any AI coding assistant*
+
+</div>
+
+> ⚠️ **Beta notice**  
+> FCM Proxy V2 support for external tools is still in beta. Claude Code, Codex, Gemini, and the other proxy-backed launchers already work in many setups, but auth and startup edge cases can still fail while the integration stabilizes.
+
+---
+
+## Table of Contents
+
+- [✨ Features](#-features)
+- [📋 Requirements](#-requirements)
+- [📦 Installation](#-installation)
+- [🚀 Usage](#-usage)
+- [📊 TUI Columns](#-tui-columns)
+- [📐 Stability Score](#-stability-score)
+- [📡 FCM Proxy V2](#-fcm-proxy-v2)
+- [🤖 Coding Models](#-coding-models)
+- [🔌 OpenCode Integration](#-opencode-integration)
+- [🦞 OpenClaw Integration](#-openclaw-integration)
+- [⚙️ How it works](#-how-it-works)
+
+---
+
+## ✨ Features
+
+- **🎯 Coding-focused** — Only LLM models optimized for code generation, not chat or vision
+- **🌐 Multi-provider** — Models from NVIDIA NIM, Groq, Cerebras, SambaNova, OpenRouter, Hugging Face Inference, Replicate, DeepInfra, Fireworks AI, Codestral, Hyperbolic, Scaleway, Google AI, SiliconFlow, Together AI, Cloudflare Workers AI, Perplexity API, Alibaba Cloud (DashScope), ZAI, and iFlow
+- **⚙️ Settings screen** — Press `P` to manage provider API keys, enable/disable providers, access FCM Proxy V2 settings, and check/install updates
+- **📡 FCM Proxy V2** — Built-in reverse proxy with multi-key rotation, rate-limit failover, and Anthropic wire format translation for Claude Code. Optional always-on background service keeps the proxy running 24/7
+- **🚀 Parallel pings** — All models tested simultaneously via native `fetch`
+- **📊 Real-time animation** — Watch latency appear live in alternate screen buffer
+- **🏆 Smart ranking** — Top 3 fastest models highlighted with medals 🥇🥈🥉
+- **⏱ Adaptive monitoring** — Starts in a fast 2s cadence for 60s, settles to 10s, slows to 30s after 5 minutes idle, and supports a forced 4s mode
+- **📈 Rolling averages** — Avg calculated from ALL successful pings since start
+- **📊 Uptime tracking** — Percentage of successful pings shown in real-time
+- **📐 Stability score** — Composite 0–100 score measuring consistency (p95, jitter, spikes, uptime)
+- **📊 Token usage tracking** — The proxy logs prompt+completion token usage per exact provider/model pair
+- **📜 Request Log Overlay** — Press `X` to inspect recent proxied requests and token usage
+- **📋 Changelog Overlay** — Press `N` to browse all versions in an index
+- **🛠 MODEL_NOT_FOUND Rotation** — If a provider returns 404, the TUI rotates through other providers for the same model
+- **🔄 Auto-retry** — Timeout models keep getting retried
+- **🎮 Interactive selection** — Navigate with arrow keys, press Enter to act
+- **💻 OpenCode integration** — Auto-detects NIM setup, sets model as default, launches OpenCode
+- **🦞 OpenClaw integration** — Sets selected model as default provider
+- **🧰 Public tool launchers** — 13 tool modes: OpenCode CLI, OpenCode Desktop, OpenClaw, Crush, Goose, Aider, Claude Code, Codex, Gemini, Qwen, OpenHands, Amp, and Pi
+- **🔌 Install Endpoints flow** — Press `Y` to install providers into tools
+- **📝 Feature Request (J key)** — Send anonymous feedback
+- **🐛 Bug Report (I key)** — Send anonymous bug reports
+- **📶 Status indicators** — UP ✅ · No Key 🔑 · Timeout ⏳ · Overloaded 🔥 · Not Found 🚫
+- **🏷 Tier filtering** — Filter models by tier letter (S, A, B, C)
+- **⭐ Persistent favorites** — Press `F` to pin/unpin models
+
+---
+
+## 📋 Requirements
+
+Before using `free-coding-models`, make sure you have:
+
+1. **Node.js 18+** — Required for native `fetch` API
+2. **At least one free API key** — pick any of the providers below
+
+<Aside type="tip" title="You don't need all providers">
+  One key is enough to get started. Add more later via the Settings screen (`P` key). Models without a key still show real latency so you can evaluate providers before signing up.
+</Aside>
+
+### Provider Setup Links
+
+| Provider | Free Tier | Link |
+|----------|-----------|------|
+| **NVIDIA NIM** | 40 req/min | [build.nvidia.com](https://build.nvidia.com) |
+| **Groq** | 30-50 RPM | [console.groq.com/keys](https://console.groq.com/keys) |
+| **Cerebras** | Generous dev tier | [cloud.cerebras.ai](https://cloud.cerebras.ai) |
+| **SambaNova** | Dev tier generous | [sambanova.ai/developers](https://sambanova.ai/developers) |
+| **OpenRouter** | 50-1000 req/day on `:free` | [openrouter.ai/keys](https://openrouter.ai/keys) |
+| **Hugging Face** | Free monthly credits | [huggingface.co/settings/tokens](https://huggingface.co/settings/tokens) |
+| **Replicate** | 6 req/min | [replicate.com/account/api-tokens](https://replicate.com/account/api-tokens) |
+| **DeepInfra** | 200 concurrent | [deepinfra.com/login](https://deepinfra.com/login) |
+| **Fireworks AI** | $1 free credits | [fireworks.ai](https://fireworks.ai) |
+| **Mistral Codestral** | 30 req/min | [codestral.mistral.ai](https://codestral.mistral.ai) |
+| **Hyperbolic** | $1 free trial | [app.hyperbolic.ai/settings](https://app.hyperbolic.ai/settings) |
+| **Scaleway** | 1M free tokens | [console.scaleway.com/iam/api-keys](https://console.scaleway.com/iam/api-keys) |
+| **Google AI Studio** | 14.4K req/day | [aistudio.google.com/apikey](https://aistudio.google.com/apikey) |
+| **SiliconFlow** | Varies by model | [cloud.siliconflow.cn/account/ak](https://cloud.siliconflow.cn/account/ak) |
+| **Together AI** | Credits/promotions | [api.together.ai/settings/api-keys](https://api.together.ai/settings/api-keys) |
+| **Cloudflare Workers AI** | 10k neurons/day | [dash.cloudflare.com](https://dash.cloudflare.com) |
+| **Perplexity API** | Tiered by spend | [perplexity.ai/settings/api](https://www.perplexity.ai/settings/api) |
+| **ZAI** | Coding Plan subscription | [z.ai](https://z.ai) |
+| **Alibaba Cloud (DashScope)** | 1M free tokens | [modelstudio.console.alibabacloud.com](https://modelstudio.console.alibabacloud.com) |
+
+### OpenRouter Free Tier Details
+
+OpenRouter provides free requests on free models (`:free`):
+
+- **No credits** (or {'<'}&dollar;10): 50 requests/day (20 req/min)
+- **≥** &dollar;10 in credits: 1000 requests/day (20 req/min)
+
+Key things to know:
+- Free models (`:free`) never consume your credits
+- Failed requests still count toward your daily quota
+- Quota resets every day at midnight UTC
+
+---
+
+## 📦 Installation
+
+<Tabs syncKey="pkg-manager">
+  <TabItem label="npm">
+    ```bash
+    npm install -g free-coding-models
+    ```
+  </TabItem>
+  <TabItem label="pnpm">
+    ```bash
+    pnpm add -g free-coding-models
+    ```
+  </TabItem>
+  <TabItem label="bun">
+    ```bash
+    bun add -g free-coding-models
+    ```
+  </TabItem>
+</Tabs>
+
+Or use directly with npx/pnpx/bunx:
+
+```bash
+npx free-coding-models
+pnpx free-coding-models
+bunx free-coding-models
+```
+
+### 🆕 What's New
+
+**Version 0.3.5** fixes the main Claude Code proxy compatibility bug:
+- Claude Code beta-route requests now work — the proxy accepts Anthropic URLs like `/v1/messages?beta=true`
+- The fix was validated against the real `claude` binary
+
+---
+
+## 🚀 Usage
+
+```bash
+# Just run it — starts in OpenCode CLI mode
+free-coding-models
+
+# Explicitly target OpenCode CLI
+free-coding-models --opencode
+
+# Explicitly target OpenCode Desktop
+free-coding-models --opencode-desktop
+
+# Explicitly target OpenClaw
+free-coding-models --openclaw
+
+# Launch other supported tools
+free-coding-models --crush
+free-coding-models --goose
+free-coding-models --aider
+free-coding-models --claude-code
+
+# Show only top-tier models (A+, S, S+)
+free-coding-models --best
+
+# Analyze for 10 seconds and output the most reliable model
+free-coding-models --fiable
+
+# Output results as JSON
+free-coding-models --json
+
+# Filter by tier
+free-coding-models --tier S          # S+ and S only
+free-coding-models --tier A          # A+, A, A- only
+
+# Combine flags freely
+free-coding-models --openclaw --tier S
+free-coding-models --opencode --best
+```
+
+### Setup Wizard (First Run)
+
+On first run, you'll be walked through all 20 providers:
+
+```
+🔑 First-time setup — API keys
+Enter keys for any provider you want to use. Press Enter to skip.
+
+● NVIDIA NIM
+  Free key at: https://build.nvidia.com
+  Profile → API Keys → Generate
+Enter key (or Enter to skip): nvapi-xxxx
+
+● Groq
+  Free key at: https://console.groq.com/keys
+  API Keys → Create API Key
+Enter key (or Enter to skip): gsk_xxxx
+```
+
+### Adding or Changing Keys Later
+
+Press **`P`** to open the Settings screen at any time:
+
+- **↑↓** — navigate providers
+- **Enter** — edit the selected key
+- **Space** — toggle provider enabled/disabled
+- **T** — test the key with a live ping
+- **Esc** — close settings
+
+Keys are saved to `~/.free-coding-models.json` (permissions `0600`).
+
+### Environment Variable Overrides
+
+Env vars always take priority over the config file:
+
+```bash
+NVIDIA_API_KEY=nvapi-xxx free-coding-models
+GROQ_API_KEY=gsk_xxx free-coding-models
+OPENROUTER_API_KEY=sk-or-xxx free-coding-models
+```
+
+---
+
+## 📊 TUI Columns
+
+The main table displays one row per model with the following columns:
+
+| Column | Sort Key | Description |
+|--------|----------|-------------|
+| **Rank** | `R` | Position based on current sort (medals 🥇🥈🥉 for top 3) |
+| **Tier** | — | SWE-bench tier (S+, S, A+, A, A-, B+, B, C) |
+| **SWE%** | `S` | SWE-bench Verified score — industry-standard for coding |
+| **CTX** | `C` | Context window size (e.g. `128k`) |
+| **Model** | `M` | Model display name (favorites show ⭐ prefix) |
+| **Provider** | `O` | Provider name (NIM, Groq, etc.) |
+| **Latest Ping** | `L` | Most recent round-trip latency in milliseconds |
+| **Avg Ping** | `A` | Rolling average of ALL successful pings since launch |
+| **Health** | `H` | Current status: UP ✅, NO KEY 🔑, Timeout ⏳, Overloaded 🔥 |
+| **Verdict** | `V` | Health verdict based on avg latency + stability |
+| **Stability** | `B` | Composite 0–100 consistency score |
+| **Up%** | `U` | Uptime — percentage of successful pings |
+| **Used** | — | Total tokens consumed for this provider/model pair |
+
+### Verdict Values
+
+| Verdict | Meaning |
+|---------|---------|
+| **Perfect** | Avg < 400ms with stable p95/jitter |
+| **Normal** | Avg < 1000ms, consistent responses |
+| **Slow** | Avg 1000–2000ms |
+| **Spiky** | Good avg but erratic tail latency |
+| **Very Slow** | Avg 2000–5000ms |
+| **Overloaded** | Server returned 429/503 |
+| **Unstable** | Was up but now timing out, or avg > 5000ms |
+| **Not Active** | No successful pings yet |
+| **Pending** | First ping still in flight |
+
+---
+
+## 📐 Stability Score
+
+The **Stability** column shows a composite 0–100 score that answers: *"How consistent and predictable is this model?"*
+
+Average latency alone is misleading — a model averaging 250ms that randomly spikes to 6 seconds *feels* slower than a steady 400ms model.
+
+### Formula
+
+```
+Stability = 0.30 × p95_score
+          + 0.30 × jitter_score
+          + 0.20 × spike_score
+          + 0.20 × reliability_score
+```
+
+| Component | Weight | What it measures |
+|-----------|--------|-----------------|
+| **p95 latency** | 30% | Tail-latency spikes — the worst 5% of responses |
+| **Jitter (σ)** | 30% | Erratic response times — standard deviation |
+| **Spike rate** | 20% | Fraction of pings above 3000ms |
+| **Reliability** | 20% | Uptime — fraction of successful HTTP 200 pings |
+
+---
+
+## 📡 FCM Proxy V2
+
+`free-coding-models` includes a local reverse proxy that merges all your provider API keys into one endpoint.
+
+> **Disabled by default** — enable in Settings (`P`) → FCM Proxy V2 settings.
+
+### What the Proxy Does
+
+| Feature | Description |
+|---------|-------------|
+| **Unified endpoint** | One URL (`http://127.0.0.1:18045/v1`) replaces 20+ provider endpoints |
+| **Key rotation** | Automatically swaps to the next API key when one hits rate limits (429) |
+| **Usage tracking** | Tracks token consumption per provider/model pair in real-time |
+| **Anthropic translation** | Claude Code sends `POST /v1/messages` — proxy translates to OpenAI format |
+| **Path normalization** | Converts non-standard API paths to standard `/v1/` calls |
+
+### Quick Setup
+
+**Via TUI:**
+1. Press `P` to open Settings
+2. Select **FCM Proxy V2 settings** and press Enter
+3. Enable **Proxy mode**, then select **Install background service**
+
+**Via CLI:**
+```bash
+free-coding-models daemon install     # Install + start as OS service
+free-coding-models daemon status      # Check running status
+free-coding-models daemon restart     # Restart after config changes
+free-coding-models daemon stop        # Graceful stop
+free-coding-models daemon logs        # Show recent service logs
+```
+
+### Platform Support
+
+| Platform | Service Type |
+|----------|-------------|
+| macOS | `launchd` LaunchAgent |
+| Linux | `systemd` user service |
+| Windows | Falls back to in-process proxy |
+
+---
+
+## 🤖 Coding Models
+
+**160 coding models** across 20 providers and 8 tiers, ranked by [SWE-bench Verified](https://www.swebench.com).
+
+### Tier Scale
+
+- **S+/S** — Elite frontier coders (≥60% SWE-bench), best for complex real-world tasks
+- **A+/A** — Great alternatives, strong at most coding tasks
+- **A-/B+** — Solid performers, good for targeted programming tasks
+- **B/C** — Lightweight or older models, good for code completion
+
+### Filtering by Tier
+
+```bash
+free-coding-models --tier S     # Only S+ and S (frontier models)
+free-coding-models --tier A     # Only A+, A, A- (solid performers)
+free-coding-models --tier B     # Only B+, B (lightweight options)
+free-coding-models --tier C     # Only C (edge/minimal models)
+```
+
+### Top Models by Provider
+
+<Aside type="note" title="SWE-bench scores">
+  Scores are self-reported by providers unless noted. The benchmark measures real GitHub issue resolution.
+</Aside>
+
+**Alibaba Cloud (DashScope)** — 8 models:
+- **S+**: Qwen3 Coder Plus (69.6%), Qwen3 Coder 480B (70.6%)
+- **S**: Qwen3 Coder Max (67.0%), Qwen3 235B (70.0%)
+- **A+**: Qwen3 32B (50.0%)
+- **A**: Qwen2.5 Coder 32B (46.0%)
+
+**ZAI Coding Plan** — 5 models:
+- **S+**: GLM-5 (77.8%), GLM-4.5 (75.0%), GLM-4.7 (73.8%)
+
+**NVIDIA NIM** — 44 models:
+- **S+**: GLM 5 (77.8%), Kimi K2.5 (76.8%), DeepSeek V3.2 (73.1%)
+- **S**: DeepSeek V3.1 Terminus (68.4%), Llama 4 Maverick (62.0%)
+- **A+**: Mistral Large 675B (58.0%), QwQ 32B (50.0%)
+- **A**: Llama 3.1 405B (44.0%), R1 Distill 32B (43.9%)
+
+**Groq** — 10 models:
+- **S**: Kimi K2 Instruct (65.8%), Llama 4 Maverick (62.0%)
+- **A+**: QwQ 32B (50.0%)
+- **A**: Llama 3.3 70B (39.5%)
+
+---
+
+## 🔌 OpenCode Integration
+
+**The easiest way** — let `free-coding-models` do everything:
+
+1. **Run**: `free-coding-models --opencode`
+2. **Wait** for models to be pinged (green ✅ status)
+3. **Navigate** with ↑↓ arrows to your preferred model
+4. **Press Enter** — tool automatically:
+   - Detects if NVIDIA NIM is configured in OpenCode
+   - Sets your selected model as default
+   - Launches OpenCode with the model pre-selected
+
+### tmux Sub-agent Panes
+
+When launched from an existing `tmux` session, `free-coding-models` auto-adds an OpenCode `--port` argument so OpenCode can spawn sub-agents in panes.
+
+You can force a specific port:
+
+```bash
+OPENCODE_PORT=4098 free-coding-models --opencode
+```
+
+### ZAI Provider Proxy
+
+OpenCode doesn't natively support ZAI's API path format. When you select a ZAI model, `free-coding-models` automatically starts a local reverse proxy that translates OpenCode's standard `/v1/*` requests to ZAI's API.
+
+---
+
+## 🦞 OpenClaw Integration
+
+OpenClaw is an autonomous AI agent daemon. `free-coding-models` can configure it to use NVIDIA NIM models as its default provider.
+
+### Quick Start
+
+```bash
+free-coding-models --openclaw
+```
+
+1. **Wait** for models to be pinged
+2. **Navigate** with ↑↓ arrows to your preferred model
+3. **Press Enter** — tool automatically:
+   - Reads `~/.openclaw/openclaw.json`
+   - Adds the `nvidia` provider block if missing
+   - Sets `agents.defaults.model.primary` to `nvidia/<model-id>`
+   - Saves config and prints next steps
+
+### Patching OpenClaw for Full NVIDIA Support
+
+By default, OpenClaw only allows a few specific NVIDIA models. To add ALL 47 NVIDIA models:
+
+```bash
+# From the free-coding-models package directory
+node patch-openclaw.js
+```
+
+This script:
+- Backs up existing config files
+- Adds all 47 NVIDIA models with proper context window and token limits
+- Preserves existing models and configuration
+
+After patching, restart OpenClaw gateway:
+
+```bash
+systemctl --user restart openclaw-gateway
+```
+
+---
+
+## ⚙️ How It Works
+
+```
+┌──────────────────────────────────────────────────────────────────┐
+│  1. Enter alternate screen buffer (like vim/htop/less)           │
+│  2. Ping ALL models in parallel                                  │
+│  3. Display real-time table with Latest/Avg/Stability/Up%        │
+│  4. Re-ping ALL models at 2s on startup, then 10s steady-state   │
+│  5. Update rolling averages + stability scores per model         │
+│  6. User can navigate with ↑↓ and select with Enter              │
+│  7. On Enter: set model, launch selected tool                    │
+│  8. Interface stays open until you select or press Ctrl+C        │
+└──────────────────────────────────────────────────────────────────┘
+```
+
+**Result:** Continuous monitoring interface with rolling averages, stability scores, and one-keystroke tool configuration.
+
+---
+
+## 🔧 Keyboard Shortcuts
+
+### Main TUI
+
+| Key | Action |
+|-----|--------|
+| **↑↓** | Navigate models |
+| **Enter** | Select model and launch current target tool |
+| **R/S/C/M/O/L/A/H/V/B/U** | Sort by Rank/SWE/Ctx/Model/Provider/Latest/Avg/Health/Verdict/Stability/Up% |
+| **F** | Toggle favorite on selected model (⭐ pinned at top) |
+| **T** | Cycle tier filter (All → S+ → S → A+ → A → ...) |
+| **D** | Cycle provider filter (All → NIM → Groq → ...) |
+| **E** | Toggle configured-only mode (persisted across sessions) |
+| **Z** | Cycle target tool (OpenCode → OpenClaw → Crush → ...) |
+| **X** | Toggle request logs (recent proxied requests) |
+| **P** | Open Settings (manage API keys, updates, profiles) |
+| **Y** | Open Install Endpoints flow |
+| **Shift+P** | Cycle through saved profiles |
+| **Shift+S** | Save current TUI settings as a named profile |
+| **Q** | Open Smart Recommend overlay |
+| **N** | Open Changelog overlay |
+| **W** | Cycle ping mode (FAST 2s → NORMAL 10s → SLOW 30s → FORCED 4s) |
+| **J** | Open FCM Proxy V2 settings |
+| **I** | Send feedback or bug reports |
+| **K / Esc** | Show help / Close overlay |
+| **Ctrl+C** | Exit |
+
+### Settings Screen (P Key)
+
+| Key | Action |
+|-----|--------|
+| **↑↓** | Navigate providers, maintenance, profiles |
+| **Enter** | Edit API key, check/install update, load profile |
+| **Space** | Toggle provider enabled/disabled |
+| **T** | Test current provider's API key |
+| **U** | Check for updates manually |
+| **Backspace** | Delete the selected profile |
+| **Esc** | Close settings |
+
+---
+
+## 📋 Config Profiles
+
+Profiles let you save and restore different TUI configurations — useful if you switch between work/personal setups or different tier preferences.
+
+**What's stored:**
+- Favorites (starred models)
+- Sort column and direction
+- Tier filter
+- Ping mode
+- Configured-only filter
+- API keys
+
+**Saving a profile:**
+1. Configure the TUI the way you want
+2. Press **Shift+S** — an inline prompt appears
+3. Type a name (e.g. `work`, `fast-only`) and press **Enter**
+
+**Switching profiles:**
+- **Shift+P** in the main table — cycles through saved profiles
+- **`--profile <name>`** — load a specific profile on startup
+
+---
+
+## 📄 License
+
+MIT © [vava](https://github.com/vava-nessa)
+
+---
+
+## 📬 Contribute
+
+We welcome contributions! Feel free to open issues, submit pull requests, or get involved in the project.
+
+**Q:** Can I use this with other providers?  
+**A:** Yes, the tool is designed to be extensible.
+
+**Q:** How accurate are the latency numbers?  
+**A:** They represent average round-trip times measured during testing; actual performance may vary based on network conditions.
+
+**Q:** Do I need to download models locally for OpenClaw?  
+**A:** No — `free-coding-models` configures OpenClaw to use NVIDIA NIM's remote API. No GPU or local setup required.
+
+---
+
+## 📧 Support
+
+For questions or issues, open a [GitHub issue](https://github.com/vava-nessa/free-coding-models/issues).
+
+💬 Let's talk about the project on Discord: https://discord.gg/ZTNFHvvCkU
+
+---
+
+<div align="center">
+
+*Built with ☕ and 🌹 by [vava](https://github.com/vava-nessa)*
+
+*We collect anonymous usage data to improve the tool and fix bugs. No personal information is ever collected.*
+
+</div>

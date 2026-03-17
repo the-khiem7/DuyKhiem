@@ -1,0 +1,1182 @@
+---
+title: 'free-coding-models — Tìm LLM Coding Nhanh Trong Giây'
+description: 'Ping 160 mô hình coding miễn phí từ 20 nhà cung cấp theo thời gian thực. Chọn mô hình tốt nhất cho OpenCode, OpenClaw, hoặc bất kỳ AI coding assistant nào.'
+publishDate: '2026-03-18T08:00:00Z'
+tags:
+  - ai
+  - llm
+  - coding
+  - tools
+  - openapi
+  - nvidia
+  - groq
+language: 'Vietnamese'
+draft: false
+comment: true
+---
+
+import { Aside, Tabs, TabItem, Collapse, Steps, Button } from 'astro-pure/user'
+import { GithubCard, LinkPreview, QRCode } from 'astro-pure/advanced'
+
+## Giới thiệu
+
+`free-coding-models` là một công cụ TUI thời gian thực ping **160 mô hình coding** từ **20 nhà cung cấp** đồng thời, giúp bạn tìm LLM nhanh nhất cho AI coding assistant của mình.
+
+<p align="center">
+
+![npm version](https://img.shields.io/npm/v/free-coding-models?color=76b900&label=npm&logo=npm)
+![node version](https://img.shields.io/node/v/free-coding-models?color=76b900&logo=node.js)
+![license](https://img.shields.io/npm/l/free-coding-models?color=76b900)
+![models count](https://img.shields.io/badge/models-160-76b900?logo=nvidia)
+![providers count](https://img.shields.io/badge/providers-20-blue)
+
+**Những người đóng góp**
+
+[vava-nessa](https://github.com/vava-nessa) · [erwinh22](https://github.com/erwinh22) · [whit3rabbit](https://github.com/whit3rabbit) · [skylaweber](https://github.com/skylaweber) · [PhucTruong-ctrl](https://github.com/PhucTruong-ctrl)
+
+💬 [Thảo luận về dự án trên Discord](https://discord.gg/ZTNFHvvCkU)
+
+Bởi Vanessa Depraute
+
+```
+1. Tạo API key miễn phí (NVIDIA, OpenRouter, Hugging Face, v.v.)
+2. npm i -g free-coding-models
+3. free-coding-models
+```
+
+**Tìm mô hình LLM coding nhanh nhất trong vài giây**
+
+*Ping các mô hình coding miễn phí từ 20 nhà cung cấp theo thời gian thực — chọn mô hình tốt nhất cho OpenCode, OpenClaw, hoặc bất kỳ AI coding assistant nào*
+
+</p>
+
+> ⚠️ **Thông báo beta**  
+> Hỗ trợ FCM Proxy V2 cho các công cụ bên ngoài vẫn đang trong giai đoạn beta. Claude Code, Codex, Gemini và các launcher proxy-backed khác đã hoạt động trong nhiều thiết lập, nhưng các trường hợp edge về auth và khởi động vẫn có thể thất bại khi tích hợp đang ổn định.
+
+---
+
+## Mục lục
+
+- [✨ Tính năng](#-tính-năng)
+- [📋 Yêu cầu](#-yêu-cầu)
+- [📦 Cài đặt](#-cài-đặt)
+- [🚀 Sử dụng](#-sử-dụng)
+- [📊 Cột TUI](#-cột-tui)
+- [📐 Điểm ổn định](#-điểm-ổn-định)
+- [📡 FCM Proxy V2](#-fcm-proxy-v2)
+- [🤖 Mô hình Coding](#-mô-hình-coding)
+- [🔌 Tích hợp OpenCode](#-tích-hợp-opencode)
+- [🦞 Tích hợp OpenClaw](#-tích-hợp-openclaw)
+- [⚙️ Cách hoạt động](#-cách-hoạt-động)
+
+---
+
+## ✨ Tính năng
+
+- **🎯 Tập trung coding** — Chỉ các mô hình LLM được tối ưu cho việc tạo code, không phải chat hay vision
+- **🌐 Nhiều nhà cung cấp** — Mô hình từ NVIDIA NIM, Groq, Cerebras, SambaNova, OpenRouter, Hugging Face Inference, Replicate, DeepInfra, Fireworks AI, Codestral, Hyperbolic, Scaleway, Google AI, SiliconFlow, Together AI, Cloudflare Workers AI, Perplexity API, Alibaba Cloud (DashScope), ZAI, và iFlow
+- **⚙️ Màn hình cài đặt** — Nhấn `P` để quản lý API key nhà cung cấp, bật/tắt nhà cung cấp, truy cập cài đặt FCM Proxy V2, và kiểm tra/cài đặt cập nhật
+- **📡 FCM Proxy V2** — Reverse proxy tích hợp với xoay vòng nhiều key, failover giới hạn rate, và dịch định dạng wire Anthropic cho Claude Code. Chế độ background service tùy chọn giữ proxy chạy 24/7
+- **🚀 Ping song song** — Tất cả mô hình được test đồng thời qua native `fetch`
+- **📊 Animation thời gian thực** — Xem độ trễ xuất hiện trực tiếp trong buffer màn hình alternate
+- **🏆 Xếp hạng thông minh** — Top 3 mô hình nhanh nhất được highlight với huy chương 🥇🥈🥉
+- **⏱ Giám sát thích ứng** — Bắt đầu với nhịp 2s nhanh trong 60s, ổn định ở 10s, chậm lại 30s sau 5 phút idle, và hỗ trợ chế độ 4s bắt buộc
+- **📈 Trung bình cuộn** — Avg được tính từ TẤT CẢ các ping thành công từ khi bắt đầu
+- **📊 Theo dõi uptime** — Tỷ lệ phần trăm ping thành công hiển thị thời gian thực
+- **📐 Điểm ổn định** — Điểm composite 0–100 đo lường tính nhất quán (p95, jitter, spikes, uptime)
+- **📊 Theo dõi token usage** — Proxy logs token prompt+completion cho mỗi cặp nhà cung cấp/mô hình chính xác
+- **📜 Request Log Overlay** — Nhấn `X` để kiểm tra các request proxied gần đây và token usage
+- **📋 Changelog Overlay** — Nhấn `N` để duyệt tất cả phiên bản trong index
+- **🛠 MODEL_NOT_FOUND Rotation** — Nếu nhà cung cấp trả về 404, TUI xoay qua các nhà cung cấp khác cho cùng mô hình
+- **🔄 Auto-retry** — Các mô hình timeout tiếp tục được retry
+- **🎮 Lựa chọn tương tác** — Di chuyển bằng phím mũi tên, nhấn Enter để hành động
+- **💻 Tích hợp OpenCode** — Tự động phát hiện setup NIM, đặt mô hình làm mặc định, launch OpenCode
+- **🦞 Tích hợp OpenClaw** — Đặt mô hình đã chọn làm nhà cung cấp mặc định
+- **🧰 Public tool launchers** — 13 chế độ công cụ: OpenCode CLI, OpenCode Desktop, OpenClaw, Crush, Goose, Aider, Claude Code, Codex, Gemini, Qwen, OpenHands, Amp, và Pi
+- **🔌 Install Endpoints flow** — Nhấn `Y` để cài đặt nhà cung cấp vào công cụ
+- **📝 Feature Request (phím J)** — Gửi phản hồi ẩn danh
+- **🐛 Bug Report (phím I)** — Gửi báo cáo lỗi ẩn danh
+- **📶 Chỉ báo trạng thái** — UP ✅ · No Key 🔑 · Timeout ⏳ · Overloaded 🔥 · Not Found 🚫
+- **🏷 Lọc tier** — Lọc mô hình theo chữ tier (S, A, B, C)
+- **⭐ Favorites bền vững** — Nhấn `F` để ghim/bỏ ghim mô hình
+
+---
+
+## 📋 Yêu cầu
+
+Trước khi sử dụng `free-coding-models`, hãy đảm bảo bạn có:
+
+1. **Node.js 18+** — Bắt buộc cho native `fetch` API
+2. **Ít nhất một API key miễn phí** — chọn bất kỳ hoặc tất cả:
+   - **NVIDIA NIM** — [build.nvidia.com](https://build.nvidia.com) → Profile → API Keys → Generate — free tier: 40 req/phút (không cần thẻ tín dụng)
+   - **Groq** — [console.groq.com/keys](https://console.groq.com/keys) → Create API Key — free tier: 30-50 RPM mỗi mô hình (khác nhau)
+   - **Cerebras** — [cloud.cerebras.ai](https://cloud.cerebras.ai) → API Keys → Create — free tier: hào phóng (developer tier giới hạn cao hơn 10×)
+   - **SambaNova** — [sambanova.ai/developers](https://sambanova.ai/developers) → Developers portal → API key (dev tier hào phóng)
+   - **OpenRouter** — [openrouter.ai/keys](https://openrouter.ai/keys) → Create key (request miễn phí trên `:free` models, xem chi tiết bên dưới)
+
+### Chi tiết Free Tier OpenRouter
+
+OpenRouter cung cấp request miễn phí trên các mô hình free (`:free`):
+
+```
+──────────────────────────────────────────────────
+  OpenRouter — Request miễn phí trên mô hình free (:free)
+──────────────────────────────────────────────────
+
+  Không credits (hoặc <$10)   →   50  request / ngày   (20 req/phút)
+  ≥ $10 credits              →  1000 request / ngày   (20 req/phút)
+
+──────────────────────────────────────────────────
+Những điều cần biết:
+
+  • Mô hình free (:free) không bao giờ tiêu tốn credits của bạn.
+    $10 của bạn vẫn nguyên nếu chỉ dùng mô hình :free.
+
+  • Request thất bại vẫn được tính vào quota hàng ngày.
+
+  • Quota reset mỗi ngày lúc nửa đêm UTC.
+
+  • Mô hình free-tier phổ biến có thể bị rate-limit thêm
+    bởi nhà cung cấp trong giờ cao điểm.
+──────────────────────────────────────────────────
+```
+
+   - **Hugging Face Inference** — [huggingface.co/settings/tokens](https://huggingface.co/settings/tokens) → Access Tokens (credits miễn phí hàng tháng)
+   - **Replicate** — [replicate.com/account/api-tokens](https://replicate.com/account/api-tokens) → Create token — free tier: 6 req/phút (không cần thanh toán) — lên đến 3,000 RPM (API) / 600 RPM (predictions) với thanh toán
+   - **DeepInfra** — [deepinfra.com/login](https://deepinfra.com/login) → Login → API key — free tier: 200 request đồng thời (mặc định)
+   - **Fireworks AI** — [fireworks.ai](https://fireworks.ai) → Settings → Access Tokens — $1 credits miễn phí; 10 req/phút không cần thanh toán (giới hạn đầy đủ với thanh toán)
+   - **Mistral Codestral** — [codestral.mistral.ai](https://codestral.mistral.ai) → API Keys (30 req/phút, 2000/ngày — cần số điện thoại)
+   - **Hyperbolic** — [app.hyperbolic.ai/settings](https://app.hyperbolic.ai/settings) → API Keys ($1 dùng thử miễn phí)
+   - **Scaleway** — [console.scaleway.com/iam/api-keys](https://console.scaleway.com/iam/api-keys) → IAM → API Keys (1M tokens miễn phí)
+   - **Google AI Studio** — [aistudio.google.com/apikey](https://aistudio.google.com/apikey) → Get API key (mô hình Gemma miễn phí, 14.4K req/ngày)
+   - **SiliconFlow** — [cloud.siliconflow.cn/account/ak](https://cloud.siliconflow.cn/account/ak) → API Keys (quota mô hình miễn phí khác nhau theo mô hình)
+   - **Together AI** — [api.together.ai/settings/api-keys](https://api.together.ai/settings/api-keys) → API Keys (credits/khuyến mãi khác nhau)
+   - **Cloudflare Workers AI** — [dash.cloudflare.com](https://dash.cloudflare.com) → Create API token + đặt `CLOUDFLARE_ACCOUNT_ID` (Miễn phí: 10k neurons/ngày)
+   - **Perplexity API** — [perplexity.ai/settings/api](https://www.perplexity.ai/settings/api) → API Key (giới hạn tier theo chi tiêu)
+   - **ZAI** — [z.ai](https://z.ai) → Get API key (Coding Plan subscription)
+3. **OpenCode** *(tùy chọn)* — [Cài đặt OpenCode](https://github.com/opencode-ai/opencode) để sử dụng tích hợp OpenCode
+4. **OpenClaw** *(tùy chọn)* — [Cài đặt OpenClaw](https://openclaw.ai) để sử dụng tích hợp OpenClaw
+
+> 💡 **Mẹo:** Bạn không cần tất cả 20 nhà cung cấp. Một key là đủ để bắt đầu. Thêm nhiều hơn sau qua màn hình Settings (phím `P`). Các mô hình không có key vẫn hiển thị độ trễ thực (`🔑 NO KEY`) để bạn có thể đánh giá nhà cung cấp trước khi đăng ký.
+
+---
+
+## 📦 Cài đặt
+
+```bash
+# npm (cài đặt global — khuyến nghị)
+npm install -g free-coding-models
+
+# pnpm
+pnpm add -g free-coding-models
+
+# bun
+bun add -g free-coding-models
+
+# Hoặc sử dụng trực tiếp với npx/pnpx/bunx
+npx free-coding-models YOUR_API_KEY
+pnpx free-coding-models YOUR_API_KEY
+bunx free-coding-models YOUR_API_KEY
+```
+
+### 🆕 Có gì mới
+
+**Phiên bản 0.3.5 sửa lỗi tương thích proxy Claude Code chính được tìm thấy trong sử dụng thực tế:**
+
+- **Request beta-route Claude Code giờ hoạt động** — proxy chấp nhận URL Anthropic như `/v1/messages?beta=true` và `/v1/messages/count_tokens?beta=true`, đây là cách các build Claude Code gần đây thực sự gọi API.
+- **Luồng proxy Claude giờ hoạt động như `free-claude-code` ở lớp routing** — id mô hình Claude fake vẫn map proxy-side sang backend free đã chọn, nhưng route matcher không còn break trước khi mapping chạy.
+- **Fix được validate với binary `claude` thực** — không chỉ unit tests. Lỗi `selected model (claude-sonnet-4-6) may not exist` chính xác giờ đã biến mất trong local end-to-end repro.
+
+---
+
+## 🚀 Sử dụng
+
+```bash
+# Chỉ chạy nó — bắt đầu ở chế độ OpenCode CLI, prompt API key nếu chưa đặt
+free-coding-models
+
+# Rõ ràng target OpenCode CLI (TUI + Enter launch OpenCode CLI)
+free-coding-models --opencode
+
+# Rõ ràng target OpenCode Desktop (TUI + Enter đặt mô hình & mở Desktop app)
+free-coding-models --opencode-desktop
+
+# Rõ ràng target OpenClaw (TUI + Enter đặt mô hình làm mặc định trong OpenClaw)
+free-coding-models --openclaw
+
+# Launch các công cụ public được hỗ trợ khác với mô hình đã chọn
+free-coding-models --crush
+free-coding-models --goose
+
+# Chỉ hiển thị mô hình top-tier (A+, S, S+)
+free-coding-models --best
+
+# Phân tích trong 10 giây và xuất mô hình đáng tin cậy nhất
+free-coding-models --fiable
+
+# Xuất kết quả dưới dạng JSON (cho scripting/automation)
+free-coding-models --json
+free-coding-models --tier S --json | jq '.[0].modelId'  # Lấy model ID nhanh nhất S-tier
+free-coding-models --json | jq '.[] | select(.avgPing < 500)'  # Lọc theo độ trễ
+
+# In toàn bộ help CLI với mọi flag được hỗ trợ và lệnh daemon
+free-coding-models --help
+
+# Lọc mô hình theo chữ tier
+free-coding-models --tier S          # Chỉ S+ và S
+free-coding-models --tier A          # Chỉ A+, A, A-
+free-coding-models --tier B          # Chỉ B+, B
+free-coding-models --tier C          # Chỉ C
+
+# Kết hợp flag tự do
+free-coding-models --openclaw --tier S
+free-coding-models --opencode --best
+free-coding-models --tier S --json
+```
+
+### AI E2E workflow (`/testfcm`)
+
+Để validate level repo, dự án này giờ ship một flow test manual AI-driven lặp lại:
+
+- Ưu tiên: `pnpm test:fcm -- --tool crush`
+- Fallback khi `pnpm` không khả dụng: `npm run test:fcm -- --tool crush`
+- Kiểm tra plumbing mock: `pnpm test:fcm:mock`
+
+Nó làm gì:
+
+1. Copy `~/.free-coding-models.json` hiện tại của bạn vào HOME isolated
+2. Chạy preflight `--json` để bắt regression khởi động rõ ràng
+3. Bắt đầu TUI thực trong PTY qua lệnh `expect` hệ thống
+4. Nhấn `Enter` như user để launch công cụ đã chọn
+5. Gửi `hi`
+6. Capture response, `request-log.jsonl`, daemon logs, và tool config được tạo
+7. Viết báo cáo Markdown vào `task/reports/` và artifacts raw vào `task/artifacts/`
+
+Flow lệnh được document trong [task/TESTFCM-WORKFLOW.md](task/TESTFCM-WORKFLOW.md). Slash commands project-local cũng được include tại [.claude/commands/testfcm.md](.claude/commands/testfcm.md) và [.crush/commands/testfcm.md](.crush/commands/testfcm.md).
+
+### Chọn công cụ target
+
+Chạy `free-coding-models` không có flag launcher bắt đầu ở chế độ **OpenCode CLI**.
+
+- Nhấn **`Z`** trong TUI để cycle public launch targets: `OpenCode CLI` → `OpenCode Desktop` → `OpenClaw` → `Crush` → `Goose` → `Pi` → `Aider` → `Claude Code` → `Codex` → `Gemini` → `Qwen` → `OpenHands` → `Amp`
+- Hoặc bắt đầu trực tiếp ở chế độ target với flag CLI như `--opencode-desktop`, `--openclaw`, `--crush`, `--goose`, `--pi`, `--aider`, `--claude-code`, `--codex`, `--gemini`, `--qwen`, `--openhands`, hoặc `--amp`
+- Target active luôn hiển thị trong header badge trước khi bạn nhấn `Enter`
+
+**Cách hoạt động:**
+1. **Giai đoạn ping** — Tất cả mô hình được bật được ping song song (lên đến 160 across 20 nhà cung cấp)
+2. **Giám sát liên tục** — Mô hình bắt đầu với re-ping 2s trong 60s, sau đó fallback 10s tự động, và chậm 30s sau 5 phút idle trừ khi bạn force chế độ 4s với `W`
+3. **Cập nhật thời gian thực** — Xem cột "Latest", "Avg", và "Up%" cập nhật trực tiếp
+4. **Chọn bất cứ lúc nào** — Dùng ↑↓ mũi tên để di chuyển, nhấn Enter trên mô hình để hành động
+5. **Phát hiện thông minh** — Tự động phát hiện nếu NVIDIA NIM được cấu hình trong OpenCode hoặc OpenClaw
+
+### Setup wizard (lần chạy đầu — walkthrough tất cả 20 nhà cung cấp):
+
+```
+  🔑 Setup lần đầu — API keys
+  Nhập keys cho bất kỳ nhà cung cấp nào bạn muốn sử dụng. Nhấn Enter để bỏ qua.
+
+  ● NVIDIA NIM
+    Free key tại: https://build.nvidia.com
+    Profile → API Keys → Generate
+  Nhập key (hoặc Enter để bỏ qua): nvapi-xxxx
+
+  ● Groq
+    Free key tại: https://console.groq.com/keys
+    API Keys → Create API Key
+  Nhập key (hoặc Enter để bỏ qua): gsk_xxxx
+
+  ● Cerebras
+    Free key tại: https://cloud.cerebras.ai
+    API Keys → Create
+  Nhập key (hoặc Enter để bỏ qua):
+
+  ● SambaNova
+    Free key tại: https://cloud.sambanova.ai/apis
+    API Keys → Create ($5 dùng thử miễn phí, 3 tháng)
+  Nhập key (hoặc Enter để bỏ qua):
+
+  ✅ 2 key(s) đã lưu vào ~/.free-coding-models.json
+  Bạn có thể thêm hoặc thay đổi keys bất cứ lúc nào với phím P trong TUI.
+```
+
+Bạn không cần tất cả 20 nhà cung cấp — bỏ qua bất kỳ nhà cung cấp nào bằng cách nhấn Enter. Ít nhất một key là bắt buộc.
+
+### Thêm hoặc thay đổi keys sau
+
+Nhấn **`P`** để mở màn hình Settings bất cứ lúc nào:
+
+```
+  ⚙  Settings
+
+  Providers
+
+  ❯ [ ✅ ] NVIDIA NIM              nvapi-••••••••••••3f9a  [Test ✅]  Free tier (provider quota theo mô hình)
+    [ ✅ ] OpenRouter              (no key set)            [Test —]   Free trên :free (50/ngày <$10, 1000/ngày ≥$10)
+    [ ✅ ] Hugging Face Inference  (no key set)            [Test —]   Credits miễn phí hàng tháng (~$0.10)
+
+  Setup Instructions — NVIDIA NIM
+  1) Tạo tài khoản NVIDIA NIM: https://build.nvidia.com
+  2) Profile → API Keys → Generate
+  3) Nhấn T để test key của bạn
+
+  ↑↓ Navigate  •  Enter Edit/Run  •  + Add key  •  - Remove key  •  Space Toggle  •  T Test key  •  S Sync→OpenCode  •  R Restore backup  •  U Updates  •  ⌫ Delete profile  •  Esc Close
+```
+
+- **↑↓** — di chuyển nhà cung cấp
+- **Enter** — chỉnh sửa key đã chọn, chạy maintenance actions, hoặc load profile đã chọn
+- **+ / -** — thêm key khác cho nhà cung cấp đã chọn hoặc xóa một key
+- **Space** — toggle nhà cung cấp enabled/disabled
+- **T** — fire real test ping để verify key hoạt động (hiển thị ✅/❌)
+- **S** — sync `fcm-proxy` vào OpenCode khi proxy mode + persistence được bật
+- **R** — restore backup OpenCode cuối cùng được tạo bởi sync/cleanup flows
+- **U** — manually check npm cho version mới hơn
+- **Backspace** — xóa saved profile đã chọn
+- **Esc** — đóng settings và reload danh sách mô hình
+
+Keys được lưu vào `~/.free-coding-models.json` (permissions `0600`).
+
+Update manual ở cùng màn hình Settings (`P`) dưới **Maintenance** (Enter để check, Enter lần nữa để install khi update khả dụng).
+Khi npm release mới hơn được biết, footer chính cũng thêm warning line đỏ full-width với lệnh recovery manual `npm install -g free-coding-models@latest`.
+Favorites cũng được persist trong cùng file config và tồn tại qua restart, app relaunches, và package updates.
+Hàng favorites stays pinned ở trên cùng và vẫn hiển thị ngay cả khi chế độ `Configured Only` được bật.
+Bảng chính giờ bắt đầu ở chế độ `Configured Only`, vì vậy nếu chưa có gì được setup bạn có thể nhấn `P` và thêm API key đầu tiên ngay lập tức.
+
+### Environment variable overrides
+
+Env vars luôn ưu tiên hơn file config:
+
+```bash
+NVIDIA_API_KEY=nvapi-xxx free-coding-models
+GROQ_API_KEY=gsk_xxx free-coding-models
+CEREBRAS_API_KEY=csk_xxx free-coding-models
+OPENROUTER_API_KEY=sk-or-xxx free-coding-models
+HUGGINGFACE_API_KEY=hf_xxx free-coding-models
+REPLICATE_API_TOKEN=r8_xxx free-coding-models
+DEEPINFRA_API_KEY=di_xxx free-coding-models
+FIREWORKS_API_KEY=fw_xxx free-coding-models
+SILICONFLOW_API_KEY=sk_xxx free-coding-models
+TOGETHER_API_KEY=together_xxx free-coding-models
+CLOUDFLARE_API_TOKEN=cf_xxx CLOUDFLARE_ACCOUNT_ID=your_account_id free-coding-models
+PERPLEXITY_API_KEY=pplx_xxx free-coding-models
+ZAI_API_KEY=zai-xxx free-coding-models
+DASHSCOPE_API_KEY=sk-xxx free-coding-models
+```
+
+### Lấy API keys miễn phí của bạn
+
+**NVIDIA NIM** (44 mô hình, S+ → C tier):
+1. Đăng ký tại [build.nvidia.com](https://build.nvidia.com)
+2. Đi đến Profile → API Keys → Generate API Key
+3. Đặt tên (ví dụ: "free-coding-models"), đặt expiry thành "Never"
+4. Copy — chỉ hiển thị một lần!
+
+**Groq** (6 mô hình, inference nhanh):
+1. Đăng ký tại [console.groq.com](https://console.groq.com)
+2. Đi đến API Keys → Create API Key
+
+**Cerebras** (3 mô hình, silicon ultra-nhanh):
+1. Đăng ký tại [cloud.cerebras.ai](https://cloud.cerebras.ai)
+2. Đi đến API Keys → Create
+
+**OpenRouter** (mô hình `:free`):
+1. Đăng ký tại [openrouter.ai/keys](https://openrouter.ai/keys)
+2. Tạo API key (`sk-or-...`)
+
+**Hugging Face Inference**:
+1. Đăng ký tại [huggingface.co/settings/tokens](https://huggingface.co/settings/tokens)
+2. Tạo Access Token (`hf_...`)
+
+**Replicate**:
+1. Đăng ký tại [replicate.com/account/api-tokens](https://replicate.com/account/api-tokens)
+2. Tạo API token (`r8_...`)
+
+**DeepInfra**:
+1. Đăng ký tại [deepinfra.com/login](https://deepinfra.com/login)
+2. Tạo API key từ account dashboard của bạn
+
+**Fireworks AI**:
+1. Đăng ký tại [fireworks.ai](https://fireworks.ai)
+2. Mở Settings → Access Tokens và tạo token
+
+**Mistral Codestral**:
+1. Đăng ký tại [codestral.mistral.ai](https://codestral.mistral.ai)
+2. Đi đến API Keys → Create
+
+**Hyperbolic**:
+1. Đăng ký tại [app.hyperbolic.ai/settings](https://app.hyperbolic.ai/settings)
+2. Tạo API key trong Settings
+
+**Scaleway**:
+1. Đăng ký tại [console.scaleway.com/iam/api-keys](https://console.scaleway.com/iam/api-keys)
+2. Đi đến IAM → API Keys
+
+**Google AI Studio**:
+1. Đăng ký tại [aistudio.google.com/apikey](https://aistudio.google.com/apikey)
+2. Tạo API key cho endpoints Gemini/Gemma
+
+**SiliconFlow**:
+1. Đăng ký tại [cloud.siliconflow.cn/account/ak](https://cloud.siliconflow.cn/account/ak)
+2. Tạo API key trong Account → API Keys
+
+**Together AI**:
+1. Đăng ký tại [api.together.ai/settings/api-keys](https://api.together.ai/settings/api-keys)
+2. Tạo API key trong Settings
+
+**Cloudflare Workers AI**:
+1. Đăng ký tại [dash.cloudflare.com](https://dash.cloudflare.com)
+2. Tạo API token với permissions Workers AI
+3. Export cả `CLOUDFLARE_API_TOKEN` và `CLOUDFLARE_ACCOUNT_ID`
+
+**Perplexity API**:
+1. Đăng ký tại [perplexity.ai/settings/api](https://www.perplexity.ai/settings/api)
+2. Tạo API key (`PERPLEXITY_API_KEY`)
+
+**Alibaba Cloud (DashScope)** (8 mô hình, Qwen3-Coder family):
+1. Đăng ký tại [modelstudio.console.alibabacloud.com](https://modelstudio.console.alibabacloud.com)
+2. Kích hoạt Model Studio (1M tokens miễn phí mỗi mô hình, region Singapore, 90 ngày)
+3. Tạo API key (`DASHSCOPE_API_KEY`)
+
+**ZAI** (5 mô hình, GLM family):
+1. Đăng ký tại [z.ai](https://z.ai)
+2. Đăng ký Coding Plan
+3. Lấy API key từ dashboard
+
+> 💡 **Free tiers** — mỗi nhà cung cấp expose dev/free tier với quota riêng. ZAI yêu cầu Coding Plan subscription.
+
+---
+
+## 🤖 Mô hình Coding
+
+**160 mô hình coding** across 20 nhà cung cấp và 8 tiers, xếp hạng theo [SWE-bench Verified](https://www.swebench.com) — industry-standard benchmark đo lường GitHub issue resolution thực tế. Scores được self-reported bởi nhà cung cấp trừ khi được ghi chú.
+
+### Alibaba Cloud (DashScope) (8 mô hình)
+
+| Tier | SWE-bench | Mô hình |
+|------|-----------|-------|
+| **S+** ≥70% | Qwen3 Coder Plus (69.6%), Qwen3 Coder 480B (70.6%) |
+| **S** 60–70% | Qwen3 Coder Max (67.0%), Qwen3 Coder Next (65.0%), Qwen3 235B (70.0%), Qwen3 80B Instruct (65.0%) |
+| **A+** 50–60% | Qwen3 32B (50.0%) |
+| **A** 40–50% | Qwen2.5 Coder 32B (46.0%) |
+
+### ZAI Coding Plan (5 mô hình)
+
+| Tier | SWE-bench | Mô hình |
+|------|-----------|-------|
+| **S+** ≥70% | GLM-5 (77.8%), GLM-4.5 (75.0%), GLM-4.7 (73.8%), GLM-4.5-Air (72.0%), GLM-4.6 (70.0%) |
+
+### NVIDIA NIM (44 mô hình)
+
+| Tier | SWE-bench | Mô hình |
+|------|-----------|--------|
+| **S+** ≥70% | GLM 5 (77.8%), Kimi K2.5 (76.8%), Step 3.5 Flash (74.4%), MiniMax M2.1 (74.0%), GLM 4.7 (73.8%), DeepSeek V3.2 (73.1%), Devstral 2 (72.2%), Kimi K2 Thinking (71.3%), Qwen3 Coder 480B (70.6%), Qwen3 235B (70.0%) |
+| **S** 60–70% | MiniMax M2 (69.4%), DeepSeek V3.1 Terminus (68.4%), Qwen3 80B Thinking (68.0%), Qwen3.5 400B (68.0%), Kimi K2 Instruct (65.8%), Qwen3 80B Instruct (65.0%), DeepSeek V3.1 (62.0%), Llama 4 Maverick (62.0%), GPT OSS 120B (60.0%) |
+| **A+** 50–60% | Mistral Large 675B (58.0%), Nemotron Ultra 253B (56.0%), Colosseum 355B (52.0%), QwQ 32B (50.0%) |
+| **A** 40–50% | Nemotron Super 49B (49.0%), Mistral Medium 3 (48.0%), Qwen2.5 Coder 32B (46.0%), Magistral Small (45.0%), Llama 4 Scout (44.0%), Llama 3.1 405B (44.0%), Nemotron Nano 30B (43.0%), R1 Distill 32B (43.9%), GPT OSS 20B (42.0%) |
+| **A-** 35–40% | Llama 3.3 70B (39.5%), Seed OSS 36B (38.0%), R1 Distill 14B (37.7%), Stockmark 100B (36.0%) |
+| **B+** 30–35% | Ministral 14B (34.0%), Mixtral 8x22B (32.0%), Granite 34B Code (30.0%) |
+| **B** 20–30% | R1 Distill 8B (28.2%), R1 Distill 7B (22.6%) |
+| **C** {'<'}20% | Gemma 2 9B (18.0%), Phi 4 Mini (14.0%), Phi 3.5 Mini (12.0%) |
+
+### Groq (10 mô hình)
+
+| Tier | SWE-bench | Mô hình |
+|------|-----------|-------|
+| **S** 60–70% | Kimi K2 Instruct (65.8%), Llama 4 Maverick (62.0%) |
+| **A+** 50–60% | QwQ 32B (50.0%) |
+| **A** 40–50% | Llama 4 Scout (44.0%), R1 Distill 70B (43.9%) |
+| **A-** 35–40% | Llama 3.3 70B (39.5%) |
+
+### Cerebras (7 mô hình)
+
+| Tier | SWE-bench | Mô hình |
+|------|-----------|-------|
+| **A+** 50–60% | Qwen3 32B (50.0%) |
+| **A** 40–50% | Llama 4 Scout (44.0%) |
+| **A-** 35–40% | Llama 3.3 70B (39.5%) |
+
+### Thang tier
+
+- **S+/S** — Elite frontier coders (≥60% SWE-bench), tốt nhất cho complex real-world tasks và refactors
+- **A+/A** — Alternatives tuyệt vời, mạnh ở hầu hết coding tasks
+- **A-/B+** — Performer solid, tốt cho targeted programming tasks
+- **B/C** — Mô hình lightweight hoặc cũ hơn, tốt cho code completion trên constrained infra
+
+### Lọc theo tier
+
+Dùng `--tier` để tập trung vào capability band cụ thể:
+
+```bash
+free-coding-models --tier S     # Chỉ S+ và S (frontier models)
+free-coding-models --tier A     # Chỉ A+, A, A- (solid performers)
+free-coding-models --tier B     # Chỉ B+, B (lightweight options)
+free-coding-models --tier C     # Chỉ C (edge/minimal models)
+```
+
+---
+
+## 📊 Cột TUI
+
+Bảng chính hiển thị một hàng mỗi mô hình với các cột sau:
+
+| Cột | Sort key | Mô tả |
+|--------|----------|-------------|
+| **Rank** | `R` | Vị trí dựa trên thứ tự sort hiện tại (huy chương cho top 3: 🥇🥈🥉) |
+| **Tier** | — | SWE-bench tier (S+, S, A+, A, A-, B+, B, C) |
+| **SWE%** | `S` | SWE-bench Verified score — industry-standard cho coding |
+| **CTX** | `C` | Kích thước context window (ví dụ: `128k`) |
+| **Model** | `M` | Tên hiển thị mô hình (favorites hiển thị ⭐ prefix) |
+| **Provider** | `O` | Tên nhà cung cấp (NIM, Groq, v.v.) — nhấn `D` để cycle provider filter |
+| **Latest Ping** | `L` | Round-trip latency gần nhất bằng milliseconds |
+| **Avg Ping** | `A` | Trung bình cuộn của TẤT CẢ ping thành công từ khi launch |
+| **Health** | `H` | Trạng thái hiện tại: UP ✅, NO KEY 🔑, Timeout ⏳, Overloaded 🔥, Not Found 🚫 |
+| **Verdict** | `V` | Health verdict dựa trên avg latency + stability analysis |
+| **Stability** | `B` | Điểm consistency composite 0–100 (xem [Stability Score](#-điểm-ổn-định)) |
+| **Up%** | `U` | Uptime — tỷ lệ phần trăm ping thành công |
+| **Used** | — | Tổng token prompt+completion đã tiêu thụ trong logs cho cặp nhà cung cấp/mô hình chính xác này, hiển thị bằng `k` hoặc `M` |
+
+### Giá trị Verdict
+
+Cột Verdict kết hợp avg latency với stability analysis:
+
+| Verdict | Ý nghĩa |
+|---------|---------|
+| **Perfect** | Avg < 400ms với p95/jitter ổn định |
+| **Normal** | Avg < 1000ms, responses nhất quán |
+| **Slow** | Avg 1000–2000ms |
+| **Spiky** | Avg tốt nhưng tail latency thất thường (p95 >> avg) |
+| **Very Slow** | Avg 2000–5000ms |
+| **Overloaded** | Server trả về 429/503 (rate limited hoặc capacity hit) |
+| **Unstable** | Trước đó up nhưng giờ timeout, hoặc avg > 5000ms |
+| **Not Active** | Chưa có ping thành công |
+| **Pending** | Ping đầu tiên vẫn đang bay |
+
+---
+
+## 📐 Điểm Ổn Định
+
+Cột **Stability** (sort với phím `B`) hiển thị điểm composite 0–100 trả lời: *"Mô hình này nhất quán và dự đoán được như thế nào?"*
+
+Avg latency một mình gây hiểu lầm — một mô hình avg 250ms mà ngẫu nhiên spike lên 6 giây *cảm giác* chậm hơn trong thực tế so với mô hình 400ms ổn định. Điểm stability capture điều này.
+
+### Công thức
+
+Bốn signals được normalize thành 0–100 mỗi cái, sau đó kết hợp với weights:
+
+```
+Stability = 0.30 × p95_score
+          + 0.30 × jitter_score
+          + 0.20 × spike_score
+          + 0.20 × reliability_score
+```
+
+| Component | Weight | Đo lường gì | Cách normalize |
+|-----------|--------|-------------|----------------|
+| **p95 latency** | 30% | Tail-latency spikes — 5% tệ nhất của response times | `100 × (1 - p95 / 5000)`, clamped thành 0–100 |
+| **Jitter (σ)** | 30% | Response times thất thường — độ lệch chuẩn của ping times | `100 × (1 - jitter / 2000)`, clamped thành 0–100 |
+| **Spike rate** | 20% | Fraction của pings trên 3000ms | `100 × (1 - spikes / total_pings)` |
+| **Reliability** | 20% | Uptime — fraction của ping HTTP 200 thành công | Trực tiếp phần trăm uptime (0–100) |
+
+---
+
+## 📡 FCM Proxy V2
+
+`free-coding-models` include một reverse proxy local merge tất cả API key nhà cung cấp của bạn vào một endpoint. Chế độ background service tùy chọn giữ nó chạy 24/7 — ngay cả không có TUI.
+
+> **Tắt mặc định** — bật trong Settings (`P`) → Cài đặt FCM Proxy V2.
+
+### Proxy làm gì
+
+| Tính năng | Mô tả |
+|---------|-------------|
+| **Unified endpoint** | Một URL (`http://127.0.0.1:18045/v1`) thay thế 20+ endpoints nhà cung cấp |
+| **Key rotation** | Tự động swap sang API key tiếp theo khi một key hit rate limits (429) |
+| **Usage tracking** | Theo dõi token consumption cho mỗi cặp nhà cung cấp/mô hình thời gian thực |
+| **Anthropic translation** | Claude Code gửi `POST /v1/messages` — proxy dịch sang định dạng OpenAI upstream |
+| **Path normalization** | Chuyển đổi API paths không chuẩn (ZAI, Cloudflare) thành calls `/v1/` chuẩn |
+
+### Chế độ In-process vs Background Service
+
+| | In-process (mặc định) | Background Service (always-on) |
+|---|---|---|
+| **Lifetime** | Bắt đầu/dừng với TUI | Tồn tại qua reboots |
+| **Use case** | Sessions nhanh | Truy cập 24/7 từ bất kỳ tool nào |
+| **Setup** | Toggle trong Settings | Cài đặt one-time qua TUI hoặc CLI |
+| **Port** | Ngẫu nhiên hoặc cấu hình | Ổn định (`18045` mặc định) |
+| **Token** | Mới mỗi session | Bền vững (env files ở lại valid) |
+
+### Setup nhanh
+
+**Qua TUI (khuyến nghị):**
+1. Nhấn `P` để mở Settings
+2. Chọn **FCM Proxy V2 settings →** và nhấn Enter
+3. Bật **Proxy mode**, sau đó chọn **Install background service**
+
+**Qua CLI:**
+```bash
+free-coding-models daemon install     # Cài đặt + start như OS service
+free-coding-models daemon status      # Kiểm tra trạng thái running
+free-coding-models daemon restart     # Restart sau thay đổi config
+free-coding-models daemon stop        # Dừng graceful (SIGTERM)
+free-coding-models daemon uninstall   # Xóa OS service hoàn toàn
+free-coding-models daemon logs        # Hiển thị service logs gần đây
+```
+
+Để sanity-check trình duyệt nhanh, mở [http://127.0.0.1:18045/](http://127.0.0.1:18045/) hoặc [http://127.0.0.1:18045/v1/health](http://127.0.0.1:18045/v1/health) trong khi proxy đang chạy.
+
+### Quản lý service
+
+Overlay **FCM Proxy V2** chuyên dụng (truy cập qua `J` từ TUI chính, hoặc Settings → Enter) cung cấp điều khiển đầy đủ:
+
+- **Gợi ý công cụ hiện tại** — Hiển thị công cụ được chọn Z nào sẽ nhận proxy config persisted (khi chế độ đó hỗ trợ)
+- **Toggle auto-sync** — Tự động viết provider `fcm-proxy` vào config công cụ hiện tại khi proxy bắt đầu
+- **Cleanup** — Xóa entries `fcm-proxy` khỏi config công cụ hiện tại
+- **Hiển thị trạng thái** — Running/Stopped/Stale/Unhealthy với PID, port, uptime, số lượng account/mô hình
+- **Phát hiện version mismatch** — cảnh báo nếu version service khác với version FCM đã cài đặt
+- **Restart** — stop + start qua OS service manager
+- **Stop** — SIGTERM graceful (service có thể tự restart nếu đã cài đặt)
+- **Force kill** — SIGKILL emergency cho processes stuck
+- **Xem logs** — 50 dòng cuối từ `~/.free-coding-models/daemon-stdout.log`
+
+### Hỗ trợ nền tảng
+
+| Nền tảng | Loại service | Đường dẫn config |
+|----------|-------------|-------------|
+| macOS | `launchd` LaunchAgent | `~/Library/LaunchAgents/com.fcm.proxy.plist` |
+| Linux | `systemd` user service | `~/.config/systemd/user/fcm-proxy.service` |
+| Windows | Không hỗ trợ | Fallback sang proxy in-process |
+
+### Files config
+
+| File | Mục đích |
+|------|---------|
+| `~/.free-coding-models.json` | API keys, cài đặt proxy, service consent |
+| `~/.free-coding-models/daemon.json` | File trạng thái (PID, port, token) — ghi bởi background service |
+| `~/.free-coding-models/daemon-stdout.log` | Log output service |
+
+Trường `proxy.activeTool` giờ chỉ legacy-only. FCM Proxy V2 tuân theo công cụ **được chọn Z** hiện tại tự động bất cứ khi nào chế độ đó hỗ trợ proxy sync persisted.
+
+### Cleanup
+
+- Từ overlay FCM Proxy V2: **Clean {tool} proxy config** — xóa entries `fcm-proxy` khỏi công cụ hiện tại được chọn
+- Hoặc: `free-coding-models --clean-proxy`
+
+### An toàn
+
+- **Dev guard**: `installDaemon()` bị chặn khi chạy từ git checkout — ngăn hardcoding local repo paths trong OS service files
+- **Chỉ localhost**: Proxy listen trên `127.0.0.1`, không bao giờ expose ra network
+- **Yêu cầu consent**: Cài đặt service yêu cầu user action rõ ràng — không bao giờ tự động cài đặt
+- **Hot-reload**: Thay đổi config được pick up tự động không cần restart service
+
+---
+
+## 📜 Request Log Overlay
+
+Nhấn **`X`** bất cứ lúc nào để mở dedicated request-log overlay.
+
+- **Proxy-only accounting**: Entries được ghi khi requests flow qua multi-account proxy.
+- **Token totals chính xác**: Overlay aggregate prompt+completion usage cho mỗi request proxied.
+- **Hiển thị mỗi request**: Bạn có thể kiểm tra nhà cung cấp, mô hình, status, token count, và latency cho các requests gần đây.
+- **Tái sử dụng bảng khởi động**: Cột `Used` trong bảng chính được derive từ cùng file request log.
+
+Dùng **↑↓** để scroll và **Esc** hoặc **X** để quay lại bảng chính.
+
+---
+
+## 🧰 Supported Tool Launchers
+
+Bạn có thể sử dụng `free-coding-models` với 12+ AI coding tools. Khi bạn chọn mô hình và nhấn Enter, công cụ tự động cấu hình và pre-select mô hình đã chọn của bạn:
+
+| Tool | Flag | Auto-Config |
+|------|------|------------|
+| OpenCode CLI | `--opencode` | ~/.config/opencode/opencode.json |
+| OpenCode Desktop | `--opencode-desktop` | Mở Desktop app |
+| OpenClaw | `--openclaw` | ~/.openclaw/openclaw.json |
+| Crush | `--crush` | ~/.config/crush/crush.json |
+| Goose | `--goose` | ~/.config/goose/config.yaml + custom_providers/ |
+| **Aider** | `--aider` | ~/.aider.conf.yml |
+| **Claude Code** ⚡ | `--claude-code` | Yêu cầu FCM Proxy V2 |
+| **Codex** ⚡ | `--codex` | Yêu cầu FCM Proxy V2 |
+| **Gemini** ⚡ | `--gemini` | Yêu cầu FCM Proxy V2 |
+| **Qwen** | `--qwen` | ~/.qwen/settings.json |
+| **OpenHands** | `--openhands` | LLM_MODEL env var |
+| **Amp** | `--amp` | ~/.config/amp/settings.json |
+| **Pi** | `--pi` | ~/.pi/agent/settings.json |
+
+Nhấn **Z** để cycle qua tất cả 13 chế độ công cụ trong TUI, hoặc dùng flags để bắt đầu ở chế độ ưa thích của bạn.
+
+⚡ = Yêu cầu FCM Proxy V2 background service (nhấn `J` để bật). Các công cụ này không thể kết nối với nhà cung cấp miễn phí mà không có proxy.
+
+Hỗ trợ công cụ bên ngoài proxy-backed vẫn là beta. Mong đợi các cạnh khởi động/auth đôi khi trong khi CLI contracts của bên thứ ba vẫn đang settle.
+
+`Claude Code` được launch với Claude alias thực (`--model sonnet`) trong khi proxy map family Claude fake đó trở lại backend FCM đã chọn của bạn, điều này tránh selections local `gpt-oss-*` stale breaking trước khi proxy được hit. `Codex` được launch qua custom provider config rõ ràng nên nó ở lại API-key mode qua proxy. `Gemini` proxy launches được version-gated: các build cũ như `0.33.0` bị chặn với diagnostic rõ ràng thay vì bị misconfigured silent.
+
+Flow **Install Endpoints** (phím `Y`) giờ chỉ target các công cụ có persisted config contract ổn định. `Claude Code`, `Codex`, và `Gemini` ở lại launcher-only và nên được bắt đầu trực tiếp từ FCM.
+
+---
+
+## 🔌 Tích hợp OpenCode
+
+**Cách dễ nhất** — để `free-coding-models` làm mọi thứ:
+
+1. **Chạy**: `free-coding-models --opencode` (hoặc launch không flag để dùng chế độ OpenCode CLI mặc định)
+2. **Đợi** các mô hình được ping (trạng thái xanh ✅)
+3. **Di chuyển** với ↑↓ mũi tên đến mô hình ưa thích của bạn
+4. **Nhấn Enter** — công cụ tự động:
+   - Phát hiện nếu NVIDIA NIM được cấu hình trong OpenCode
+   - Đặt mô hình đã chọn của bạn làm mặc định trong `~/.config/opencode/opencode.json`
+   - Launch OpenCode với mô hình pre-selected và sẵn sàng sử dụng
+
+### tmux sub-agent panes
+
+Khi được launch từ `tmux` session hiện có, `free-coding-models` giờ tự động thêm argument OpenCode `--port` nên OpenCode/oh-my-opencode có thể spawn sub-agents trong panes.
+
+- Ưu tiên 1: reuse `OPENCODE_PORT` nếu nó valid và free
+- Ưu tiên 2: auto-pick port free đầu tiên trong `4096-5095`
+
+Bạn có thể force port cụ thể:
+
+```bash
+OPENCODE_PORT=4098 free-coding-models --opencode
+```
+
+### ZAI provider proxy
+
+OpenCode không native hỗ trợ định dạng API path của ZAI (`/api/coding/paas/v4/*`). Khi bạn chọn mô hình ZAI, `free-coding-models` tự động bắt đầu reverse proxy local dịch requests `/v1/*` chuẩn của OpenCode sang API của ZAI. Điều này hoàn toàn trong suốt — chỉ cần chọn mô hình ZAI và nhấn Enter.
+
+**Cách hoạt động:**
+1. HTTP proxy localhost bắt đầu trên port ngẫu nhiên khả dụng
+2. OpenCode được cấu hình với provider `zai` trỏ tới `http://localhost:<port>/v1`
+3. Proxy rewrite `/v1/models` thành `/api/coding/paas/v4/models` và `/v1/chat/completions` thành `/api/coding/paas/v4/chat/completions`
+4. Khi OpenCode thoát, proxy tự động shutdown
+
+Không cần cấu hình manual — lifecycle proxy được quản lý hoàn toàn bởi `free-coding-models`.
+
+### Cài đặt OpenCode Manual (Tùy chọn)
+
+Tạo hoặc chỉnh sửa `~/.config/opencode/opencode.json`:
+
+```json
+{
+  "provider": {
+    "nvidia": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "NVIDIA NIM",
+      "options": {
+        "baseURL": "https://integrate.api.nvidia.com/v1",
+        "apiKey": "{env:NVIDIA_API_KEY}"
+      }
+    }
+  },
+  "model": "nvidia/deepseek-ai/deepseek-v3.2"
+}
+```
+
+Sau đó đặt environment variable:
+
+```bash
+export NVIDIA_API_KEY=nvapi-xxxx-your-key-here
+# Thêm vào ~/.bashrc hoặc ~/.zshrc để persistent
+```
+
+Chạy `/models` trong OpenCode và chọn provider **NVIDIA NIM** và mô hình đã chọn của bạn.
+
+> ⚠️ **Lưu ý:** Mô hình miễn phí có giới hạn usage dựa trên tier của NVIDIA — kiểm tra [build.nvidia.com](https://build.nvidia.com) cho quotas.
+
+### Fallback Cài đặt Tự động
+
+Nếu NVIDIA NIM chưa được cấu hình trong OpenCode, công cụ:
+- Hiển thị hướng dẫn cài đặt trong terminal của bạn
+- Tạo file `prompt` trong `$HOME/prompt` với cấu hình chính xác
+- Launch OpenCode, sẽ phát hiện và hiển thị prompt tự động
+
+---
+
+## 🦞 Tích hợp OpenClaw
+
+OpenClaw là autonomous AI agent daemon. `free-coding-models` có thể cấu hình nó để sử dụng mô hình NVIDIA NIM làm provider mặc định — không cần download hay setup local, mọi thứ chạy qua remote API NIM.
+
+### Quick Start
+
+```bash
+free-coding-models --openclaw
+```
+
+Hoặc nhấn **`Z`** trong TUI cho đến khi header hiển thị **OpenClaw**, sau đó nhấn **Enter** trên mô hình.
+
+1. **Đợi** các mô hình được ping
+2. **Di chuyển** với ↑↓ mũi tên đến mô hình ưa thích của bạn
+3. **Nhấn Enter** — công cụ tự động:
+   - Đọc `~/.openclaw/openclaw.json`
+   - Thêm block provider `nvidia` (NIM base URL + API key của bạn) nếu thiếu
+   - Đặt `agents.defaults.model.primary` thành `nvidia/<model-id>`
+   - Lưu config và in các bước tiếp theo
+
+### Những gì được ghi vào config OpenClaw
+
+```json
+{
+  "models": {
+    "providers": {
+      "nvidia": {
+        "baseUrl": "https://integrate.api.nvidia.com/v1",
+        "api": "openai-completions"
+      }
+    }
+  },
+  "env": {
+    "NVIDIA_API_KEY": "nvapi-xxxx-your-key"
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "nvidia/deepseek-ai/deepseek-v3.2"
+      },
+      "models": {
+        "nvidia/deepseek-ai/deepseek-v3.2": {}
+      }
+    }
+  }
+}
+```
+
+> ⚠️ **Lưu ý:** `providers` phải nested dưới `models.providers` — không phải ở root config. Key `providers` root-level bị OpenClaw bỏ qua.
+
+> ⚠️ **Lưu ý:** Mô hình cũng phải được liệt kê trong `agents.defaults.models` (allowlist). Không có entry này, OpenClaw reject mô hình với *"not allowed"* ngay cả khi nó được đặt làm primary.
+
+### Sau khi cập nhật config OpenClaw
+
+Gateway của OpenClaw **auto-reloads** thay đổi file config (tùy thuộc vào `gateway.reload.mode`). Để apply manual:
+
+```bash
+# Apply qua CLI
+openclaw models set nvidia/deepseek-ai/deepseek-v3.2
+
+# Hoặc chạy lại setup wizard tương tác
+openclaw configure
+```
+
+> ⚠️ **Lưu ý:** `openclaw restart` **không** tồn tại như CLI command. Kill và relaunch process manual nếu bạn cần full restart.
+
+> 💡 **Tại sao sử dụng mô hình NIM remote với OpenClaw?** NVIDIA NIM serve mô hình qua API nhanh — không cần GPU local, không giới hạn VRAM, credits miễn phí cho developers. Bạn có được frontier-class coding models (DeepSeek V3, Kimi K2, Qwen3 Coder) mà không cần download gì.
+
+### Patching OpenClaw cho hỗ trợ mô hình NVIDIA đầy đủ
+
+**Vấn đề:** Mặc định, OpenClaw chỉ cho phép một vài mô hình NVIDIA cụ thể trong allowlist của nó. Nếu bạn cố sử dụng mô hình không có trong danh sách, bạn sẽ gặp lỗi này:
+
+```
+Model "nvidia/mistralai/devstral-2-123b-instruct-2512" is not allowed. Use /models to list providers, or /models <provider> to list models.
+```
+
+**Giải pháp:** Patch cấu hình OpenClaw để thêm TẤT CẢ 47 mô hình NVIDIA từ `free-coding-models` vào allowlist:
+
+```bash
+# Từ thư mục package free-coding-models
+node patch-openclaw.js
+```
+
+Script này:
+- Backup `~/.openclaw/agents/main/agent/models.json` và `~/.openclaw/openclaw.json`
+- Thêm tất cả 47 mô hình NVIDIA với context window và token limits phù hợp
+- Bảo toàn các mô hình và cấu hình hiện có
+- In summary những gì được thêm
+
+**Sau khi patch:**
+
+1. Restart OpenClaw gateway:
+   ```bash
+   systemctl --user restart openclaw-gateway
+   ```
+
+2. Verify các mô hình khả dụng:
+   ```bash
+   free-coding-models --openclaw
+   ```
+
+3. Chọn bất kỳ mô hình nào — không còn lỗi "not allowed"!
+
+**Tại sao cần điều này:** OpenClaw sử dụng hệ thống allowlist nghiêm ngặt để ngăn typos và mô hình invalid. Script `patch-openclaw.js` populate allowlist với tất cả mô hình NVIDIA hoạt động đã biết, vì vậy bạn có thể tự do chuyển đổi giữa chúng mà không cần chỉnh sửa file config manual.
+
+---
+
+## ⚙️ Cách hoạt động
+
+```
+┌──────────────────────────────────────────────────────────────────┐
+│  1. Vào alternate screen buffer (như vim/htop/less)              │
+│  2. Ping TẤT CẢ mô hình song song                                │
+│  3. Hiển thị bảng thời gian thực với Latest/Avg/Stability/Up%   │
+│  4. Re-ping TẤT CẢ mô hình ở 2s khi khởi động, sau đó 10s       │
+│     steady-state và 30s sau 5 phút idle trừ khi forced 4s với W │
+│  5. Cập nhật rolling averages + stability scores mỗi mô hình    │
+│  6. User có thể di chuyển với ↑↓ và chọn với Enter             │
+│  7. Khi Enter (OpenCode): đặt mô hình, launch OpenCode          │
+│  8. Khi Enter (OpenClaw): cập nhật ~/.openclaw/openclaw.json    │
+└──────────────────────────────────────────────────────────────────┘
+```
+
+**Kết quả:** Giao diện giám sát liên tục ở lại mở cho đến khi bạn chọn mô hình hoặc nhấn Ctrl+C. Rolling averages cung cấp dữ liệu latency dài hạn chính xác, điểm stability tiết lộ mô hình nào thực sự nhất quán so với spikey lừa dối, và bạn có thể cấu hình công cụ đã chọn của mình với một keystroke. Nếu terminal quá hẹp, app hiển thị cảnh báo căn giữa thay vì bảng truncated.
+
+---
+
+## 📋 API Reference
+
+### 🎁 Premium Flag
+
+Flag `--premium` cung cấp quick view chỉ các mô hình **S/S+ tier** elite với health hoàn hảo (**UP**) và verdict tốt (**Perfect**, **Normal**, hoặc **Slow**). Điều này hữu ích khi bạn muốn tập trung độc quyền vào các mô hình chất lượng cao nhất, đáng tin cậy nhất hiện khả dụng.
+
+```bash
+free-coding-models --premium
+```
+
+Nó làm gì bên dưới:
+- Đặt `tierFilter` thành `S` (chỉ hiển thị mô hình S+ và S tier).
+- Lọc ra bất kỳ mô hình nào không hiện **UP** (ẩn 429, 410, auth fail, timeouts, v.v.).
+- Lọc ra mô hình với verdicts kém (ẩn **Spiky**, **Very Slow**, **Overloaded**, **Unstable**, v.v.).
+- Force sort column thành `verdict` với thứ tự tăng dần, nên các mô hình được đánh giá tốt nhất xuất hiện ở trên cùng.
+- Để các cài đặt khác không chạm, vì vậy bạn vẫn có thể kết hợp nó với các flag như `--json` cho scripting.
+
+Bạn có thể kết hợp `--premium` với các flag khác (ví dụ: `--json --hide-unconfigured`) để further tailor output.
+
+---
+
+**Environment variables (override file config):**
+
+| Variable | Mô tả |
+|----------|-------------|
+| `NVIDIA_API_KEY` | Key NVIDIA NIM |
+| `GROQ_API_KEY` | Key Groq |
+| `CEREBRAS_API_KEY` | Key Cerebras |
+| `SAMBANOVA_API_KEY` | Key SambaNova |
+| `OPENROUTER_API_KEY` | Key OpenRouter |
+| `HUGGINGFACE_API_KEY` / `HF_TOKEN` | Token Hugging Face |
+| `REPLICATE_API_TOKEN` | Token Replicate |
+| `DEEPINFRA_API_KEY` / `DEEPINFRA_TOKEN` | Key DeepInfra |
+| `CODESTRAL_API_KEY` | Key Mistral Codestral |
+| `HYPERBOLIC_API_KEY` | Key Hyperbolic |
+| `SCALEWAY_API_KEY` | Key Scaleway |
+| `GOOGLE_API_KEY` | Key Google AI Studio |
+| `SILICONFLOW_API_KEY` | Key SiliconFlow |
+| `TOGETHER_API_KEY` | Key Together AI |
+| `CLOUDFLARE_API_TOKEN` / `CLOUDFLARE_API_KEY` | Token/key Cloudflare Workers AI |
+| `CLOUDFLARE_ACCOUNT_ID` | Account ID Cloudflare (bắt buộc cho URL endpoint Workers AI) |
+| `PERPLEXITY_API_KEY` / `PPLX_API_KEY` | Key Perplexity API |
+| `ZAI_API_KEY` | Key ZAI |
+| `DASHSCOPE_API_KEY` | Key Alibaba Cloud (DashScope) API |
+
+**File config:** `~/.free-coding-models.json` (tự động tạo, permissions `0600`)
+
+```json
+{
+  "apiKeys": {
+    "nvidia":   "nvapi-xxx",
+    "groq":     "gsk_xxx",
+    "cerebras": "csk_xxx",
+    "openrouter": "sk-or-xxx",
+    "huggingface": "hf_xxx",
+    "replicate": "r8_xxx",
+    "deepinfra": "di_xxx",
+    "siliconflow": "sk_xxx",
+    "together": "together_xxx",
+    "cloudflare": "cf_xxx",
+    "perplexity": "pplx_xxx",
+    "zai":      "zai-xxx"
+  },
+  "providers": {
+    "nvidia":   { "enabled": true },
+    "groq":     { "enabled": true },
+    "cerebras": { "enabled": true },
+    "openrouter": { "enabled": true },
+    "huggingface": { "enabled": true },
+    "replicate": { "enabled": true },
+    "deepinfra": { "enabled": true },
+    "siliconflow": { "enabled": true },
+    "together": { "enabled": true },
+    "cloudflare": { "enabled": true },
+    "perplexity": { "enabled": true },
+    "zai":      { "enabled": true }
+   },
+   "settings": {
+     "hideUnconfiguredModels": true
+   },
+   "favorites": [
+     "nvidia/deepseek-ai/deepseek-v3.2"
+   ]
+ }
+```
+
+**Cấu hình:**
+- **Ping timeout**: 15 giây mỗi attempt (mô hình chậm có thêm thời gian)
+- **Ping cadence**: startup burst ở 2 giây trong 60s, sau đó 10 giây bình thường, 30 giây khi idle 5 phút, hoặc forced 4 giây qua `W`
+- **Chế độ monitor**: Giao diện ở lại mở mãi mãi, nhấn Ctrl+C để thoát
+
+**Flags:**
+
+| Flag | Mô tả |
+|------|-------------|
+| *(không)* | Bắt đầu ở chế độ OpenCode CLI |
+| `--opencode` | Chế độ OpenCode CLI — Enter launch OpenCode CLI với mô hình đã chọn |
+| `--opencode-desktop` | Chế độ OpenCode Desktop — Enter đặt mô hình và mở OpenCode Desktop |
+| `--openclaw` | Chế độ OpenClaw — Enter đặt mô hình đã chọn làm mặc định trong OpenClaw |
+| `--crush` | Chế độ Crush — Enter viết `crush.json` và launch Crush |
+| `--goose` | Chế độ Goose — Enter launch Goose với env-based provider config |
+| `--best` | Chỉ hiển thị mô hình top-tier (A+, S, S+) |
+| `--fiable` | Phân tích 10 giây, xuất mô hình đáng tin cậy nhất dưới dạng `provider/model_id` |
+| `--json` | Xuất kết quả dưới dạng JSON (cho scripting/automation, CI/CD, dashboards) |
+| `--tier S` | Chỉ hiển thị mô hình S+ và S tier |
+| `--tier A` | Chỉ hiển thị mô hình A+, A, A- tier |
+| `--tier B` | Chỉ hiển thị mô hình B+, B tier |
+| `--tier C` | Chỉ hiển thị mô hình C tier |
+| `--profile <name>` | Load config profile đã lưu khi khởi động |
+| `--recommend` | Tự động mở overlay Smart Recommend khi bắt đầu |
+| `--clean-proxy` | Xóa config `fcm-proxy` persisted khỏi OpenCode |
+
+**Phím tắt (TUI chính):**
+- **↑↓** — Di chuyển mô hình
+- **Enter** — Chọn mô hình và launch công cụ target hiện tại từ header badge
+- **R/S/C/M/O/L/A/H/V/B/U/G** — Sort theo Rank/SWE/Ctx/Model/Provider/Latest/Avg/Health/Verdict/Stability/Up%/Usage
+- **F** — Toggle favorite trên mô hình đã chọn (⭐ trong cột Model, pinned ở trên cùng)
+- **T** — Cycle tier filter (All → S+ → S → A+ → A → A- → B+ → B → C → All)
+- **D** — Cycle provider filter (All → NIM → Groq → ...)
+- **E** — Toggle chế độ configured-only (bật mặc định, persisted qua sessions và profiles)
+- **Z** — Cycle target tool (OpenCode CLI → Desktop → OpenClaw → Crush → Goose → Pi → Aider → Claude Code → Codex → Gemini → Qwen → OpenHands → Amp)
+- **X** — Toggle request logs (logs request proxied gần đây/token usage, lên đến 500 entries)
+- **A (trong logs)** — Toggle giữa hiển thị 500 entries hoặc TẤT CẢ logs
+- **P** — Mở Settings (quản lý API keys, toggles, updates, profiles)
+- **Y** — Mở Install Endpoints (`provider → tool → connection mode → scope → models`, Direct hoặc FCM Proxy V2)
+- **Shift+P** — Cycle qua saved profiles (chuyển đổi cài đặt TUI trực tiếp)
+- **Shift+S** — Lưu cài đặt TUI hiện tại làm profile được đặt tên (prompt inline)
+- **Q** — Mở overlay Smart Recommend (tìm mô hình tốt nhất cho task của bạn)
+- **N** — Mở Changelog overlay (duyệt index của tất cả phiên bản, `Enter` để xem chi tiết, `B` để quay lại)
+- **W** — Cycle chế độ ping (`FAST` 2s → `NORMAL` 10s → `SLOW` 30s → `FORCED` 4s)
+- **J** — Mở cài đặt FCM Proxy V2 (hiển thị badge xanh lá "Proxy On" / đỏ "Proxy Off" trong footer)
+- **I** — Feedback, bugs & requests
+- **K / Esc** — Hiển thị overlay help / Đóng overlay
+- **Ctrl+C** — Thoát
+
+Nhấn **K** giờ hiển thị reference in-app đầy đủ: hotkeys chính, hotkeys settings, và CLI flags với ví dụ sử dụng.
+
+### 🔌 Install Endpoints (`Y`)
+
+`Y` mở dedicated install flow cho các nhà cung cấp đã cấu hình. Flow 5 bước là:
+
+1. **Provider** — Chọn một nhà cung cấp đã có API key trong Settings
+2. **Tool** — Chọn công cụ target từ các install targets tương thích:
+   - Config-based: `OpenCode CLI`, `OpenCode Desktop`, `OpenClaw`, `Crush`, `Goose`, `Pi`, `Aider`, `Amp`, `Qwen`
+   - Env-file based: `OpenHands` (ghi `~/.fcm-openhands-env` — source nó trước khi launch)
+3. **Connection Mode** — Chọn cách công cụ kết nối với nhà cung cấp:
+   - **⚡ Direct Provider** — kết nối API thuần, không có proxy
+   - **🔄 FCM Proxy V2** — route qua FCM Proxy V2 với key rotation và usage tracking
+4. **Scope** — Chọn `Install all models` hoặc `Install selected models only`
+5. **Models** (nếu scope = selected) — Multi-select từng mô hình từ catalog nhà cung cấp
+
+Hành vi quan trọng:
+
+- Installs được ghi vào config công cụ target như entries FCM-managed (namespaced dưới `fcm-*`)
+- `Install all models` là đường được khuyến nghị vì FCM có thể refresh catalog đó tự động trên các launches sau khi danh sách mô hình nhà cung cấp thay đổi
+- `Install selected models only` hữu ích khi bạn muốn picker nhỏ hơn curated bên trong công cụ target
+- `OpenCode CLI` và `OpenCode Desktop` chia sẻ cùng `opencode.json`, nên managed provider xuất hiện trong cả hai
+- `Claude Code`, `Codex`, và `Gemini` là launcher-only trong flow này hiện tại. Dùng đường launcher `Enter` bình thường nên FCM có thể apply proxy/runtime contract phù hợp tự động.
+- Cho install targets env-based như `OpenHands`, FCM ghi file helper sourceable tại `~/.fcm-{tool}-env`
+
+**Phím tắt (màn hình Settings — phím `P`):**
+- **↑↓** — Di chuyển nhà cung cấp, hàng maintenance, và hàng profile
+- **Enter** — Chỉnh sửa API key inline, check/cài đặt update, hoặc load profile
+- **Space** — Toggle nhà cung cấp enabled/disabled
+- **T** — Test API key nhà cung cấp hiện tại (fires live ping)
+- **U** — Check updates manual từ settings
+- **Backspace** — Xóa profile đã chọn (chỉ trên hàng profile)
+- **Esc** — Đóng settings và quay lại TUI chính
+
+---
+
+### 📋 Config Profiles
+
+Profiles cho phép bạn lưu và restore các cấu hình TUI khác nhau — hữu ích nếu bạn chuyển đổi giữa work/personal setups, tùy chọn tier khác nhau, hoặc muốn giữ danh sách favorites riêng.
+
+**Những gì được lưu trong profile:**
+- Favorites (mô hình starred)
+- Sort column và direction
+- Tier filter
+- Ping mode
+- Configured-only filter
+- API keys
+
+**Lưu profile:**
+1. Cấu hình TUI theo cách bạn muốn (favorites, sort, tier, v.v.)
+2. Nhấn **Shift+S** — prompt inline xuất hiện ở dưới cùng
+3. Gõ tên (ví dụ: `work`, `fast-only`, `presentation`) và nhấn **Enter**
+4. Profile được lưu và trở thành profile active (hiển thị như badge tím trong header)
+
+**Chuyển đổi profiles:**
+- **Shift+P** trong bảng chính — cycle qua saved profiles (hoặc quay lại raw config)
+- **`--profile <name>`** — load profile cụ thể khi khởi động
+
+**Quản lý profiles:**
+- Mở Settings (phím **P**) — scroll xuống phần **Profiles**
+- **Enter** trên hàng profile để load nó
+- Trong khi profile active, chỉnh sửa favorites và API keys cập nhật profile active đó ngay lập tức
+- **Backspace** trên hàng profile để xóa nó
+
+Profiles được lưu bên trong `~/.free-coding-models.json` dưới key `profiles`.
+
+---
+
+## 🔧 Development
+
+```bash
+git clone https://github.com/vava-nessa/free-coding-models
+cd free-coding-models
+npm install
+npm start -- YOUR_API_KEY
+```
+
+### Phát hành version mới
+
+1. Thực hiện thay đổi của bạn và commit chúng với message mô tả
+2. Cập nhật `CHANGELOG.md` với entry version mới
+3. Bump `"version"` trong `package.json` (ví dụ: `0.1.3` → `0.1.4`)
+4. Commit với **chỉ số version** làm message:
+
+```bash
+git add .
+git commit -m "0.1.4"
+git push
+```
+
+GitHub Actions workflow tự động publish lên npm trên mọi push vào `main`.
+
+---
+
+## 📄 License
+
+MIT © [vava](https://github.com/vava-nessa)
+
+---
+
+<p align="center">
+  <sub>Built with ☕ and 🌹 by <a href="https://github.com/vava-nessa">vava</a></sub>
+</p>
+
+## 📬 Contribute
+Chúng tôi chào đón đóng góp! Hãy thoải mái mở issues, submit pull requests, hoặc tham gia vào dự án.
+
+**Q:** Tôi có thể sử dụng cái này với các nhà cung cấp khác không?
+**A:** Có, công cụ được thiết kế để mở rộng; xem source cho ví dụ về customizing endpoints.
+
+**Q:** Các số latency chính xác như thế nào?
+**A:** Chúng đại diện cho round-trip times trung bình được đo trong quá trình testing; hiệu suất thực tế có thể khác nhau tùy thuộc vào điều kiện mạng.
+
+**Q:** Tôi có cần download mô hình local cho OpenClaw không?
+**A:** Không — `free-coding-models` cấu hình OpenClaw để sử dụng remote API của NVIDIA NIM, vì vậy các mô hình chạy trên infrastructure của NVIDIA. Không cần GPU hay setup local.
+
+## 📧 Support
+
+Cho các câu hỏi hoặc vấn đề, mở [GitHub issue](https://github.com/vava-nessa/free-coding-models/issues).
+
+💬 Hãy thảo luận về dự án trên Discord: https://discord.gg/ZTNFHvvCkU
+
+---
+
+<p align="center">
+  <sub>Chúng tôi thu thập dữ liệu usage ẩn danh để cải thiện công cụ và sửa lỗi. Không có thông tin cá nhân nào được thu thập.</sub>
+</p>
