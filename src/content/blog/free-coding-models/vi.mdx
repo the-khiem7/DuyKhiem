@@ -238,8 +238,8 @@ free-coding-models --tier S --json
 
 Để validate level repo, dự án này giờ ship một flow test manual AI-driven lặp lại:
 
-- Ưu tiên: `pnpm test:fcm -- --tool crush`
-- Fallback khi `pnpm` không khả dụng: `npm run test:fcm -- --tool crush`
+- Ưu tiên: `pnpm test:fcm -- --{"tool"} crush`
+- Fallback khi `pnpm` không khả dụng: `npm run test:fcm -- --{"tool"} crush`
 - Kiểm tra plumbing mock: `pnpm test:fcm:mock`
 
 Nó làm gì:
