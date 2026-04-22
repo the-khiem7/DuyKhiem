@@ -1,0 +1,372 @@
+---
+title: 'Global hóa AWS agent plugins cho Codex'
+description: 'Clone repo awslabs, copy plugin vào ~/.agents/plugins, và dùng marketplace global của Codex ở mọi repo.'
+publishDate: '2026-04-22T08:00:00Z'
+updatedDate: '2026-04-22T08:00:00Z'
+tags:
+  - codex
+  - plugins
+  - aws
+  - vscode
+  - tutorial
+language: 'Vietnamese'
+draft: false
+comment: true
+---
+
+import { Aside, Steps, Tabs, TabItem, Collapse } from 'astro-pure/user'
+import { LinkPreview } from 'astro-pure/advanced'
+
+## Vì sao phải global hóa plugin?
+
+Nếu bạn cài marketplace ở dạng repo-local, Codex chỉ nhìn thấy plugin khi bạn đang mở đúng repo chứa file:
+
+```text
+$REPO_ROOT/.agents/plugins/marketplace.json
+```
+
+Điều đó ổn khi bạn đang phát triển plugin. Nhưng nếu mục tiêu là:
+
+- dùng lại plugin ở nhiều repo khác nhau
+- giữ một bộ plugin AWS cố định cho mọi workspace
+- không phải mở repo `agent-plugins` chỉ để thấy plugin trong Plugin Directory
+
+thì bạn nên chuyển sang **personal marketplace** ở:
+
+```text
+~/.agents/plugins/marketplace.json
+```
+
+<Aside type='tip' title='Kết luận ngắn gọn'>
+  Cách ổn định nhất là copy nguyên thư mục plugin cần dùng vào `~/.agents/plugins/agent-plugins-for-aws/`, rồi để marketplace global trỏ tới các thư mục đó bằng `source.path` tương đối.
+</Aside>
+
+## Ý tưởng kiến trúc
+
+Ta sẽ đi theo option an toàn nhất:
+
+1. Clone repo gốc từ `awslabs/agent-plugins`
+2. Lấy các plugin AWS cần dùng từ thư mục `plugins/`
+3. Copy chúng vào một root global dưới home directory
+4. Tạo `~/.agents/plugins/marketplace.json`
+5. Restart Codex và kiểm tra plugin xuất hiện ở mọi repo
+
+Sau khi hoàn tất, cấu trúc của bạn sẽ trông như sau:
+
+```text
+C:\Users\<you>\.agents\plugins\
+├── marketplace.json
+└── agent-plugins-for-aws\
+    └── plugins\
+        ├── amazon-location-service\
+        ├── aws-amplify\
+        ├── aws-serverless\
+        ├── databases-on-aws\
+        ├── deploy-on-aws\
+        ├── migration-to-aws\
+        └── sagemaker-ai\
+```
+
+## Bước 1: Clone repo gốc từ awslabs
+
+Nếu bạn chưa có source, clone repo chính thức:
+
+```powershell
+git clone https://github.com/awslabs/agent-plugins.git
+cd agent-plugins
+```
+
+Nếu bạn chỉ muốn dùng plugin, không cần sửa code trong repo này. Bạn chỉ cần nó như một nguồn để copy runtime assets.
+
+### Cần lấy gì từ repo?
+
+Với mỗi plugin, hãy copy **nguyên thư mục plugin** bên dưới `plugins/`.
+
+Ví dụ:
+
+- `plugins/amazon-location-service/`
+- `plugins/aws-amplify/`
+- `plugins/aws-serverless/`
+- `plugins/databases-on-aws/`
+- `plugins/deploy-on-aws/`
+- `plugins/migration-to-aws/`
+- `plugins/sagemaker-ai/`
+
+Lý do phải copy nguyên thư mục thay vì chỉ lấy `plugin.json`:
+
+- plugin cần `.codex-plugin/plugin.json`
+- nhiều plugin cần `skills/`
+- nhiều plugin cần `.mcp.json`
+- một số plugin còn có `hooks/`, `scripts/`, hoặc tài liệu tham chiếu mà skill sẽ dùng
+
+<Aside type='note' title='Đừng chỉ copy marketplace.json'>
+  `marketplace.json` chỉ là registry. Nếu nó trỏ tới thư mục plugin không tồn tại, Codex vẫn đọc được marketplace nhưng không thể cài plugin đúng cách.
+</Aside>
+
+## Bước 2: Tạo root global cho plugin
+
+Trên Windows, tạo thư mục global như sau:
+
+```powershell
+$GlobalRoot = "$HOME\\.agents\\plugins\\agent-plugins-for-aws"
+New-Item -ItemType Directory -Force -Path "$GlobalRoot\\plugins" | Out-Null
+```
+
+Sau đó copy các plugin bạn muốn dùng:
+
+```powershell
+Copy-Item -Recurse -Force .\plugins\amazon-location-service "$GlobalRoot\\plugins\\"
+Copy-Item -Recurse -Force .\plugins\aws-amplify "$GlobalRoot\\plugins\\"
+Copy-Item -Recurse -Force .\plugins\aws-serverless "$GlobalRoot\\plugins\\"
+Copy-Item -Recurse -Force .\plugins\databases-on-aws "$GlobalRoot\\plugins\\"
+Copy-Item -Recurse -Force .\plugins\deploy-on-aws "$GlobalRoot\\plugins\\"
+Copy-Item -Recurse -Force .\plugins\migration-to-aws "$GlobalRoot\\plugins\\"
+Copy-Item -Recurse -Force .\plugins\sagemaker-ai "$GlobalRoot\\plugins\\"
+```
+
+Nếu bạn chỉ dùng một vài plugin, chỉ copy đúng những plugin đó.
+
+## Bước 3: Tạo marketplace global
+
+Tạo file:
+
+```text
+C:\Users\<you>\.agents\plugins\marketplace.json
+```
+
+với nội dung như sau:
+
+```json title="C:\\Users\\<you>\\.agents\\plugins\\marketplace.json"
+{
+  "name": "agent-plugins-for-aws",
+  "interface": {
+    "displayName": "Agent Plugins for AWS"
+  },
+  "plugins": [
+    {
+      "name": "amazon-location-service",
+      "source": {
+        "source": "local",
+        "path": "./agent-plugins-for-aws/plugins/amazon-location-service"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Location"
+    },
+    {
+      "name": "aws-amplify",
+      "source": {
+        "source": "local",
+        "path": "./agent-plugins-for-aws/plugins/aws-amplify"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Full Stack"
+    },
+    {
+      "name": "aws-serverless",
+      "source": {
+        "source": "local",
+        "path": "./agent-plugins-for-aws/plugins/aws-serverless"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Development"
+    },
+    {
+      "name": "databases-on-aws",
+      "source": {
+        "source": "local",
+        "path": "./agent-plugins-for-aws/plugins/databases-on-aws"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Database"
+    },
+    {
+      "name": "deploy-on-aws",
+      "source": {
+        "source": "local",
+        "path": "./agent-plugins-for-aws/plugins/deploy-on-aws"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Deployment"
+    },
+    {
+      "name": "migration-to-aws",
+      "source": {
+        "source": "local",
+        "path": "./agent-plugins-for-aws/plugins/migration-to-aws"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Migration"
+    },
+    {
+      "name": "sagemaker-ai",
+      "source": {
+        "source": "local",
+        "path": "./agent-plugins-for-aws/plugins/sagemaker-ai"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "AI"
+    }
+  ]
+}
+```
+
+Điểm quan trọng nhất trong file này là `source.path`:
+
+- luôn bắt đầu bằng `./`
+- được resolve relative với thư mục chứa `marketplace.json`
+- vì thế `./agent-plugins-for-aws/plugins/...` sẽ trỏ đúng tới cây plugin global vừa copy
+
+## Bước 4: Kiểm tra thư mục plugin trước khi mở Codex
+
+Mỗi plugin nên có ít nhất:
+
+- `.codex-plugin/plugin.json`
+- `skills/`
+- `.mcp.json` nếu plugin cần MCP servers
+
+Bạn có thể tự kiểm tra nhanh bằng PowerShell:
+
+```powershell
+$MarketRoot = "$HOME\\.agents\\plugins"
+$Plugins = @(
+  "amazon-location-service",
+  "aws-amplify",
+  "aws-serverless",
+  "databases-on-aws",
+  "deploy-on-aws",
+  "migration-to-aws",
+  "sagemaker-ai"
+)
+
+$Plugins | ForEach-Object {
+  $Path = Join-Path $MarketRoot "agent-plugins-for-aws\\plugins\\$_"
+  [PSCustomObject]@{
+    Name = $_
+    PluginDir = Test-Path $Path
+    CodexManifest = Test-Path (Join-Path $Path ".codex-plugin\\plugin.json")
+    Skills = Test-Path (Join-Path $Path "skills")
+    McpConfig = Test-Path (Join-Path $Path ".mcp.json")
+  }
+} | Format-Table -AutoSize
+```
+
+Nếu tất cả cột đều `True`, tree global của bạn đã usable.
+
+## Bước 5: Restart Codex và xác nhận plugin xuất hiện ở mọi repo
+
+Sau khi có `~/.agents/plugins/marketplace.json`, restart Codex để nó nạp personal marketplace mới.
+
+Rồi mở **một repo bất kỳ không liên quan tới AWS plugins**. Đây là test quan trọng nhất. Nếu plugin vẫn xuất hiện trong Plugin Directory ở repo đó, cấu hình global của bạn đã đúng.
+
+<Steps>
+1. Đóng cửa sổ Codex hiện tại
+2. Mở lại Codex
+3. Mở một repo khác, ví dụ repo blog hoặc repo app chính của bạn
+4. Vào `Settings -> Plugins`
+5. Tìm marketplace `Agent Plugins for AWS`
+6. Xác nhận các plugin như `Amazon Location Service` hay `Deploy on AWS` vẫn xuất hiện
+</Steps>
+
+Nếu plugin chỉ xuất hiện khi bạn mở repo `agent-plugins`, nghĩa là bạn vẫn đang dùng marketplace repo-local chứ chưa chuyển hẳn sang personal marketplace.
+
+## Cài plugin rồi có cần giữ repo gốc không?
+
+Không bắt buộc.
+
+Khi bạn đã copy các plugin cần thiết vào `~/.agents/plugins/agent-plugins-for-aws/`, Codex sẽ đọc từ đó. Repo gốc chỉ còn là:
+
+- nơi để cập nhật plugin khi upstream thay đổi
+- nơi để xem source hoặc đóng góp lại cho `awslabs/agent-plugins`
+
+Nếu bạn không định theo dõi upstream, về mặt runtime bạn không còn phụ thuộc vào repo gốc nữa.
+
+<Collapse title='Cập nhật plugin sau này như thế nào?'>
+  <div slot='before' class='text-sm text-muted-foreground'>Có hai cách, nhưng copy đè nguyên thư mục vẫn là cách thực dụng nhất.</div>
+  <p>
+    Khi repo upstream có phiên bản mới, bạn chỉ cần pull repo gốc rồi copy đè lại các thư mục plugin tương ứng vào `~/.agents/plugins/agent-plugins-for-aws/plugins/`. Sau đó restart Codex để nó nạp bản mới.
+  </p>
+</Collapse>
+
+## Khi nào không nên dùng cách này?
+
+Copy plugin vào global root là cách đơn giản nhất, nhưng không phải lúc nào cũng phù hợp.
+
+Bạn có thể chưa nên dùng nếu:
+
+- bạn đang phát triển plugin hằng ngày và muốn mọi thay đổi phản ánh trực tiếp từ repo dev
+- bạn thường xuyên đổi branch hoặc test plugin đang dở dang
+- bạn muốn một workflow symlink hoặc automation cập nhật tinh gọn hơn
+
+Trong các case đó, repo-local marketplace hoặc một script sync tự động có thể hợp hơn.
+
+## Các lỗi phổ biến
+
+### 1. Thấy marketplace nhưng bấm install không ổn
+
+Nguyên nhân thường là `source.path` đúng tên nhưng thư mục plugin thiếu file runtime như:
+
+- `.codex-plugin/plugin.json`
+- `skills/`
+- `.mcp.json`
+
+### 2. Chỉ thấy plugin trong một repo
+
+Nguyên nhân là marketplace đang nằm ở:
+
+```text
+$REPO_ROOT/.agents/plugins/marketplace.json
+```
+
+thay vì:
+
+```text
+~/.agents/plugins/marketplace.json
+```
+
+### 3. Sửa file xong nhưng Codex chưa thấy thay đổi
+
+Codex thường cần restart để nạp lại marketplace personal và cache plugin local.
+
+## Chốt lại quy trình
+
+Nếu bạn muốn global hóa AWS agent plugins cho Codex theo cách an toàn và dễ bảo trì nhất, công thức là:
+
+<Steps>
+1. Clone `awslabs/agent-plugins`
+2. Copy nguyên các thư mục plugin cần dùng vào `~/.agents/plugins/agent-plugins-for-aws/plugins/`
+3. Tạo `~/.agents/plugins/marketplace.json` với `source.path` tương đối trỏ tới cây plugin đó
+4. Restart Codex
+5. Mở một repo bất kỳ để xác nhận plugin xuất hiện ngoài repo gốc
+</Steps>
+
+Đây không phải workflow đẹp nhất về mặt “DRY”, nhưng lại là workflow ít bất ngờ nhất. Bạn tách được plugin runtime khỏi repo development, giữ được marketplace global rõ ràng, và không còn phụ thuộc vào việc phải mở đúng repo thì Codex mới thấy plugin.
+
+## Tham khảo
+
+- [OpenAI Codex plugins build docs](https://developers.openai.com/codex/plugins/build)
+- [awslabs/agent-plugins trên GitHub](https://github.com/awslabs/agent-plugins)
+
+<LinkPreview href='https://developers.openai.com/codex/plugins/build' />
+
+<LinkPreview href='https://github.com/awslabs/agent-plugins' />

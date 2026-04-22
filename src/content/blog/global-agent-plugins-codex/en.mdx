@@ -1,0 +1,372 @@
+---
+title: 'Globalize AWS agent plugins for Codex'
+description: 'Clone the awslabs repo, copy plugins into ~/.agents/plugins, and use a global Codex marketplace in every repo.'
+publishDate: '2026-04-22T08:00:00Z'
+updatedDate: '2026-04-22T08:00:00Z'
+tags:
+  - codex
+  - plugins
+  - aws
+  - vscode
+  - tutorial
+language: 'English'
+draft: false
+comment: true
+---
+
+import { Aside, Steps, Tabs, TabItem, Collapse } from 'astro-pure/user'
+import { LinkPreview } from 'astro-pure/advanced'
+
+## Why globalize the plugin setup?
+
+If you install the marketplace in repo-local mode, Codex only sees the plugins when you open the exact repository that contains:
+
+```text
+$REPO_ROOT/.agents/plugins/marketplace.json
+```
+
+That is fine while developing the plugin itself. But if your goal is to:
+
+- reuse the same plugins across many repositories
+- keep one stable AWS plugin set for every workspace
+- avoid opening the `agent-plugins` repo just to see the plugins in Plugin Directory
+
+then you should move to a **personal marketplace** at:
+
+```text
+~/.agents/plugins/marketplace.json
+```
+
+<Aside type='tip' title='Short version'>
+  The most reliable approach is to copy the plugin folders you need into `~/.agents/plugins/agent-plugins-for-aws/`, then point a global marketplace at those folders using relative `source.path` entries.
+</Aside>
+
+## The setup we want
+
+We will follow the safest option:
+
+1. Clone the upstream repo from `awslabs/agent-plugins`
+2. Take the AWS plugins you want from `plugins/`
+3. Copy them into a global root under your home directory
+4. Create `~/.agents/plugins/marketplace.json`
+5. Restart Codex and verify the plugins appear in every repo
+
+After that, your structure should look like this:
+
+```text
+C:\Users\<you>\.agents\plugins\
+├── marketplace.json
+└── agent-plugins-for-aws\
+    └── plugins\
+        ├── amazon-location-service\
+        ├── aws-amplify\
+        ├── aws-serverless\
+        ├── databases-on-aws\
+        ├── deploy-on-aws\
+        ├── migration-to-aws\
+        └── sagemaker-ai\
+```
+
+## Step 1: Clone the upstream repository
+
+If you do not already have the source locally, clone the official repo:
+
+```powershell
+git clone https://github.com/awslabs/agent-plugins.git
+cd agent-plugins
+```
+
+If your only goal is to use the plugins, you do not need to actively develop in this repo. You only need it as the source for the runtime plugin folders.
+
+### What exactly should you take from the repo?
+
+For each plugin, copy the **entire plugin directory** under `plugins/`.
+
+For example:
+
+- `plugins/amazon-location-service/`
+- `plugins/aws-amplify/`
+- `plugins/aws-serverless/`
+- `plugins/databases-on-aws/`
+- `plugins/deploy-on-aws/`
+- `plugins/migration-to-aws/`
+- `plugins/sagemaker-ai/`
+
+Why copy the whole directory instead of only `plugin.json`?
+
+- the plugin needs `.codex-plugin/plugin.json`
+- many plugins depend on `skills/`
+- many plugins depend on `.mcp.json`
+- some plugins also rely on `hooks/`, `scripts/`, or reference material used by their skills
+
+<Aside type='note' title='Do not copy only marketplace.json'>
+  `marketplace.json` is only the registry. If it points to plugin folders that do not exist, Codex can read the marketplace but cannot install the plugins correctly.
+</Aside>
+
+## Step 2: Create a global plugin root
+
+On Windows, create the global directory like this:
+
+```powershell
+$GlobalRoot = "$HOME\\.agents\\plugins\\agent-plugins-for-aws"
+New-Item -ItemType Directory -Force -Path "$GlobalRoot\\plugins" | Out-Null
+```
+
+Then copy the plugins you want:
+
+```powershell
+Copy-Item -Recurse -Force .\plugins\amazon-location-service "$GlobalRoot\\plugins\\"
+Copy-Item -Recurse -Force .\plugins\aws-amplify "$GlobalRoot\\plugins\\"
+Copy-Item -Recurse -Force .\plugins\aws-serverless "$GlobalRoot\\plugins\\"
+Copy-Item -Recurse -Force .\plugins\databases-on-aws "$GlobalRoot\\plugins\\"
+Copy-Item -Recurse -Force .\plugins\deploy-on-aws "$GlobalRoot\\plugins\\"
+Copy-Item -Recurse -Force .\plugins\migration-to-aws "$GlobalRoot\\plugins\\"
+Copy-Item -Recurse -Force .\plugins\sagemaker-ai "$GlobalRoot\\plugins\\"
+```
+
+If you only need a subset, copy only those plugin folders.
+
+## Step 3: Create the global marketplace
+
+Create this file:
+
+```text
+C:\Users\<you>\.agents\plugins\marketplace.json
+```
+
+with content like this:
+
+```json title="C:\\Users\\<you>\\.agents\\plugins\\marketplace.json"
+{
+  "name": "agent-plugins-for-aws",
+  "interface": {
+    "displayName": "Agent Plugins for AWS"
+  },
+  "plugins": [
+    {
+      "name": "amazon-location-service",
+      "source": {
+        "source": "local",
+        "path": "./agent-plugins-for-aws/plugins/amazon-location-service"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Location"
+    },
+    {
+      "name": "aws-amplify",
+      "source": {
+        "source": "local",
+        "path": "./agent-plugins-for-aws/plugins/aws-amplify"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Full Stack"
+    },
+    {
+      "name": "aws-serverless",
+      "source": {
+        "source": "local",
+        "path": "./agent-plugins-for-aws/plugins/aws-serverless"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Development"
+    },
+    {
+      "name": "databases-on-aws",
+      "source": {
+        "source": "local",
+        "path": "./agent-plugins-for-aws/plugins/databases-on-aws"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Database"
+    },
+    {
+      "name": "deploy-on-aws",
+      "source": {
+        "source": "local",
+        "path": "./agent-plugins-for-aws/plugins/deploy-on-aws"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Deployment"
+    },
+    {
+      "name": "migration-to-aws",
+      "source": {
+        "source": "local",
+        "path": "./agent-plugins-for-aws/plugins/migration-to-aws"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Migration"
+    },
+    {
+      "name": "sagemaker-ai",
+      "source": {
+        "source": "local",
+        "path": "./agent-plugins-for-aws/plugins/sagemaker-ai"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "AI"
+    }
+  ]
+}
+```
+
+The most important part here is `source.path`:
+
+- it should always start with `./`
+- it is resolved relative to the directory containing `marketplace.json`
+- that is why `./agent-plugins-for-aws/plugins/...` correctly points at the global plugin tree you copied
+
+## Step 4: Verify the plugin tree before opening Codex
+
+Each plugin should have at least:
+
+- `.codex-plugin/plugin.json`
+- `skills/`
+- `.mcp.json` if the plugin depends on MCP servers
+
+You can verify that quickly with PowerShell:
+
+```powershell
+$MarketRoot = "$HOME\\.agents\\plugins"
+$Plugins = @(
+  "amazon-location-service",
+  "aws-amplify",
+  "aws-serverless",
+  "databases-on-aws",
+  "deploy-on-aws",
+  "migration-to-aws",
+  "sagemaker-ai"
+)
+
+$Plugins | ForEach-Object {
+  $Path = Join-Path $MarketRoot "agent-plugins-for-aws\\plugins\\$_"
+  [PSCustomObject]@{
+    Name = $_
+    PluginDir = Test-Path $Path
+    CodexManifest = Test-Path (Join-Path $Path ".codex-plugin\\plugin.json")
+    Skills = Test-Path (Join-Path $Path "skills")
+    McpConfig = Test-Path (Join-Path $Path ".mcp.json")
+  }
+} | Format-Table -AutoSize
+```
+
+If every column shows `True`, your global plugin tree is usable.
+
+## Step 5: Restart Codex and confirm the plugins appear everywhere
+
+Once `~/.agents/plugins/marketplace.json` exists, restart Codex so it reloads the personal marketplace.
+
+Then open **any other repo that has nothing to do with AWS plugins**. That is the real test. If the plugins still appear in Plugin Directory there, your global setup is correct.
+
+<Steps>
+1. Close the current Codex window
+2. Open Codex again
+3. Open some other repository, such as your blog repo or app repo
+4. Go to `Settings -> Plugins`
+5. Look for the `Agent Plugins for AWS` marketplace
+6. Confirm plugins like `Amazon Location Service` or `Deploy on AWS` still appear
+</Steps>
+
+If the plugins only show up when you open the `agent-plugins` repo, you are still using the repo-local marketplace instead of the personal one.
+
+## Do you still need to keep the original repo?
+
+Not necessarily.
+
+Once you have copied the plugin folders you need into `~/.agents/plugins/agent-plugins-for-aws/`, Codex reads from there. The original repo becomes:
+
+- a place to pull upstream updates later
+- a place to inspect source or contribute back to `awslabs/agent-plugins`
+
+If you are not tracking upstream actively, your runtime setup no longer depends on the original repository.
+
+<Collapse title='How should you update the plugins later?'>
+  <div slot='before' class='text-sm text-muted-foreground'>There are cleaner automation options, but copying the folders again is still the most pragmatic one.</div>
+  <p>
+    When the upstream repo changes, pull the latest version there, then copy the affected plugin folders again into `~/.agents/plugins/agent-plugins-for-aws/plugins/`. After that, restart Codex so it reloads the updated local plugin cache.
+  </p>
+</Collapse>
+
+## When should you not use this approach?
+
+Copying plugin folders into a global root is the simplest setup, but not always the right one.
+
+You may not want it if:
+
+- you are actively developing the plugins every day and want changes reflected straight from the dev repo
+- you often switch branches or test unfinished plugin work
+- you prefer a symlink-based or automated sync workflow
+
+In those cases, a repo-local marketplace or a sync script may be a better fit.
+
+## Common failure cases
+
+### 1. The marketplace appears, but install is broken
+
+The usual reason is that `source.path` points at a folder that exists by name but is missing runtime files such as:
+
+- `.codex-plugin/plugin.json`
+- `skills/`
+- `.mcp.json`
+
+### 2. The plugins only appear in one repo
+
+That usually means the marketplace still lives at:
+
+```text
+$REPO_ROOT/.agents/plugins/marketplace.json
+```
+
+instead of:
+
+```text
+~/.agents/plugins/marketplace.json
+```
+
+### 3. You changed files, but Codex does not see the update yet
+
+Codex often needs a restart to reload the personal marketplace and refresh the local plugin cache.
+
+## The full flow in one checklist
+
+If you want the most stable and least surprising way to globalize AWS agent plugins for Codex, the recipe is:
+
+<Steps>
+1. Clone `awslabs/agent-plugins`
+2. Copy the full plugin folders you need into `~/.agents/plugins/agent-plugins-for-aws/plugins/`
+3. Create `~/.agents/plugins/marketplace.json` with relative `source.path` entries pointing at that tree
+4. Restart Codex
+5. Open any repo and confirm the plugins appear outside the original source repo
+</Steps>
+
+This is not the most elegant workflow in a DRY sense, but it is the least fragile. You separate the runtime plugin tree from the development repo, keep a clear global marketplace, and stop depending on opening one specific repo just so Codex can see your plugins.
+
+## References
+
+- [OpenAI Codex plugins build docs](https://developers.openai.com/codex/plugins/build)
+- [awslabs/agent-plugins on GitHub](https://github.com/awslabs/agent-plugins)
+
+<LinkPreview href='https://developers.openai.com/codex/plugins/build' />
+
+<LinkPreview href='https://github.com/awslabs/agent-plugins' />
