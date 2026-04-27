@@ -1091,7 +1091,19 @@ Prompt Engineering Tools, Interviewing Skills, Branding, Professional Developmen
 
 Prompt Engineering, Generative AI, Google Gemini
 
-# 9. Google IT Automation with Python Professional Certificate (7 courses)
+# 9. Google Advanced Data Analytics Professional Certificate (7 courses)
+
+Source: [Coursera](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-advanced-data-analytics?collectionId=8fp65#courses)
+
+### 1. [Foundations of Data Science](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-advanced-data-analytics?collectionId=8fp65) (20 hours)
+### 2. [Go Beyond the Numbers: Translate Data into Insights](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-advanced-data-analytics?collectionId=8fp65) (28 hours)
+### 3. [The Power of Statistics](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-advanced-data-analytics?collectionId=8fp65) (31 hours)
+### 4. [Regression Analysis: Simplify Complex Data Relationships](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-advanced-data-analytics?collectionId=8fp65) (28 hours)
+### 5. [The Nuts and Bolts of Machine Learning](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-advanced-data-analytics?collectionId=8fp65) (34 hours)
+### 6. [Google Advanced Data Analytics Capstone](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-advanced-data-analytics?collectionId=8fp65) (6 hours)
+### 7. [Accelerate Your Job Search with AI](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-project-management?collectionId=8fp65) (6 hours)
+
+# 10. Google IT Automation with Python Professional Certificate (7 courses)
 
 Source: [Coursera](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-it-automation?collectionId=8fp65#courses)
 
@@ -1207,28 +1219,7 @@ Prompt Engineering Tools, Interviewing Skills, Branding, Professional Developmen
 
 Prompt Engineering, Generative AI, Google Gemini
 
-# 10. Google Business Intelligence Professional Certificate (4 courses)
-
-Source: [Coursera](https://www.coursera.org/professional-certificates/google-business-intelligence)
-
-### 1. [Foundations of Business Intelligence](https://www.coursera.org/professional-certificates/google-business-intelligence) (15 hours)
-### 2. [The Path to Insights: Data Models and Pipelines](https://www.coursera.org/professional-certificates/google-business-intelligence) (17 hours)
-### 3. [Decisions, Decisions: Dashboards and Reports](https://www.coursera.org/professional-certificates/google-business-intelligence) (18 hours)
-### 4. [Accelerate Your Job Search with AI](https://www.coursera.org/professional-certificates/google-business-intelligence) (6 hours)
-
-# 11. Google Advanced Data Analytics Professional Certificate (7 courses)
-
-Source: [Coursera](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-advanced-data-analytics?collectionId=8fp65#courses)
-
-### 1. [Foundations of Data Science](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-advanced-data-analytics?collectionId=8fp65) (20 hours)
-### 2. [Go Beyond the Numbers: Translate Data into Insights](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-advanced-data-analytics?collectionId=8fp65) (28 hours)
-### 3. [The Power of Statistics](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-advanced-data-analytics?collectionId=8fp65) (31 hours)
-### 4. [Regression Analysis: Simplify Complex Data Relationships](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-advanced-data-analytics?collectionId=8fp65) (28 hours)
-### 5. [The Nuts and Bolts of Machine Learning](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-advanced-data-analytics?collectionId=8fp65) (34 hours)
-### 6. [Google Advanced Data Analytics Capstone](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-advanced-data-analytics?collectionId=8fp65) (6 hours)
-### 7. [Accelerate Your Job Search with AI](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-project-management?collectionId=8fp65) (6 hours)
-
-# 12. Google Prompting Essentials (Specialization - 4 courses)
+# 11. Google Prompting Essentials (Specialization - 4 courses)
 
 Source: [Coursera](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/specializations/prompting-essentials-google?collectionId=8fp65#courses)
 
@@ -1296,6 +1287,17 @@ Software Versioning, Generative AI Agents, Solution Design, Prompt Patterns, LLM
 **Tools you'll learn:**
 
 Agentic Workflows, Prompt Engineering
+
+# 12. Google Business Intelligence Professional Certificate (4 courses)
+
+Source: [Coursera](https://www.coursera.org/professional-certificates/google-business-intelligence)
+
+### 1. [Foundations of Business Intelligence](https://www.coursera.org/professional-certificates/google-business-intelligence) (15 hours)
+### 2. [The Path to Insights: Data Models and Pipelines](https://www.coursera.org/professional-certificates/google-business-intelligence) (17 hours)
+### 3. [Decisions, Decisions: Dashboards and Reports](https://www.coursera.org/professional-certificates/google-business-intelligence) (18 hours)
+### 4. [Accelerate Your Job Search with AI](https://www.coursera.org/professional-certificates/google-business-intelligence) (6 hours)
+
+
 
 # Suggested Next Use
 
