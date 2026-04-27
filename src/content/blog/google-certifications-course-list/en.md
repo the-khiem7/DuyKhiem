@@ -1095,13 +1095,129 @@ Prompt Engineering, Generative AI, Google Gemini
 
 Source: [Coursera](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-advanced-data-analytics?collectionId=8fp65#courses)
 
-### 1. [Foundations of Data Science](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-advanced-data-analytics?collectionId=8fp65) (20 hours)
-### 2. [Go Beyond the Numbers: Translate Data into Insights](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-advanced-data-analytics?collectionId=8fp65) (28 hours)
-### 3. [The Power of Statistics](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-advanced-data-analytics?collectionId=8fp65) (31 hours)
-### 4. [Regression Analysis: Simplify Complex Data Relationships](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-advanced-data-analytics?collectionId=8fp65) (28 hours)
-### 5. [The Nuts and Bolts of Machine Learning](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-advanced-data-analytics?collectionId=8fp65) (34 hours)
-### 6. [Google Advanced Data Analytics Capstone](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-advanced-data-analytics?collectionId=8fp65) (6 hours)
-### 7. [Accelerate Your Job Search with AI](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-project-management?collectionId=8fp65) (6 hours)
+### 1. Foundations of Data Science (20 hours) [View on Coursera](https://www.coursera.org/learn/foundations-of-data-science)
+
+**What you'll learn**
+- Understand common careers and industries that use advanced data analytics.
+- Investigate the impact data analysis can have on decision-making.
+- Explain how data professionals preserve data privacy and ethics.
+- Develop a project plan considering roles and responsibilities of team members.
+
+**Skills you'll gain:**
+
+Machine Learning, Data-Driven Decision-Making, Business Solutions, Workflow Management, Analytics, Communication, Stakeholder Communications, Advanced Analytics, Technical Communication, Process Design, Data Science, Project Management, Analytical Skills, Data Storytelling, Data Ethics, Data Analysis
+
+**Tools you'll learn:**
+
+None listed on Coursera.
+
+***
+
+### 2. Go Beyond the Numbers: Translate Data into Insights (28 hours) [View on Coursera](https://www.coursera.org/learn/go-beyond-the-numbers-translate-data-into-insight)
+
+**What you'll learn**
+- Apply the exploratory data analysis (EDA) process.
+- Explore the benefits of structuring and cleaning data.
+- Investigate raw data using Python.
+- Create data visualizations using Tableau.
+
+**Skills you'll gain:**
+
+Data Transformation, Data Validation, Tableau Software, Data Wrangling, Data Presentation, Data Manipulation, Data Quality, Data Visualization, Exploratory Data Analysis, Data Science, Data Preprocessing, Data Analysis Software, Data Cleansing, Data Visualization Software, Data Storytelling, Data Ethics, Analysis, Technical Communication, Data Analysis
+
+**Tools you'll learn:**
+
+Python Programming
+
+***
+
+### 3. The Power of Statistics (31 hours) [View on Coursera](https://www.coursera.org/learn/the-power-of-statistics)
+
+**What you'll learn**
+- Explore and summarize a dataset.
+- Use probability distributions to model data.
+- Conduct a hypothesis test to identify insights about data.
+- Perform statistical analyses using Python.
+
+**Skills you'll gain:**
+
+Analytics, Statistical Analysis, Statistics, Statistical Programming, Statistical Inference, Data Analysis, Advanced Analytics, Statistical Methods, Probability & Statistics, Probability Distribution, Data Science, Sampling (Statistics), Statistical Hypothesis Testing, Probability, Descriptive Statistics, A/B Testing
+
+**Tools you'll learn:**
+
+Python Programming, Statistical Software
+
+***
+
+### 4. Regression Analysis: Simplify Complex Data Relationships (28 hours) [View on Coursera](https://www.coursera.org/learn/regression-analysis-simplify-complex-data-relationships)
+
+**What you'll learn**
+- Investigate relationships in datasets.
+- Identify regression model assumptions.
+- Perform linear and logistic regression using Python.
+- Practice model evaluation and interpretation.
+
+**Skills you'll gain:**
+
+Predictive Modeling, Variance Analysis, Regression Analysis, Statistical Methods, Machine Learning, Model Evaluation, Logistic Regression, Statistical Analysis, Statistical Modeling, Statistical Hypothesis Testing, Predictive Analytics, Correlation Analysis, Supervised Learning
+
+**Tools you'll learn:**
+
+Python Programming
+
+***
+
+### 5. The Nuts and Bolts of Machine Learning (34 hours) [View on Coursera](https://www.coursera.org/learn/the-nuts-and-bolts-of-machine-learning)
+
+**What you'll learn**
+- Identify characteristics of the different types of machine learning.
+- Prepare data for machine learning models.
+- Build and evaluate supervised and unsupervised learning models using Python.
+- Demonstrate proper model and metric selection for a machine learning algorithm.
+
+**Skills you'll gain:**
+
+Machine Learning Algorithms, Decision Tree Learning, Model Training, Model Evaluation, Performance Tuning, Advanced Analytics, Supervised Learning, Statistical Machine Learning, Unsupervised Learning, Random Forest Algorithm, Applied Machine Learning, Predictive Modeling, Model Optimization, Feature Engineering, Analytics, Machine Learning
+
+**Tools you'll learn:**
+
+Classification Algorithms, Python Programming
+
+***
+
+### 6. Google Advanced Data Analytics Capstone (6 hours) [View on Coursera](https://www.coursera.org/learn/google-advanced-data-analytics-capstone)
+
+**What you'll learn**
+- Examine data to identify patterns and trends.
+- Build models using machine learning techniques.
+- Create data visualizations.
+- Explore career resources.
+
+**Skills you'll gain:**
+
+Data Presentation, Data Analysis, Portfolio Management, Data Science, Machine Learning Methods, AI literacy, Artificial Intelligence, Applied Machine Learning, Data Visualization, Advanced Analytics, Statistical Modeling, Machine Learning, Analytical Skills, Regression Analysis, Statistical Analysis
+
+**Tools you'll learn:**
+
+Python Programming
+
+***
+
+### 7. Accelerate Your Job Search with AI (6 hours) [View on Coursera](https://www.coursera.org/learn/accelerate-your-job-search-with-ai)
+
+**What you'll learn**
+- Uncover your skills and explore new career possibilities, with support from tools like Career Dreamer.
+- Keep your applications organized with Google Sheets.
+- Build a stand out resume and a step-by-step job search plan—with help from Gemini.
+- Prepare for interviews and practice responding to questions using NotebookLM and Gemini Live.
+
+**Skills you'll gain:**
+
+Prompt Engineering Tools, Interviewing Skills, Branding, Professional Development, AI literacy, Web Presence
+
+**Tools you'll learn:**
+
+Prompt Engineering, Generative AI, Google Gemini
 
 # 10. Google IT Automation with Python Professional Certificate (7 courses)
 
