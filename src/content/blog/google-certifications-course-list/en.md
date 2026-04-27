@@ -374,48 +374,533 @@ Source: [Coursera](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/profess
 
 Source: [Coursera](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/specializations/ai-essentials-google?collectionId=8fp65#courses)
 
-### 1. [Introduction to AI](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/specializations/ai-essentials-google?collectionId=8fp65) (1 hour)
-### 2. [Maximize Productivity With AI Tools](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/specializations/ai-essentials-google?collectionId=8fp65) (2 hours)
-### 3. [Discover the Art of Prompting](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/specializations/ai-essentials-google?collectionId=8fp65) (2 hours)
-### 4. [Use AI Responsibly](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/specializations/ai-essentials-google?collectionId=8fp65) (1 hour)
-### 5. [Stay Ahead of the AI Curve](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/specializations/ai-essentials-google?collectionId=8fp65) (2 hours)
+### 1. Introduction to AI (1 hour) [View on Coursera](https://www.coursera.org/learn/google-introduction-to-ai?specialization=ai-essentials-google)
+
+#### What you'll learn
+- Define the field of AI
+- Explain how AI functions at a basic level, including how AI technology is trained to learn from data
+- Describe the capabilities and limitations of AI tools
+- Recognize the importance of human oversight when using AI
+
+#### Skills you'll gain
+- Artificial Intelligence and Machine Learning (AI/ML)
+- AI Enablement
+- Machine Learning
+- Innovation
+- Model Training
+- AI literacy
+- Critical Thinking
+
+#### Tools you'll learn
+- Generative AI
+### 2. Maximize Productivity With AI Tools (2 hours) [View on Coursera](https://www.coursera.org/learn/google-maximize-productivity-with-ai-tools?specialization=ai-essentials-google)
+
+#### What you'll learn
+- Recognize how generative AI can be used for several different workplace applications
+- Identify opportunities to leverage AI for increased productivity and optimized work processes
+- Evaluate whether generative AI is an optimal tool to apply to a specific task
+
+#### Skills you'll gain
+- Model Training
+- Business Workflow Analysis
+- Responsible AI
+- AI literacy
+- Complex Problem Solving
+- AI Enablement
+- Operational Efficiency
+- AI Integrations
+
+#### Tools you'll learn
+- Google Sheets
+- Gemini
+- Google Workspace
+- Google Gemini
+- Productivity Software
+- Generative AI
+### 3. Discover the Art of Prompting (2 hours) [View on Coursera](https://www.coursera.org/learn/google-discover-the-art-of-prompting?specialization=ai-essentials-google)
+
+#### What you'll learn
+- Create prompts that provide clear and specific instructions for a variety of use cases
+- Describe the role of writing effective prompts in producing generative AI output
+- Apply specific prompting techniques, including few-shot prompting
+
+#### Skills you'll gain
+- Content Creation
+- LLM Application
+- Prompt Patterns
+- Large Language Modeling
+- AI literacy
+
+#### Tools you'll learn
+- Prompt Engineering
+### 4. Use AI Responsibly (1 hour) [View on Coursera](https://www.coursera.org/learn/google-use-ai-responsibly?specialization=ai-essentials-google)
+
+#### What you'll learn
+- Identify AI harms and their potential impact on users and social structures
+- Recognize possible privacy and security repercussions of AI use
+- Explain risks and biases that are inherent to modern AI and best practices for how to approach them
+
+#### Skills you'll gain
+- Critical Thinking
+- Data Security
+- Analysis
+- AI Security
+- AI literacy
+- Social Impact
+
+#### Tools you'll learn
+- Generative AI
+### 5. Stay Ahead of the AI Curve (2 hours) [View on Coursera](https://www.coursera.org/learn/google-stay-ahead-of-the-ai-curve?specialization=ai-essentials-google)
+
+#### What you'll learn
+- Develop strategies to stay up-to-date in the emerging landscape of AI
+- Evaluate additional AI tools and their potential for future application in the workplace
+- Describe a variety of innovative ways AI has been integrated into the workplace
+
+#### Skills you'll gain
+- Analysis
+- AI Integrations
+- AI literacy
+- Strategic Thinking
+- AI Enablement
+
+#### Tools you'll learn
+- Generative AI
 
 # 4. Google Project Management Professional Certificate (7 courses)
 
 Source: [Coursera](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-project-management?collectionId=8fp65#courses)
 
-### 1. [Foundations of Project Management](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-project-management?collectionId=8fp65) (13 hours)
-### 2. [Project Initiation: Starting a Successful Project](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-project-management?collectionId=8fp65) (15 hours)
-### 3. [Project Planning: Putting It All Together](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-project-management?collectionId=8fp65) (23 hours)
-### 4. [Project Execution: Running the Project](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-project-management?collectionId=8fp65) (26 hours)
-### 5. [Agile Project Management](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-project-management?collectionId=8fp65) (20 hours)
-### 6. [Capstone: Applying Project Management in the Real World](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-project-management?collectionId=8fp65) (38 hours)
-### 7. [Accelerate Your Job Search with AI](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-project-management?collectionId=8fp65) (6 hours)
+### 1. Foundations of Project Management (13 hours) [View on Coursera](https://www.coursera.org/learn/project-management-foundations?professional-certificate=google-project-management)
+
+#### What you'll learn
+- Describe project management skills, roles, and responsibilities across a variety of industries
+- Explain the project management life cycle and compare different program management methodologies
+- Define organizational structure and organizational culture and explain how it impacts project management
+
+#### Skills you'll gain
+- Project Planning
+- Program Management
+- Project Coordination
+- Strategic Thinking
+- Agile Project Management
+- Organizational Change
+- Project Management Life Cycle
+- Waterfall Methodology
+
+#### Tools you'll learn
+- None
+### 2. Project Initiation: Starting a Successful Project (15 hours) [View on Coursera](https://www.coursera.org/learn/project-initiation-google?professional-certificate=google-project-management)
+
+#### What you'll learn
+- Identify the key characteristics of a project
+- Identify the key components of a project charter
+- Identify the key components of a project management plan
+- Identify the key components of a stakeholder analysis
+
+#### Skills you'll gain
+- Project Charter
+- Project Management Plan
+- Stakeholder Analysis
+- Stakeholder Management
+- Risk Management
+- Project Initiation
+- Change Management
+
+#### Tools you'll learn
+- None
+### 3. Project Planning: Putting It All Together (23 hours) [View on Coursera](https://www.coursera.org/learn/project-planning-google?professional-certificate=google-project-management)
+
+#### What you'll learn
+- Identify the key characteristics of a project
+- Identify the key components of a project charter
+- Identify the key components of a project management plan
+- Identify the key components of a stakeholder analysis
+
+#### Skills you'll gain
+- Project Charter
+- Project Management Plan
+- Stakeholder Analysis
+- Stakeholder Management
+- Risk Management
+- Project Initiation
+- Change Management
+
+#### Tools you'll learn
+- None
+### 4. Project Execution: Running the Project (26 hours) [View on Coursera](https://www.coursera.org/learn/project-execution-google?professional-certificate=google-project-management)
+
+#### What you'll learn
+- Implement the key quality management concepts of quality standards, quality planning, quality assurance, and quality control.
+- Demonstrate how to prioritize and analyze data and how to communicate a project’s data-informed story.
+- Discuss the stages of team development and how to manage team dynamics.
+- Describe the steps of the closing process and create project closing documentation.
+
+#### Skills you'll gain
+- Risk Management
+- Project Documentation
+- Quality Assessment
+- Project Management
+- Project Management Life Cycle
+- Stakeholder Communications
+- Project Risk Management
+- Quality Assurance
+
+#### Tools you'll learn
+- Project Management Software
+### 5. Agile Project Management (20 hours) [View on Coursera](https://www.coursera.org/learn/agile-project-management-google?professional-certificate=google-project-management)
+
+#### What you'll learn
+- Describe the key elements of Agile project management and its benefits.
+- Identify the key roles on an Agile team and explain their responsibilities.
+- Compare and contrast traditional project management approaches to Agile methodologies.
+- Demonstrate how to use Agile ceremonies and tools to manage an Agile project.
+
+#### Skills you'll gain
+- Scrum
+- Agile Management
+- Agile Methodology
+- Project Management
+- Kanban
+- Leadership and Management
+- Product Management
+- Product Backlog
+- Sprint Planning
+
+#### Tools you'll learn
+- Kanban Board
+### 6. Capstone: Applying Project Management in the Real World (38 hours) [View on Coursera](https://www.coursera.org/learn/applying-project-management?professional-certificate=google-project-management)
+
+#### What you'll learn
+- Apply project management knowledge and skills to real-world scenarios.
+- Complete hands-on activities and observe a project manager in action.
+- Develop a portfolio of project management artifacts demonstrating your skills.
+
+#### Skills you'll gain
+- Project Management
+- Project Planning
+- Risk Management
+- Stakeholder Management
+- Agile Project Management
+- Communication
+- Leadership
+- Problem Solving
+
+#### Tools you'll learn
+- Project Management Software
+
+### 7. Accelerate Your Job Search with AI (6 hours) [View on Coursera](https://www.coursera.org/learn/accelerate-your-job-search-with-ai?professional-certificate=google-project-management)
+
+#### What you'll learn
+- Use AI tools to enhance your job search process.
+- Craft compelling resumes and cover letters with AI assistance.
+- Prepare for interviews using AI-powered resources.
+- Network effectively with AI-driven insights.
+
+#### Skills you'll gain
+- Job Search
+- AI Tools
+- Resume Writing
+- Interview Preparation
+- Networking
+- Professional Development
+
+#### Tools you'll learn
+- Generative AI
+- LinkedIn AI
+- ChatGPT
 
 # 5. Google Cybersecurity Professional Certificate (9 courses)
 
 Source: [Coursera](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-cybersecurity?collectionId=8fp65#courses)
 
-### 1. [Foundations of Cybersecurity](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-cybersecurity?collectionId=8fp65) (10 hours)
-### 2. [Play It Safe: Manage Security Risks](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-cybersecurity?collectionId=8fp65) (9 hours)
-### 3. [Connect and Protect: Networks and Network Security](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-cybersecurity?collectionId=8fp65) (12 hours)
-### 4. [Tools of the Trade: Linux and SQL](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-cybersecurity?collectionId=8fp65) (23 hours)
-### 5. [Assets, Threats, and Vulnerabilities](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-cybersecurity?collectionId=8fp65) (19 hours)
-### 6. [Sound the Alarm: Detection and Response](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-cybersecurity?collectionId=8fp65) (18 hours)
-### 7. [Automate Cybersecurity Tasks with Python](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-cybersecurity?collectionId=8fp65) (25 hours)
-### 8. [Put It to Work: Prepare for Cybersecurity Jobs](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-cybersecurity?collectionId=8fp65) (11 hours)
-### 9. [Accelerate Your Job Search with AI](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-data-analytics?collectionId=8fp65) (6 hours)
+### 1. Foundations of Cybersecurity (10 hours) [View on Coursera](https://www.coursera.org/learn/foundations-of-cybersecurity?professional-certificate=google-cybersecurity)
+
+#### What you'll learn
+- Define key terms and concepts related to cybersecurity.
+- Explain the importance of cybersecurity practices.
+- Describe the cybersecurity threats and attacks that organizations face.
+- Identify the components of a cybersecurity program.
+
+#### Skills you'll gain
+- Cybersecurity
+- Information Security
+- Network Security
+- Risk Management
+- Incident Response
+
+#### Tools you'll learn
+- None
+
+### 2. Play It Safe: Manage Security Risks (9 hours) [View on Coursera](https://www.coursera.org/learn/play-it-safe-manage-security-risks?professional-certificate=google-cybersecurity)
+
+#### What you'll learn
+- Identify the key components of a security risk management program.
+- Explain the importance of security risk management.
+- Describe how to assess and prioritize security risks.
+- Identify strategies to mitigate security risks.
+
+#### Skills you'll gain
+- Risk Assessment
+- Risk Management
+- Security Risk
+- Vulnerability Assessment
+- Threat Analysis
+
+#### Tools you'll learn
+- None
+
+### 3. Connect and Protect: Networks and Network Security (12 hours) [View on Coursera](https://www.coursera.org/learn/connect-and-protect-networks-and-network-security?professional-certificate=google-cybersecurity)
+
+#### What you'll learn
+- Describe the key components of a computer network.
+- Explain how network security works.
+- Identify common network security threats and attacks.
+- Describe strategies to protect networks from security threats.
+
+#### Skills you'll gain
+- Network Security
+- Computer Networking
+- Network Architecture
+- Firewall
+- Intrusion Detection
+
+#### Tools you'll learn
+- Wireshark
+
+### 4. Tools of the Trade: Linux and SQL (23 hours) [View on Coursera](https://www.coursera.org/learn/tools-of-the-trade-linux-and-sql?professional-certificate=google-cybersecurity)
+
+#### What you'll learn
+- Describe the basics of Linux operating system.
+- Explain how to use Linux commands for cybersecurity tasks.
+- Describe the basics of SQL and its use in cybersecurity.
+- Explain how to use SQL queries to analyze data.
+
+#### Skills you'll gain
+- Linux
+- SQL
+- Command Line
+- Database Management
+- Cybersecurity Tools
+
+#### Tools you'll learn
+- Linux
+- SQL
+
+### 5. Assets, Threats, and Vulnerabilities (19 hours) [View on Coursera](https://www.coursera.org/learn/assets-threats-and-vulnerabilities?professional-certificate=google-cybersecurity)
+
+#### What you'll learn
+- Identify and classify assets in a cybersecurity context.
+- Describe common threats and vulnerabilities.
+- Explain how to assess and mitigate risks.
+- Describe compliance and regulatory requirements.
+
+#### Skills you'll gain
+- Asset Management
+- Threat Analysis
+- Vulnerability Assessment
+- Risk Mitigation
+- Compliance
+
+#### Tools you'll learn
+- None
+
+### 6. Sound the Alarm: Detection and Response (18 hours) [View on Coursera](https://www.coursera.org/learn/sound-the-alarm-detection-and-response?professional-certificate=google-cybersecurity)
+
+#### What you'll learn
+- Describe the incident response process.
+- Explain how to detect security incidents.
+- Identify tools and techniques for incident response.
+- Describe best practices for incident handling.
+
+#### Skills you'll gain
+- Incident Response
+- Detection
+- Forensics
+- Security Monitoring
+- Incident Handling
+
+#### Tools you'll learn
+- SIEM Tools
+- Intrusion Detection Systems
+
+### 7. Automate Cybersecurity Tasks with Python (25 hours) [View on Coursera](https://www.coursera.org/learn/automate-cybersecurity-tasks-with-python?professional-certificate=google-cybersecurity)
+
+#### What you'll learn
+- Describe the basics of Python programming.
+- Explain how to use Python for automation in cybersecurity.
+- Write Python scripts for common cybersecurity tasks.
+- Identify libraries and tools for Python in cybersecurity.
+
+#### Skills you'll gain
+- Python
+- Automation
+- Scripting
+- Cybersecurity Automation
+- Programming
+
+#### Tools you'll learn
+- Python
+
+### 8. Put It to Work: Prepare for Cybersecurity Jobs (11 hours) [View on Coursera](https://www.coursera.org/learn/put-it-to-work-prepare-for-cybersecurity-jobs?professional-certificate=google-cybersecurity)
+
+#### What you'll learn
+- Describe the cybersecurity job market.
+- Prepare a resume and portfolio for cybersecurity jobs.
+- Practice interview skills for cybersecurity positions.
+- Identify career development opportunities in cybersecurity.
+
+#### Skills you'll gain
+- Career Preparation
+- Resume Writing
+- Interview Skills
+- Job Search
+- Professional Development
+
+#### Tools you'll learn
+- LinkedIn
+
+### 9. Accelerate Your Job Search with AI (6 hours) [View on Coursera](https://www.coursera.org/learn/accelerate-your-job-search-with-ai?professional-certificate=google-cybersecurity)
+
+#### What you'll learn
+- Use AI tools to enhance your job search process.
+- Craft compelling resumes and cover letters with AI assistance.
+- Prepare for interviews using AI-powered resources.
+- Network effectively with AI-driven insights.
+
+#### Skills you'll gain
+- Job Search
+- AI Tools
+- Resume Writing
+- Interview Preparation
+- Networking
+- Professional Development
+
+#### Tools you'll learn
+- Generative AI
+- LinkedIn AI
+- ChatGPT
 
 # 6. Google IT Support Professional Certificate (6 courses)
 
 Source: [Coursera](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-it-support?collectionId=8fp65#courses)
 
-### 1. [Technical Support Fundamentals](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-it-support?collectionId=8fp65) (19 hours)
-### 2. [The Bits and Bytes of Computer Networking](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-it-support?collectionId=8fp65) (22 hours)
-### 3. [Operating Systems and You: Becoming a Power User](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-it-support?collectionId=8fp65) (28 hours)
-### 4. [System Administration and IT Infrastructure Services](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-it-support?collectionId=8fp65) (24 hours)
-### 5. [IT Security: Defense against the digital dark arts](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-it-support?collectionId=8fp65) (23 hours)
-### 6. [Accelerate Your Job Search with AI](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-it-support?collectionId=8fp65) (6 hours)
+### 1. Technical Support Fundamentals (19 hours) [View on Coursera](https://www.coursera.org/learn/technical-support-fundamentals?professional-certificate=google-it-support)
+
+#### What you'll learn
+- Understand how the binary system works
+- Assemble a computer from scratch
+- Choose and install an operating system on a computer
+- Understand what the Internet is, how it works, and the impact it has in the modern world
+- Learn how applications are created and how they work under the hood of a computer
+- Utilize common problem-solving methodologies and soft skills in an Information Technology setting
+
+#### Skills you'll gain
+- Information Technology
+- System Support
+- Package and Software Management
+- Hardware Troubleshooting
+- Customer Support
+- General Networking
+- Computer Hardware
+- Software Documentation
+- Desktop Support
+
+#### Tools you'll learn
+- Linux
+
+### 2. The Bits and Bytes of Computer Networking (22 hours) [View on Coursera](https://www.coursera.org/learn/computer-networking-basics?professional-certificate=google-it-support)
+
+#### What you'll learn
+- Describe the basics of computer networking.
+- Explain how data is transmitted over networks.
+- Identify network components and protocols.
+- Describe network security basics.
+
+#### Skills you'll gain
+- Computer Networking
+- Network Protocols
+- TCP/IP
+- Network Security
+- Troubleshooting
+
+#### Tools you'll learn
+- Wireshark
+
+### 3. Operating Systems and You: Becoming a Power User (28 hours) [View on Coursera](https://www.coursera.org/learn/os-power-user?professional-certificate=google-it-support)
+
+#### What you'll learn
+- Describe the basics of operating systems.
+- Explain how to manage files and directories.
+- Identify system administration tasks.
+- Describe power user features.
+
+#### Skills you'll gain
+- Operating Systems
+- File Management
+- System Administration
+- Command Line
+- Power User Skills
+
+#### Tools you'll learn
+- Command Line Interface
+
+### 4. System Administration and IT Infrastructure Services (24 hours) [View on Coursera](https://www.coursera.org/learn/system-administration-it-infrastructure-services?professional-certificate=google-it-support)
+
+#### What you'll learn
+- Describe IT infrastructure services.
+- Explain system administration tasks.
+- Identify cloud computing concepts.
+- Describe virtualization and containers.
+
+#### Skills you'll gain
+- System Administration
+- IT Infrastructure
+- Cloud Computing
+- Virtualization
+- Containers
+
+#### Tools you'll learn
+- Cloud Platforms
+
+### 5. IT Security: Defense against the digital dark arts (23 hours) [View on Coursera](https://www.coursera.org/learn/it-security?professional-certificate=google-it-support)
+
+#### What you'll learn
+- Describe IT security concepts.
+- Explain threats and vulnerabilities.
+- Identify security best practices.
+- Describe encryption and access control.
+
+#### Skills you'll gain
+- IT Security
+- Threat Analysis
+- Vulnerability Assessment
+- Encryption
+- Access Control
+
+#### Tools you'll learn
+- Security Software
+
+### 6. Accelerate Your Job Search with AI (6 hours) [View on Coursera](https://www.coursera.org/learn/accelerate-your-job-search-with-ai?professional-certificate=google-it-support)
+
+#### What you'll learn
+- Use AI tools to enhance your job search process.
+- Craft compelling resumes and cover letters with AI assistance.
+- Prepare for interviews using AI-powered resources.
+- Network effectively with AI-driven insights.
+
+#### Skills you'll gain
+- Job Search
+- AI Tools
+- Resume Writing
+- Interview Preparation
+- Networking
+- Professional Development
+
+#### Tools you'll learn
+- Generative AI
+- LinkedIn AI
+- ChatGPT
 
 # 7. Google Digital Marketing & E-commerce Professional Certificate (8 courses)
 

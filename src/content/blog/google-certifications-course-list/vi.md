@@ -374,48 +374,533 @@ Nguồn: [Coursera](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/profes
 
 Nguồn: [Coursera](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/specializations/ai-essentials-google?collectionId=8fp65#courses)
 
-### 1. [Introduction to AI](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/specializations/ai-essentials-google?collectionId=8fp65) (1 hour)
-### 2. [Maximize Productivity With AI Tools](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/specializations/ai-essentials-google?collectionId=8fp65) (2 hours)
-### 3. [Discover the Art of Prompting](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/specializations/ai-essentials-google?collectionId=8fp65) (2 hours)
-### 4. [Use AI Responsibly](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/specializations/ai-essentials-google?collectionId=8fp65) (1 hour)
-### 5. [Stay Ahead of the AI Curve](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/specializations/ai-essentials-google?collectionId=8fp65) (2 hours)
+### 1. Giới thiệu về AI (1 hour) [Xem trên Coursera](https://www.coursera.org/learn/google-introduction-to-ai?specialization=ai-essentials-google)
+
+#### Bạn sẽ học được gì
+- Xác định lĩnh vực AI
+- Giải thích cách AI hoạt động ở mức độ cơ bản, bao gồm cách công nghệ AI được đào tạo để học từ dữ liệu
+- Mô tả khả năng và hạn chế của các công cụ AI
+- Nhận ra tầm quan trọng của việc giám sát con người khi sử dụng AI
+
+#### Kỹ năng bạn sẽ đạt được
+- Trí tuệ nhân tạo và học máy (AI/ML)
+- Kích hoạt AI
+- Học máy
+- Đổi mới
+- Đào tạo mô hình
+- Văn hóa AI
+- Tư duy phản biện
+
+#### Công cụ bạn sẽ học
+- AI tạo sinh
+### 2. Tối ưu hóa năng suất với công cụ AI (2 hours) [Xem trên Coursera](https://www.coursera.org/learn/google-maximize-productivity-with-ai-tools?specialization=ai-essentials-google)
+
+#### Bạn sẽ học được gì
+- Nhận biết cách AI tạo sinh có thể được sử dụng cho nhiều ứng dụng khác nhau tại nơi làm việc
+- Xác định cơ hội để tận dụng AI để tăng năng suất và tối ưu hóa quy trình làm việc
+- Đánh giá xem AI tạo sinh có phải là công cụ tối ưu để áp dụng cho một nhiệm vụ cụ thể hay không
+
+#### Kỹ năng bạn sẽ đạt được
+- Đào tạo mô hình
+- Phân tích quy trình kinh doanh
+- AI có trách nhiệm
+- Văn hóa AI
+- Giải quyết vấn đề phức tạp
+- Kích hoạt AI
+- Hiệu quả hoạt động
+- Tích hợp AI
+
+#### Công cụ bạn sẽ học
+- Google Sheets
+- Gemini
+- Google Workspace
+- Google Gemini
+- Phần mềm năng suất
+- AI tạo sinh
+### 3. Khám phá nghệ thuật nhắc nhở (2 hours) [Xem trên Coursera](https://www.coursera.org/learn/google-discover-the-art-of-prompting?specialization=ai-essentials-google)
+
+#### Bạn sẽ học được gì
+- Tạo ra các lời nhắc cung cấp hướng dẫn rõ ràng và cụ thể cho nhiều trường hợp sử dụng khác nhau
+- Mô tả vai trò của việc viết lời nhắc hiệu quả trong việc tạo ra đầu ra AI tạo sinh
+- Áp dụng các kỹ thuật nhắc nhở cụ thể, bao gồm nhắc nhở ít-shot
+
+#### Kỹ năng bạn sẽ đạt được
+- Tạo nội dung
+- Ứng dụng LLM
+- Mẫu nhắc nhở
+- Mô hình ngôn ngữ lớn
+- Văn hóa AI
+
+#### Công cụ bạn sẽ học
+- Kỹ thuật nhắc nhở
+### 4. Sử dụng AI có trách nhiệm (1 hour) [Xem trên Coursera](https://www.coursera.org/learn/google-use-ai-responsibly?specialization=ai-essentials-google)
+
+#### Bạn sẽ học được gì
+- Xác định những tác hại của AI và tác động tiềm năng của chúng đối với người dùng và cấu trúc xã hội
+- Nhận biết những hậu quả tiềm năng về quyền riêng tư và bảo mật khi sử dụng AI
+- Giải thích những rủi ro và thiên kiến vốn có trong AI hiện đại và các phương pháp tốt nhất để tiếp cận chúng
+
+#### Kỹ năng bạn sẽ đạt được
+- Tư duy phản biện
+- Bảo mật dữ liệu
+- Phân tích
+- Bảo mật AI
+- Văn hóa AI
+- Tác động xã hội
+
+#### Công cụ bạn sẽ học
+- AI tạo sinh
+### 5. Giữ vững đà phát triển với AI (2 hours) [Xem trên Coursera](https://www.coursera.org/learn/google-stay-ahead-of-the-ai-curve?specialization=ai-essentials-google)
+
+#### Bạn sẽ học được gì
+- Phát triển các chiến lược để cập nhật với cảnh quan AI đang nổi lên
+- Đánh giá các công cụ AI bổ sung và tiềm năng ứng dụng trong tương lai tại nơi làm việc
+- Mô tả nhiều cách sáng tạo mà AI đã được tích hợp vào nơi làm việc
+
+#### Kỹ năng bạn sẽ đạt được
+- Phân tích
+- Tích hợp AI
+- Văn hóa AI
+- Tư duy chiến lược
+- Kích hoạt AI
+
+#### Công cụ bạn sẽ học
+- AI tạo sinh
 
 # 4. Google Project Management Professional Certificate (7 courses)
 
 Nguồn: [Coursera](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-project-management?collectionId=8fp65#courses)
 
-### 1. [Foundations of Project Management](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-project-management?collectionId=8fp65) (13 hours)
-### 2. [Project Initiation: Starting a Successful Project](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-project-management?collectionId=8fp65) (15 hours)
-### 3. [Project Planning: Putting It All Together](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-project-management?collectionId=8fp65) (23 hours)
-### 4. [Project Execution: Running the Project](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-project-management?collectionId=8fp65) (26 hours)
-### 5. [Agile Project Management](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-project-management?collectionId=8fp65) (20 hours)
-### 6. [Capstone: Applying Project Management in the Real World](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-project-management?collectionId=8fp65) (38 hours)
-### 7. [Accelerate Your Job Search with AI](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-project-management?collectionId=8fp65) (6 hours)
+### 1. Nền tảng của quản lý dự án (13 hours) [Xem trên Coursera](https://www.coursera.org/learn/project-management-foundations?professional-certificate=google-project-management)
+
+#### Bạn sẽ học được gì
+- Mô tả kỹ năng quản lý dự án, vai trò và trách nhiệm trên nhiều ngành khác nhau
+- Giải thích vòng đời quản lý dự án và so sánh các phương pháp quản lý chương trình khác nhau
+- Xác định cấu trúc tổ chức và văn hóa tổ chức và giải thích tác động của chúng đối với quản lý dự án
+
+#### Kỹ năng bạn sẽ đạt được
+- Lập kế hoạch dự án
+- Quản lý chương trình
+- Phối hợp dự án
+- Tư duy chiến lược
+- Quản lý dự án Agile
+- Thay đổi tổ chức
+- Vòng đời quản lý dự án
+- Phương pháp Waterfall
+
+#### Công cụ bạn sẽ học
+- Không có
+### 2. Khởi tạo dự án: Bắt đầu một dự án thành công (15 hours) [Xem trên Coursera](https://www.coursera.org/learn/project-initiation-google?professional-certificate=google-project-management)
+
+#### Bạn sẽ học được gì
+- Xác định các đặc điểm chính của một dự án
+- Xác định các thành phần chính của một bảng điều lệ dự án
+- Xác định các thành phần chính của một kế hoạch quản lý dự án
+- Xác định các thành phần chính của một phân tích stakeholder
+
+#### Kỹ năng bạn sẽ đạt được
+- Bảng điều lệ dự án
+- Kế hoạch quản lý dự án
+- Phân tích stakeholder
+- Quản lý stakeholder
+- Quản lý rủi ro
+- Khởi tạo dự án
+- Quản lý thay đổi
+
+#### Công cụ bạn sẽ học
+- Không có
+### 3. Lập kế hoạch dự án: Tập hợp mọi thứ (23 hours) [Xem trên Coursera](https://www.coursera.org/learn/project-planning-google?professional-certificate=google-project-management)
+
+#### Bạn sẽ học được gì
+- Xác định các đặc điểm chính của một dự án
+- Xác định các thành phần chính của một bảng điều lệ dự án
+- Xác định các thành phần chính của một kế hoạch quản lý dự án
+- Xác định các thành phần chính của một phân tích stakeholder
+
+#### Kỹ năng bạn sẽ đạt được
+- Bảng điều lệ dự án
+- Kế hoạch quản lý dự án
+- Phân tích stakeholder
+- Quản lý stakeholder
+- Quản lý rủi ro
+- Khởi tạo dự án
+- Quản lý thay đổi
+
+#### Công cụ bạn sẽ học
+- Không có
+### 4. Thực thi dự án: Chạy dự án (26 hours) [Xem trên Coursera](https://www.coursera.org/learn/project-execution-google?professional-certificate=google-project-management)
+
+#### Bạn sẽ học được gì
+- Triển khai các khái niệm quản lý chất lượng chính của tiêu chuẩn chất lượng, lập kế hoạch chất lượng, đảm bảo chất lượng và kiểm soát chất lượng.
+- Thể hiện cách ưu tiên và phân tích dữ liệu cũng như cách truyền đạt câu chuyện dựa trên dữ liệu của dự án.
+- Thảo luận về các giai đoạn phát triển nhóm và cách quản lý động lực nhóm.
+- Mô tả các bước của quá trình đóng và tạo tài liệu đóng dự án.
+
+#### Kỹ năng bạn sẽ đạt được
+- Quản lý rủi ro
+- Tài liệu dự án
+- Đánh giá chất lượng
+- Quản lý dự án
+- Vòng đời quản lý dự án
+- Giao tiếp với stakeholder
+- Quản lý rủi ro dự án
+- Đảm bảo chất lượng
+
+#### Công cụ bạn sẽ học
+- Phần mềm quản lý dự án
+### 5. Quản lý dự án Agile (20 hours) [Xem trên Coursera](https://www.coursera.org/learn/agile-project-management-google?professional-certificate=google-project-management)
+
+#### Bạn sẽ học được gì
+- Mô tả các yếu tố chính của quản lý dự án Agile và lợi ích của nó.
+- Xác định các vai trò chính trong nhóm Agile và giải thích trách nhiệm của họ.
+- So sánh và đối chiếu các cách tiếp cận quản lý dự án truyền thống với các phương pháp Agile.
+- Thể hiện cách sử dụng các nghi lễ và công cụ Agile để quản lý một dự án Agile.
+
+#### Kỹ năng bạn sẽ đạt được
+- Scrum
+- Quản lý Agile
+- Phương pháp Agile
+- Quản lý dự án
+- Kanban
+- Lãnh đạo và quản lý
+- Quản lý sản phẩm
+- Danh sách sản phẩm
+- Lập kế hoạch sprint
+
+#### Công cụ bạn sẽ học
+- Bảng Kanban
+### 6. Capstone: Áp dụng quản lý dự án trong thế giới thực (38 hours) [Xem trên Coursera](https://www.coursera.org/learn/applying-project-management?professional-certificate=google-project-management)
+
+#### Bạn sẽ học được gì
+- Áp dụng kiến thức và kỹ năng quản lý dự án vào các tình huống thực tế.
+- Hoàn thành các hoạt động thực hành và quan sát một quản lý dự án đang hoạt động.
+- Phát triển danh mục các hiện vật quản lý dự án chứng minh kỹ năng của bạn.
+
+#### Kỹ năng bạn sẽ đạt được
+- Quản lý dự án
+- Lập kế hoạch dự án
+- Quản lý rủi ro
+- Quản lý stakeholder
+- Quản lý dự án Agile
+- Giao tiếp
+- Lãnh đạo
+- Giải quyết vấn đề
+
+#### Công cụ bạn sẽ học
+- Phần mềm quản lý dự án
+
+### 7. Tăng tốc tìm việc với AI (6 hours) [Xem trên Coursera](https://www.coursera.org/learn/accelerate-your-job-search-with-ai?professional-certificate=google-project-management)
+
+#### Bạn sẽ học được gì
+- Sử dụng công cụ AI để nâng cao quy trình tìm việc của bạn.
+- Soạn thảo sơ yếu lý lịch và thư xin việc hấp dẫn với sự hỗ trợ của AI.
+- Chuẩn bị cho các cuộc phỏng vấn bằng tài nguyên được hỗ trợ bởi AI.
+- Mạng lưới hiệu quả với những hiểu biết được thúc đẩy bởi AI.
+
+#### Kỹ năng bạn sẽ đạt được
+- Tìm việc
+- Công cụ AI
+- Viết sơ yếu lý lịch
+- Chuẩn bị phỏng vấn
+- Mạng lưới
+- Phát triển nghề nghiệp
+
+#### Công cụ bạn sẽ học
+- AI tạo sinh
+- LinkedIn AI
+- ChatGPT
 
 # 5. Google Cybersecurity Professional Certificate (9 courses)
 
-Nguồn: [Coursera](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-cybersecurity?collectionId=8fp65#courses)
+Source: [Coursera](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-cybersecurity?collectionId=8fp65#courses)
 
-### 1. [Foundations of Cybersecurity](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-cybersecurity?collectionId=8fp65) (10 hours)
-### 2. [Play It Safe: Manage Security Risks](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-cybersecurity?collectionId=8fp65) (9 hours)
-### 3. [Connect and Protect: Networks and Network Security](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-cybersecurity?collectionId=8fp65) (12 hours)
-### 4. [Tools of the Trade: Linux and SQL](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-cybersecurity?collectionId=8fp65) (23 hours)
-### 5. [Assets, Threats, and Vulnerabilities](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-cybersecurity?collectionId=8fp65) (19 hours)
-### 6. [Sound the Alarm: Detection and Response](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-cybersecurity?collectionId=8fp65) (18 hours)
-### 7. [Automate Cybersecurity Tasks with Python](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-cybersecurity?collectionId=8fp65) (25 hours)
-### 8. [Put It to Work: Prepare for Cybersecurity Jobs](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-cybersecurity?collectionId=8fp65) (11 hours)
-### 9. [Accelerate Your Job Search with AI](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-data-analytics?collectionId=8fp65) (6 hours)
+### 1. Nền tảng của an ninh mạng (10 hours) [Xem trên Coursera](https://www.coursera.org/learn/foundations-of-cybersecurity?professional-certificate=google-cybersecurity)
+
+#### Bạn sẽ học được gì
+- Xác định các thuật ngữ và khái niệm chính liên quan đến an ninh mạng.
+- Giải thích tầm quan trọng của các thực hành an ninh mạng.
+- Mô tả các mối đe dọa và tấn công an ninh mạng mà các tổ chức phải đối mặt.
+- Xác định các thành phần của một chương trình an ninh mạng.
+
+#### Kỹ năng bạn sẽ đạt được
+- An ninh mạng
+- Bảo mật thông tin
+- Bảo mật mạng
+- Quản lý rủi ro
+- Phản ứng sự cố
+
+#### Công cụ bạn sẽ học
+- Không có
+
+### 2. Chơi an toàn: Quản lý rủi ro bảo mật (9 hours) [Xem trên Coursera](https://www.coursera.org/learn/play-it-safe-manage-security-risks?professional-certificate=google-cybersecurity)
+
+#### Bạn sẽ học được gì
+- Xác định các thành phần chính của một chương trình quản lý rủi ro bảo mật.
+- Giải thích tầm quan trọng của quản lý rủi ro bảo mật.
+- Mô tả cách đánh giá và ưu tiên rủi ro bảo mật.
+- Xác định các chiến lược để giảm thiểu rủi ro bảo mật.
+
+#### Kỹ năng bạn sẽ đạt được
+- Đánh giá rủi ro
+- Quản lý rủi ro
+- Rủi ro bảo mật
+- Đánh giá lỗ hổng
+- Phân tích mối đe dọa
+
+#### Công cụ bạn sẽ học
+- Không có
+
+### 3. Kết nối và bảo vệ: Mạng và an ninh mạng (12 hours) [Xem trên Coursera](https://www.coursera.org/learn/connect-and-protect-networks-and-network-security?professional-certificate=google-cybersecurity)
+
+#### Bạn sẽ học được gì
+- Mô tả các thành phần chính của một mạng máy tính.
+- Giải thích cách an ninh mạng hoạt động.
+- Xác định các mối đe dọa và tấn công an ninh mạng phổ biến.
+- Mô tả các chiến lược để bảo vệ mạng khỏi các mối đe dọa an ninh.
+
+#### Kỹ năng bạn sẽ đạt được
+- An ninh mạng
+- Mạng máy tính
+- Kiến trúc mạng
+- Tường lửa
+- Phát hiện xâm nhập
+
+#### Công cụ bạn sẽ học
+- Wireshark
+
+### 4. Công cụ của nghề nghiệp: Linux và SQL (23 hours) [Xem trên Coursera](https://www.coursera.org/learn/tools-of-the-trade-linux-and-sql?professional-certificate=google-cybersecurity)
+
+#### Bạn sẽ học được gì
+- Mô tả các cơ bản của hệ điều hành Linux.
+- Giải thích cách sử dụng lệnh Linux cho các nhiệm vụ an ninh mạng.
+- Mô tả các cơ bản của SQL và cách sử dụng trong an ninh mạng.
+- Giải thích cách sử dụng truy vấn SQL để phân tích dữ liệu.
+
+#### Kỹ năng bạn sẽ đạt được
+- Linux
+- SQL
+- Dòng lệnh
+- Quản lý cơ sở dữ liệu
+- Công cụ an ninh mạng
+
+#### Công cụ bạn sẽ học
+- Linux
+- SQL
+
+### 5. Tài sản, mối đe dọa và lỗ hổng (19 hours) [Xem trên Coursera](https://www.coursera.org/learn/assets-threats-and-vulnerabilities?professional-certificate=google-cybersecurity)
+
+#### Bạn sẽ học được gì
+- Xác định và phân loại tài sản trong bối cảnh an ninh mạng.
+- Mô tả các mối đe dọa và lỗ hổng phổ biến.
+- Giải thích cách đánh giá và giảm thiểu rủi ro.
+- Mô tả các yêu cầu tuân thủ và quy định.
+
+#### Kỹ năng bạn sẽ đạt được
+- Quản lý tài sản
+- Phân tích mối đe dọa
+- Đánh giá lỗ hổng
+- Giảm thiểu rủi ro
+- Tuân thủ
+
+#### Công cụ bạn sẽ học
+- Không có
+
+### 6. Phát tín hiệu cảnh báo: Phát hiện và phản ứng (18 hours) [Xem trên Coursera](https://www.coursera.org/learn/sound-the-alarm-detection-and-response?professional-certificate=google-cybersecurity)
+
+#### Bạn sẽ học được gì
+- Mô tả quá trình phản ứng sự cố.
+- Giải thích cách phát hiện sự cố bảo mật.
+- Xác định công cụ và kỹ thuật cho phản ứng sự cố.
+- Mô tả các phương pháp tốt nhất cho xử lý sự cố.
+
+#### Kỹ năng bạn sẽ đạt được
+- Phản ứng sự cố
+- Phát hiện
+- Pháp y kỹ thuật số
+- Giám sát bảo mật
+- Xử lý sự cố
+
+#### Công cụ bạn sẽ học
+- Công cụ SIEM
+- Hệ thống phát hiện xâm nhập
+
+### 7. Tự động hóa nhiệm vụ an ninh mạng với Python (25 hours) [Xem trên Coursera](https://www.coursera.org/learn/automate-cybersecurity-tasks-with-python?professional-certificate=google-cybersecurity)
+
+#### Bạn sẽ học được gì
+- Mô tả các cơ bản của lập trình Python.
+- Giải thích cách sử dụng Python để tự động hóa trong an ninh mạng.
+- Viết script Python cho các nhiệm vụ an ninh mạng phổ biến.
+- Xác định thư viện và công cụ cho Python trong an ninh mạng.
+
+#### Kỹ năng bạn sẽ đạt được
+- Python
+- Tự động hóa
+- Scripting
+- Tự động hóa an ninh mạng
+- Lập trình
+
+#### Công cụ bạn sẽ học
+- Python
+
+### 8. Đưa vào công việc: Chuẩn bị cho các công việc an ninh mạng (11 hours) [Xem trên Coursera](https://www.coursera.org/learn/put-it-to-work-prepare-for-cybersecurity-jobs?professional-certificate=google-cybersecurity)
+
+#### Bạn sẽ học được gì
+- Mô tả thị trường việc làm an ninh mạng.
+- Chuẩn bị sơ yếu lý lịch và danh mục cho các công việc an ninh mạng.
+- Luyện tập kỹ năng phỏng vấn cho các vị trí an ninh mạng.
+- Xác định cơ hội phát triển nghề nghiệp trong an ninh mạng.
+
+#### Kỹ năng bạn sẽ đạt được
+- Chuẩn bị nghề nghiệp
+- Viết sơ yếu lý lịch
+- Kỹ năng phỏng vấn
+- Tìm việc
+- Phát triển nghề nghiệp
+
+#### Công cụ bạn sẽ học
+- LinkedIn
+
+### 9. Tăng tốc tìm việc với AI (6 hours) [Xem trên Coursera](https://www.coursera.org/learn/accelerate-your-job-search-with-ai?professional-certificate=google-cybersecurity)
+
+#### Bạn sẽ học được gì
+- Sử dụng công cụ AI để nâng cao quy trình tìm việc của bạn.
+- Soạn thảo sơ yếu lý lịch và thư xin việc hấp dẫn với sự hỗ trợ của AI.
+- Chuẩn bị cho các cuộc phỏng vấn bằng tài nguyên được hỗ trợ bởi AI.
+- Mạng lưới hiệu quả với những hiểu biết được thúc đẩy bởi AI.
+
+#### Kỹ năng bạn sẽ đạt được
+- Tìm việc
+- Công cụ AI
+- Viết sơ yếu lý lịch
+- Chuẩn bị phỏng vấn
+- Mạng lưới
+- Phát triển nghề nghiệp
+
+#### Công cụ bạn sẽ học
+- AI tạo sinh
+- LinkedIn AI
+- ChatGPT
 
 # 6. Google IT Support Professional Certificate (6 courses)
 
-Nguồn: [Coursera](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-it-support?collectionId=8fp65#courses)
+Source: [Coursera](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-it-support?collectionId=8fp65#courses)
 
-### 1. [Technical Support Fundamentals](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-it-support?collectionId=8fp65) (19 hours)
-### 2. [The Bits and Bytes of Computer Networking](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-it-support?collectionId=8fp65) (22 hours)
-### 3. [Operating Systems and You: Becoming a Power User](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-it-support?collectionId=8fp65) (28 hours)
-### 4. [System Administration and IT Infrastructure Services](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-it-support?collectionId=8fp65) (24 hours)
-### 5. [IT Security: Defense against the digital dark arts](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-it-support?collectionId=8fp65) (23 hours)
-### 6. [Accelerate Your Job Search with AI](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-it-support?collectionId=8fp65) (6 hours)
+### 1. Cơ bản hỗ trợ kỹ thuật (19 hours) [Xem trên Coursera](https://www.coursera.org/learn/technical-support-fundamentals?professional-certificate=google-it-support)
+
+#### Bạn sẽ học được gì
+- Hiểu cách hệ thống nhị phân hoạt động
+- Lắp ráp máy tính từ đầu
+- Chọn và cài đặt hệ điều hành trên máy tính
+- Hiểu Internet là gì, cách nó hoạt động và tác động của nó trong thế giới hiện đại
+- Học cách các ứng dụng được tạo ra và cách chúng hoạt động dưới vỏ bọc của máy tính
+- Sử dụng các phương pháp giải quyết vấn đề phổ biến và kỹ năng mềm trong môi trường Công nghệ thông tin
+
+#### Kỹ năng bạn sẽ đạt được
+- Công nghệ thông tin
+- Hỗ trợ hệ thống
+- Quản lý gói và phần mềm
+- Khắc phục sự cố phần cứng
+- Hỗ trợ khách hàng
+- Mạng chung
+- Phần cứng máy tính
+- Tài liệu phần mềm
+- Hỗ trợ máy tính để bàn
+
+#### Công cụ bạn sẽ học
+- Linux
+
+### 2. Các bit và byte của mạng máy tính (22 hours) [Xem trên Coursera](https://www.coursera.org/learn/computer-networking-basics?professional-certificate=google-it-support)
+
+#### Bạn sẽ học được gì
+- Mô tả các cơ bản của mạng máy tính.
+- Giải thích cách dữ liệu được truyền qua mạng.
+- Xác định các thành phần và giao thức mạng.
+- Mô tả các cơ bản bảo mật mạng.
+
+#### Kỹ năng bạn sẽ đạt được
+- Mạng máy tính
+- Giao thức mạng
+- TCP/IP
+- Bảo mật mạng
+- Khắc phục sự cố
+
+#### Công cụ bạn sẽ học
+- Wireshark
+
+### 3. Hệ điều hành và bạn: Trở thành người dùng quyền lực (28 hours) [Xem trên Coursera](https://www.coursera.org/learn/os-power-user?professional-certificate=google-it-support)
+
+#### Bạn sẽ học được gì
+- Mô tả các cơ bản của hệ điều hành.
+- Giải thích cách quản lý tệp và thư mục.
+- Xác định các nhiệm vụ quản trị hệ thống.
+- Mô tả các tính năng người dùng quyền lực.
+
+#### Kỹ năng bạn sẽ đạt được
+- Hệ điều hành
+- Quản lý tệp
+- Quản trị hệ thống
+- Dòng lệnh
+- Kỹ năng người dùng quyền lực
+
+#### Công cụ bạn sẽ học
+- Giao diện dòng lệnh
+
+### 4. Quản trị hệ thống và dịch vụ hạ tầng CNTT (24 hours) [Xem trên Coursera](https://www.coursera.org/learn/system-administration-it-infrastructure-services?professional-certificate=google-it-support)
+
+#### Bạn sẽ học được gì
+- Mô tả các dịch vụ hạ tầng CNTT.
+- Giải thích các nhiệm vụ quản trị hệ thống.
+- Xác định các khái niệm điện toán đám mây.
+- Mô tả ảo hóa và container.
+
+#### Kỹ năng bạn sẽ đạt được
+- Quản trị hệ thống
+- Hạ tầng CNTT
+- Điện toán đám mây
+- Ảo hóa
+- Container
+
+#### Công cụ bạn sẽ học
+- Nền tảng đám mây
+
+### 5. Bảo mật CNTT: Phòng thủ chống lại các nghệ thuật tối kỹ thuật số (23 hours) [Xem trên Coursera](https://www.coursera.org/learn/it-security?professional-certificate=google-it-support)
+
+#### Bạn sẽ học được gì
+- Mô tả các khái niệm bảo mật CNTT.
+- Giải thích các mối đe dọa và lỗ hổng.
+- Xác định các phương pháp tốt nhất về bảo mật.
+- Mô tả mã hóa và kiểm soát truy cập.
+
+#### Kỹ năng bạn sẽ đạt được
+- Bảo mật CNTT
+- Phân tích mối đe dọa
+- Đánh giá lỗ hổng
+- Mã hóa
+- Kiểm soát truy cập
+
+#### Công cụ bạn sẽ học
+- Phần mềm bảo mật
+
+### 6. Tăng tốc tìm việc với AI (6 hours) [Xem trên Coursera](https://www.coursera.org/learn/accelerate-your-job-search-with-ai?professional-certificate=google-it-support)
+
+#### Bạn sẽ học được gì
+- Sử dụng công cụ AI để nâng cao quy trình tìm việc của bạn.
+- Soạn thảo sơ yếu lý lịch và thư xin việc hấp dẫn với sự hỗ trợ của AI.
+- Chuẩn bị cho các cuộc phỏng vấn bằng tài nguyên được hỗ trợ bởi AI.
+- Mạng lưới hiệu quả với những hiểu biết được thúc đẩy bởi AI.
+
+#### Kỹ năng bạn sẽ đạt được
+- Tìm việc
+- Công cụ AI
+- Viết sơ yếu lý lịch
+- Chuẩn bị phỏng vấn
+- Mạng lưới
+- Phát triển nghề nghiệp
+
+#### Công cụ bạn sẽ học
+- AI tạo sinh
+- LinkedIn AI
+- ChatGPT
 
 # 7. Google Digital Marketing & E-commerce Professional Certificate (8 courses)
 
