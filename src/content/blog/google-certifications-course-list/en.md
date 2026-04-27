@@ -1273,10 +1273,70 @@ Source: [Coursera](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/profess
 
 Source: [Coursera](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/specializations/prompting-essentials-google?collectionId=8fp65#courses)
 
-### 1. [Start Writing Prompts like a Pro](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/specializations/prompting-essentials-google?collectionId=8fp65) (2 hours)
-### 2. [Design Prompts for Everyday Work Tasks](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/specializations/prompting-essentials-google?collectionId=8fp65) (1 hour)
-### 3. [Speed Up Data Analysis and Presentation Building](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/specializations/prompting-essentials-google?collectionId=8fp65) (1 hour)
-### 4. [Use AI as a Creative or Expert Partner](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/specializations/prompting-essentials-google?collectionId=8fp65) (2 hours)
+### 1. Start Writing Prompts like a Pro (2 hours) [View on Coursera](https://www.coursera.org/learn/google-start-writing-prompts-like-a-pro)
+
+**What you'll learn**
+- Define prompting in reference to generative AI tools.
+- Recognize and apply the prompting framework (task, context, references, evaluate, iterate) to create effective prompts.
+- Understand the importance of evaluating outputs and refining prompts as key to receiving the outputs you want.
+
+**Skills you'll gain:**
+
+AI literacy, Prompt Patterns, Prompt Engineering Tools, Context Engineering, Responsible AI, Multimodal Prompts
+
+**Tools you'll learn:**
+
+Prompt Engineering
+
+***
+
+### 2. Design Prompts for Everyday Work Tasks (1 hour) [View on Coursera](https://www.coursera.org/learn/google-design-prompts-for-everyday-work-tasks)
+
+**What you'll learn**
+- Apply the prompting framework to draft text content, help with brainstorming, create tables and timelines, and summarize lengthy text.
+- Apply prompting strategies to adjust the particular tone and style of text output.
+- Understand the benefits of long context windows.
+
+**Skills you'll gain:**
+
+AI Enablement, AI literacy, Concision, Brainstorming, LLM Application, Taking Meeting Minutes, Business Writing, AI powered creativity, Email Automation, Context Engineering, Ideation, Timelines
+
+**Tools you'll learn:**
+
+Prompt Engineering
+
+***
+
+### 3. Speed Up Data Analysis and Presentation Building (1 hour) [View on Coursera](https://www.coursera.org/learn/google-speed-up-data-analysis-and-presentation-building)
+
+**What you'll learn**
+- Apply the prompting framework to extract insights from data, identify and fix spreadsheet formulas, and explore data visualization.
+- Develop a responsible prompting practice when entering data into generative AI tools.
+- Understand AI sampling parameters, how they work, and strategies for their use.
+
+**Skills you'll gain:**
+
+Spreadsheet Software, Data Analysis, Data Visualization, Data Presentation, Responsible AI, Graphing, Prompt Patterns
+
+**Tools you'll learn:**
+
+Prompt Engineering
+
+***
+
+### 4. Use AI as a Creative or Expert Partner (2 hours) [View on Coursera](https://www.coursera.org/learn/google-use-ai-as-a-creative-or-expert-partner)
+
+**What you'll learn**
+- Understand and apply prompt chaining, including chain of thought prompting, for complex tasks.
+- Understand prompt versioning and the benefits of saving and reusing your prompts over time.
+
+**Skills you'll gain:**
+
+Software Versioning, Generative AI Agents, Solution Design, Prompt Patterns, LLM Application, Multimodal Prompts, AI Personalization, AI powered creativity, Ideation, Scenario Testing
+
+**Tools you'll learn:**
+
+Agentic Workflows, Prompt Engineering
 
 # Suggested Next Use
 
