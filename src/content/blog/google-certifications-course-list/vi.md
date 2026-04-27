@@ -150,15 +150,225 @@ Google Gemini, AI Workflows, Generative AI, Google Workspace, Prompt Engineering
 
 Nguồn: [Coursera](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-data-analytics?collectionId=8fp65#courses)
 
-### 1. [Foundations: Data, Data, Everywhere](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-data-analytics?collectionId=8fp65) (13 hours)
-### 2. [Ask Questions to Make Data-Driven Decisions](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-data-analytics?collectionId=8fp65) (15 hours)
-### 3. [Prepare Data for Exploration](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-data-analytics?collectionId=8fp65) (19 hours)
-### 4. [Process Data from Dirty to Clean](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-data-analytics?collectionId=8fp65) (16 hours)
-### 5. [Analyze Data to Answer Questions](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-data-analytics?collectionId=8fp65) (26 hours)
-### 6. [Share Data Through the Art of Visualization](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-data-analytics?collectionId=8fp65) (19 hours)
-### 7. [Introduction to Data Analysis Using Python](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-data-analytics?collectionId=8fp65) (27 hours)
-### 8. [Google Data Analytics Capstone: Complete a Case Study](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-data-analytics?collectionId=8fp65) (11 hours)
-### 9. [Accelerate Your Job Search with AI](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-data-analytics?collectionId=8fp65) (6 hours)
+### 1. Foundations: Data, Data, Everywhere (13 hours) [View on Coursera](https://www.coursera.org/learn/foundations-data)
+
+#### Bạn sẽ học được gì
+- Xác định và giải thích các khái niệm chính liên quan đến phân tích dữ liệu bao gồm dữ liệu, phân tích dữ liệu và hệ sinh thái dữ liệu.
+- Thực hiện tự đánh giá tư duy phân tích với các ví dụ cụ thể về ứng dụng tư duy phân tích.
+- Thảo luận về vai trò của bảng tính, ngôn ngữ truy vấn và công cụ trực quan hóa dữ liệu trong phân tích dữ liệu.
+- Mô tả vai trò của nhà phân tích dữ liệu với tham chiếu cụ thể đến các công việc.
+
+#### Kỹ năng bạn sẽ đạt được
+- Data Analysis
+- Business Analytics
+- Data Cleansing
+- Data Sharing
+- Data-Driven Decision-Making
+- Analytical Skills
+- Data Visualization Software
+- Spreadsheet Software
+- Data Processing
+- SQL
+- Data Ethics
+
+#### Công cụ bạn sẽ học
+- Google Sheets
+
+### 2. Ask Questions to Make Data-Driven Decisions (15 hours) [View on Coursera](https://www.coursera.org/learn/ask-questions-make-decisions)
+
+#### Bạn sẽ học được gì
+- Giải thích cách bản đồ giải quyết vấn đề áp dụng cho các tình huống phân tích điển hình.
+- Thảo luận về việc sử dụng dữ liệu trong quá trình ra quyết định.
+- Thể hiện việc sử dụng bảng tính để hoàn thành các nhiệm vụ cơ bản của nhà phân tích dữ liệu bao gồm nhập và tổ chức dữ liệu.
+- Mô tả các ý tưởng chính liên quan đến tư duy có cấu trúc.
+
+#### Kỹ năng bạn sẽ đạt được
+- Data Analysis
+- Communication Strategies
+- Stakeholder Communications
+- Quantitative Research
+- Analysis
+- Stakeholder Management
+- Smart Goals
+- Expectation Management
+- Problem Solving
+- Spreadsheet Software
+- Data-Driven Decision-Making
+- Analytical Skills
+- Data Entry
+
+#### Công cụ bạn sẽ học
+- Dashboard
+
+### 3. Prepare Data for Exploration (19 hours) [View on Coursera](https://www.coursera.org/learn/prepare-data-for-exploration)
+
+#### Bạn sẽ học được gì
+- Giải thích những yếu tố cần xem xét khi đưa ra quyết định về thu thập dữ liệu.
+- Thảo luận về sự khác biệt giữa dữ liệu có thiên kiến và không thiên kiến.
+- Mô tả cơ sở dữ liệu với tham chiếu đến các chức năng và thành phần của chúng.
+- Mô tả các phương pháp tốt nhất để tổ chức dữ liệu.
+
+#### Kỹ năng bạn sẽ đạt được
+- Databases
+- Metadata Management
+- Data Quality
+- File Management
+- Data Ethics
+- Unstructured Data
+- Data Collection
+- SQL
+- Data Management
+- Data Security
+- Data Access
+
+#### Công cụ bạn sẽ học
+- Google Sheets
+- Relational Databases
+
+### 4. Process Data from Dirty to Clean (16 hours) [View on Coursera](https://www.coursera.org/learn/process-data-from-dirty-to-clean)
+
+#### Bạn sẽ học được gì
+- Xác định các loại tính toàn vẹn dữ liệu khác nhau và xác định rủi ro đối với tính toàn vẹn dữ liệu.
+- Áp dụng các hàm SQL cơ bản để làm sạch biến chuỗi trong cơ sở dữ liệu.
+- Phát triển các truy vấn SQL cơ bản để sử dụng trên cơ sở dữ liệu.
+- Mô tả quá trình xác minh kết quả làm sạch dữ liệu.
+
+#### Kỹ năng bạn sẽ đạt được
+- Spreadsheet Software
+- Data Cleansing
+- Data Quality
+- Data Analysis
+- SQL
+- Data Processing
+- Data Validation
+- Sampling (Statistics)
+- Data Transformation
+- Sample Size Determination
+- Data Integrity
+
+#### Công cụ bạn sẽ học
+
+### 5. Analyze Data to Answer Questions (26 hours) [View on Coursera](https://www.coursera.org/learn/analyze-data-to-answer-questions)
+
+#### Bạn sẽ học được gì
+- Thảo luận về tầm quan trọng của việc tổ chức dữ liệu của bạn trước khi phân tích bằng cách sử dụng sắp xếp và bộ lọc.
+- Chuyển đổi và định dạng dữ liệu.
+- Áp dụng việc sử dụng hàm và cú pháp để tạo truy vấn SQL kết hợp dữ liệu từ nhiều bảng cơ sở dữ liệu.
+- Mô tả việc sử dụng hàm để thực hiện các phép tính cơ bản trên dữ liệu trong bảng tính.
+
+#### Kỹ năng bạn sẽ đạt được
+- Data Compilation
+- User Feedback
+- Data Validation
+- SQL
+- Data Analysis
+- Pivot Tables And Charts
+- Spreadsheet Software
+- Data Transformation
+- Data Integration
+- Excel Formulas
+- Data Manipulation
+- Analytics
+
+#### Công cụ bạn sẽ học
+
+### 6. Share Data Through the Art of Visualization (19 hours) [View on Coursera](https://www.coursera.org/learn/share-data-through-the-art-of-visualization)
+
+#### Bạn sẽ học được gì
+- Mô tả việc sử dụng trực quan hóa dữ liệu để nói về dữ liệu và kết quả của phân tích dữ liệu.
+- Xác định Tableau là công cụ trực quan hóa dữ liệu và hiểu cách sử dụng của nó.
+- Giải thích những câu chuyện dựa trên dữ liệu là gì bao gồm tầm quan trọng và thuộc tính của chúng.
+- Giải thích các nguyên tắc và thực tiễn liên quan đến các bài thuyết trình hiệu quả.
+
+#### Kỹ năng bạn sẽ đạt được
+- Data Storytelling
+- Data Visualization Software
+- Data Visualization
+- Presentations
+- Stakeholder Engagement
+- Web Content Accessibility Guidelines
+- Data Analysis
+- Data Presentation
+- Data Literacy
+- Tableau Software
+
+#### Công cụ bạn sẽ học
+- Tableau
+
+### 7. Introduction to Data Analysis Using Python (27 hours) [View on Coursera](https://www.coursera.org/learn/introduction-to-data-analysis-using-python)
+
+#### Bạn sẽ học được gì
+- Giải thích cách Python được sử dụng bởi các chuyên gia dữ liệu
+- Khám phá các khối xây dựng cơ bản của Python, bao gồm cú pháp và ngữ nghĩa
+- Hiểu vòng lặp, câu lệnh điều khiển và thao tác chuỗi
+- Sử dụng cấu trúc dữ liệu để lưu trữ và tổ chức dữ liệu
+
+#### Kỹ năng bạn sẽ đạt được
+- Programming Principles
+- Analytical Skills
+- Data Manipulation
+- Data Structures
+- Analytics
+- Scripting
+- Object Oriented Programming (OOP)
+- Data Analysis
+- Code Reusability
+- Data Cleansing
+
+#### Công cụ bạn sẽ học
+- NumPy
+- Python Programming
+- Pandas (Python Package)
+
+### 8. Google Data Analytics Capstone: Complete a Case Study (11 hours) [View on Coursera](https://www.coursera.org/learn/google-data-analytics-capstone)
+
+#### Bạn sẽ học được gì
+- Xác định các tính năng và thuộc tính chính của một nghiên cứu trường hợp đã hoàn thành.
+- Áp dụng các thực tiễn và thủ tục liên quan đến quá trình phân tích dữ liệu cho một tập dữ liệu nhất định.
+- Thảo luận về việc sử dụng các nghiên cứu trường hợp/danh mục đầu tư khi giao tiếp với nhà tuyển dụng và nhà tuyển dụng tiềm năng.
+- Có lợi thế cạnh tranh bằng cách học kỹ năng AI từ các chuyên gia Google.
+
+#### Kỹ năng bạn sẽ đạt được
+- Analysis
+- Artificial Intelligence
+- Data Analysis
+- Analytics
+- Interviewing Skills
+- Data Visualization Software
+- Data Cleansing
+- Data Visualization
+- Data Processing
+- Web Presence
+- AI Enablement
+- Spreadsheet Software
+- Presentations
+- Case Studies
+- Portfolio Management
+- Analytical Skills
+
+#### Công cụ bạn sẽ học
+- LinkedIn
+
+### 9. Accelerate Your Job Search with AI (6 hours) [View on Coursera](https://www.coursera.org/learn/accelerate-your-job-search-with-ai)
+
+#### Bạn sẽ học được gì
+- Khám phá kỹ năng của bạn và khám phá các cơ hội nghề nghiệp mới, với sự hỗ trợ từ các công cụ như Career Dreamer.
+- Giữ cho các ứng dụng của bạn được tổ chức với Google Sheets.
+- Xây dựng một sơ yếu lý lịch nổi bật và kế hoạch tìm việc từng bước—với sự giúp đỡ từ Gemini.
+- Chuẩn bị cho các cuộc phỏng vấn và thực hành trả lời câu hỏi bằng NotebookLM và Gemini Live.
+
+#### Kỹ năng bạn sẽ đạt được
+- Prompt Engineering Tools
+- Interviewing Skills
+- Branding
+- Professional Development
+- AI literacy
+- Web Presence
+
+#### Công cụ bạn sẽ học
+- Prompt Engineering
+- Generative AI
+- Google Gemini
 
 # 3. Google AI Essentials (Specialization - 5 courses)
 
