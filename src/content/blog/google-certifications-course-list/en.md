@@ -424,158 +424,127 @@ Generative AI
 
 Source: [Coursera](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-project-management?collectionId=8fp65#courses)
 
-### 1. Foundations of Project Management (13 hours) [View on Coursera](https://www.coursera.org/learn/project-management-foundations?professional-certificate=google-project-management)
+### 1. Foundations of Project Management (13 hours) [View on Coursera](https://www.coursera.org/learn/project-management-foundations)
 
-**What you'll learn**
-- Describe project management skills, roles, and responsibilities across a variety of industries
-- Explain the project management life cycle and compare different program management methodologies
-- Define organizational structure and organizational culture and explain how it impacts project management
+**What you'll learn**  
+- Describe project management skills, roles, and responsibilities across a variety of industries.
+- Explain the project management life cycle and compare different program management methodologies.
+- Define organizational structure and organizational culture and explain how it impacts project management.
 
-**Skills you'll gain:**
+**Skills you'll gain:**  
 
-- Project Planning
-- Program Management
-- Project Coordination
-- Strategic Thinking
-- Agile Project Management
-- Organizational Change
-- Project Management Life Cycle
-- Waterfall Methodology
+Project planning, program management, project coordination, strategic thinking, agile project management, organizational change, project management life cycle, waterfall methodology
 
-**Tools you'll learn:**
+**Tools you'll learn:**  
 
-- None
-### 2. Project Initiation: Starting a Successful Project (15 hours) [View on Coursera](https://www.coursera.org/learn/project-initiation-google?professional-certificate=google-project-management)
+None listed on Coursera.
 
-**What you'll learn**
-- Identify the key characteristics of a project
-- Identify the key components of a project charter
-- Identify the key components of a project management plan
-- Identify the key components of a stakeholder analysis
+***
 
-**Skills you'll gain:**
+### 2. Project Initiation: Starting a Successful Project (15 hours) [View on Coursera](https://www.coursera.org/learn/project-initiation-google)
 
-- Project Charter
-- Project Management Plan
-- Stakeholder Analysis
-- Stakeholder Management
-- Risk Management
-- Project Initiation
-- Change Management
+**What you'll learn**  
+- Understand the significance of the initiation phase of the project life cycle.
+- Understand the key components of project charters and develop a project charter for project initiation.
+- Complete a stakeholder analysis and utilize RACI charts to define and communicate project team member responsibilities.
+- Evaluate various project management tools to meet project needs.
 
-**Tools you'll learn:**
+**Skills you'll gain:**  
 
-- None
-### 3. Project Planning: Putting It All Together (23 hours) [View on Coursera](https://www.coursera.org/learn/project-planning-google?professional-certificate=google-project-management)
+Smart goals, prompt engineering tools, business writing, scope management, strategic thinking, accountability frameworks, project management life cycle, project documentation
 
-**What you'll learn**
-- Identify the key characteristics of a project
-- Identify the key components of a project charter
-- Identify the key components of a project management plan
-- Identify the key components of a stakeholder analysis
+**Tools you'll learn:**  
 
-**Skills you'll gain:**
+Project management software
 
-- Project Charter
-- Project Management Plan
-- Stakeholder Analysis
-- Stakeholder Management
-- Risk Management
-- Project Initiation
-- Change Management
+***
 
-**Tools you'll learn:**
+### 3. Project Planning: Putting It All Together (23 hours) [View on Coursera](https://www.coursera.org/learn/project-planning-google)
 
-- None
-### 4. Project Execution: Running the Project (26 hours) [View on Coursera](https://www.coursera.org/learn/project-execution-google?professional-certificate=google-project-management)
+**What you'll learn**  
+- Describe the components of the project planning phase and their significance.
+- Identify tools and best practices to build a project plan and risk management plan.
+- Describe how to estimate, track, and maintain a budget.
+- Draft a communication plan and explain how to manage it.
 
-**What you'll learn**
+**Skills you'll gain:**  
+
+Risk management, budgeting, procurement, project planning, cost management, communication planning, technical communication, milestones (project management), project risk management
+
+**Tools you'll learn:**  
+
+None listed on Coursera.
+
+***
+
+### 4. Project Execution: Running the Project (26 hours) [View on Coursera](https://www.coursera.org/learn/project-execution-google)
+
+**What you'll learn**  
 - Implement the key quality management concepts of quality standards, quality planning, quality assurance, and quality control.
 - Demonstrate how to prioritize and analyze data and how to communicate a project’s data-informed story.
 - Discuss the stages of team development and how to manage team dynamics.
 - Describe the steps of the closing process and create project closing documentation.
 
-**Skills you'll gain:**
+**Skills you'll gain:**  
 
-- Risk Management
-- Project Documentation
-- Quality Assessment
-- Project Management
-- Project Management Life Cycle
-- Stakeholder Communications
-- Project Risk Management
-- Quality Assurance
+Risk management, project documentation, quality assessment, project management, project management life cycle, stakeholder communications, project risk management, quality assurance
 
-**Tools you'll learn:**
+**Tools you'll learn:**  
 
-- Project Management Software
-### 5. Agile Project Management (20 hours) [View on Coursera](https://www.coursera.org/learn/agile-project-management-google?professional-certificate=google-project-management)
+Project management software
 
-**What you'll learn**
-- Describe the key elements of Agile project management and its benefits.
-- Identify the key roles on an Agile team and explain their responsibilities.
-- Compare and contrast traditional project management approaches to Agile methodologies.
-- Demonstrate how to use Agile ceremonies and tools to manage an Agile project.
+***
 
-**Skills you'll gain:**
+### 5. Agile Project Management (20 hours) [View on Coursera](https://www.coursera.org/learn/agile-project-management)
 
-- Scrum
-- Agile Management
-- Agile Methodology
-- Project Management
-- Kanban
-- Leadership and Management
-- Product Management
-- Product Backlog
-- Sprint Planning
+**What you'll learn**  
+- Explain the Agile project management approach and philosophy, including values and principles.
+- Discuss the pillars of Scrum and how they support Scrum values.
+- Describe the five important Scrum events and how to set up each event for a Scrum team.
+- Explain how to coach an Agile team and help them overcome challenges.
 
-**Tools you'll learn:**
+**Skills you'll gain:**  
 
-- Kanban Board
-### 6. Capstone: Applying Project Management in the Real World (38 hours) [View on Coursera](https://www.coursera.org/learn/applying-project-management?professional-certificate=google-project-management)
+Coaching, backlogs, organizational change, product roadmaps, team management, user story, sprint planning, agile software development, agile product development, sprint retrospectives, prioritization
 
-**What you'll learn**
-- Apply project management knowledge and skills to real-world scenarios.
-- Complete hands-on activities and observe a project manager in action.
-- Develop a portfolio of project management artifacts demonstrating your skills.
+**Tools you'll learn:**  
 
-**Skills you'll gain:**
+None listed on Coursera.
 
-- Project Management
-- Project Planning
-- Risk Management
-- Stakeholder Management
-- Agile Project Management
-- Communication
-- Leadership
-- Problem Solving
+***
 
-**Tools you'll learn:**
+### 6. Capstone: Applying Project Management in the Real World (38 hours) [View on Coursera](https://www.coursera.org/learn/applying-project-management)
 
-- Project Management Software
+**What you'll learn**  
+- Develop a comprehensive project charter using research and relevant documentation.
+- Determine quality standards and evaluate against those standards to ensure that the project is achieving the required level of quality.
+- Develop effective stakeholder reports by applying storytelling strategies to describe data.
 
-### 7. Accelerate Your Job Search with AI (6 hours) [View on Coursera](https://www.coursera.org/learn/accelerate-your-job-search-with-ai?professional-certificate=google-project-management)
+**Skills you'll gain:**  
 
-**What you'll learn**
-- Use AI tools to enhance your job search process.
-- Craft compelling resumes and cover letters with AI assistance.
-- Prepare for interviews using AI-powered resources.
-- Network effectively with AI-driven insights.
+Project planning, milestones (project management), stakeholder engagement, smart goals, AI enablement, meeting facilitation, quality assurance, project coordination, stakeholder communications
 
-**Skills you'll gain:**
+**Tools you'll learn:**  
 
-- Job Search
-- AI Tools
-- Resume Writing
-- Interview Preparation
-- Networking
-- Professional Development
+None listed on Coursera.
 
-**Tools you'll learn:**
+***
 
-- Generative AI
-- LinkedIn AI
-- ChatGPT
+### 7. Accelerate Your Job Search with AI (6 hours) [View on Coursera](https://www.coursera.org/learn/accelerate-your-job-search-with-ai)
+
+**What you'll learn**  
+- Uncover your skills and explore new career possibilities, with support from tools like Career Dreamer.
+- Keep your applications organized with Google Sheets.
+- Build a stand out resume and a step-by-step job search plan—with help from Gemini.
+- Prepare for interviews and practice responding to questions using NotebookLM and Gemini Live.
+
+**Skills you'll gain:**  
+
+Prompt engineering tools, interviewing skills, branding, professional development, AI literacy, web presence
+
+**Tools you'll learn:**  
+
+Prompt engineering, generative AI, Google Gemini
 
 # 5. Google Cybersecurity Professional Certificate (9 courses)
 
