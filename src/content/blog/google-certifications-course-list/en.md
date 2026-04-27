@@ -336,7 +336,7 @@ Prompt Engineering, Generative AI, Google Gemini
 
 Source: [Coursera](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/specializations/ai-essentials-google?collectionId=8fp65#courses)
 
-### 1. Introduction to AI (1 hour) [View on Coursera](https://www.coursera.org/learn/google-introduction-to-ai?specialization=ai-essentials-google)
+### 1. Introduction to AI (1 hour) [View on Coursera](https://www.coursera.org/learn/google-introduction-to-ai)
 
 **What you'll learn**
 - Define the field of AI
@@ -346,18 +346,15 @@ Source: [Coursera](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/special
 
 **Skills you'll gain:**
 
-- Artificial Intelligence and Machine Learning (AI/ML)
-- AI Enablement
-- Machine Learning
-- Innovation
-- Model Training
-- AI literacy
-- Critical Thinking
+Artificial Intelligence and Machine Learning (AI/ML), AI Enablement, Machine Learning, Innovation, Model Training, AI literacy, Critical Thinking
 
 **Tools you'll learn:**
 
-- Generative AI
-### 2. Maximize Productivity With AI Tools (2 hours) [View on Coursera](https://www.coursera.org/learn/google-maximize-productivity-with-ai-tools?specialization=ai-essentials-google)
+Generative AI
+
+***
+
+### 2. Maximize Productivity With AI Tools (2 hours) [View on Coursera](https://www.coursera.org/learn/google-maximize-productivity-with-ai-tools)
 
 **What you'll learn**
 - Recognize how generative AI can be used for several different workplace applications
@@ -366,24 +363,15 @@ Source: [Coursera](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/special
 
 **Skills you'll gain:**
 
-- Model Training
-- Business Workflow Analysis
-- Responsible AI
-- AI literacy
-- Complex Problem Solving
-- AI Enablement
-- Operational Efficiency
-- AI Integrations
+Model Training, Business Workflow Analysis, Responsible AI, AI literacy, Complex Problem Solving, AI Enablement, Operational Efficiency, AI Integrations
 
 **Tools you'll learn:**
 
-- Google Sheets
-- Gemini
-- Google Workspace
-- Google Gemini
-- Productivity Software
-- Generative AI
-### 3. Discover the Art of Prompting (2 hours) [View on Coursera](https://www.coursera.org/learn/google-discover-the-art-of-prompting?specialization=ai-essentials-google)
+Google Sheets, Gemini, Google Workspace, Google Gemini, Productivity Software, Generative AI
+
+***
+
+### 3. Discover the Art of Prompting (2 hours) [View on Coursera](https://www.coursera.org/learn/google-discover-the-art-of-prompting)
 
 **What you'll learn**
 - Create prompts that provide clear and specific instructions for a variety of use cases
@@ -392,16 +380,15 @@ Source: [Coursera](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/special
 
 **Skills you'll gain:**
 
-- Content Creation
-- LLM Application
-- Prompt Patterns
-- Large Language Modeling
-- AI literacy
+Content Creation, LLM Application, Prompt Patterns, Large Language Modeling, AI literacy
 
 **Tools you'll learn:**
 
-- Prompt Engineering
-### 4. Use AI Responsibly (1 hour) [View on Coursera](https://www.coursera.org/learn/google-use-ai-responsibly?specialization=ai-essentials-google)
+Prompt Engineering
+
+***
+
+### 4. Use AI Responsibly (1 hour) [View on Coursera](https://www.coursera.org/learn/google-use-ai-responsibly)
 
 **What you'll learn**
 - Identify AI harms and their potential impact on users and social structures
@@ -410,17 +397,15 @@ Source: [Coursera](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/special
 
 **Skills you'll gain:**
 
-- Critical Thinking
-- Data Security
-- Analysis
-- AI Security
-- AI literacy
-- Social Impact
+Critical Thinking, Data Security, Analysis, AI Security, AI literacy, Social Impact
 
 **Tools you'll learn:**
 
-- Generative AI
-### 5. Stay Ahead of the AI Curve (2 hours) [View on Coursera](https://www.coursera.org/learn/google-stay-ahead-of-the-ai-curve?specialization=ai-essentials-google)
+Generative AI
+
+***
+
+### 5. Stay Ahead of the AI Curve (2 hours) [View on Coursera](https://www.coursera.org/learn/google-stay-ahead-of-the-ai-curve)
 
 **What you'll learn**
 - Develop strategies to stay up-to-date in the emerging landscape of AI
@@ -429,15 +414,11 @@ Source: [Coursera](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/special
 
 **Skills you'll gain:**
 
-- Analysis
-- AI Integrations
-- AI literacy
-- Strategic Thinking
-- AI Enablement
+Analysis, AI Integrations, AI literacy, Strategic Thinking, AI Enablement
 
 **Tools you'll learn:**
 
-- Generative AI
+Generative AI
 
 # 4. Google Project Management Professional Certificate (7 courses)
 
