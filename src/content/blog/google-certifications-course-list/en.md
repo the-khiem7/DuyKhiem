@@ -550,190 +550,165 @@ Prompt engineering, generative AI, Google Gemini
 
 Source: [Coursera](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-cybersecurity?collectionId=8fp65#courses)
 
-### 1. Foundations of Cybersecurity (10 hours) [View on Coursera](https://www.coursera.org/learn/foundations-of-cybersecurity?professional-certificate=google-cybersecurity)
+### 1. Foundations of Cybersecurity (10 hours) [View on Coursera](https://www.coursera.org/learn/foundations-of-cybersecurity)
 
 **What you'll learn**
-- Define key terms and concepts related to cybersecurity.
-- Explain the importance of cybersecurity practices.
-- Describe the cybersecurity threats and attacks that organizations face.
-- Identify the components of a cybersecurity program.
+- Recognize core skills and knowledge needed to become a cybersecurity analyst
+- Explain security ethics
+- Identify how security attacks impact business operations
+- Identify common tools used by cybersecurity analysts
 
 **Skills you'll gain:**
 
-- Cybersecurity
-- Information Security
-- Network Security
-- Risk Management
-- Incident Response
+Cyber Risk, Security Controls, Cyber Attacks, Security Management, Network Analysis, Cybersecurity, Security Information and Event Management (SIEM), Network Security, Information Assurance, Data Ethics
 
 **Tools you'll learn:**
 
-- None
+None listed on Coursera.
 
-### 2. Play It Safe: Manage Security Risks (9 hours) [View on Coursera](https://www.coursera.org/learn/play-it-safe-manage-security-risks?professional-certificate=google-cybersecurity)
+***
+
+### 2. Play It Safe: Manage Security Risks (9 hours) [View on Coursera](https://www.coursera.org/learn/manage-security-risks)
 
 **What you'll learn**
-- Identify the key components of a security risk management program.
-- Explain the importance of security risk management.
-- Describe how to assess and prioritize security risks.
-- Identify strategies to mitigate security risks.
+- Identify the primary threats, risks, and vulnerabilities to business operations
+- Examine how organizations use security frameworks and controls to protect business operations
+- Define commonly used Security Information and Event Management (SIEM) tools
+- Use a playbook to respond to threats, risks, and vulnerabilities
 
 **Skills you'll gain:**
 
-- Risk Assessment
-- Risk Management
-- Security Risk
-- Vulnerability Assessment
-- Threat Analysis
+Risk Analysis, Security Management, Business Risk Management, Risk Mitigation, Cyber Risk, Computer Security, Vulnerability Management, Auditing, Risk Management, Event Monitoring, Security Controls
 
 **Tools you'll learn:**
 
-- None
+Open Web Application Security Project (OWASP)
 
-### 3. Connect and Protect: Networks and Network Security (12 hours) [View on Coursera](https://www.coursera.org/learn/connect-and-protect-networks-and-network-security?professional-certificate=google-cybersecurity)
+***
+
+### 3. Connect and Protect: Networks and Network Security (12 hours) [View on Coursera](https://www.coursera.org/learn/networks-and-network-security)
 
 **What you'll learn**
-- Describe the key components of a computer network.
-- Explain how network security works.
-- Identify common network security threats and attacks.
-- Describe strategies to protect networks from security threats.
+- Define the types of networks and components of networks
+- Illustrate how data is sent and received over a network
+- Understand how to secure a network against intrusion tactics
+- Describe system hardening techniques
 
 **Skills you'll gain:**
 
-- Network Security
-- Computer Networking
-- Network Architecture
-- Firewall
-- Intrusion Detection
+TCP/IP, Cloud Computing, Virtual Private Networks (VPN), Network Model, Cybersecurity, Network Architecture, Vulnerability Assessments, Network Protocols, General Networking, Cloud Security
 
 **Tools you'll learn:**
 
-- Wireshark
+Firewall
 
-### 4. Tools of the Trade: Linux and SQL (23 hours) [View on Coursera](https://www.coursera.org/learn/tools-of-the-trade-linux-and-sql?professional-certificate=google-cybersecurity)
+***
+
+### 4. Tools of the Trade: Linux and SQL (23 hours) [View on Coursera](https://www.coursera.org/learn/linux-and-sql)
 
 **What you'll learn**
-- Describe the basics of Linux operating system.
-- Explain how to use Linux commands for cybersecurity tasks.
-- Describe the basics of SQL and its use in cybersecurity.
-- Explain how to use SQL queries to analyze data.
+- Explain the relationship between operating systems, applications, and hardware
+- Compare a graphical user interface to a command line interface
+- Navigate and manage the file system using Linux commands via the Bash shell
+- Use SQL to retrieve information from a database
 
 **Skills you'll gain:**
 
-- Linux
-- SQL
-- Command Line
-- Database Management
-- Cybersecurity Tools
+User Accounts, File Systems, Authorization (Computing), SQL, Computer Systems, File Management, Linux Administration, Authentications, Linux Commands
 
 **Tools you'll learn:**
 
-- Linux
-- SQL
+Operating Systems, Linux, Query Languages, Bash (Scripting Language), Unix Shell, Command-Line Interface, Relational Databases
 
-### 5. Assets, Threats, and Vulnerabilities (19 hours) [View on Coursera](https://www.coursera.org/learn/assets-threats-and-vulnerabilities?professional-certificate=google-cybersecurity)
+***
+
+### 5. Assets, Threats, and Vulnerabilities (19 hours) [View on Coursera](https://www.coursera.org/learn/assets-threats-and-vulnerabilities)
 
 **What you'll learn**
-- Identify and classify assets in a cybersecurity context.
-- Describe common threats and vulnerabilities.
-- Explain how to assess and mitigate risks.
-- Describe compliance and regulatory requirements.
+- Classify assets
+- Analyze an attack surface to find risks and vulnerabilities
+- Identify threats, such as social engineering, malware and web-based exploits
+- Summarize the threat modeling process
 
 **Skills you'll gain:**
 
-- Asset Management
-- Threat Analysis
-- Vulnerability Assessment
-- Risk Mitigation
-- Compliance
+Vulnerability Management, Threat Modeling, Risk Management Framework, Cyber Risk, Cybersecurity, Identity and Access Management, Authentications, Vulnerability Assessments, Threat Detection
 
 **Tools you'll learn:**
 
-- None
+MITRE ATT&CK Framework
 
-### 6. Sound the Alarm: Detection and Response (18 hours) [View on Coursera](https://www.coursera.org/learn/sound-the-alarm-detection-and-response?professional-certificate=google-cybersecurity)
+***
+
+### 6. Sound the Alarm: Detection and Response (18 hours) [View on Coursera](https://www.coursera.org/learn/detection-and-response)
 
 **What you'll learn**
-- Describe the incident response process.
-- Explain how to detect security incidents.
-- Identify tools and techniques for incident response.
-- Describe best practices for incident handling.
+- Identify the steps to contain, eradicate, and recover from an incident
+- Analyze packets to interpret network communications
+- Understand basic syntax, components of signatures and logs in Intrusion Detection Systems (IDS) and Network Intrusion Detection Systems (NIDS) tools
+- Perform queries in Security Information and Event Management (SIEM) tools to investigate an event
 
 **Skills you'll gain:**
 
-- Incident Response
-- Detection
-- Forensics
-- Security Monitoring
-- Incident Handling
+Endpoint Detection and Response, Continuous Monitoring, Incident Management, Incident Response, Threat Detection, Event Monitoring, Network Analysis, Network Monitoring
 
 **Tools you'll learn:**
 
-- SIEM Tools
-- Intrusion Detection Systems
+Query Languages, Splunk
 
-### 7. Automate Cybersecurity Tasks with Python (25 hours) [View on Coursera](https://www.coursera.org/learn/automate-cybersecurity-tasks-with-python?professional-certificate=google-cybersecurity)
+***
+
+### 7. Automate Cybersecurity Tasks with Python (25 hours) [View on Coursera](https://www.coursera.org/learn/automate-cybersecurity-tasks-with-python)
 
 **What you'll learn**
-- Describe the basics of Python programming.
-- Explain how to use Python for automation in cybersecurity.
-- Write Python scripts for common cybersecurity tasks.
-- Identify libraries and tools for Python in cybersecurity.
+- Explain how the Python programming language is used in cybersecurity
+- Create new, user-defined Python functions
+- Use regular expressions to extract information from text
+- Practice debugging code
 
 **Skills you'll gain:**
 
-- Python
-- Automation
-- Scripting
-- Cybersecurity Automation
-- Programming
+Scripting, Computer Programming, Algorithms, Data Structures, File I/O, Debugging, Cybersecurity, Maintainability, Programming Principles, Automation, Data Import/Export, IT Automation
 
 **Tools you'll learn:**
 
-- Python
+Python Programming
 
-### 8. Put It to Work: Prepare for Cybersecurity Jobs (11 hours) [View on Coursera](https://www.coursera.org/learn/put-it-to-work-prepare-for-cybersecurity-jobs?professional-certificate=google-cybersecurity)
+***
+
+### 8. Put It to Work: Prepare for Cybersecurity Jobs (11 hours) [View on Coursera](https://www.coursera.org/learn/prepare-for-cybersecurity-jobs)
 
 **What you'll learn**
-- Describe the cybersecurity job market.
-- Prepare a resume and portfolio for cybersecurity jobs.
-- Practice interview skills for cybersecurity positions.
-- Identify career development opportunities in cybersecurity.
+- Determine when and how to escalate a security incident
+- Engage with the cybersecurity community
+- Apply for cybersecurity jobs and prepare for interviews
+- Gain a competitive edge by learning AI skills from Google experts
 
 **Skills you'll gain:**
 
-- Career Preparation
-- Resume Writing
-- Interview Skills
-- Job Search
-- Professional Development
+Data Security, Incident Response, Cybersecurity, Incident Management, Artificial Intelligence, Technical Communication, Computer Security Incident Management, Cyber Threat Intelligence
 
 **Tools you'll learn:**
 
-- LinkedIn
+AI Workflows, Generative AI
 
-### 9. Accelerate Your Job Search with AI (6 hours) [View on Coursera](https://www.coursera.org/learn/accelerate-your-job-search-with-ai?professional-certificate=google-cybersecurity)
+***
+
+### 9. Accelerate Your Job Search with AI (6 hours) [View on Coursera](https://www.coursera.org/learn/accelerate-your-job-search-with-ai)
 
 **What you'll learn**
-- Use AI tools to enhance your job search process.
-- Craft compelling resumes and cover letters with AI assistance.
-- Prepare for interviews using AI-powered resources.
-- Network effectively with AI-driven insights.
+- Uncover your skills and explore new career possibilities, with support from tools like Career Dreamer
+- Keep your applications organized with Google Sheets
+- Build a stand out resume and a step-by-step job search plan—with help from Gemini
+- Prepare for interviews and practice responding to questions using NotebookLM and Gemini Live
 
 **Skills you'll gain:**
 
-- Job Search
-- AI Tools
-- Resume Writing
-- Interview Preparation
-- Networking
-- Professional Development
+Prompt Engineering Tools, Interviewing Skills, Branding, Professional Development, AI literacy, Web Presence
 
 **Tools you'll learn:**
 
-- Generative AI
-- LinkedIn AI
-- ChatGPT
+Prompt Engineering, Generative AI, Google Gemini
 
 # 6. Google IT Support Professional Certificate (6 courses)
 
