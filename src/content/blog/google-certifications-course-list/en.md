@@ -43,15 +43,110 @@ Total: 1148 study hours (estimated from the currently displayed Coursera duratio
 
 Source: [Coursera](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-ai?collectionId=8fp65#courses)
 
-1. [AI Fundamentals](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-ai?collectionId=8fp65) - Course 1 (3 hours)
-2. [AI for Brainstorming and Planning](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-ai?collectionId=8fp65) - Course 2 (1 hour)
-3. [AI for Research and Insights](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-ai?collectionId=8fp65) - Course 3 (1 hour)
-4. [AI for Writing and Communicating](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-ai?collectionId=8fp65) - Course 4 (1 hour)
-5. [AI for Content Creation](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-ai?collectionId=8fp65) - Course 5 (2 hours)
-6. [AI for Data Analysis](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-ai?collectionId=8fp65) - Course 6 (1 hour)
-7. [AI for App Building](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-ai?collectionId=8fp65) - Course 7 (2 hours)
+### 1. AI Fundamentals (3 hours)
+[View on Coursera](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-ai?collectionId=8fp65)
 
-## 2. Google Data Analytics Professional Certificate (9 courses)
+#### What you'll learn
+Ready to move beyond the buzz and see real results with AI? This course covers the fundamentals of working with AI, like understanding its strengths and limitations so you can leverage it effectively at work. You'll learn how to give AI clear and specific instructions, called prompts, and how to use AI responsibly by maintaining a "human-in-the-loop" approach.
+
+By the end of this course, you will:
+- Adopt a new way of working with AI, moving beyond a simple task completer to a professional collaborator.
+- Apply prompting techniques to brainstorm new ideas and build a library of reusable prompts for daily tasks.
+- Practice prompt chaining to solve complex, multi-step problems.
+- Generate custom images by learning how to effectively communicate your creative vision.
+- Use responsible judgement to apply AI confidently.
+
+#### Skills you'll gain
+AI Enablement, AI powered creativity, Responsible AI, Prompt Patterns, Data Literacy, Artificial Intelligence, Data Synthesis, AI literacy, AI Personalization, LLM Application
+
+#### Tools you'll learn
+AI Workflows, Google Gemini, Generative AI, Google Workspace
+### 2. AI for Brainstorming and Planning (1 hour)
+[View on Coursera](https://www.coursera.org/learn/google-ai-for-brainstorming-and-planning)
+
+#### What you'll learn
+Brainstorm project concepts by using AI as a creative partner to generate and expand on new ideas.
+Evaluate and prioritize ideas by using AI to assess them against decision criteria and frameworks.
+Strengthen project plans by using AI to identify potential gaps, risks, and dependencies in your timeline.
+Manage project documentation by building a centralized knowledge hub to keep your plans and information organized.
+
+#### Skills you'll gain
+AI Personalization, Product Automation, Artificial Intelligence, AI literacy, AI Enablement, Responsible AI, New Business Development
+
+#### Tools you'll learn
+Google Gemini, Prompt Engineering, AI Workflows, Google Workspace, Generative AI
+### 3. AI for Research and Insights (1 hour)
+[View on Coursera](https://www.coursera.org/learn/google-ai-for-research-and-insights)
+
+#### What you'll learn
+Synthesize data sources using Gemini Deep Research to generate a comprehensive research report and actionable insights from multiple sources.
+Analyze multimodal sources like PDFs and videos to extract key information and insights.
+Use meta-prompting techniques to build custom AI personas for expert-level advice and perspective.
+Create instant, actionable summaries from diverse sources using NotebookLM.
+
+#### Skills you'll gain
+AI Personalization, Artificial Intelligence, AI literacy, AI Enablement, Responsible AI, Data Literacy, Data Synthesis, LLM Application
+
+#### Tools you'll learn
+Google Gemini, AI Workflows, Generative AI, Google Workspace, Prompt Engineering
+### 4. AI for Writing and Communicating (1 hour)
+[View on Coursera](https://www.coursera.org/learn/google-ai-for-writing-and-communicating)
+
+#### What you'll learn
+Transform raw meeting transcripts into organized reports with actionable next steps using Gemini in Google Meet.
+Simulate stakeholder feedback to identify gaps in work and prepare for reviews using the Gemini App.
+Adapt communications for different audiences by transforming documents into various formats with Gemini Canvas.
+Practice talking points to improve delivery before important conversations using Gemini Live.
+
+#### Skills you'll gain
+AI Personalization, Artificial Intelligence, AI literacy, AI Enablement, Responsible AI, Communication, LLM Application
+
+#### Tools you'll learn
+Google Gemini, AI Workflows, Generative AI, Google Workspace, Prompt Engineering
+### 5. AI for Content Creation (2 hours)
+[View on Coursera](https://www.coursera.org/learn/google-ai-for-content-creation)
+
+#### What you'll learn
+Generate high-quality visual assets from creative concepts using Gemini's image and video generation models.
+Transform generic slide decks into engaging visual presentations with Gemini in Google Slides.
+Establish custom design guidelines to ensure AI-generated content aligns with brand standards.
+Critique creative assets by prompting AI to provide actionable feedback and improvements based on design criteria.
+
+#### Skills you'll gain
+AI Personalization, Artificial Intelligence, AI literacy, AI Enablement, Responsible AI, Creative Thinking, Design Thinking, LLM Application
+
+#### Tools you'll learn
+Google Gemini, AI Workflows, Generative AI, Google Workspace, Prompt Engineering
+### 6. AI for Data Analysis (1 hour)
+[View on Coursera](https://www.coursera.org/learn/google-ai-for-data-analysis)
+
+#### What you'll learn
+Identify success metrics by analyzing business objectives and determining how to measure project performance.
+Generate spreadsheet formulas using natural language instructions with Gemini in Google Sheets.
+Transform unstructured data into structured tables for analysis.
+Create compelling charts and visualizations to highlight trends and insights.
+
+#### Skills you'll gain
+AI Personalization, Artificial Intelligence, AI literacy, AI Enablement, Responsible AI, Data Analysis, Data Literacy, LLM Application
+
+#### Tools you'll learn
+Google Gemini, AI Workflows, Generative AI, Google Workspace, Prompt Engineering
+### 7. AI for App Building (2 hours)
+[View on Coursera](https://www.coursera.org/learn/google-ai-for-app-building)
+
+#### What you'll learn
+Analyze professional workflows to identify high-impact opportunities for AI solutions.
+Construct functional web applications using vibe coding techniques to translate natural language into working code.
+Evaluate technical issues during app development by using AI to diagnose and debug code.
+Develop custom AI solutions to solve workplace challenges responsibly.
+
+#### Skills you'll gain
+AI Personalization, Artificial Intelligence, AI literacy, AI Enablement, Responsible AI, Programming, App Development, LLM Application
+
+#### Tools you'll learn
+Google Gemini, AI Workflows, Generative AI, Google Workspace, Prompt Engineering
+
+# 2. Google Data Analytics Professional Certificate (9 courses)
 
 Source: [Coursera](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-data-analytics?collectionId=8fp65#courses)
 

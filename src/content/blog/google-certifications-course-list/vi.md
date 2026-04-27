@@ -43,15 +43,110 @@ Tổng cộng: 1148 giờ học (ước tính theo thông tin hiển thị trên
 
 Nguồn: [Coursera](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-ai?collectionId=8fp65#courses)
 
-1. [AI Fundamentals](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-ai?collectionId=8fp65) - Course 1 (3 hours)
-2. [AI for Brainstorming and Planning](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-ai?collectionId=8fp65) - Course 2 (1 hour)
-3. [AI for Research and Insights](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-ai?collectionId=8fp65) - Course 3 (1 hour)
-4. [AI for Writing and Communicating](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-ai?collectionId=8fp65) - Course 4 (1 hour)
-5. [AI for Content Creation](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-ai?collectionId=8fp65) - Course 5 (2 hours)
-6. [AI for Data Analysis](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-ai?collectionId=8fp65) - Course 6 (1 hour)
-7. [AI for App Building](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-ai?collectionId=8fp65) - Course 7 (2 hours)
+### 1. AI Fundamentals (3 hours)
+[Xem trên Coursera](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-ai?collectionId=8fp65)
 
-## 2. Google Data Analytics Professional Certificate (9 courses)
+#### Bạn sẽ học được gì
+Sẵn sàng vượt qua những lời quảng cáo sôi động và thấy kết quả thực tế với AI? Khóa học này bao gồm các kiến thức cơ bản về làm việc với AI, như hiểu về điểm mạnh và hạn chế của nó để bạn có thể tận dụng hiệu quả tại nơi làm việc. Bạn sẽ học cách đưa ra hướng dẫn rõ ràng và cụ thể cho AI, gọi là prompts, và cách sử dụng AI một cách có trách nhiệm bằng cách duy trì cách tiếp cận "con người trong vòng lặp".
+
+Đến cuối khóa học, bạn sẽ:
+- Áp dụng một cách làm việc mới với AI, chuyển từ một công cụ hoàn thành nhiệm vụ đơn giản thành một cộng tác viên chuyên nghiệp.
+- Áp dụng kỹ thuật prompting để brainstorm ý tưởng mới và xây dựng thư viện prompts có thể tái sử dụng cho các nhiệm vụ hàng ngày.
+- Luyện tập prompt chaining để giải quyết các vấn đề phức tạp, đa bước.
+- Tạo hình ảnh tùy chỉnh bằng cách học cách truyền đạt hiệu quả tầm nhìn sáng tạo của bạn.
+- Sử dụng phán đoán có trách nhiệm để áp dụng AI một cách tự tin.
+
+#### Kỹ năng bạn sẽ đạt được
+AI Enablement, AI powered creativity, Responsible AI, Prompt Patterns, Data Literacy, Artificial Intelligence, Data Synthesis, AI literacy, AI Personalization, LLM Application
+
+#### Công cụ bạn sẽ học
+AI Workflows, Google Gemini, Generative AI, Google Workspace
+### 2. AI for Brainstorming and Planning (1 hour)
+[Xem trên Coursera](https://www.coursera.org/learn/google-ai-for-brainstorming-and-planning)
+
+#### Bạn sẽ học được gì
+Phát triển ý tưởng dự án bằng cách sử dụng AI như một đối tác sáng tạo để tạo ra và mở rộng ý tưởng mới.
+Đánh giá và ưu tiên ý tưởng bằng cách sử dụng AI để đánh giá chúng dựa trên tiêu chí quyết định và khuôn khổ.
+Củng cố kế hoạch dự án bằng cách sử dụng AI để xác định các khoảng trống tiềm ẩn, rủi ro và sự phụ thuộc trong timeline của bạn.
+Quản lý tài liệu dự án bằng cách xây dựng một trung tâm kiến thức tập trung để giữ cho kế hoạch và thông tin của bạn được tổ chức.
+
+#### Kỹ năng bạn sẽ đạt được
+AI Personalization, Product Automation, Artificial Intelligence, AI literacy, AI Enablement, Responsible AI, New Business Development
+
+#### Công cụ bạn sẽ học
+Google Gemini, Prompt Engineering, AI Workflows, Google Workspace, Generative AI
+### 3. AI for Research and Insights (1 hour)
+[Xem trên Coursera](https://www.coursera.org/learn/google-ai-for-research-and-insights)
+
+#### Bạn sẽ học được gì
+Tổng hợp các nguồn dữ liệu bằng Gemini Deep Research để tạo ra báo cáo nghiên cứu toàn diện và những hiểu biết có thể hành động từ nhiều nguồn.
+Phân tích các nguồn đa phương tiện như PDF và video để trích xuất thông tin và hiểu biết chính.
+Sử dụng kỹ thuật meta-prompting để xây dựng nhân vật AI tùy chỉnh cho lời khuyên và góc nhìn chuyên gia.
+Tạo tóm tắt tức thời, có thể hành động từ các nguồn đa dạng bằng NotebookLM.
+
+#### Kỹ năng bạn sẽ đạt được
+AI Personalization, Artificial Intelligence, AI literacy, AI Enablement, Responsible AI, Data Literacy, Data Synthesis, LLM Application
+
+#### Công cụ bạn sẽ học
+Google Gemini, AI Workflows, Generative AI, Google Workspace, Prompt Engineering
+### 4. AI for Writing and Communicating (1 hour)
+[Xem trên Coursera](https://www.coursera.org/learn/google-ai-for-writing-and-communicating)
+
+#### Bạn sẽ học được gì
+Biến đổi bản ghi thô của cuộc họp thành báo cáo có tổ chức với các bước tiếp theo có thể hành động bằng Gemini trong Google Meet.
+Mô phỏng phản hồi của stakeholder để xác định khoảng trống trong công việc và chuẩn bị cho các đánh giá bằng Gemini App.
+Điều chỉnh giao tiếp cho các đối tượng khác nhau bằng cách biến đổi tài liệu thành các định dạng khác nhau với Gemini Canvas.
+Luyện tập các điểm nói để cải thiện cách trình bày trước các cuộc trò chuyện quan trọng bằng Gemini Live.
+
+#### Kỹ năng bạn sẽ đạt được
+AI Personalization, Artificial Intelligence, AI literacy, AI Enablement, Responsible AI, Communication, LLM Application
+
+#### Công cụ bạn sẽ học
+Google Gemini, AI Workflows, Generative AI, Google Workspace, Prompt Engineering
+### 5. AI for Content Creation (2 hours)
+[Xem trên Coursera](https://www.coursera.org/learn/google-ai-for-content-creation)
+
+#### Bạn sẽ học được gì
+Tạo ra tài sản hình ảnh chất lượng cao từ các khái niệm sáng tạo bằng cách sử dụng mô hình tạo hình ảnh và video của Gemini.
+Biến đổi các bộ slide tổng quát thành các bài thuyết trình hình ảnh hấp dẫn với Gemini trong Google Slides.
+Thiết lập các hướng dẫn thiết kế tùy chỉnh để đảm bảo nội dung được tạo bởi AI phù hợp với tiêu chuẩn thương hiệu.
+Phê bình tài sản sáng tạo bằng cách nhắc AI cung cấp phản hồi và cải tiến có thể hành động dựa trên tiêu chí thiết kế.
+
+#### Kỹ năng bạn sẽ đạt được
+AI Personalization, Artificial Intelligence, AI literacy, AI Enablement, Responsible AI, Creative Thinking, Design Thinking, LLM Application
+
+#### Công cụ bạn sẽ học
+Google Gemini, AI Workflows, Generative AI, Google Workspace, Prompt Engineering
+### 6. AI for Data Analysis (1 hour)
+[Xem trên Coursera](https://www.coursera.org/learn/google-ai-for-data-analysis)
+
+#### Bạn sẽ học được gì
+Xác định các chỉ số thành công bằng cách phân tích mục tiêu kinh doanh và xác định cách đo lường hiệu suất dự án.
+Tạo công thức bảng tính bằng cách sử dụng hướng dẫn ngôn ngữ tự nhiên với Gemini trong Google Sheets.
+Biến đổi dữ liệu không cấu trúc thành bảng có cấu trúc để phân tích.
+Tạo biểu đồ và hình ảnh hấp dẫn để làm nổi bật xu hướng và hiểu biết.
+
+#### Kỹ năng bạn sẽ đạt được
+AI Personalization, Artificial Intelligence, AI literacy, AI Enablement, Responsible AI, Data Analysis, Data Literacy, LLM Application
+
+#### Công cụ bạn sẽ học
+Google Gemini, AI Workflows, Generative AI, Google Workspace, Prompt Engineering
+### 7. AI for App Building (2 hours)
+[Xem trên Coursera](https://www.coursera.org/learn/google-ai-for-app-building)
+
+#### Bạn sẽ học được gì
+Phân tích quy trình làm việc chuyên nghiệp để xác định cơ hội tác động cao cho các giải pháp AI.
+Xây dựng ứng dụng web chức năng bằng cách sử dụng kỹ thuật vibe coding để dịch ngôn ngữ tự nhiên thành mã hoạt động.
+Đánh giá các vấn đề kỹ thuật trong quá trình phát triển ứng dụng bằng cách sử dụng AI để chẩn đoán và gỡ lỗi mã.
+Phát triển các giải pháp AI tùy chỉnh để giải quyết thách thức nơi làm việc một cách có trách nhiệm.
+
+#### Kỹ năng bạn sẽ đạt được
+AI Personalization, Artificial Intelligence, AI literacy, AI Enablement, Responsible AI, Programming, App Development, LLM Application
+
+#### Công cụ bạn sẽ học
+Google Gemini, AI Workflows, Generative AI, Google Workspace, Prompt Engineering
+
+# 2. Google Data Analytics Professional Certificate (9 courses)
 
 Nguồn: [Coursera](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-data-analytics?collectionId=8fp65#courses)
 
