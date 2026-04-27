@@ -906,39 +906,333 @@ Source: [Coursera](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/profess
 
 Source: [Coursera](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-digital-marketing-ecommerce?collectionId=8fp65#courses)
 
-### 1. [Foundations of Digital Marketing and E-commerce](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-digital-marketing-ecommerce?collectionId=8fp65) (12 hours)
-### 2. [Attract and Engage Customers with Digital Marketing](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-digital-marketing-ecommerce?collectionId=8fp65) (14 hours)
-### 3. [From Likes to Leads: Interact with Customers Online](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-digital-marketing-ecommerce?collectionId=8fp65) (21 hours)
-### 4. [Think Outside the Inbox: Email Marketing](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-digital-marketing-ecommerce?collectionId=8fp65) (19 hours)
-### 5. [Assess for Success: Marketing Analytics and Measurement](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-digital-marketing-ecommerce?collectionId=8fp65) (18 hours)
-### 6. [Make the Sale: Build, Launch, and Manage E-commerce Stores](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-digital-marketing-ecommerce?collectionId=8fp65) (15 hours)
-### 7. [Satisfaction Guaranteed: Develop Customer Loyalty Online](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-digital-marketing-ecommerce?collectionId=8fp65) (15 hours)
-### 8. [Accelerate Your Job Search with AI](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-digital-marketing-ecommerce?collectionId=8fp65) (6 hours)
+### 1. Foundations of Digital Marketing and E-commerce (12 hours) [View on Coursera](https://www.coursera.org/learn/foundations-of-digital-marketing-and-e-commerce)
+
+#### What you'll learn
+- Define the fields of digital marketing and e-commerce
+- Describe the job responsibilities of an entry-level digital marketer and e-commerce specialist
+- Explain the concept of a marketing funnel
+- Understand the elements and goals of a digital marketing and e-commerce strategy
+
+#### Skills you'll gain
+Marketing Planning, Digital Media Strategy, Marketing Strategies, Performance Metric, Customer Engagement, Brand Awareness, Search Engine Optimization, Branding, Digital Marketing, Web Analytics and SEO, Data-Driven Decision-Making, Marketing Analytics, E-Commerce, Performance marketing, Data Storytelling, Performance Measurement, Email Marketing, Conversion Funnel Analysis, Marketing, Search Engine Marketing
+
+#### Tools you'll learn
+None listed on Coursera.
+
+### 2. Attract and Engage Customers with Digital Marketing (14 hours) [View on Coursera](https://www.coursera.org/learn/attract-and-engage-customers)
+
+#### What you'll learn
+- Recognize strategies to build brand awareness among potential customers
+- Explain the purpose of SEO (search engine optimization) and essential SEO terms
+- Optimize website content for SEO
+- Understand search engine marketing (SEM) and how it benefits businesses
+
+#### Skills you'll gain
+Customer Analysis, Target Audience, Marketing Strategies, Search Engine Optimization, Persona Development, Marketing Strategy and Techniques, Conversion Funnel Analysis, Digital Advertising, Online Advertising, Customer Engagement, Keyword Research, Advertising Campaigns, Search Engine Marketing, Content Optimization, Digital Marketing
+
+#### Tools you'll learn
+Google Ads
+
+### 3. From Likes to Leads: Interact with Customers Online (21 hours) [View on Coursera](https://www.coursera.org/learn/from-likes-to-leads)
+
+#### What you'll learn
+- Define social media marketing and describe its purpose
+- Identify core pillars of social media marketing: strategy, planning and publishing, listening and engagement, analytics and reporting, advertising
+- Define the goals of a social media campaign
+- Write, design, and repurpose engaging content for social media
+
+#### Skills you'll gain
+Content Scheduling, Marketing Analytics, Paid media, Content Creation, Social Media Management, Digital Advertising, Drive Engagement, Content Performance Analysis, Social Media Strategy, Advertising, Social Media Marketing, Branding, Social Media Campaigns, Customer Engagement, Driving engagement, Brand Awareness, Advertising Campaigns, Social Media Content, Digital Media Strategy, Brand Management
+
+#### Tools you'll learn
+None listed on Coursera.
+
+### 4. Think Outside the Inbox: Email Marketing (19 hours) [View on Coursera](https://www.coursera.org/learn/think-outside-the-inbox)
+
+#### What you'll learn
+- Understand how email marketing fits into a digital marketing strategy
+- Write effective email copy, subject lines, and preview text
+- Test, execute, and optimize an email marketing campaign
+- Measure and analyze email campaign results
+
+#### Skills you'll gain
+Data Ethics, Email Automation, Campaign Planning, Promotional Strategies, Email Marketing, Copywriting, Marketing Strategy and Techniques, Marketing Automation, Personally Identifiable Information, Campaign Management, Key Performance Indicators (KPIs), Digital Marketing, Digital Marketing Campaigns, Marketing Analytics, Information Privacy, Smart Goals, Goal Setting, Customer Retention
+
+#### Tools you'll learn
+Digital Marketing Tools, HubSpot CRM
+
+### 5. Assess for Success: Marketing Analytics and Measurement (18 hours) [View on Coursera](https://www.coursera.org/learn/assess-for-success)
+
+#### What you'll learn
+- Define media planning and strategies
+- Describe what defines a successful marketing campaign
+- Evaluate metrics against performance goals and make adjustments to a marketing budget or strategy
+- Create presentations and reports to update stakeholders on the progress or success of a marketing campaign and important insights
+
+#### Skills you'll gain
+Campaign Management, Marketing Effectiveness, Media Planning, Spreadsheet Software, Data Presentation, Paid media, Marketing Budgets, Pivot Tables And Charts, Marketing Planning, Data Visualization, Data-Driven Marketing, Key Performance Indicators (KPIs), Performance Measurement, Digital Marketing, A/B Testing, Return On Investment, Digital Marketing Campaigns, Marketing Analytics
+
+#### Tools you'll learn
+Google Analytics, Google Ads
+
+### 6. Make the Sale: Build, Launch, and Manage E-commerce Stores (15 hours) [View on Coursera](https://www.coursera.org/learn/make-the-sale)
+
+#### What you'll learn
+- Understand essential e-commerce strategies and practices
+- Explain what e-commerce stores and platforms are and how they work
+- Create an engaging customer experience online using best practices
+- Set up a mock e-commerce store using Shopify
+
+#### Skills you'll gain
+Retail Store Operations, Order Delivery, Online Advertising, Campaign Management, Marketing, Digital Advertising, Advertising Campaigns, Marketing Strategies, Order Fulfillment, Market Trend, Sales, Shipping and Receiving, General Sales Practices, Order Processing, Order Management, Customer experience improvement, Retail Management, Market Research, E-Commerce
+
+#### Tools you'll learn
+Google Ads
+
+### 7. Satisfaction Guaranteed: Develop Customer Loyalty Online (15 hours) [View on Coursera](https://www.coursera.org/learn/satisfaction-guaranteed)
+
+#### What you'll learn
+- Identify common strategies for building customer loyalty in e-commerce.
+- Successfully manage client relationships and measure satisfaction.
+- Gain a competitive edge by learning AI skills from Google experts.
+- Put together a portfolio and/or resume to present to employers.
+
+#### Skills you'll gain
+Presentations, Performance Analysis, Loyalty Programs, Client Services, Digital Marketing, Customer Relationship Building, Conversion Funnel Analysis, Customer Insights, Brand Loyalty, Web Analytics, Customer Relationship Management, Customer Retention, E-Commerce, Customer Analysis, Product Improvement, Digital Analysis, Relationship Management, Customer Service, Customer Engagement
+
+#### Tools you'll learn
+Digital Marketing Tools
+
+### 8. Accelerate Your Job Search with AI (6 hours) [View on Coursera](https://www.coursera.org/learn/accelerate-your-job-search-with-ai)
+
+#### What you'll learn
+- Uncover your skills and explore new career possibilities, with support from tools like Career Dreamer.
+- Keep your applications organized with Google Sheets.
+- Build a stand out resume and a step-by-step job search plan—with help from Gemini.
+- Prepare for interviews and practice responding to questions using NotebookLM and Gemini Live.
+
+#### Skills you'll gain
+Prompt Engineering Tools, Interviewing Skills, Branding, Professional Development, AI literacy, Web Presence
+
+#### Tools you'll learn
+Prompt Engineering, Generative AI, Google Gemini
 
 # 8. Google UX Design Professional Certificate (8 courses)
 
 Source: [Coursera](https://www.coursera.org/professional-certificates/google-ux-design)
 
-### 1. [Foundations of User Experience (UX) Design](https://www.coursera.org/professional-certificates/google-ux-design) (12 hours)
-### 2. [Start the UX Design Process: Empathize, Define, and Ideate](https://www.coursera.org/professional-certificates/google-ux-design) (20 hours)
-### 3. [Build Wireframes and Low-Fidelity Prototypes](https://www.coursera.org/professional-certificates/google-ux-design) (12 hours)
-### 4. [Conduct UX Research and Test Early Concepts](https://www.coursera.org/professional-certificates/google-ux-design) (15 hours)
-### 5. [Create High-Fidelity Designs and Prototypes in Figma](https://www.coursera.org/professional-certificates/google-ux-design) (19 hours)
-### 6. [Build Dynamic User Interfaces (UI) for Websites](https://www.coursera.org/professional-certificates/google-ux-design) (15 hours)
-### 7. [Design a User Experience for Social Good & Prepare for Jobs](https://www.coursera.org/professional-certificates/google-ux-design) (13 hours)
-### 8. [Accelerate Your Job Search with AI](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-digital-marketing-ecommerce?collectionId=8fp65) (6 hours)
+### 1. Foundations of User Experience (UX) Design (12 hours) [View on Coursera](https://www.coursera.org/learn/foundations-user-experience-design)
+
+#### What you'll learn
+- Identify common job responsibilities of entry-level UX designers and other teams you might work with.
+- Understand foundational concepts in UX design, such as user-centered design, the design process, accessibility, and equity-focused design.
+- Explain why design sprints are an important and useful part of a UX designer’s work.
+
+#### Skills you'll gain
+Prototyping, Design Thinking, UI/UX Research, User Research, User Centered Design, User Experience Design, Ideation, User Experience, Sprint Planning, Sprint Retrospectives, Usability, Wireframing
+
+#### Tools you'll learn
+None listed on Coursera.
+
+### 2. Start the UX Design Process: Empathize, Define, and Ideate (20 hours) [View on Coursera](https://www.coursera.org/learn/start-ux-design-process)
+
+#### What you'll learn
+- Empathize with users to understand their needs and pain points.
+- Develop problem statements to define user needs.
+- Generate ideas for possible solutions to user problems.
+
+#### Skills you'll gain
+Competitive Analysis, Human Centered Design, Persona Development, Ideation, Web Content Accessibility Guidelines, User Research, Human Factors, User Centered Design, Solution Design, Persona (User Experience), User Story, Design Thinking, User Experience, UI/UX Research, User Experience Design
+
+#### Tools you'll learn
+None listed on Coursera.
+
+### 3. Build Wireframes and Low-Fidelity Prototypes (12 hours) [View on Coursera](https://www.coursera.org/learn/wireframes-low-fidelity-prototypes)
+
+#### What you'll learn
+- Create storyboards to come up with ideas about solutions to user needs.
+- Create wireframes on paper and digitally in the design tool Figma.
+- Build paper prototypes to create interactive designs.
+- Design low-fidelity prototypes in Figma.
+
+#### Skills you'll gain
+User Interface and User Experience (UI/UX) Design, Interactive Design, User Interface (UI), User Research, Storyboarding, User Story, Design Elements And Principles, Wireframing, User Experience, Persona (User Experience), Prototyping, User Experience Design, Information Architecture
+
+#### Tools you'll learn
+Figma (Design Software)
+
+### 4. Conduct UX Research and Test Early Concepts (15 hours) [View on Coursera](https://www.coursera.org/learn/conduct-ux-research)
+
+#### What you'll learn
+- Plan and conduct moderated and unmoderated usability studies.
+- Synthesize observations from usability studies and come up with insights.
+- Share research methodology and insights using persuasive presentation skills.
+- Modify low-fidelity designs based on research insights.
+
+#### Skills you'll gain
+User Experience, Wireframing, Usability Testing, Prototyping, User Interface and User Experience (UI/UX) Design, User Experience Design, Information Privacy, Presentations, User Research, Data Ethics, UI/UX Research, Design Research, Research Design, Usability
+
+#### Tools you'll learn
+None listed on Coursera.
+
+### 5. Create High-Fidelity Designs and Prototypes in Figma (19 hours) [View on Coursera](https://www.coursera.org/learn/high-fidelity-designs-prototype)
+
+#### What you'll learn
+- Build mockups and high-fidelity prototypes in the design tool Figma.
+- Define and apply common visual design elements and principles.
+- Demonstrate how design systems can be used to organize, standardize, and enhance designs.
+- Understand the role of design critique sessions and feedback while iterating on designs.
+
+#### Skills you'll gain
+Animations, Interaction Design, User Experience, Design Research, Design Reviews, Motion Graphics, Graphic and Visual Design, User Interface (UI) Design, Color Theory, Typography, User Experience Design, Mockups, Interactive Design, Prototyping, Design Elements And Principles, Usability Testing, Technical Communication, Usability, User Interface and User Experience (UI/UX) Design
+
+#### Tools you'll learn
+Figma (Design Software)
+
+### 6. Build Dynamic User Interfaces (UI) for Websites (15 hours) [View on Coursera](https://www.coursera.org/learn/responsive-web-design-adobe-xd)
+
+#### What you'll learn
+- Apply each step of the UX design thinking framework (empathize, define, ideate, prototype, test) to create a dynamic website.
+- Plan information architecture and sitemaps for website designs.
+- Apply common layouts for web pages.
+- Complete a design project and include it in your professional UX portfolio.
+
+#### Skills you'll gain
+User Experience, Mockups, Layout Design, Usability Testing, Software Design Documents, User Centered Design, Design Research, Responsive Web Design, Information Architecture, Design Reviews, Prototyping, Wireframing, Web Design, User Research, User Interface and User Experience (UI/UX) Design, User Interface (UI) Design, User Experience Design
+
+#### Tools you'll learn
+Figma (Design Software)
+
+### 7. Design a User Experience for Social Good & Prepare for Jobs (13 hours) [View on Coursera](https://www.coursera.org/learn/ux-design-jobs)
+
+#### What you'll learn
+- Apply each step of the UX design thinking framework (empathize, define, ideate, prototype, test) to create a  project focused on social good.
+- Build wireframes, mockups, and low-fidelity and high-fidelity prototypes for a dedicated mobile app and a responsive website.
+- Prepare to successfully interview for an entry-level UX design job.
+- Gain a competitive edge by learning AI skills from Google experts
+
+#### Skills you'll gain
+UI/UX Research, Experience Design, Human Centered Design, User Experience Design, Usability, Responsive Web Design, Usability Testing, Design Strategies, Web Design, Ideation, Prototyping, Cross Platform Development, User Experience, User Interface and User Experience (UI/UX) Design, User Centered Design, Web Presence, Design Research, Design Thinking
+
+#### Tools you'll learn
+Generative AI
+
+### 8. Accelerate Your Job Search with AI (6 hours) [View on Coursera](https://www.coursera.org/learn/accelerate-your-job-search-with-ai)
+
+#### What you'll learn
+- Uncover your skills and explore new career possibilities, with support from tools like Career Dreamer.
+- Keep your applications organized with Google Sheets.
+- Build a stand out resume and a step-by-step job search plan—with help from Gemini.
+- Prepare for interviews and practice responding to questions using NotebookLM and Gemini Live.
+
+#### Skills you'll gain
+Prompt Engineering Tools, Interviewing Skills, Branding, Professional Development, AI literacy, Web Presence
+
+#### Tools you'll learn
+Prompt Engineering, Generative AI, Google Gemini
 
 # 9. Google IT Automation with Python Professional Certificate (7 courses)
 
 Source: [Coursera](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-it-automation?collectionId=8fp65#courses)
 
-### 1. [Crash Course on Python](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-it-automation?collectionId=8fp65) (21 hours)
-### 2. [Using Python to Interact with the Operating System](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-it-automation?collectionId=8fp65) (33 hours)
-### 3. [Introduction to Git and GitHub](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-it-automation?collectionId=8fp65) (20 hours)
-### 4. [Troubleshooting and Debugging Techniques](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-it-automation?collectionId=8fp65) (19 hours)
-### 5. [Configuration Management and the Cloud](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-it-automation?collectionId=8fp65) (18 hours)
-### 6. [Automating Real-World Tasks with Python](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-it-automation?collectionId=8fp65) (17 hours)
-### 7. [Accelerate Your Job Search with AI](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-project-management?collectionId=8fp65) (6 hours)
+### 1. Crash Course on Python (21 hours) [View on Coursera](https://www.coursera.org/learn/python-crash-course)
+
+#### What you'll learn
+- Understand what Python is and why Python is relevant to automation
+- Write short Python scripts to perform automated actions
+- Understand how to use the basic Python structures: strings, lists, and dictionaries
+- Create your own Python objects
+
+#### Skills you'll gain
+Computational Thinking, Data Structures, Scripting Languages, Scripting, Data Store, Computer Programming Tools, Program Development, Computer Programming, Development Environment, Programming Principles, Debugging
+
+#### Tools you'll learn
+Integrated Development Environments, Python Programming
+
+### 2. Using Python to Interact with the Operating System (33 hours) [View on Coursera](https://www.coursera.org/learn/python-operating-system)
+
+#### What you'll learn
+- Setup, configure, and use your own developer environment in Python
+- Manipulate files and processes running on the Operating System using Python
+- Understand and use regular expressions (regex), a powerful tool for processing text files
+- Know when to choose Bash or Python, and create small scripts using Bash
+
+#### Skills you'll gain
+Development Testing, Scripting, Unit Testing, Scripting Languages, File Management, Development Environment, File I/O, Test Driven Development (TDD), Test Script Development, Test Automation, OS Process Management, Linux Commands, Software Testing
+
+#### Tools you'll learn
+Unix Commands, Linux, Bash (Scripting Language), Unix Shell, Command-Line Interface, Shell Script, Operating Systems
+
+### 3. Introduction to Git and GitHub (20 hours) [View on Coursera](https://www.coursera.org/learn/introduction-git-github)
+
+#### What you'll learn
+- Understand why version control is a fundamental tool for coding and collaboration
+- Install and run Git on your local machine
+- Use and interact with GitHub
+- Collaborate with others through remote repositories
+
+#### Skills you'll gain
+Software Configuration Management, Version Control, Software Installation, Issue Tracking, CI/CD, Continuous Integration, Software Versioning, Code Review
+
+#### Tools you'll learn
+Command-Line Interface, GitHub, Git (Version Control System), Collaborative Software
+
+### 4. Troubleshooting and Debugging Techniques (19 hours) [View on Coursera](https://www.coursera.org/learn/troubleshooting-debugging-techniques)
+
+#### What you'll learn
+- Analyze real-world IT problems and implement the appropriate strategies to solve those problems
+- Demonstrate techniques to quickly find and solve the root cause of problems in IT infrastructure
+- Understand the root cause for problems related to speed, crashes, or exhausted resources in your computer
+- Identify the most common pitfalls of your code and how to fix them
+
+#### Skills you'll gain
+Continuous Integration, Problem Management, Debugging, Technical Communication, Technical Documentation, System Monitoring, Performance Tuning, Memory Management, Incident Management, Capacity Management, Continuous Monitoring, Network Troubleshooting
+
+#### Tools you'll learn
+None listed on Coursera.
+
+### 5. Configuration Management and the Cloud (18 hours) [View on Coursera](https://www.coursera.org/learn/configuration-management-cloud)
+
+#### What you'll learn
+- Understand the benefits of configuration management and infrastructure as code
+- Manage a fleet of computers using Puppet
+- Automatically deploy new virtual machines running in the Cloud
+- Deploy changes in a safe manner following CICD principles
+
+#### Skills you'll gain
+Cloud Infrastructure, Cloud Management, Disaster Recovery, Cloud Services, IT Automation, Infrastructure as Code (IaC), Incident Response, Configuration Management, Continuous Monitoring, Cloud Computing, Software As A Service, Cloud Deployment, Incident Management, System Monitoring, Change Control
+
+#### Tools you'll learn
+Cloud Storage, Infrastructure As A Service (IaaS), Puppet (Configuration Management Tool), Virtual Machines, Terraform
+
+### 6. Automating Real-World Tasks with Python (17 hours) [View on Coursera](https://www.coursera.org/learn/automating-real-world-tasks-python)
+
+#### What you'll learn
+- Use Python external libraries to create and modify documents, images, and messages
+- Understand and use Application Programming Interfaces (APIs) to interact with web services
+- Understand and use data serialization to send messages between running programs
+- Build a solution using the skills you have learned
+
+#### Skills you'll gain
+Scripting, IT Automation, System Monitoring, Web Services, Email Automation, Automation
+
+#### Tools you'll learn
+Application Programming Interface (API), Restful API, JSON, Python Programming
+
+### 7. Accelerate Your Job Search with AI (6 hours) [View on Coursera](https://www.coursera.org/learn/accelerate-your-job-search-with-ai)
+
+#### What you'll learn
+- Uncover your skills and explore new career possibilities, with support from tools like Career Dreamer.
+- Keep your applications organized with Google Sheets.
+- Build a stand out resume and a step-by-step job search plan—with help from Gemini.
+- Prepare for interviews and practice responding to questions using NotebookLM and Gemini Live.
+
+#### Skills you'll gain
+Prompt Engineering Tools, Interviewing Skills, Branding, Professional Development, AI literacy, Web Presence
+
+#### Tools you'll learn
+Prompt Engineering, Generative AI, Google Gemini
 
 # 10. Google Business Intelligence Professional Certificate (4 courses)
 

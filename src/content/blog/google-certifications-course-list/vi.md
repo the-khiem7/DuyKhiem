@@ -906,39 +906,333 @@ Source: [Coursera](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/profess
 
 Nguồn: [Coursera](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-digital-marketing-ecommerce?collectionId=8fp65#courses)
 
-### 1. [Foundations of Digital Marketing and E-commerce](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-digital-marketing-ecommerce?collectionId=8fp65) (12 hours)
-### 2. [Attract and Engage Customers with Digital Marketing](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-digital-marketing-ecommerce?collectionId=8fp65) (14 hours)
-### 3. [From Likes to Leads: Interact with Customers Online](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-digital-marketing-ecommerce?collectionId=8fp65) (21 hours)
-### 4. [Think Outside the Inbox: Email Marketing](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-digital-marketing-ecommerce?collectionId=8fp65) (19 hours)
-### 5. [Assess for Success: Marketing Analytics and Measurement](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-digital-marketing-ecommerce?collectionId=8fp65) (18 hours)
-### 6. [Make the Sale: Build, Launch, and Manage E-commerce Stores](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-digital-marketing-ecommerce?collectionId=8fp65) (15 hours)
-### 7. [Satisfaction Guaranteed: Develop Customer Loyalty Online](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-digital-marketing-ecommerce?collectionId=8fp65) (15 hours)
-### 8. [Accelerate Your Job Search with AI](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-digital-marketing-ecommerce?collectionId=8fp65) (6 hours)
+### 1. Foundations of Digital Marketing and E-commerce (12 hours) [Xem trên Coursera](https://www.coursera.org/learn/foundations-of-digital-marketing-and-e-commerce)
+
+#### Bạn sẽ học được gì
+- Định nghĩa các lĩnh vực digital marketing và e-commerce
+- Mô tả trách nhiệm công việc của một digital marketer và chuyên viên e-commerce cấp đầu vào
+- Giải thích khái niệm marketing funnel
+- Hiểu các thành phần và mục tiêu của một chiến lược digital marketing và e-commerce
+
+#### Kỹ năng bạn sẽ đạt được
+Marketing Planning, Digital Media Strategy, Marketing Strategies, Performance Metric, Customer Engagement, Brand Awareness, Search Engine Optimization, Branding, Digital Marketing, Web Analytics and SEO, Data-Driven Decision-Making, Marketing Analytics, E-Commerce, Performance marketing, Data Storytelling, Performance Measurement, Email Marketing, Conversion Funnel Analysis, Marketing, Search Engine Marketing
+
+#### Công cụ bạn sẽ học
+Coursera không liệt kê công cụ.
+
+### 2. Attract and Engage Customers with Digital Marketing (14 hours) [Xem trên Coursera](https://www.coursera.org/learn/attract-and-engage-customers)
+
+#### Bạn sẽ học được gì
+- Nhận biết các chiến lược xây dựng nhận diện thương hiệu với khách hàng tiềm năng
+- Giải thích mục đích của SEO (search engine optimization) và các thuật ngữ SEO thiết yếu
+- Tối ưu hóa nội dung website cho SEO
+- Hiểu search engine marketing (SEM) và cách nó mang lại lợi ích cho doanh nghiệp
+
+#### Kỹ năng bạn sẽ đạt được
+Customer Analysis, Target Audience, Marketing Strategies, Search Engine Optimization, Persona Development, Marketing Strategy and Techniques, Conversion Funnel Analysis, Digital Advertising, Online Advertising, Customer Engagement, Keyword Research, Advertising Campaigns, Search Engine Marketing, Content Optimization, Digital Marketing
+
+#### Công cụ bạn sẽ học
+Google Ads
+
+### 3. From Likes to Leads: Interact with Customers Online (21 hours) [Xem trên Coursera](https://www.coursera.org/learn/from-likes-to-leads)
+
+#### Bạn sẽ học được gì
+- Định nghĩa social media marketing và mô tả mục đích của nó
+- Xác định các trụ cột cốt lõi của social media marketing: chiến lược, lập kế hoạch và xuất bản, lắng nghe và tương tác, phân tích và báo cáo, quảng cáo
+- Định nghĩa mục tiêu của một chiến dịch social media
+- Viết, thiết kế và tái sử dụng nội dung hấp dẫn cho social media
+
+#### Kỹ năng bạn sẽ đạt được
+Content Scheduling, Marketing Analytics, Paid media, Content Creation, Social Media Management, Digital Advertising, Drive Engagement, Content Performance Analysis, Social Media Strategy, Advertising, Social Media Marketing, Branding, Social Media Campaigns, Customer Engagement, Driving engagement, Brand Awareness, Advertising Campaigns, Social Media Content, Digital Media Strategy, Brand Management
+
+#### Công cụ bạn sẽ học
+Coursera không liệt kê công cụ.
+
+### 4. Think Outside the Inbox: Email Marketing (19 hours) [Xem trên Coursera](https://www.coursera.org/learn/think-outside-the-inbox)
+
+#### Bạn sẽ học được gì
+- Hiểu cách email marketing phù hợp trong một chiến lược digital marketing
+- Viết email copy, subject lines và preview text hiệu quả
+- Kiểm thử, thực thi và tối ưu hóa một chiến dịch email marketing
+- Đo lường và phân tích kết quả chiến dịch email
+
+#### Kỹ năng bạn sẽ đạt được
+Data Ethics, Email Automation, Campaign Planning, Promotional Strategies, Email Marketing, Copywriting, Marketing Strategy and Techniques, Marketing Automation, Personally Identifiable Information, Campaign Management, Key Performance Indicators (KPIs), Digital Marketing, Digital Marketing Campaigns, Marketing Analytics, Information Privacy, Smart Goals, Goal Setting, Customer Retention
+
+#### Công cụ bạn sẽ học
+Digital Marketing Tools, HubSpot CRM
+
+### 5. Assess for Success: Marketing Analytics and Measurement (18 hours) [Xem trên Coursera](https://www.coursera.org/learn/assess-for-success)
+
+#### Bạn sẽ học được gì
+- Định nghĩa media planning và các chiến lược liên quan
+- Mô tả điều gì tạo nên một chiến dịch marketing thành công
+- Đánh giá các chỉ số so với mục tiêu hiệu suất và điều chỉnh ngân sách hoặc chiến lược marketing
+- Tạo bài thuyết trình và báo cáo để cập nhật cho stakeholders về tiến độ hoặc thành công của chiến dịch marketing và các insight quan trọng
+
+#### Kỹ năng bạn sẽ đạt được
+Campaign Management, Marketing Effectiveness, Media Planning, Spreadsheet Software, Data Presentation, Paid media, Marketing Budgets, Pivot Tables And Charts, Marketing Planning, Data Visualization, Data-Driven Marketing, Key Performance Indicators (KPIs), Performance Measurement, Digital Marketing, A/B Testing, Return On Investment, Digital Marketing Campaigns, Marketing Analytics
+
+#### Công cụ bạn sẽ học
+Google Analytics, Google Ads
+
+### 6. Make the Sale: Build, Launch, and Manage E-commerce Stores (15 hours) [Xem trên Coursera](https://www.coursera.org/learn/make-the-sale)
+
+#### Bạn sẽ học được gì
+- Hiểu các chiến lược và thực hành e-commerce thiết yếu
+- Giải thích e-commerce stores và platforms là gì và cách chúng hoạt động
+- Tạo trải nghiệm khách hàng trực tuyến hấp dẫn bằng các best practices
+- Thiết lập một mock e-commerce store bằng Shopify
+
+#### Kỹ năng bạn sẽ đạt được
+Retail Store Operations, Order Delivery, Online Advertising, Campaign Management, Marketing, Digital Advertising, Advertising Campaigns, Marketing Strategies, Order Fulfillment, Market Trend, Sales, Shipping and Receiving, General Sales Practices, Order Processing, Order Management, Customer experience improvement, Retail Management, Market Research, E-Commerce
+
+#### Công cụ bạn sẽ học
+Google Ads
+
+### 7. Satisfaction Guaranteed: Develop Customer Loyalty Online (15 hours) [Xem trên Coursera](https://www.coursera.org/learn/satisfaction-guaranteed)
+
+#### Bạn sẽ học được gì
+- Xác định các chiến lược phổ biến để xây dựng lòng trung thành của khách hàng trong e-commerce.
+- Quản lý thành công quan hệ khách hàng và đo lường mức độ hài lòng.
+- Có lợi thế cạnh tranh bằng cách học kỹ năng AI từ các chuyên gia Google.
+- Tổng hợp portfolio và/hoặc resume để trình bày với nhà tuyển dụng.
+
+#### Kỹ năng bạn sẽ đạt được
+Presentations, Performance Analysis, Loyalty Programs, Client Services, Digital Marketing, Customer Relationship Building, Conversion Funnel Analysis, Customer Insights, Brand Loyalty, Web Analytics, Customer Relationship Management, Customer Retention, E-Commerce, Customer Analysis, Product Improvement, Digital Analysis, Relationship Management, Customer Service, Customer Engagement
+
+#### Công cụ bạn sẽ học
+Digital Marketing Tools
+
+### 8. Accelerate Your Job Search with AI (6 hours) [Xem trên Coursera](https://www.coursera.org/learn/accelerate-your-job-search-with-ai)
+
+#### Bạn sẽ học được gì
+- Khám phá kỹ năng của bạn và tìm hiểu các khả năng nghề nghiệp mới, với sự hỗ trợ từ các công cụ như Career Dreamer.
+- Giữ cho các hồ sơ ứng tuyển của bạn được tổ chức bằng Google Sheets.
+- Xây dựng một resume nổi bật và kế hoạch tìm việc từng bước với sự trợ giúp từ Gemini.
+- Chuẩn bị cho phỏng vấn và luyện tập trả lời câu hỏi bằng NotebookLM và Gemini Live.
+
+#### Kỹ năng bạn sẽ đạt được
+Prompt Engineering Tools, Interviewing Skills, Branding, Professional Development, AI literacy, Web Presence
+
+#### Công cụ bạn sẽ học
+Prompt Engineering, Generative AI, Google Gemini
 
 # 8. Google UX Design Professional Certificate (8 courses)
 
 Nguồn: [Coursera](https://www.coursera.org/professional-certificates/google-ux-design)
 
-### 1. [Foundations of User Experience (UX) Design](https://www.coursera.org/professional-certificates/google-ux-design) (12 hours)
-### 2. [Start the UX Design Process: Empathize, Define, and Ideate](https://www.coursera.org/professional-certificates/google-ux-design) (20 hours)
-### 3. [Build Wireframes and Low-Fidelity Prototypes](https://www.coursera.org/professional-certificates/google-ux-design) (12 hours)
-### 4. [Conduct UX Research and Test Early Concepts](https://www.coursera.org/professional-certificates/google-ux-design) (15 hours)
-### 5. [Create High-Fidelity Designs and Prototypes in Figma](https://www.coursera.org/professional-certificates/google-ux-design) (19 hours)
-### 6. [Build Dynamic User Interfaces (UI) for Websites](https://www.coursera.org/professional-certificates/google-ux-design) (15 hours)
-### 7. [Design a User Experience for Social Good & Prepare for Jobs](https://www.coursera.org/professional-certificates/google-ux-design) (13 hours)
-### 8. [Accelerate Your Job Search with AI](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-digital-marketing-ecommerce?collectionId=8fp65) (6 hours)
+### 1. Foundations of User Experience (UX) Design (12 hours) [Xem trên Coursera](https://www.coursera.org/learn/foundations-user-experience-design)
+
+#### Bạn sẽ học được gì
+- Xác định các trách nhiệm công việc phổ biến của UX designer cấp đầu vào và các nhóm khác mà bạn có thể làm việc cùng.
+- Hiểu các khái niệm nền tảng trong UX design, như user-centered design, quy trình thiết kế, accessibility và equity-focused design.
+- Giải thích vì sao design sprint là một phần quan trọng và hữu ích trong công việc của UX designer.
+
+#### Kỹ năng bạn sẽ đạt được
+Prototyping, Design Thinking, UI/UX Research, User Research, User Centered Design, User Experience Design, Ideation, User Experience, Sprint Planning, Sprint Retrospectives, Usability, Wireframing
+
+#### Công cụ bạn sẽ học
+Coursera không liệt kê công cụ.
+
+### 2. Start the UX Design Process: Empathize, Define, and Ideate (20 hours) [Xem trên Coursera](https://www.coursera.org/learn/start-ux-design-process)
+
+#### Bạn sẽ học được gì
+- Đồng cảm với người dùng để hiểu nhu cầu và pain points của họ.
+- Phát triển problem statements để định nghĩa nhu cầu người dùng.
+- Tạo ý tưởng cho các giải pháp khả thi đối với vấn đề của người dùng.
+
+#### Kỹ năng bạn sẽ đạt được
+Competitive Analysis, Human Centered Design, Persona Development, Ideation, Web Content Accessibility Guidelines, User Research, Human Factors, User Centered Design, Solution Design, Persona (User Experience), User Story, Design Thinking, User Experience, UI/UX Research, User Experience Design
+
+#### Công cụ bạn sẽ học
+Coursera không liệt kê công cụ.
+
+### 3. Build Wireframes and Low-Fidelity Prototypes (12 hours) [Xem trên Coursera](https://www.coursera.org/learn/wireframes-low-fidelity-prototypes)
+
+#### Bạn sẽ học được gì
+- Tạo storyboards để hình thành ý tưởng về giải pháp cho nhu cầu người dùng.
+- Tạo wireframes trên giấy và bằng công cụ thiết kế Figma.
+- Xây dựng paper prototypes để tạo thiết kế tương tác.
+- Thiết kế low-fidelity prototypes trong Figma.
+
+#### Kỹ năng bạn sẽ đạt được
+User Interface and User Experience (UI/UX) Design, Interactive Design, User Interface (UI), User Research, Storyboarding, User Story, Design Elements And Principles, Wireframing, User Experience, Persona (User Experience), Prototyping, User Experience Design, Information Architecture
+
+#### Công cụ bạn sẽ học
+Figma (Design Software)
+
+### 4. Conduct UX Research and Test Early Concepts (15 hours) [Xem trên Coursera](https://www.coursera.org/learn/conduct-ux-research)
+
+#### Bạn sẽ học được gì
+- Lập kế hoạch và thực hiện usability studies có điều phối và không điều phối.
+- Tổng hợp quan sát từ usability studies và rút ra insights.
+- Chia sẻ phương pháp nghiên cứu và insights bằng kỹ năng thuyết trình thuyết phục.
+- Điều chỉnh low-fidelity designs dựa trên research insights.
+
+#### Kỹ năng bạn sẽ đạt được
+User Experience, Wireframing, Usability Testing, Prototyping, User Interface and User Experience (UI/UX) Design, User Experience Design, Information Privacy, Presentations, User Research, Data Ethics, UI/UX Research, Design Research, Research Design, Usability
+
+#### Công cụ bạn sẽ học
+Coursera không liệt kê công cụ.
+
+### 5. Create High-Fidelity Designs and Prototypes in Figma (19 hours) [Xem trên Coursera](https://www.coursera.org/learn/high-fidelity-designs-prototype)
+
+#### Bạn sẽ học được gì
+- Xây dựng mockups và high-fidelity prototypes trong công cụ thiết kế Figma.
+- Định nghĩa và áp dụng các yếu tố và nguyên tắc visual design phổ biến.
+- Thể hiện cách design systems có thể được dùng để tổ chức, chuẩn hóa và nâng cao thiết kế.
+- Hiểu vai trò của design critique sessions và feedback trong quá trình lặp lại thiết kế.
+
+#### Kỹ năng bạn sẽ đạt được
+Animations, Interaction Design, User Experience, Design Research, Design Reviews, Motion Graphics, Graphic and Visual Design, User Interface (UI) Design, Color Theory, Typography, User Experience Design, Mockups, Interactive Design, Prototyping, Design Elements And Principles, Usability Testing, Technical Communication, Usability, User Interface and User Experience (UI/UX) Design
+
+#### Công cụ bạn sẽ học
+Figma (Design Software)
+
+### 6. Build Dynamic User Interfaces (UI) for Websites (15 hours) [Xem trên Coursera](https://www.coursera.org/learn/responsive-web-design-adobe-xd)
+
+#### Bạn sẽ học được gì
+- Áp dụng từng bước của UX design thinking framework (empathize, define, ideate, prototype, test) để tạo một website động.
+- Lập kế hoạch information architecture và sitemaps cho thiết kế website.
+- Áp dụng các bố cục phổ biến cho web pages.
+- Hoàn thành một design project và đưa nó vào professional UX portfolio của bạn.
+
+#### Kỹ năng bạn sẽ đạt được
+User Experience, Mockups, Layout Design, Usability Testing, Software Design Documents, User Centered Design, Design Research, Responsive Web Design, Information Architecture, Design Reviews, Prototyping, Wireframing, Web Design, User Research, User Interface and User Experience (UI/UX) Design, User Interface (UI) Design, User Experience Design
+
+#### Công cụ bạn sẽ học
+Figma (Design Software)
+
+### 7. Design a User Experience for Social Good & Prepare for Jobs (13 hours) [Xem trên Coursera](https://www.coursera.org/learn/ux-design-jobs)
+
+#### Bạn sẽ học được gì
+- Áp dụng từng bước của UX design thinking framework (empathize, define, ideate, prototype, test) để tạo một project tập trung vào social good.
+- Xây dựng wireframes, mockups, low-fidelity prototypes và high-fidelity prototypes cho một dedicated mobile app và responsive website.
+- Chuẩn bị để phỏng vấn thành công cho một công việc UX design cấp đầu vào.
+- Có lợi thế cạnh tranh bằng cách học kỹ năng AI từ các chuyên gia Google
+
+#### Kỹ năng bạn sẽ đạt được
+UI/UX Research, Experience Design, Human Centered Design, User Experience Design, Usability, Responsive Web Design, Usability Testing, Design Strategies, Web Design, Ideation, Prototyping, Cross Platform Development, User Experience, User Interface and User Experience (UI/UX) Design, User Centered Design, Web Presence, Design Research, Design Thinking
+
+#### Công cụ bạn sẽ học
+Generative AI
+
+### 8. Accelerate Your Job Search with AI (6 hours) [Xem trên Coursera](https://www.coursera.org/learn/accelerate-your-job-search-with-ai)
+
+#### Bạn sẽ học được gì
+- Khám phá kỹ năng của bạn và tìm hiểu các khả năng nghề nghiệp mới, với sự hỗ trợ từ các công cụ như Career Dreamer.
+- Giữ cho các hồ sơ ứng tuyển của bạn được tổ chức bằng Google Sheets.
+- Xây dựng một resume nổi bật và kế hoạch tìm việc từng bước với sự trợ giúp từ Gemini.
+- Chuẩn bị cho phỏng vấn và luyện tập trả lời câu hỏi bằng NotebookLM và Gemini Live.
+
+#### Kỹ năng bạn sẽ đạt được
+Prompt Engineering Tools, Interviewing Skills, Branding, Professional Development, AI literacy, Web Presence
+
+#### Công cụ bạn sẽ học
+Prompt Engineering, Generative AI, Google Gemini
 
 # 9. Google IT Automation with Python Professional Certificate (7 courses)
 
 Nguồn: [Coursera](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-it-automation?collectionId=8fp65#courses)
 
-### 1. [Crash Course on Python](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-it-automation?collectionId=8fp65) (21 hours)
-### 2. [Using Python to Interact with the Operating System](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-it-automation?collectionId=8fp65) (33 hours)
-### 3. [Introduction to Git and GitHub](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-it-automation?collectionId=8fp65) (20 hours)
-### 4. [Troubleshooting and Debugging Techniques](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-it-automation?collectionId=8fp65) (19 hours)
-### 5. [Configuration Management and the Cloud](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-it-automation?collectionId=8fp65) (18 hours)
-### 6. [Automating Real-World Tasks with Python](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-it-automation?collectionId=8fp65) (17 hours)
-### 7. [Accelerate Your Job Search with AI](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-project-management?collectionId=8fp65) (6 hours)
+### 1. Crash Course on Python (21 hours) [Xem trên Coursera](https://www.coursera.org/learn/python-crash-course)
+
+#### Bạn sẽ học được gì
+- Hiểu Python là gì và vì sao Python phù hợp với automation
+- Viết các Python scripts ngắn để thực hiện hành động tự động
+- Hiểu cách dùng các cấu trúc Python cơ bản: strings, lists và dictionaries
+- Tạo các Python objects của riêng bạn
+
+#### Kỹ năng bạn sẽ đạt được
+Computational Thinking, Data Structures, Scripting Languages, Scripting, Data Store, Computer Programming Tools, Program Development, Computer Programming, Development Environment, Programming Principles, Debugging
+
+#### Công cụ bạn sẽ học
+Integrated Development Environments, Python Programming
+
+### 2. Using Python to Interact with the Operating System (33 hours) [Xem trên Coursera](https://www.coursera.org/learn/python-operating-system)
+
+#### Bạn sẽ học được gì
+- Thiết lập, cấu hình và sử dụng developer environment của riêng bạn trong Python
+- Thao tác với files và processes đang chạy trên Operating System bằng Python
+- Hiểu và sử dụng regular expressions (regex), một công cụ mạnh để xử lý text files
+- Biết khi nào nên chọn Bash hoặc Python, và tạo các scripts nhỏ bằng Bash
+
+#### Kỹ năng bạn sẽ đạt được
+Development Testing, Scripting, Unit Testing, Scripting Languages, File Management, Development Environment, File I/O, Test Driven Development (TDD), Test Script Development, Test Automation, OS Process Management, Linux Commands, Software Testing
+
+#### Công cụ bạn sẽ học
+Unix Commands, Linux, Bash (Scripting Language), Unix Shell, Command-Line Interface, Shell Script, Operating Systems
+
+### 3. Introduction to Git and GitHub (20 hours) [Xem trên Coursera](https://www.coursera.org/learn/introduction-git-github)
+
+#### Bạn sẽ học được gì
+- Hiểu vì sao version control là một công cụ nền tảng cho coding và collaboration
+- Cài đặt và chạy Git trên máy cục bộ của bạn
+- Sử dụng và tương tác với GitHub
+- Cộng tác với người khác thông qua remote repositories
+
+#### Kỹ năng bạn sẽ đạt được
+Software Configuration Management, Version Control, Software Installation, Issue Tracking, CI/CD, Continuous Integration, Software Versioning, Code Review
+
+#### Công cụ bạn sẽ học
+Command-Line Interface, GitHub, Git (Version Control System), Collaborative Software
+
+### 4. Troubleshooting and Debugging Techniques (19 hours) [Xem trên Coursera](https://www.coursera.org/learn/troubleshooting-debugging-techniques)
+
+#### Bạn sẽ học được gì
+- Phân tích các vấn đề IT thực tế và triển khai chiến lược phù hợp để giải quyết chúng
+- Thể hiện các kỹ thuật để nhanh chóng tìm và xử lý root cause của vấn đề trong IT infrastructure
+- Hiểu root cause của các vấn đề liên quan đến tốc độ, crashes hoặc tài nguyên cạn kiệt trên máy tính của bạn
+- Xác định các lỗi phổ biến nhất trong code của bạn và cách sửa chúng
+
+#### Kỹ năng bạn sẽ đạt được
+Continuous Integration, Problem Management, Debugging, Technical Communication, Technical Documentation, System Monitoring, Performance Tuning, Memory Management, Incident Management, Capacity Management, Continuous Monitoring, Network Troubleshooting
+
+#### Công cụ bạn sẽ học
+Coursera không liệt kê công cụ.
+
+### 5. Configuration Management and the Cloud (18 hours) [Xem trên Coursera](https://www.coursera.org/learn/configuration-management-cloud)
+
+#### Bạn sẽ học được gì
+- Hiểu lợi ích của configuration management và infrastructure as code
+- Quản lý một fleet máy tính bằng Puppet
+- Tự động triển khai virtual machines mới chạy trên Cloud
+- Triển khai thay đổi một cách an toàn theo nguyên tắc CICD
+
+#### Kỹ năng bạn sẽ đạt được
+Cloud Infrastructure, Cloud Management, Disaster Recovery, Cloud Services, IT Automation, Infrastructure as Code (IaC), Incident Response, Configuration Management, Continuous Monitoring, Cloud Computing, Software As A Service, Cloud Deployment, Incident Management, System Monitoring, Change Control
+
+#### Công cụ bạn sẽ học
+Cloud Storage, Infrastructure As A Service (IaaS), Puppet (Configuration Management Tool), Virtual Machines, Terraform
+
+### 6. Automating Real-World Tasks with Python (17 hours) [Xem trên Coursera](https://www.coursera.org/learn/automating-real-world-tasks-python)
+
+#### Bạn sẽ học được gì
+- Sử dụng Python external libraries để tạo và chỉnh sửa documents, images và messages
+- Hiểu và sử dụng Application Programming Interfaces (APIs) để tương tác với web services
+- Hiểu và sử dụng data serialization để gửi messages giữa các chương trình đang chạy
+- Xây dựng một giải pháp bằng các kỹ năng bạn đã học
+
+#### Kỹ năng bạn sẽ đạt được
+Scripting, IT Automation, System Monitoring, Web Services, Email Automation, Automation
+
+#### Công cụ bạn sẽ học
+Application Programming Interface (API), Restful API, JSON, Python Programming
+
+### 7. Accelerate Your Job Search with AI (6 hours) [Xem trên Coursera](https://www.coursera.org/learn/accelerate-your-job-search-with-ai)
+
+#### Bạn sẽ học được gì
+- Khám phá kỹ năng của bạn và tìm hiểu các khả năng nghề nghiệp mới, với sự hỗ trợ từ các công cụ như Career Dreamer.
+- Giữ cho các hồ sơ ứng tuyển của bạn được tổ chức bằng Google Sheets.
+- Xây dựng một resume nổi bật và kế hoạch tìm việc từng bước với sự trợ giúp từ Gemini.
+- Chuẩn bị cho phỏng vấn và luyện tập trả lời câu hỏi bằng NotebookLM và Gemini Live.
+
+#### Kỹ năng bạn sẽ đạt được
+Prompt Engineering Tools, Interviewing Skills, Branding, Professional Development, AI literacy, Web Presence
+
+#### Công cụ bạn sẽ học
+Prompt Engineering, Generative AI, Google Gemini
 
 # 10. Google Business Intelligence Professional Certificate (4 courses)
 
