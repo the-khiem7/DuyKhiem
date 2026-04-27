@@ -1408,12 +1408,75 @@ Agentic Workflows, Prompt Engineering
 
 Source: [Coursera](https://www.coursera.org/professional-certificates/google-business-intelligence)
 
-### 1. [Foundations of Business Intelligence](https://www.coursera.org/professional-certificates/google-business-intelligence) (15 hours)
-### 2. [The Path to Insights: Data Models and Pipelines](https://www.coursera.org/professional-certificates/google-business-intelligence) (17 hours)
-### 3. [Decisions, Decisions: Dashboards and Reports](https://www.coursera.org/professional-certificates/google-business-intelligence) (18 hours)
-### 4. [Accelerate Your Job Search with AI](https://www.coursera.org/professional-certificates/google-business-intelligence) (6 hours)
+### 1. Foundations of Business Intelligence (15 hours) [View on Coursera](https://www.coursera.org/learn/foundations-of-business-intelligence)
 
+**What you'll learn**
+- Understand common careers and industries that use BI.
+- Investigate the impact data can have on business decision-making.
+- Explain the important role that BI professionals have in businesses.
+- Develop a BI project plan.
 
+**Skills you'll gain:**
+
+Project Implementation, Business Process, Data Pipelines, Real Time Data, Business Intelligence Software, Continuous Monitoring, Project Design, Stakeholder Communications, Plan Execution
+
+**Tools you'll learn:**
+
+Dashboard
+
+***
+
+### 2. The Path to Insights: Data Models and Pipelines (17 hours) [View on Coursera](https://www.coursera.org/learn/the-path-to-insights-data-models-and-pipelines)
+
+**What you'll learn**
+- Build data models that answer business questions.
+- Apply the ETL process to workplace scenarios.
+- Explore ETL tools.
+- Construct a pipeline to deliver necessary data.
+
+**Skills you'll gain:**
+
+Business Process, Data Transformation, Data Modeling, Data Integrity, Extract, Transform, Load, Data Warehousing, Databases, Performance Testing, Data Integration, Data Pipelines, Data Mart
+
+**Tools you'll learn:**
+
+Database Systems
+
+***
+
+### 3. Decisions, Decisions: Dashboards and Reports (18 hours) [View on Coursera](https://www.coursera.org/learn/decisions-decisions-dashboards-and-reports)
+
+**What you'll learn**
+- Design BI visualizations.
+- Practice using BI reporting and dashboard tools.
+- Create presentations to share key BI insights with stakeholders.
+- Develop professional materials for your job search.
+
+**Skills you'll gain:**
+
+Dashboard Creation, Tableau Software, Data Visualization Software, Performance Tuning, Performance Analysis, Interactive Data Visualization, Business Intelligence, Presentations
+
+**Tools you'll learn:**
+
+Dashboard
+
+***
+
+### 4. Accelerate Your Job Search with AI (6 hours) [View on Coursera](https://www.coursera.org/learn/accelerate-your-job-search-with-ai)
+
+**What you'll learn**
+- Uncover your skills and explore new career possibilities, with support from tools like Career Dreamer.
+- Keep your applications organized with Google Sheets.
+- Build a stand out resume and a step-by-step job search plan—with help from Gemini.
+- Prepare for interviews and practice responding to questions using NotebookLM and Gemini Live.
+
+**Skills you'll gain:**
+
+Prompt Engineering Tools, Interviewing Skills, Branding, Professional Development, AI literacy, Web Presence
+
+**Tools you'll learn:**
+
+Prompt Engineering, Generative AI, Google Gemini
 
 # Suggested Next Use
 
