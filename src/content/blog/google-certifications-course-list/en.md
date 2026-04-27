@@ -714,136 +714,120 @@ Prompt Engineering, Generative AI, Google Gemini
 
 Source: [Coursera](https://www.coursera.org/programs/gcc-x-fpt-hcm-rkdmg/professional-certificates/google-it-support?collectionId=8fp65#courses)
 
-### 1. Technical Support Fundamentals (19 hours) [View on Coursera](https://www.coursera.org/learn/technical-support-fundamentals?professional-certificate=google-it-support)
+### 1. Technical Support Fundamentals (19 hours) [View on Coursera](https://www.coursera.org/learn/technical-support-fundamentals)
 
 **What you'll learn**
-- Understand how the binary system works
-- Assemble a computer from scratch
-- Choose and install an operating system on a computer
-- Understand what the Internet is, how it works, and the impact it has in the modern world
-- Learn how applications are created and how they work under the hood of a computer
-- Utilize common problem-solving methodologies and soft skills in an Information Technology setting
+- Understand how the binary system works.
+- Assemble a computer from scratch.
+- Choose and install an operating system on a computer.
+- Understand what the Internet is, how it works, and the impact it has in the modern world.
+- Learn how applications are created and how they work under the hood of a computer.
+- Utilize common problem-solving methodologies and soft skills in an Information Technology setting.
 
 **Skills you'll gain:**
 
-- Information Technology
-- System Support
-- Package and Software Management
-- Hardware Troubleshooting
-- Customer Support
-- General Networking
-- Computer Hardware
-- Software Documentation
-- Desktop Support
+Information Technology, System Support, Package and Software Management, Hardware Troubleshooting, Customer Support, General Networking, Computer Hardware, Software Documentation, Desktop Support
 
 **Tools you'll learn:**
 
-- Linux
+Linux
 
-### 2. The Bits and Bytes of Computer Networking (22 hours) [View on Coursera](https://www.coursera.org/learn/computer-networking-basics?professional-certificate=google-it-support)
+***
+
+### 2. The Bits and Bytes of Computer Networking (22 hours) [View on Coursera](https://www.coursera.org/learn/computer-networking)
 
 **What you'll learn**
-- Describe the basics of computer networking.
-- Explain how data is transmitted over networks.
-- Identify network components and protocols.
-- Describe network security basics.
+- Describe computer networks in terms of a five-layer model.
+- Understand all of the standard protocols involved with TCP/IP communications.
+- Grasp powerful network troubleshooting tools and techniques.
+- Learn network services like DNS and DHCP that help make computer networks run.
+- Understand cloud computing, everything as a service, and cloud storage.
 
 **Skills you'll gain:**
 
-- Computer Networking
-- Network Protocols
-- TCP/IP
-- Network Security
-- Troubleshooting
+Network Protocols, Network Troubleshooting, Data Integrity, Network Security, Network Routing, Network Administration, Computer Networking, Virtual Private Networks (VPN), Routing Protocols, Network Routers, Network Infrastructure, Wireless Networks, Network Model, TCP/IP, Networking Hardware, General Networking
 
 **Tools you'll learn:**
 
-- Wireshark
+OSI Models, Dynamic Host Configuration Protocol (DHCP)
 
-### 3. Operating Systems and You: Becoming a Power User (28 hours) [View on Coursera](https://www.coursera.org/learn/os-power-user?professional-certificate=google-it-support)
+***
+
+### 3. Operating Systems and You: Becoming a Power User (28 hours) [View on Coursera](https://www.coursera.org/learn/os-power-user)
 
 **What you'll learn**
-- Describe the basics of operating systems.
-- Explain how to manage files and directories.
-- Identify system administration tasks.
-- Describe power user features.
+- Navigate the Windows and Linux filesystems using a graphical user interface and command line interpreter.
+- Set up users, groups, and permissions for account access.
+- Install, configure, and remove software on the Windows and Linux operating systems.
+- Configure disk partitions and filesystems.
+- Understand how system processes work and how to manage them.
+- Work with system logs and remote connection tools.
+- Utilize operating system knowledge to troubleshoot common issues in an IT Support role.
 
 **Skills you'll gain:**
 
-- Operating Systems
-- File Management
-- System Administration
-- Command Line
-- Power User Skills
+File Management, Desktop Support, User Accounts, Package and Software Management, OS Process Management, Operating System Administration, Linux Commands, User Provisioning, Linux Administration, Software Installation, Remote Access Systems, Technical Support and Services, System Monitoring, System Support, File Systems, Systems Administration
 
 **Tools you'll learn:**
 
-- Command Line Interface
+Operating Systems, Microsoft Windows, Command-Line Interface, Linux
 
-### 4. System Administration and IT Infrastructure Services (24 hours) [View on Coursera](https://www.coursera.org/learn/system-administration-it-infrastructure-services?professional-certificate=google-it-support)
+***
+
+### 4. System Administration and IT Infrastructure Services (24 hours) [View on Coursera](https://www.coursera.org/learn/system-administration-it-infrastructure-services)
 
 **What you'll learn**
-- Describe IT infrastructure services.
-- Explain system administration tasks.
-- Identify cloud computing concepts.
-- Describe virtualization and containers.
+- Utilize best practices for choosing hardware, vendors, and services for your organization.
+- Understand how the most common infrastructure services that keep an organization running work, and how to manage infrastructure servers.
+- Utilize industry tools to manage computers, user information, and user productivity.
+- Identify how to recover your organization's IT infrastructure in the event of a disaster.
 
 **Skills you'll gain:**
 
-- System Administration
-- IT Infrastructure
-- Cloud Computing
-- Virtualization
-- Containers
+Data Maintenance, Data Storage, Network Infrastructure, Servers, Lightweight Directory Access Protocols, Server Administration, Network Administration, System Configuration, Infrastructure Architecture, Technical Consulting, Cloud Computing, IT Infrastructure, Disaster Recovery, Cloud Infrastructure, Cloud Services, Cloud Management, Systems Administration, Information Technology
 
 **Tools you'll learn:**
 
-- Cloud Platforms
+Active Directory
 
-### 5. IT Security: Defense against the digital dark arts (23 hours) [View on Coursera](https://www.coursera.org/learn/it-security?professional-certificate=google-it-support)
+***
+
+### 5. IT Security: Defense against the digital dark arts (23 hours) [View on Coursera](https://www.coursera.org/learn/it-security)
 
 **What you'll learn**
-- Describe IT security concepts.
-- Explain threats and vulnerabilities.
-- Identify security best practices.
-- Describe encryption and access control.
+- Understand how various encryption algorithms and techniques work as well as their benefits and limitations.
+- Understand various authentication systems and types.
+- Understand the difference between authentication and authorization.
+- Evaluate potential risks and recommend ways to reduce risk.
+- Recommend ways to secure a network.
+- Help others to understand cybersecurity concepts and methodologies.
+- Troubleshoot common security issues with an end-to-end understanding.
 
 **Skills you'll gain:**
 
-- IT Security
-- Threat Analysis
-- Vulnerability Assessment
-- Encryption
-- Access Control
+IT Security Architecture, Cybersecurity, Network Security, Authorization (Computing), Information Systems Security, Hardening, Computer Security Awareness Training, Threat Management, Authentications, Cryptographic Protocols, Cryptography, Malware Protection, Encryption, Security Awareness, Security Strategy, Threat Detection, Security Controls, Identity and Access Management, AI Security
 
 **Tools you'll learn:**
 
-- Security Software
+Firewall
 
-### 6. Accelerate Your Job Search with AI (6 hours) [View on Coursera](https://www.coursera.org/learn/accelerate-your-job-search-with-ai?professional-certificate=google-it-support)
+***
+
+### 6. Accelerate Your Job Search with AI (6 hours) [View on Coursera](https://www.coursera.org/learn/accelerate-your-job-search-with-ai)
 
 **What you'll learn**
-- Use AI tools to enhance your job search process.
-- Craft compelling resumes and cover letters with AI assistance.
-- Prepare for interviews using AI-powered resources.
-- Network effectively with AI-driven insights.
+- Uncover your skills and explore new career possibilities, with support from tools like Career Dreamer.
+- Build a stand out resume and a step-by-step job search plan—with help from Gemini.
+- Keep your applications organized with Google Sheets.
+- Prepare for interviews and practice responding to questions using NotebookLM and Gemini Live.
 
 **Skills you'll gain:**
 
-- Job Search
-- AI Tools
-- Resume Writing
-- Interview Preparation
-- Networking
-- Professional Development
+Prompt Engineering Tools, Interviewing Skills, Branding, Professional Development, AI literacy, Web Presence
 
 **Tools you'll learn:**
 
-- Generative AI
-- LinkedIn AI
-- ChatGPT
-
----
+Prompt Engineering, Generative AI, Google Gemini
 
 # 7. Google Digital Marketing & E-commerce Professional Certificate (8 courses)
 
